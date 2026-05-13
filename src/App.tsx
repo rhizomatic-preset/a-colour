@@ -156,7 +156,7 @@ function App() {
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
-          <p className="eyebrow">Color Trickser</p>
+          <p className="eyebrow">Colour Thesaurus</p>
           <h1 id="app-title">Pick a color</h1>
         </div>
 
