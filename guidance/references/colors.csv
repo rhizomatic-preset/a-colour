@@ -25,7 +25,7 @@ aquamarine,"Aquamarine",#7fffd4,127,255,212
 army_green,"Army Green",#4b5320,75,83,32
 arsenic,"Arsenic",#3b444b,59,68,75
 arylide_yellow,"Arylide Yellow",#e9d66b,233,214,107
-ash_grey,"Ash Grey",#b2beb5,178,190,181
+ash_gray,"Ash Gray",#b2beb5,178,190,181
 asparagus,"Asparagus",#87a96b,135,169,107
 atomic_tangerine,"Atomic Tangerine",#f96,255,153,102
 auburn,"Auburn",#a52a2a,165,42,42
@@ -41,7 +41,7 @@ ball_blue,"Ball Blue",#21abcd,33,171,205
 banana_mania,"Banana Mania",#fae7b5,250,231,181
 banana_yellow,"Banana Yellow",#ffe135,255,225,53
 barn_red,"Barn Red",#7c0a02,124,10,2
-battleship_grey,"Battleship Grey",#848482,132,132,130
+battleship_gray,"Battleship Gray",#848482,132,132,130
 bazaar,"Bazaar",#98777b,152,119,123
 beau_blue,"Beau Blue",#bcd4e6,188,212,230
 beaver,"Beaver",#9f8170,159,129,112
@@ -108,7 +108,7 @@ byzantine,"Byzantine",#bd33a4,189,51,164
 byzantium,"Byzantium",#702963,112,41,99
 cadet,"Cadet",#536872,83,104,114
 cadet_blue,"Cadet Blue",#5f9ea0,95,158,160
-cadet_grey,"Cadet Grey",#91a3b0,145,163,176
+cadet_gray,"Cadet Gray",#91a3b0,145,163,176
 cadmium_green,"Cadmium Green",#006b3c,0,107,60
 cadmium_orange,"Cadmium Orange",#ed872d,237,135,45
 cadmium_red,"Cadmium Red",#e30022,227,0,34
@@ -140,7 +140,7 @@ ceil,"Ceil",#92a1cf,146,161,207
 celadon,"Celadon",#ace1af,172,225,175
 celadon_blue,"Celadon Blue",#007ba7,0,123,167
 celadon_green,"Celadon Green",#2f847c,47,132,124
-celeste_colour,"Celeste (Colour)",#b2ffff,178,255,255
+celeste,"Celeste",#b2ffff,178,255,255
 celestial_blue,"Celestial Blue",#4997d0,73,151,208
 cerise,"Cerise",#de3163,222,49,99
 cerise_pink,"Cerise Pink",#ec3b83,236,59,131
@@ -175,7 +175,7 @@ coffee,"Coffee",#6f4e37,111,78,55
 columbia_blue,"Columbia Blue",#9bddff,155,221,255
 congo_pink,"Congo Pink",#f88379,248,131,121
 cool_black,"Cool Black",#002e63,0,46,99
-cool_grey,"Cool Grey",#8c92ac,140,146,172
+cool_gray,"Cool Gray",#8c92ac,140,146,170
 copper,"Copper",#b87333,184,115,51
 copper_crayola,"Copper (Crayola)",#da8a67,218,138,103
 copper_penny,"Copper Penny",#ad6f69,173,111,105
@@ -244,7 +244,7 @@ dark_turquoise,"Dark Turquoise",#00ced1,0,206,209
 dark_violet,"Dark Violet",#9400d3,148,0,211
 dark_yellow,"Dark Yellow",#9b870c,155,135,12
 dartmouth_green,"Dartmouth Green",#00703c,0,112,60
-davy_s_grey,"Davy'S Grey",#555,85,85,85
+davy_s_gray,"Davy'S Gray",#555,85,85,85
 debian_red,"Debian Red",#d70a53,215,10,83
 deep_carmine,"Deep Carmine",#a9203e,169,32,62
 deep_carmine_pink,"Deep Carmine Pink",#ef3038,239,48,56
@@ -596,7 +596,7 @@ pastel_red,"Pastel Red",#ff6961,255,105,97
 pastel_violet,"Pastel Violet",#cb99c9,203,153,201
 pastel_yellow,"Pastel Yellow",#fdfd96,253,253,150
 patriarch,"Patriarch",#800080,128,0,128
-payne_s_grey,"Payne'S Grey",#536878,83,104,120
+payne_s_gray,"Payne'S Gray",#536878,83,104,120
 peach,"Peach",#ffe5b4,255,229,180
 peach_crayola,"Peach (Crayola)",#ffcba4,255,203,164
 peach_orange,"Peach-Orange",#fc9,255,204,153
@@ -787,7 +787,7 @@ tomato,"Tomato",#ff6347,255,99,71
 toolbox,"Toolbox",#746cc0,116,108,192
 topaz,"Topaz",#ffc87c,255,200,124
 tractor_red,"Tractor Red",#fd0e35,253,14,53
-trolley_grey,"Trolley Grey",#808080,128,128,128
+trolley_gray,"Trolley Gray",#808080,128,128,128
 tropical_rain_forest,"Tropical Rain Forest",#00755e,0,117,94
 true_blue,"True Blue",#0073cf,0,115,207
 tufts_blue,"Tufts Blue",#417dc1,65,125,193

@@ -1,181 +1,190 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import colorsCsv from '../guidance/references/colors.csv?raw'
-import { Button } from '@/components/ui/button'
+import { useEffect, useMemo, useRef, useState } from "react";
+import colorsCsv from "../guidance/references/colors.csv?raw";
+import { Button } from "@/components/ui/button";
 import {
   getClosestColors,
   getPrimaryColorName,
   isValidHex,
   normalizeHex,
   parseColorCsv,
-} from '@/lib/color-matcher'
+} from "@/lib/color-matcher";
 
-const initialColor = '#5d8aa8'
-type PickerMode = 'swatch' | 'image'
+const initialColor = "#5d8aa8";
+type PickerMode = "swatch" | "image";
 
 function App() {
-  const colorInputRef = useRef<HTMLInputElement>(null)
-  const imageInputRef = useRef<HTMLInputElement>(null)
-  const imageRef = useRef<HTMLImageElement>(null)
-  const sampleCanvasRef = useRef<HTMLCanvasElement>(null)
-  const colors = useMemo(() => parseColorCsv(colorsCsv), [])
-  const [selectedHex, setSelectedHex] = useState(initialColor)
-  const [hexDraft, setHexDraft] = useState(initialColor)
+  const colorInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
+  const colors = useMemo(() => parseColorCsv(colorsCsv), []);
+  const [selectedHex, setSelectedHex] = useState(initialColor);
+  const [hexDraft, setHexDraft] = useState(initialColor);
 
-
-
-  const [mode, setMode] = useState<PickerMode>('swatch')
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
-  const [samplePoint, setSamplePoint] = useState<{ x: number; y: number } | null>(
-    null,
-  )
+  const [mode, setMode] = useState<PickerMode>("swatch");
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [samplePoint, setSamplePoint] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   const matches = useMemo(
     () => getClosestColors(selectedHex, colors, 3),
     [colors, selectedHex],
-  )
+  );
   const primaryColorName = useMemo(
     () => getPrimaryColorName(selectedHex),
     [selectedHex],
-  )
+  );
 
   function updateColor(value: string) {
-    const normalized = normalizeHex(value)
+    const normalized = normalizeHex(value);
 
-    setHexDraft(normalized)
+    setHexDraft(normalized);
 
     if (isValidHex(normalized)) {
-      setSelectedHex(normalized)
+      setSelectedHex(normalized);
     }
   }
 
   function resetInvalidDraft() {
     if (!isValidHex(normalizeHex(hexDraft))) {
-      setHexDraft(selectedHex)
+      setHexDraft(selectedHex);
     }
   }
 
   function setColor(hex: string) {
-    const normalized = normalizeHex(hex)
+    const normalized = normalizeHex(hex);
 
     if (!isValidHex(normalized)) {
-      return
+      return;
     }
 
-    setSelectedHex(normalized)
-    setHexDraft(normalized)
+    setSelectedHex(normalized);
+    setHexDraft(normalized);
   }
 
   function loadImageFile(file: File) {
-    if (!file.type.startsWith('image/')) {
-      return
+    if (!file.type.startsWith("image/")) {
+      return;
     }
 
-    const reader = new FileReader()
+    const reader = new FileReader();
     reader.onload = () => {
-      if (typeof reader.result !== 'string') {
-        return
+      if (typeof reader.result !== "string") {
+        return;
       }
 
-      setImageUrl(reader.result)
-      setSamplePoint(null)
-      setMode('image')
-    }
-    reader.readAsDataURL(file)
+      setImageUrl(reader.result);
+      setSamplePoint(null);
+      setMode("image");
+    };
+    reader.readAsDataURL(file);
   }
 
   function onPasteImage(event: React.ClipboardEvent<HTMLElement>) {
     const item = Array.from(event.clipboardData.items).find((entry) =>
-      entry.type.startsWith('image/'),
-    )
+      entry.type.startsWith("image/"),
+    );
 
     if (!item) {
-      return
+      return;
     }
 
-    const file = item.getAsFile()
+    const file = item.getAsFile();
     if (!file) {
-      return
+      return;
     }
 
-    event.preventDefault()
-    loadImageFile(file)
+    event.preventDefault();
+    loadImageFile(file);
   }
 
   function sampleFromImage(event: React.MouseEvent<HTMLImageElement>) {
-    const image = imageRef.current
-    const canvas = sampleCanvasRef.current
+    const image = imageRef.current;
+    const canvas = sampleCanvasRef.current;
 
     if (!image || !canvas) {
-      return
+      return;
     }
 
-    const rect = image.getBoundingClientRect()
-    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width)
-    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height)
+    const rect = image.getBoundingClientRect();
+    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
 
-    const sourceX = Math.floor((x / rect.width) * image.naturalWidth)
-    const sourceY = Math.floor((y / rect.height) * image.naturalHeight)
+    const sourceX = Math.floor((x / rect.width) * image.naturalWidth);
+    const sourceY = Math.floor((y / rect.height) * image.naturalHeight);
 
-    canvas.width = image.naturalWidth
-    canvas.height = image.naturalHeight
-    const context = canvas.getContext('2d', { willReadFrequently: true })
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
     if (!context) {
-      return
+      return;
     }
 
-    context.drawImage(image, 0, 0)
-    const pixel = context.getImageData(sourceX, sourceY, 1, 1).data
+    context.drawImage(image, 0, 0);
+    const pixel = context.getImageData(sourceX, sourceY, 1, 1).data;
     const hex = `#${[pixel[0], pixel[1], pixel[2]]
-      .map((value) => value.toString(16).padStart(2, '0'))
-      .join('')}`
+      .map((value) => value.toString(16).padStart(2, "0"))
+      .join("")}`;
 
-    setSamplePoint({ x, y })
-    setColor(hex)
+    setSamplePoint({ x, y });
+    setColor(hex);
   }
 
   // Update CSS variables for highlight color
   useEffect(() => {
-    document.documentElement.style.setProperty('--highlight', selectedHex)
-    document.documentElement.style.setProperty('--highlight-dim', 
-      selectedHex === '#ffe66d' ? '#d9c452' : // yellow variant
-      selectedHex === '#4ecdc4' ? '#3db8af' :  // teal variant
-      selectedHex === '#95e1d3' ? '#76bcb0' :   // mint variant
-      selectedHex === '#ff6b6b' ? '#d95252' :  // red variant
-      selectedHex
-    )
-    document.documentElement.style.setProperty('--highlight-pale', 
-      selectedHex === '#ffe66d' ? '#fff8db' :
-      selectedHex === '#4ecdc4' ? '#e0f7f6' :
-      selectedHex === '#95e1d3' ? '#ebf8f4' :
-      selectedHex === '#ff6b6b' ? '#fcebeb' :
-      selectedHex
-    )
-  }, [selectedHex])
+    document.documentElement.style.setProperty("--highlight", selectedHex);
+    document.documentElement.style.setProperty(
+      "--highlight-dim",
+      selectedHex === "#ffe66d"
+        ? "#d9c452" // yellow variant
+        : selectedHex === "#4ecdc4"
+          ? "#3db8af" // teal variant
+          : selectedHex === "#95e1d3"
+            ? "#76bcb0" // mint variant
+            : selectedHex === "#ff6b6b"
+              ? "#d95252" // red variant
+              : selectedHex,
+    );
+    document.documentElement.style.setProperty(
+      "--highlight-pale",
+      selectedHex === "#ffe66d"
+        ? "#fff8db"
+        : selectedHex === "#4ecdc4"
+          ? "#e0f7f6"
+          : selectedHex === "#95e1d3"
+            ? "#ebf8f4"
+            : selectedHex === "#ff6b6b"
+              ? "#fcebeb"
+              : selectedHex,
+    );
+  }, [selectedHex]);
 
   return (
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
-          <p className="eyebrow">Colour Thesaurus</p>
-          <h1 id="app-title">A colour</h1>
+          <p className="eyebrow">Color Thesaurus</p>
+          <h1 id="app-title">A Color</h1>
         </div>
 
         <div className="mode-row" role="tablist" aria-label="Picker mode">
           <button
             type="button"
-            className={`mode-btn ${mode === 'swatch' ? 'is-active' : ''}`}
+            className={`mode-btn ${mode === "swatch" ? "is-active" : ""}`}
             role="tab"
-            aria-selected={mode === 'swatch'}
-            onClick={() => setMode('swatch')}
+            aria-selected={mode === "swatch"}
+            onClick={() => setMode("swatch")}
           >
             Swatch
           </button>
           <button
             type="button"
-            className={`mode-btn ${mode === 'image' ? 'is-active' : ''}`}
+            className={`mode-btn ${mode === "image" ? "is-active" : ""}`}
             role="tab"
-            aria-selected={mode === 'image'}
-            onClick={() => setMode('image')}
+            aria-selected={mode === "image"}
+            onClick={() => setMode("image")}
           >
             Image
           </button>
@@ -183,25 +192,25 @@ function App() {
 
         <div className="picker-grid">
           <div key={`${mode}-panel`} className="swatch-panel">
-            {mode === 'swatch' ? (
+            {mode === "swatch" ? (
               <>
                 <input
                   ref={colorInputRef}
                   className="native-color-input"
                   type="color"
                   value={selectedHex}
-                  aria-label="Pick a colour"
+                  aria-label="Pick a color"
                   onChange={(event) => updateColor(event.target.value)}
                 />
                 <Button
                   type="button"
                   className="main-swatch"
                   style={{ backgroundColor: selectedHex }}
-                  aria-label={`A colour. Current color is ${selectedHex}.`}
+                  aria-label={`A color. Current color is ${selectedHex}.`}
                   onClick={() => colorInputRef.current?.click()}
                 />
                 <p className="hex-description">
-                  Click the swatch to pick a colour from your system picker.
+                  Click the swatch to pick a color from your system picker.
                 </p>
               </>
             ) : (
@@ -212,9 +221,9 @@ function App() {
                   type="file"
                   accept="image/*"
                   onChange={(event) => {
-                    const file = event.target.files?.[0]
+                    const file = event.target.files?.[0];
                     if (file) {
-                      loadImageFile(file)
+                      loadImageFile(file);
                     }
                   }}
                 />
@@ -245,7 +254,7 @@ function App() {
                   </button>
                 )}
                 <p className="hex-description">
-                  Click the image to sample a pixel colour.
+                  Click the image to sample a pixel color.
                 </p>
               </div>
             )}
@@ -305,7 +314,7 @@ function App() {
         </a>
       </footer>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
