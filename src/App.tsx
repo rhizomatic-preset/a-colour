@@ -297,13 +297,13 @@ function App() {
             ))}
           </ol>
         </div>
-
-        <footer className="brand-link">
-          <a href="https://preset.nz" target="_blank" rel="noopener noreferrer">
-            preset.nz
-          </a>
-        </footer>
       </section>
+
+      <footer className="brand-link">
+        <a href="https://preset.nz" target="_blank" rel="noopener noreferrer">
+          preset.nz
+        </a>
+      </footer>
     </main>
   )
 }
