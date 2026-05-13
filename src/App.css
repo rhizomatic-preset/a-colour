@@ -43,7 +43,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
   gap: clamp(22px, 4vw, 42px);
-  align-items: center;
+  align-items: start;
 }
 
 .mode-row {
