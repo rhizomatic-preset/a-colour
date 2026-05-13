@@ -74,6 +74,7 @@ h1 {
   display: grid;
   gap: 18px;
   justify-items: center;
+  min-height: 560px;
 }
 
 .native-color-input {
@@ -88,6 +89,7 @@ h1 {
   width: min(100%, 340px);
   display: grid;
   gap: 10px;
+  min-height: 560px;
 }
 
 .name-picker {
@@ -125,7 +127,7 @@ h1 {
 }
 
 .paste-target {
-  height: 220px;
+  height: min(220px, calc(100% - 32px));
   border: 1px dashed #94a3b8;
   border-radius: 8px;
   background: #fff;
