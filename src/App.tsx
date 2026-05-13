@@ -12,7 +12,7 @@ import {
 } from '@/lib/color-matcher'
 
 const initialColor = '#5d8aa8'
-type PickerMode = 'swatch' | 'image' | 'name'
+type PickerMode = 'swatch' | 'image'
 
 function App() {
   const colorInputRef = useRef<HTMLInputElement>(null)
@@ -24,22 +24,15 @@ function App() {
   const [hexDraft, setHexDraft] = useState(initialColor)
   const [mode, setMode] = useState<PickerMode>('swatch')
   const [imageUrl, setImageUrl] = useState<string | null>(null)
-  const [nameQuery, setNameQuery] = useState('')
-  const [nameMatches, setNameMatches] = useState<ColorMatch[]>([])
-  const [nameVariants, setNameVariants] = useState<string[]>([])
-  const [nameStatus, setNameStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>(
-    'idle',
-  )
+
   const [samplePoint, setSamplePoint] = useState<{ x: number; y: number } | null>(
     null,
   )
 
-  const hexMatches = useMemo(
+  const matches = useMemo(
     () => getClosestColors(selectedHex, colors, 3),
     [colors, selectedHex],
   )
-  const nameQueryTrimmed = nameQuery.trim()
-  const matches = mode === 'name' ? (nameQueryTrimmed ? nameMatches : []) : hexMatches
   const primaryColorName = useMemo(
     () => getPrimaryColorName(selectedHex),
     [selectedHex],
@@ -140,10 +133,7 @@ function App() {
     setColor(hex)
   }
 
-  function onNameQueryChange(value: string) {
-    setNameQuery(value)
-    setNameStatus(value.trim() ? 'loading' : 'idle')
-  }
+
 
   useEffect(() => {
     if (mode !== 'name') {
@@ -183,10 +173,7 @@ function App() {
         setNameStatus('error')
       })
 
-    return () => {
-      active = false
-    }
-  }, [colors, mode, nameQueryTrimmed])
+
 
   return (
     <main className="app-shell" onPaste={onPasteImage}>
@@ -215,15 +202,7 @@ function App() {
           >
             Image
           </button>
-          <button
-            type="button"
-            className={`mode-btn ${mode === 'name' ? 'is-active' : ''}`}
-            role="tab"
-            aria-selected={mode === 'name'}
-            onClick={() => setMode('name')}
-          >
-            Name
-          </button>
+
         </div>
 
         <div className="picker-grid">
@@ -292,34 +271,7 @@ function App() {
                   Click the image to sample a pixel color.
                 </p>
               </div>
-            ) : (
-              <div className="name-picker">
-                <label className="hex-label" htmlFor="name-query">
-                  Color meaning
-                </label>
-                <input
-                  id="name-query"
-                  className="name-input"
-                  type="text"
-                  value={nameQuery}
-                  placeholder="sunset"
-                  onChange={(event) => onNameQueryChange(event.target.value)}
-                />
-                <p className="hex-description">
-                  Type a concept or color word to find the closest names.
-                </p>
-                <p className="hex-description" aria-live="polite">
-                  {nameQueryTrimmed
-                    ? nameStatus === 'loading'
-                      ? 'Searching with the model...'
-                      : nameStatus === 'error'
-                        ? 'Model search failed. Using the direct name index only.'
-                        : nameVariants.length > 0
-                          ? `Model variants: ${nameVariants.join(', ')}`
-                          : 'The model will suggest related search terms.'
-                    : 'Type a concept or color word to find the closest names.'}
-                </p>
-              </div>
+
             )}
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
 
@@ -349,9 +301,7 @@ function App() {
             <li className="primary-family" aria-live="polite">
               Closest primary color: <strong>{primaryColorName}</strong>
             </li>
-            {mode === 'name' && nameQueryTrimmed.length === 0 ? (
-              <li className="primary-family">Type a color idea to see top matches.</li>
-            ) : null}
+
             {matches.map((match, index) => (
               <li className="match-card" key={match.id}>
                 <span className="match-rank">{index + 1}</span>
