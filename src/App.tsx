@@ -181,6 +181,9 @@ function App() {
                 >
                   <span>{selectedHex}</span>
                 </Button>
+                <p className="hex-description">
+                  Click the swatch to pick a color from your system picker.
+                </p>
               </>
             ) : (
               <div className="image-picker">
@@ -244,9 +247,7 @@ function App() {
                 onChange={(event) => updateColor(event.target.value)}
               />
               <p className="hex-description">
-                {mode === 'swatch'
-                  ? 'Click the swatch or type a six digit hex color.'
-                  : 'Paste image (Cmd/Ctrl+V), sample, or type hex directly.'}
+                Paste image (Cmd/Ctrl+V), sample, or type hex directly.
               </p>
             </div>
           </div>
