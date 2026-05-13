@@ -3,6 +3,10 @@ node_modules/
 .pnp/
 .pnp.js
 
+# pnpm lockfile (generated)
+pnpm-lock.yaml
+.pnpm-store/
+
 # Build / dist (if applicable)
 dist/
 build/
@@ -24,6 +28,11 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# pnpm metadata files in node_modules
+node_modules/.pnpm/*.yaml
+node_modules/.pnpm/*.json
+node_modules/.pnpm/lock.yaml
 
 # Misc
 .cache/
