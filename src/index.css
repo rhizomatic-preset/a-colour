@@ -154,7 +154,8 @@ h1, h2, h3, .hero-title, .tier-name {
 }
 
 .brand-link {
-  align-self: flex-end;
+  width: min(100%, 960px);
+  padding-right: clamp(36px, 5vw, 64px);
   font-size: 12px;
   color: var(--silver);
 }
