@@ -157,7 +157,7 @@ function App() {
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
           <p className="eyebrow">Colour Thesaurus</p>
-          <h1 id="app-title">Pick a color</h1>
+          <h1 id="app-title">A colour</h1>
         </div>
 
         <div className="mode-row" role="tablist" aria-label="Picker mode">
@@ -197,7 +197,7 @@ function App() {
                   type="button"
                   className="main-swatch"
                   style={{ backgroundColor: selectedHex }}
-                  aria-label={`Pick a color. Current color is ${selectedHex}.`}
+                  aria-label={`A colour. Current color is ${selectedHex}.`}}
                   onClick={() => colorInputRef.current?.click()}
                 />
                 <p className="hex-description">
