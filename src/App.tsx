@@ -197,7 +197,7 @@ function App() {
                   type="button"
                   className="main-swatch"
                   style={{ backgroundColor: selectedHex }}
-                  aria-label={`A colour. Current color is ${selectedHex}.`}}
+                  aria-label={`A colour. Current color is ${selectedHex}.`}
                   onClick={() => colorInputRef.current?.click()}
                 />
                 <p className="hex-description">
