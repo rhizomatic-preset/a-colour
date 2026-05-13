@@ -190,7 +190,7 @@ function App() {
                   className="native-color-input"
                   type="color"
                   value={selectedHex}
-                  aria-label="Pick color"
+                  aria-label="Pick a colour"
                   onChange={(event) => updateColor(event.target.value)}
                 />
                 <Button
@@ -201,7 +201,7 @@ function App() {
                   onClick={() => colorInputRef.current?.click()}
                 />
                 <p className="hex-description">
-                  Click the swatch to pick a color from your system picker.
+                  Click the swatch to pick a colour from your system picker.
                 </p>
               </>
             ) : (
@@ -245,7 +245,7 @@ function App() {
                   </button>
                 )}
                 <p className="hex-description">
-                  Click the image to sample a pixel color.
+                  Click the image to sample a pixel colour.
                 </p>
               </div>
             )}
