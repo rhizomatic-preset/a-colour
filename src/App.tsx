@@ -1,9 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import colorsCsv from '../guidance/references/colors.csv?raw'
 import './App.css'
 import { Button } from '@/components/ui/button'
 import {
-  type ColorMatch,
   getClosestColors,
   getPrimaryColorName,
   isValidHex,
@@ -24,7 +23,6 @@ function App() {
   const [hexDraft, setHexDraft] = useState(initialColor)
   const [mode, setMode] = useState<PickerMode>('swatch')
   const [imageUrl, setImageUrl] = useState<string | null>(null)
-
   const [samplePoint, setSamplePoint] = useState<{ x: number; y: number } | null>(
     null,
   )
@@ -133,54 +131,12 @@ function App() {
     setColor(hex)
   }
 
-
-
-  useEffect(() => {
-    if (mode !== 'name') {
-      return
-    }
-
-    const query = nameQueryTrimmed
-    if (!query) {
-      return
-    }
-
-    let active = true
-    void (async () => {
-      const { searchColorNames } = await import('@/lib/name-search')
-      return searchColorNames(query, colors)
-    })()
-      .then(({ matches: rankedMatches, variants }) => {
-        if (!active) {
-          return
-        }
-
-        setNameMatches(rankedMatches)
-        setNameVariants(variants)
-        setNameStatus('ready')
-
-        if (rankedMatches[0]) {
-          setColor(rankedMatches[0].hex)
-        }
-      })
-      .catch(() => {
-        if (!active) {
-          return
-        }
-
-        setNameMatches([])
-        setNameVariants([])
-        setNameStatus('error')
-      })
-
-
-
   return (
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
           <p className="eyebrow">Color Trickser</p>
-          <h1 id="app-title">Name this color</h1>
+          <h1 id="app-title">Pick a color</h1>
         </div>
 
         <div className="mode-row" role="tablist" aria-label="Picker mode">
@@ -202,7 +158,6 @@ function App() {
           >
             Image
           </button>
-
         </div>
 
         <div className="picker-grid">
@@ -227,7 +182,7 @@ function App() {
                   <span>{selectedHex}</span>
                 </Button>
               </>
-            ) : mode === 'image' ? (
+            ) : (
               <div className="image-picker">
                 <input
                   ref={imageInputRef}
@@ -271,7 +226,6 @@ function App() {
                   Click the image to sample a pixel color.
                 </p>
               </div>
-
             )}
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
 
@@ -301,7 +255,6 @@ function App() {
             <li className="primary-family" aria-live="polite">
               Closest primary color: <strong>{primaryColorName}</strong>
             </li>
-
             {matches.map((match, index) => (
               <li className="match-card" key={match.id}>
                 <span className="match-rank">{index + 1}</span>
