@@ -1,6 +1,5 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import colorsCsv from '../guidance/references/colors.csv?raw'
-import './App.css'
 import { Button } from '@/components/ui/button'
 import {
   getClosestColors,
@@ -21,6 +20,9 @@ function App() {
   const colors = useMemo(() => parseColorCsv(colorsCsv), [])
   const [selectedHex, setSelectedHex] = useState(initialColor)
   const [hexDraft, setHexDraft] = useState(initialColor)
+
+
+
   const [mode, setMode] = useState<PickerMode>('swatch')
   const [imageUrl, setImageUrl] = useState<string | null>(null)
   const [samplePoint, setSamplePoint] = useState<{ x: number; y: number } | null>(
@@ -131,6 +133,25 @@ function App() {
     setColor(hex)
   }
 
+  // Update CSS variables for highlight color
+  useEffect(() => {
+    document.documentElement.style.setProperty('--highlight', selectedHex)
+    document.documentElement.style.setProperty('--highlight-dim', 
+      selectedHex === '#ffe66d' ? '#d9c452' : // yellow variant
+      selectedHex === '#4ecdc4' ? '#3db8af' :  // teal variant
+      selectedHex === '#95e1d3' ? '#76bcb0' :   // mint variant
+      selectedHex === '#ff6b6b' ? '#d95252' :  // red variant
+      selectedHex
+    )
+    document.documentElement.style.setProperty('--highlight-pale', 
+      selectedHex === '#ffe66d' ? '#fff8db' :
+      selectedHex === '#4ecdc4' ? '#e0f7f6' :
+      selectedHex === '#95e1d3' ? '#ebf8f4' :
+      selectedHex === '#ff6b6b' ? '#fcebeb' :
+      selectedHex
+    )
+  }, [selectedHex])
+
   return (
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
@@ -161,7 +182,7 @@ function App() {
         </div>
 
         <div className="picker-grid">
-          <div className="swatch-panel">
+          <div key={`${mode}-panel`} className="swatch-panel">
             {mode === 'swatch' ? (
               <>
                 <input
@@ -178,9 +199,7 @@ function App() {
                   style={{ backgroundColor: selectedHex }}
                   aria-label={`Pick a color. Current color is ${selectedHex}.`}
                   onClick={() => colorInputRef.current?.click()}
-                >
-                  <span>{selectedHex}</span>
-                </Button>
+                />
                 <p className="hex-description">
                   Click the swatch to pick a color from your system picker.
                 </p>
