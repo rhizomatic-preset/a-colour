@@ -206,8 +206,8 @@ function App() {
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
-          <p className="eyebrow">Color Thesaurus</p>
-          <h1 id="app-title">A Color</h1>
+          <p className="eyebrow">Colour Thesaurus</p>
+          <h1 id="app-title">A Colour</h1>
         </div>
 
         <div className="mode-row" role="tablist" aria-label="Picker mode">
@@ -245,8 +245,8 @@ function App() {
             {mode === "swatch" ? (
               <>
                 <ColorPicker color={selectedHex} onChange={updateColor} />
-                <p className="hex-description">
-                  Click the swatch to pick a color.
+                <p className="hint">
+                  Click the swatch to pick a colour.
                 </p>
 
                 <div className="hex-field">
@@ -334,7 +334,7 @@ function App() {
                   </button>
                 )}
                 <p className="hex-description">
-                  Click the image to sample a pixel color.
+                  Click the image to sample a pixel colour.
                 </p>
               </div>
             ) : (
@@ -343,9 +343,9 @@ function App() {
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>
 
-          <ol className="matches" aria-label="Likely color names">
+          <ol className="matches" aria-label="Likely colour names">
             <li className="primary-family" aria-live="polite">
-              Closest primary color: <strong>{primaryColorName}</strong>
+              Closest primary colour: <strong>{primaryColorName}</strong>
             </li>
             {matches.map((match, index) => (
               <li

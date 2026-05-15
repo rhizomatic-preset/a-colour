@@ -20,7 +20,7 @@ export function ColorPicker({ color, onChange, className }: ColorPickerProps) {
           className
         )}
         style={{ backgroundColor: color }}
-        aria-label={`Pick a color. Current color is ${color}.`}
+        aria-label={`Pick a colour. Current colour is ${color}.`}
       />
       
       <Popover.Portal>

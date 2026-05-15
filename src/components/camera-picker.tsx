@@ -7,10 +7,11 @@ interface CameraPickerProps {
 export function CameraPicker({ onColorSelect }: CameraPickerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
   const [tapPoint, setTapPoint] = useState<{ x: number; y: number } | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const requestRef = useRef<number>(0);
+  const [lastTouchDistance, setLastTouchDistance] = useState(0);
 
   useEffect(() => {
     async function startCamera() {
@@ -27,20 +28,6 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
         }
       } catch (err) {
         console.error("Camera access failed:", err);
-        try {
-          const fallbackStream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: "user" },
-          });
-          streamRef.current = fallbackStream;
-          if (videoRef.current) {
-            videoRef.current.srcObject = fallbackStream;
-            videoRef.current.onloadedmetadata = () => {
-              videoRef.current?.play().catch(e => console.error("Video play failed:", e));
-            };
-          }
-        } catch (fallbackErr) {
-          setError("Could not access camera. Please ensure you have granted permission.");
-        }
       }
     }
 
@@ -56,6 +43,40 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     };
   }, []);
 
+  // Apply hardware zoom if supported
+  useEffect(() => {
+    const track = streamRef.current?.getVideoTracks()[0];
+    if (track) {
+      const capabilities = track.getCapabilities ? track.getCapabilities() : null;
+      if (capabilities && 'zoom' in capabilities) {
+        track.applyConstraints({ advanced: [{ zoom: zoom } as unknown as MediaTrackConstraintSet] }).catch(e => console.error("Hardware zoom failed:", e));
+      }
+    }
+  }, [zoom]);
+
+  // Handle desktop zoom
+  const handleWheel = (event: React.WheelEvent) => {
+    event.preventDefault();
+    const delta = event.deltaY > 0 ? -0.1 : 0.1;
+    setZoom(prev => Math.min(Math.max(1, prev + delta), 3));
+  };
+
+  // Handle pinch zoom
+  const handleTouchMove = (event: React.TouchEvent) => {
+    if (event.touches.length === 2) {
+      event.preventDefault(); // Stop page zoom
+      const touch1 = event.touches[0];
+      const touch2 = event.touches[1];
+      const distance = Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
+      
+      if (lastTouchDistance > 0) {
+        const delta = (distance - lastTouchDistance) * 0.01;
+        setZoom(prev => Math.min(Math.max(1, prev + delta), 3));
+      }
+      setLastTouchDistance(distance);
+    }
+  };
+
   useEffect(() => {
     const renderFrame = () => {
       const video = videoRef.current;
@@ -64,7 +85,6 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
       if (video && canvas) {
         const ctx = canvas.getContext("2d", { alpha: false });
 
-        // Using HAVE_CURRENT_DATA (2) as a minimum requirement
         if (ctx && video.readyState >= 2) {
           const { videoWidth, videoHeight } = video;
           
@@ -83,7 +103,14 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
               ctx.translate(canvas.width, 0);
               ctx.scale(-1, 1);
             }
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Digital zoom
+            const sWidth = canvas.width / zoom;
+            const sHeight = canvas.height / zoom;
+            const sx = (canvas.width - sWidth) / 2;
+            const sy = (canvas.height - sHeight) / 2;
+
+            ctx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
             ctx.restore();
           }
         }
@@ -93,7 +120,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
 
     requestRef.current = requestAnimationFrame(renderFrame);
     return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+  }, [zoom]);
 
   const sampleColor = (x: number, y: number) => {
     const canvas = canvasRef.current;
@@ -101,6 +128,8 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
 
+    // Sampling must be relative to the zoomed canvas, 
+    // which is what we get from event.clientX/Y
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
@@ -108,7 +137,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     const sourceX = x * scaleX;
     const sourceY = y * scaleY;
 
-    const size = 5;
+    const size = 3;
     const half = Math.floor(size / 2);
 
     try {
@@ -167,38 +196,35 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
 
   return (
     <div className="camera-picker">
-      {error ? (
-        <div className="camera-error">
-          <p>{error}</p>
-        </div>
-      ) : (
-        <div className="camera-stage">
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted
-            className="hidden-video"
+      <div className="camera-stage">
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          muted
+          className="hidden-video"
+        />
+        <canvas
+          ref={canvasRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={() => setTapPoint(null)}
+          onWheel={handleWheel}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={() => setLastTouchDistance(0)}
+          className="camera-canvas"
+        />
+        {tapPoint && (
+          <span
+            className="sample-dot"
+            style={{ left: tapPoint.x, top: tapPoint.y }}
+            aria-hidden="true"
           />
-          <canvas
-            ref={canvasRef}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={() => setTapPoint(null)}
-            className="camera-canvas"
-          />
-          {tapPoint && (
-            <span
-              className="sample-dot"
-              style={{ left: tapPoint.x, top: tapPoint.y }}
-              aria-hidden="true"
-            />
-          )}
-        </div>
-      )}
+        )}
+      </div>
       <p className="hex-description">
-        Tap and hold to sample color from live feed.
+        Tap and hold to sample colour from live feed.
       </p>
     </div>
   );
