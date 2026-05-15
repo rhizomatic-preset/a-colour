@@ -225,7 +225,7 @@ h1 {
   transition: color 0.2s, border-color 0.2s;
 }
 
-.mode-btn:first-child {
+.mode-btn:not(:last-child) {
   border-right: 1px solid var(--ghost);
 }
 
@@ -245,6 +245,34 @@ h1 {
 .image-picker {
   display: grid;
   gap: 12px;
+}
+
+.image-stage-container {
+  display: grid;
+  gap: 12px;
+}
+
+.image-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  background: transparent !important;
+  border: 1px solid var(--ghost) !important;
+  color: var(--silver) !important;
+  font-family: "JetBrains Mono Variable", monospace;
+  font-size: 9px !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s !important;
+}
+
+.image-action-btn:hover {
+  color: var(--ink) !important;
+  border-color: var(--highlight) !important;
 }
 
 .native-color-input {
@@ -268,6 +296,9 @@ h1 {
   max-height: 340px;
   object-fit: contain;
   cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .sample-dot {
@@ -537,7 +568,7 @@ h1 {
   .mode-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .picker-grid {
@@ -547,4 +578,51 @@ h1 {
   h1 {
     font-size: clamp(28px, 6vw, 42px);
   }
+}
+
+/* ── CAMERA PICKER ── */
+.camera-picker {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 340px);
+}
+
+.camera-stage {
+  position: relative;
+  border: 1px solid var(--ghost);
+  overflow: hidden;
+  background: #000;
+  width: 100%;
+  aspect-ratio: 1; /* Match the square look of other pickers */
+}
+
+.camera-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.hidden-video {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.camera-error {
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--ghost);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }

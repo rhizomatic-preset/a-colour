@@ -1,6 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import colorsCsv from "../guidance/references/colors.csv?raw";
+import { ColorPicker } from "@/components/ui/color-picker";
+import { CameraPicker } from "@/components/camera-picker";
 import { Button } from "@/components/ui/button";
+import { Pipette, Upload } from "lucide-react";
 import {
   getClosestColors,
   getPrimaryColorName,
@@ -10,10 +13,9 @@ import {
 } from "@/lib/color-matcher";
 
 const initialColor = "#5d8aa8";
-type PickerMode = "swatch" | "image";
+type PickerMode = "swatch" | "image" | "camera";
 
 function App() {
-  const colorInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -27,6 +29,26 @@ function App() {
     x: number;
     y: number;
   } | null>(null);
+
+  const [hasEyeDropper, setHasEyeDropper] = useState(false);
+
+  useEffect(() => {
+    setHasEyeDropper(typeof window !== "undefined" && "EyeDropper" in window);
+  }, []);
+
+  const openEyeDropper = useCallback(async () => {
+    if (!hasEyeDropper) return;
+    try {
+      // @ts-ignore - EyeDropper is not in standard TS types yet
+      const eyeDropper = new (window as any).EyeDropper();
+      const result = await eyeDropper.open();
+      const hex = result.sRGBHex;
+      setSelectedHex(hex);
+      setHexDraft(hex);
+    } catch (e) {
+      // Ignore errors (user cancelled)
+    }
+  }, [hasEyeDropper]);
 
   const matches = useMemo(
     () => getClosestColors(selectedHex, colors, 3),
@@ -100,7 +122,9 @@ function App() {
     loadImageFile(file);
   }
 
-  function sampleFromImage(event: React.MouseEvent<HTMLImageElement>) {
+  const [isSampling, setIsSampling] = useState(false);
+
+  function sampleFromImage(clientX: number, clientY: number) {
     const image = imageRef.current;
     const canvas = sampleCanvasRef.current;
 
@@ -109,8 +133,8 @@ function App() {
     }
 
     const rect = image.getBoundingClientRect();
-    const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
-    const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    const y = Math.min(Math.max(clientY - rect.top, 0), rect.height);
 
     const sourceX = Math.floor((x / rect.width) * image.naturalWidth);
     const sourceY = Math.floor((y / rect.height) * image.naturalHeight);
@@ -131,6 +155,23 @@ function App() {
     setSamplePoint({ x, y });
     setColor(hex);
   }
+
+  const handleImagePointerDown = (event: React.PointerEvent<HTMLImageElement>) => {
+    // Prevent default browser drag behavior
+    (event.target as HTMLElement).releasePointerCapture(event.pointerId);
+    setIsSampling(true);
+    sampleFromImage(event.clientX, event.clientY);
+  };
+
+  const handleImagePointerMove = (event: React.PointerEvent<HTMLImageElement>) => {
+    if (isSampling) {
+      sampleFromImage(event.clientX, event.clientY);
+    }
+  };
+
+  const handleImagePointerUp = () => {
+    setIsSampling(false);
+  };
 
   // Update CSS variables for highlight color
   useEffect(() => {
@@ -188,32 +229,57 @@ function App() {
           >
             Image
           </button>
+          <button
+            type="button"
+            className={`mode-btn ${mode === "camera" ? "is-active" : ""}`}
+            role="tab"
+            aria-selected={mode === "camera"}
+            onClick={() => setMode("camera")}
+          >
+            Camera
+          </button>
         </div>
 
         <div className="picker-grid">
           <div key={`${mode}-panel`} className="swatch-panel">
             {mode === "swatch" ? (
               <>
-                <input
-                  ref={colorInputRef}
-                  className="native-color-input"
-                  type="color"
-                  value={selectedHex}
-                  aria-label="Pick a color"
-                  onChange={(event) => updateColor(event.target.value)}
-                />
-                <Button
-                  type="button"
-                  className="main-swatch"
-                  style={{ backgroundColor: selectedHex }}
-                  aria-label={`A color. Current color is ${selectedHex}.`}
-                  onClick={() => colorInputRef.current?.click()}
-                />
+                <ColorPicker color={selectedHex} onChange={updateColor} />
                 <p className="hex-description">
-                  Click the swatch to pick a color from your system picker.
+                  Click the swatch to pick a color.
                 </p>
+
+                <div className="hex-field">
+                  <label className="hex-label" htmlFor="hex-input">
+                    Hex
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      id="hex-input"
+                      className="hex-input flex-1"
+                      type="text"
+                      value={hexDraft}
+                      maxLength={7}
+                      spellCheck={false}
+                      onBlur={resetInvalidDraft}
+                      onChange={(event) => updateColor(event.target.value)}
+                    />
+                    {hasEyeDropper && (
+                      <Button
+                        onClick={openEyeDropper}
+                        className="h-[42px] w-[42px] p-0 bg-transparent text-[var(--silver)] hover:text-[var(--ink)] active:text-[var(--ink)] transition-colors border border-[var(--ghost)] rounded-none"
+                        aria-label="Eye dropper"
+                      >
+                        <Pipette size={18} strokeWidth={1.5} />
+                      </Button>
+                    )}
+                  </div>
+                  <p className="hex-description">
+                    Sample or type hex directly.
+                  </p>
+                </div>
               </>
-            ) : (
+            ) : mode === "image" ? (
               <div className="image-picker">
                 <input
                   ref={imageInputRef}
@@ -228,21 +294,35 @@ function App() {
                   }}
                 />
                 {imageUrl ? (
-                  <div className="image-stage">
-                    <img
-                      ref={imageRef}
-                      src={imageUrl}
-                      alt="Pasted source"
-                      className="sample-image"
-                      onClick={sampleFromImage}
-                    />
-                    {samplePoint ? (
-                      <span
-                        className="sample-dot"
-                        style={{ left: samplePoint.x, top: samplePoint.y }}
-                        aria-hidden="true"
+                  <div className="image-stage-container">
+                    <div className="image-stage">
+                      <img
+                        ref={imageRef}
+                        src={imageUrl}
+                        alt="Pasted source"
+                        className="sample-image"
+                        draggable={false}
+                        onPointerDown={handleImagePointerDown}
+                        onPointerMove={handleImagePointerMove}
+                        onPointerUp={handleImagePointerUp}
+                        onPointerCancel={handleImagePointerUp}
                       />
-                    ) : null}
+                      {samplePoint ? (
+                        <span
+                          className="sample-dot"
+                          style={{ left: samplePoint.x, top: samplePoint.y }}
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                    </div>
+                    <Button
+                      onClick={() => imageInputRef.current?.click()}
+                      className="image-action-btn"
+                      aria-label="Upload new image"
+                    >
+                      <Upload size={14} strokeWidth={1.5} />
+                      <span>Open New Image</span>
+                    </Button>
                   </div>
                 ) : (
                   <button
@@ -257,27 +337,10 @@ function App() {
                   Click the image to sample a pixel color.
                 </p>
               </div>
+            ) : (
+              <CameraPicker onColorSelect={setColor} />
             )}
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
-
-            <div className="hex-field">
-              <label className="hex-label" htmlFor="hex-input">
-                Hex
-              </label>
-              <input
-                id="hex-input"
-                className="hex-input"
-                type="text"
-                value={hexDraft}
-                maxLength={7}
-                spellCheck={false}
-                onBlur={resetInvalidDraft}
-                onChange={(event) => updateColor(event.target.value)}
-              />
-              <p className="hex-description">
-                Paste image (Cmd/Ctrl+V), sample, or type hex directly.
-              </p>
-            </div>
           </div>
 
           <ol className="matches" aria-label="Likely color names">
@@ -285,7 +348,11 @@ function App() {
               Closest primary color: <strong>{primaryColorName}</strong>
             </li>
             {matches.map((match, index) => (
-              <li className="match-card" key={match.id}>
+              <li
+                className="match-card cursor-pointer"
+                key={match.id}
+                onClick={() => setColor(match.hex)}
+              >
                 <span className="match-rank">{index + 1}</span>
                 <span
                   className="match-swatch"
