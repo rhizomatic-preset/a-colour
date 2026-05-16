@@ -648,6 +648,26 @@ h1 {
   color: var(--off);
 }
 
+.info-attribution {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px dashed var(--ghost);
+}
+
+.info-attribution a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.info-attribution a:hover {
+  color: var(--ink);
+}
+
 /* ── PICKER GRID LAYOUT ── */
 .picker-grid {
   display: grid;

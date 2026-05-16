@@ -54,7 +54,7 @@ function App() {
   const builtInColors = useMemo(() => parseColorCsv(colorsCsv), []);
   const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
   const colors = customLibrary?.colors ?? builtInColors;
-  const libraryName = customLibrary?.name ?? "Built-in (X11 / CSS)";
+  const libraryName = customLibrary?.name ?? "Built-in (xkcd + CSS)";
   const [selectedHex, setSelectedHex] = useState<string>(() =>
     loadLastColor(pickRandomColor(builtInColors)),
   );
