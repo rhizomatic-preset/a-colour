@@ -5,10 +5,24 @@ export type SampleKernel = 1 | 3 | 5 | 7;
 
 export type WordModeLibrary = "small" | "large";
 export type WordModeEngine = "literal" | (string & {});
+/**
+ * Query-expander layer. `noop` is the literal-only path; `handcurated` was
+ * Phase 1.5a; `static` and `static-handcurated` arrived in Phase 1.5b backed by
+ * a precomputed GloVe nearest-neighbour table. Held as a separate axis from
+ * `engine` because the eval rig has always treated them as independent (see
+ * `scripts/eval.ts --engine= --expander=`).
+ */
+export type WordModeExpander =
+  | "noop"
+  | "handcurated"
+  | "static"
+  | "static-handcurated"
+  | (string & {});
 
 export type WordModeSettings = {
   library: WordModeLibrary;
   engine: WordModeEngine;
+  expander: WordModeExpander;
 };
 
 export type Settings = {
@@ -25,7 +39,10 @@ export const DEFAULT_SETTINGS: Settings = {
   sampleKernel: 3,
   weights: DEFAULT_WEIGHTS,
   hueBias: null,
-  wordMode: { library: "small", engine: "literal" },
+  // Phase 1.5b: default the runtime to the blended expander now that the static
+  // table ships in the bundle (it's tiny — ~14 KB). The kid's first query
+  // benefits from the recall lift without any configuration.
+  wordMode: { library: "small", engine: "literal", expander: "static-handcurated" },
 };
 
 const STORAGE_KEY = "color-trickser:settings";

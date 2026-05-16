@@ -41,3 +41,7 @@ node_modules/.pnpm/lock.yaml
 # Misc
 .cache/
 .temp/
+
+# Build-time model / embedding caches (GloVe zips, ONNX weights, etc.).
+# Covered by the .cache/ rule above; called out here for discoverability.
+# scripts/data/.cache/

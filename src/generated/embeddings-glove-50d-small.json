@@ -1,0 +1,6 @@
+{
+  "engine": "glove-50d",
+  "library": "small",
+  "dim": 50,
+  "count": 980
+}

@@ -2,7 +2,7 @@
   "library": "xkcd",
   "engine": "literal",
   "threshold": null,
-  "generatedAt": "2026-05-16T21:21:07.859Z",
+  "generatedAt": "2026-05-16T21:41:49.644Z",
   "casesByCategory": {
     "trivial": [
       {
@@ -1203,6 +1203,248 @@
           "at3": false
         },
         "expectedFamily": "orange"
+      }
+    ],
+    "te-reo": [
+      {
+        "query": "whero",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "kākāriki",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "kōwhai",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "kahurangi",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "māwhero",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "mangu",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "black"
+      },
+      {
+        "query": "kiwikiwi",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "waiporoporo",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "purple"
+      }
+    ],
+    "weather": [
+      {
+        "query": "cloud",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "cloudy",
+        "results": [
+          {
+            "name": "Cloudy Blue",
+            "hex": "#acc2d9",
+            "family": "blue",
+            "score": 0.2085144140570748
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "rain",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "rainy",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "lightning",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "puddle",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      }
+    ],
+    "open-vocab": [
+      {
+        "query": "rainbow trout",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "ender dragon",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "caterpillar",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "salamander",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "octopus",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "charizard",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "kirby",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "lego car",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "pumpkin spice",
+        "results": [
+          {
+            "name": "Pumpkin",
+            "hex": "#e17701",
+            "family": "brown",
+            "score": 0.23570226039551587
+          },
+          {
+            "name": "Pumpkin Orange",
+            "hex": "#fb7d07",
+            "family": "orange",
+            "score": 0.19611613513818404
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "deku cosplay",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
       }
     ],
     "poetic": [

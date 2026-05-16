@@ -20,6 +20,7 @@ import { ColorPicker } from "@/components/ui/color-picker";
 import { WordPicker } from "@/components/word-picker";
 import colorsCsv from "@/generated/colors-small.csv?raw";
 import expansionDict from "@/generated/expansions-handcurated.json";
+import staticExpansionDict from "@/generated/expansions-static.json";
 import tfidfJson from "@/generated/tfidf-small.json";
 import {
   type ColorReference,
@@ -37,7 +38,13 @@ import {
   saveLastColor,
   saveSettings,
 } from "@/lib/settings";
-import { buildHandcuratedExpander } from "@/lib/word-search/expander";
+import {
+  buildBlendedExpander,
+  buildHandcuratedExpander,
+  buildStaticExpander,
+  NoopExpander,
+  type QueryExpander,
+} from "@/lib/word-search/expander";
 import { loadTfidfIndex } from "@/lib/word-search/tfidf-index";
 
 type PickerMode = "swatch" | "image" | "camera" | "word";
@@ -59,10 +66,25 @@ function App() {
   const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
   const builtInColors = useMemo(() => parseColorCsv(colorsCsv), []);
   const tfidf = useMemo(() => loadTfidfIndex(tfidfJson), []);
-  const expander = useMemo(
-    () => buildHandcuratedExpander(expansionDict as Record<string, string[]>),
-    [],
-  );
+  const [settings, setSettings] = useState<Settings>(() => loadSettings());
+
+  const expander = useMemo<QueryExpander>(() => {
+    const hand = expansionDict as Record<string, string[]>;
+    const stat = staticExpansionDict as Record<string, string[]>;
+    switch (settings.wordMode.expander) {
+      case "noop":
+        return NoopExpander;
+      case "handcurated":
+        return buildHandcuratedExpander(hand);
+      case "static":
+        return buildStaticExpander(stat);
+      case "static-handcurated":
+        return buildBlendedExpander(hand, stat);
+      default:
+        // Forward-compat: unknown expander id falls back to the blended default.
+        return buildBlendedExpander(hand, stat);
+    }
+  }, [settings.wordMode.expander]);
   const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
   const colors = customLibrary?.colors ?? builtInColors;
   const libraryName = customLibrary?.name ?? "Built-in (xkcd + CSS)";
@@ -88,7 +110,6 @@ function App() {
     setCustomLibrary(null);
   }
   const [hexDraft, setHexDraft] = useState<string>(selectedHex);
-  const [settings, setSettings] = useState<Settings>(() => loadSettings());
 
   const [mode, setMode] = useState<PickerMode>("swatch");
   const [view, setView] = useState<View>("picker");
