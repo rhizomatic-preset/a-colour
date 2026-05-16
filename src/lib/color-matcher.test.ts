@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import realColorsCsv from "../../guidance/references/colors.csv?raw";
 import {
   buildNameVectorIndex,
   DEFAULT_WEIGHTS,
@@ -9,6 +10,8 @@ import {
   normalizeHex,
   parseColorCsv,
 } from "./color-matcher";
+
+const realColors = parseColorCsv(realColorsCsv);
 
 const sampleCsv = `
 red,"Pure Red",#ff0000,255,0,0
@@ -98,6 +101,22 @@ describe("getClosestColors", () => {
 
   it("respects the limit argument", () => {
     expect(getClosestColors("#ff0000", colors, 2)).toHaveLength(2);
+  });
+
+  it("the real 865-colour library reshuffles when weights change (dark yellow #806800)", () => {
+    const darkYellow = "#806800";
+    const defaultTop = getClosestColors(darkYellow, realColors, 3, DEFAULT_WEIGHTS).map(
+      (m) => m.name,
+    );
+    const hueBiased = getClosestColors(darkYellow, realColors, 3, {
+      lightness: 0.4,
+      chroma: 1.2,
+      hue: 2.5,
+    }).map((m) => m.name);
+    // The top match under defaults is *not* the top under hue-biased weights.
+    expect(defaultTop[0]).not.toBe(hueBiased[0]);
+    // And the full ordered triples differ.
+    expect(defaultTop).not.toEqual(hueBiased);
   });
 
   it("respects custom distance weights — zero lightness weight lets a dark yellow match a light yellow", () => {
