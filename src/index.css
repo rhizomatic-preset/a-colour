@@ -558,10 +558,10 @@ h1 {
 .setting-empty {
   font-family: "Libre Baskerville", Georgia, serif;
   font-style: italic;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.65;
   color: var(--off);
-  padding: 12px;
+  padding: 20px 22px;
   border: 1px dashed var(--ghost);
 }
 
