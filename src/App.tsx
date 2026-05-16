@@ -97,8 +97,8 @@ function App() {
   }, [hasEyeDropper]);
 
   const matches = useMemo(
-    () => getClosestColors(selectedHex, colors, settings.matchCount, settings.maxDistance),
-    [colors, selectedHex, settings.matchCount, settings.maxDistance],
+    () => getClosestColors(selectedHex, colors, settings.matchCount, settings.weights),
+    [colors, selectedHex, settings.matchCount, settings.weights],
   );
   const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
 
@@ -294,7 +294,7 @@ function App() {
         <div className="picker-grid">
           <div key={`${view}-${mode}-panel`} className="swatch-panel">
             {view === "settings" ? (
-              <SettingsPanel settings={settings} selectedHex={selectedHex} onChange={setSettings} />
+              <SettingsPanel settings={settings} onChange={setSettings} />
             ) : view === "about" ? (
               <AboutPanel />
             ) : mode === "swatch" ? (

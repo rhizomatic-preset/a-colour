@@ -412,6 +412,31 @@ h1 {
   touch-action: pan-y;
 }
 
+.settings-reset {
+  margin-top: 8px;
+  align-self: start;
+  background: transparent;
+  border: 0;
+  padding: 4px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.settings-reset:hover:not(:disabled) {
+  color: var(--ink);
+}
+
+.settings-reset:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .setting-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

@@ -45,7 +45,7 @@ There's also a `buildNameVectorIndex` / `findClosestColorNames` pair (TF-IDF ove
 
 Two distinct localStorage keys live in `src/lib/settings.ts`:
 
-- `color-trickser:settings` — user preferences (`matchCount`, `sampleKernel`, `maxDistance`). Merged over `DEFAULT_SETTINGS` on load so adding a new field doesn't break older stored payloads.
+- `color-trickser:settings` — user preferences (`matchCount`, `sampleKernel`, `weights`). Merged over `DEFAULT_SETTINGS` on load so adding a new field doesn't break older stored payloads; the `weights` sub-object is itself merged so partial old payloads stay valid.
 - `color-trickser:lastColor` — the most-recently picked hex. On first ever load, the initial colour is a random pick from the library (`pickRandomColor` in `App.tsx`). Subsequent loads restore the saved hex.
 
 Both helpers swallow `localStorage` errors (private mode, full quota) and silently fall back to defaults — no error UI.
@@ -84,7 +84,7 @@ The codebase is small and functional (no classes worth speaking of), so apply th
 **SOLID** (in the spirit, not the OOP letter):
 
 - **S — Single responsibility.** One module = one job. `color-matcher.ts` does matching, full stop; it must not fetch, render, or own UI state. `camera-picker.tsx` runs the camera; it does not know about colour names.
-- **O — Open / closed.** The Oklab matching and its weights (ΔL ×1.6, Δchroma ×1.2, hue×chroma ×0.7, neutral penalty) are *tuned* — extend by adding new functions next to them, not by reshaping the working ones under the banner of "improvement".
+- **O — Open / closed.** The Oklab matching is *tuned* (default ΔL ×1.6, Δchroma ×1.2, hue×chroma ×0.7, plus the neutral penalty). Those constants are now user-configurable as `DistanceWeights` (Lightness / Chroma / Hue), so when shifting matching behaviour, prefer adding new dimensions to that structure or new functions next to it — don't reshape the working pipeline.
 - **L — Liskov.** Types describe what callers can rely on. If a function says it returns `ColorMatch`, every code path returns a full `ColorMatch` — no `Partial<...>` that callers have to defensively unpack.
 - **I — Interface segregation.** Components take only the props they actually use. `CameraPicker` takes `onColorSelect`, not the whole app's state.
 - **D — Dependency inversion.** Hand dependencies in via parameters / props. The matcher receives the colour list; it doesn't import the CSV. That's `App.tsx`'s job.

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildNameVectorIndex,
+  DEFAULT_WEIGHTS,
   findClosestColorNames,
   getClosestColors,
   getPrimaryColorName,
@@ -99,17 +100,18 @@ describe("getClosestColors", () => {
     expect(getClosestColors("#ff0000", colors, 2)).toHaveLength(2);
   });
 
-  it("filters matches above maxDistance", () => {
-    // Tight threshold: only colours very close to red should pass.
-    const matches = getClosestColors("#ff0000", colors, 10, 0.05);
-    expect(matches.every((m) => m.distance <= 0.05)).toBe(true);
-    expect(matches.some((m) => m.id === "red")).toBe(true);
-    expect(matches.some((m) => m.id === "blue")).toBe(false);
-  });
-
-  it("returns [] when maxDistance excludes everything", () => {
-    // Input is not in the library; maxDistance = 0 means nothing can match.
-    expect(getClosestColors("#7f7f7f", colors, 5, 0)).toEqual([]);
+  it("respects custom distance weights — zero lightness weight lets a dark yellow match a light yellow", () => {
+    const darkYellow = "#806800"; // L ≈ 0.49, but hue-wise yellow
+    // With default weights, dark yellow's closest in our 6-colour library is gray_mid (lightness wins).
+    const defaultTop = getClosestColors(darkYellow, colors, 1, DEFAULT_WEIGHTS)[0];
+    // Zero out lightness emphasis and crank hue: the lemon should win.
+    const hueBiased = getClosestColors(darkYellow, colors, 1, {
+      lightness: 0,
+      chroma: 1.2,
+      hue: 2,
+    })[0];
+    expect(defaultTop.id).not.toBe("lemon");
+    expect(hueBiased.id).toBe("lemon");
   });
 });
 

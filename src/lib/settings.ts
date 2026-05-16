@@ -1,16 +1,18 @@
+import { DEFAULT_WEIGHTS, type DistanceWeights } from "@/lib/color-matcher";
+
 export type MatchCount = 1 | 3 | 5;
 export type SampleKernel = 1 | 3 | 5 | 7;
 
 export type Settings = {
   matchCount: MatchCount;
   sampleKernel: SampleKernel;
-  maxDistance: number;
+  weights: DistanceWeights;
 };
 
 export const DEFAULT_SETTINGS: Settings = {
   matchCount: 3,
   sampleKernel: 3,
-  maxDistance: 0.45,
+  weights: DEFAULT_WEIGHTS,
 };
 
 const STORAGE_KEY = "color-trickser:settings";
@@ -22,7 +24,11 @@ export function loadSettings(): Settings {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_SETTINGS;
     const parsed = JSON.parse(raw) as Partial<Settings>;
-    return { ...DEFAULT_SETTINGS, ...parsed };
+    return {
+      ...DEFAULT_SETTINGS,
+      ...parsed,
+      weights: { ...DEFAULT_SETTINGS.weights, ...(parsed.weights ?? {}) },
+    };
   } catch {
     return DEFAULT_SETTINGS;
   }

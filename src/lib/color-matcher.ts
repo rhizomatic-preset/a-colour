@@ -12,6 +12,18 @@ export type ColorMatch = ColorReference & {
   closeness: number;
 };
 
+export type DistanceWeights = {
+  lightness: number;
+  chroma: number;
+  hue: number;
+};
+
+export const DEFAULT_WEIGHTS: DistanceWeights = {
+  lightness: 1.6,
+  chroma: 1.2,
+  hue: 0.7,
+};
+
 type NameVectorIndex = {
   colors: ColorReference[];
   vectors: Array<Map<string, number>>;
@@ -52,7 +64,7 @@ export function getClosestColors(
   inputHex: string,
   colors: ColorReference[],
   limit = 3,
-  maxDistance = Number.POSITIVE_INFINITY,
+  weights: DistanceWeights = DEFAULT_WEIGHTS,
 ): ColorMatch[] {
   const input = hexToRgb(normalizeHex(inputHex));
   const inputLab = rgbToOklab(input.r, input.g, input.b);
@@ -63,7 +75,7 @@ export function getClosestColors(
     .map((color) => {
       const lab = rgbToOklab(color.r, color.g, color.b);
       const colorChroma = oklabChroma(lab);
-      const baseDistance = weightedOklabDistance(inputLab, lab);
+      const baseDistance = weightedOklabDistance(inputLab, lab, weights);
       const neutralPenalty = isInputNeutral && colorChroma > 0.06 ? (colorChroma - 0.06) * 0.9 : 0;
       const distance = baseDistance + neutralPenalty;
 
@@ -73,7 +85,6 @@ export function getClosestColors(
         closeness: Math.max(0, Math.round((1 - distance / 0.45) * 100)),
       };
     })
-    .filter((match) => match.distance <= maxDistance)
     .sort((a, b) => a.distance - b.distance)
     .slice(0, limit);
 }
@@ -258,7 +269,7 @@ function oklabChroma(color: Oklab) {
   return Math.hypot(color.a, color.b);
 }
 
-function weightedOklabDistance(first: Oklab, second: Oklab) {
+function weightedOklabDistance(first: Oklab, second: Oklab, weights: DistanceWeights) {
   const deltaL = first.l - second.l;
   const firstChroma = oklabChroma(first);
   const secondChroma = oklabChroma(second);
@@ -268,7 +279,11 @@ function weightedOklabDistance(first: Oklab, second: Oklab) {
   const deltaHue = normalizeHueDelta(firstHue - secondHue);
   const hueWeight = Math.max(firstChroma, secondChroma);
 
-  return Math.hypot(deltaL * 1.6, deltaChroma * 1.2, deltaHue * hueWeight * 0.7);
+  return Math.hypot(
+    deltaL * weights.lightness,
+    deltaChroma * weights.chroma,
+    deltaHue * hueWeight * weights.hue,
+  );
 }
 
 function normalizeHueDelta(delta: number) {
