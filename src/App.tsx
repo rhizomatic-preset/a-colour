@@ -1,5 +1,7 @@
 import {
   Camera,
+  Check,
+  Clipboard,
   HelpCircle,
   Image as ImageIcon,
   Palette,
@@ -51,6 +53,17 @@ function App() {
 
   const [mode, setMode] = useState<PickerMode>("swatch");
   const [view, setView] = useState<View>("picker");
+  const [copiedHex, setCopiedHex] = useState<string | null>(null);
+
+  async function copyHex(hex: string) {
+    try {
+      await navigator.clipboard.writeText(hex);
+      setCopiedHex(hex);
+      window.setTimeout(() => setCopiedHex((current) => (current === hex ? null : current)), 1200);
+    } catch {
+      // Clipboard unavailable (insecure context, permissions); silently skip
+    }
+  }
 
   function selectMode(next: PickerMode) {
     setMode(next);
@@ -399,6 +412,21 @@ function App() {
                   <span className="match-name">{match.name}</span>
                   <span className="match-hex">{match.hex}</span>
                 </span>
+                <button
+                  type="button"
+                  className={`match-copy-btn ${copiedHex === match.hex ? "is-copied" : ""}`}
+                  aria-label={`Copy ${match.hex}`}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    copyHex(match.hex);
+                  }}
+                >
+                  {copiedHex === match.hex ? (
+                    <Check size={14} strokeWidth={1.8} aria-hidden="true" />
+                  ) : (
+                    <Clipboard size={14} strokeWidth={1.5} aria-hidden="true" />
+                  )}
+                </button>
                 <span className="match-meter" aria-label={`${match.closeness}% visual closeness`}>
                   <span style={{ width: `${match.closeness}%` }} />
                 </span>

@@ -680,7 +680,7 @@ h1 {
 
 .match-card {
   display: grid;
-  grid-template-columns: 28px 48px minmax(0, 1fr);
+  grid-template-columns: 28px 48px minmax(0, 1fr) 32px;
   gap: 10px 12px;
   align-items: center;
   padding: 14px;
@@ -689,6 +689,32 @@ h1 {
   transition:
     transform 0.2s,
     border-color 0.2s;
+}
+
+.match-copy-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--silver);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.match-copy-btn:hover {
+  color: var(--ink);
+  border-color: var(--ghost);
+}
+
+.match-copy-btn.is-copied {
+  color: var(--paper);
+  background: var(--ink);
 }
 
 .match-card:hover {
