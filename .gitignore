@@ -3,13 +3,14 @@ node_modules/
 .pnp/
 .pnp.js
 
-# pnpm lockfile (generated)
-pnpm-lock.yaml
+# pnpm local store (lockfile itself is committed)
 .pnpm-store/
 
 # Build / dist (if applicable)
 dist/
 build/
+.vite/
+*.tsbuildinfo
 
 # Environment
 .env

@@ -23,7 +23,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
           videoRef.current.onloadedmetadata = () => {
-            videoRef.current?.play().catch(e => console.error("Video play failed:", e));
+            videoRef.current?.play().catch((e) => console.error("Video play failed:", e));
           };
         }
       } catch (err) {
@@ -35,7 +35,9 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
 
     return () => {
       if (streamRef.current) {
-        streamRef.current.getTracks().forEach((track) => track.stop());
+        for (const track of streamRef.current.getTracks()) {
+          track.stop();
+        }
       }
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
@@ -48,8 +50,10 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     const track = streamRef.current?.getVideoTracks()[0];
     if (track) {
       const capabilities = track.getCapabilities ? track.getCapabilities() : null;
-      if (capabilities && 'zoom' in capabilities) {
-        track.applyConstraints({ advanced: [{ zoom: zoom } as unknown as MediaTrackConstraintSet] }).catch(e => console.error("Hardware zoom failed:", e));
+      if (capabilities && "zoom" in capabilities) {
+        track
+          .applyConstraints({ advanced: [{ zoom: zoom } as unknown as MediaTrackConstraintSet] })
+          .catch((e) => console.error("Hardware zoom failed:", e));
       }
     }
   }, [zoom]);
@@ -58,7 +62,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
   const handleWheel = (event: React.WheelEvent) => {
     event.preventDefault();
     const delta = event.deltaY > 0 ? -0.1 : 0.1;
-    setZoom(prev => Math.min(Math.max(1, prev + delta), 3));
+    setZoom((prev) => Math.min(Math.max(1, prev + delta), 3));
   };
 
   // Handle pinch zoom
@@ -68,10 +72,10 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
       const touch1 = event.touches[0];
       const touch2 = event.touches[1];
       const distance = Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
-      
+
       if (lastTouchDistance > 0) {
         const delta = (distance - lastTouchDistance) * 0.01;
-        setZoom(prev => Math.min(Math.max(1, prev + delta), 3));
+        setZoom((prev) => Math.min(Math.max(1, prev + delta), 3));
       }
       setLastTouchDistance(distance);
     }
@@ -87,7 +91,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
 
         if (ctx && video.readyState >= 2) {
           const { videoWidth, videoHeight } = video;
-          
+
           if (videoWidth > 0 && videoHeight > 0) {
             if (canvas.width !== videoWidth || canvas.height !== videoHeight) {
               canvas.width = videoWidth;
@@ -128,7 +132,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
 
-    // Sampling must be relative to the zoomed canvas, 
+    // Sampling must be relative to the zoomed canvas,
     // which is what we get from event.clientX/Y
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
@@ -145,10 +149,13 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
         Math.max(0, sourceX - half),
         Math.max(0, sourceY - half),
         size,
-        size
+        size,
       ).data;
 
-      let r = 0, g = 0, b = 0, count = 0;
+      let r = 0,
+        g = 0,
+        b = 0,
+        count = 0;
       for (let i = 0; i < imageData.length; i += 4) {
         r += imageData[i];
         g += imageData[i + 1];
@@ -197,13 +204,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
   return (
     <div className="camera-picker">
       <div className="camera-stage">
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted
-          className="hidden-video"
-        />
+        <video ref={videoRef} autoPlay playsInline muted className="hidden-video" />
         <canvas
           ref={canvasRef}
           onPointerDown={handlePointerDown}
@@ -223,9 +224,7 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
           />
         )}
       </div>
-      <p className="hex-description">
-        Tap and hold to sample colour from live feed.
-      </p>
+      <p className="hex-description">Tap and hold to sample colour from live feed.</p>
     </div>
   );
 }

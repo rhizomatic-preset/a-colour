@@ -1,7 +1,7 @@
-import { Popover } from '@base-ui/react/popover';
-import { HexColorPicker } from 'react-colorful';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { Popover } from "@base-ui/react/popover";
+import { useState } from "react";
+import { HexColorPicker } from "react-colorful";
+import { cn } from "@/lib/utils";
 
 interface ColorPickerProps {
   color: string;
@@ -15,25 +15,22 @@ export function ColorPicker({ color, onChange, className }: ColorPickerProps) {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className={cn(
-          "main-swatch relative overflow-hidden",
-          className
-        )}
+        className={cn("main-swatch relative overflow-hidden", className)}
         style={{ backgroundColor: color }}
         aria-label={`Pick a colour. Current colour is ${color}.`}
       />
-      
+
       <Popover.Portal>
         <Popover.Positioner
           side="bottom"
           align="center"
           sideOffset={-170} // Half of the ~340px swatch height
         >
-          <Popover.Popup 
+          <Popover.Popup
             className="z-50 bg-[var(--paper)] border border-[var(--ghost)] flex flex-col items-center focus:outline-none relative shadow-md"
-            style={{ 
-              padding: '16px',
-              transform: 'translateY(-50%)' // Shift up by half its own height to achieve true vertical center
+            style={{
+              padding: "16px",
+              transform: "translateY(-50%)", // Shift up by half its own height to achieve true vertical center
             }}
           >
             <style>
@@ -61,11 +58,8 @@ export function ColorPicker({ color, onChange, className }: ColorPickerProps) {
                 }
               `}
             </style>
-            
-            <HexColorPicker 
-              color={color} 
-              onChange={onChange} 
-            />
+
+            <HexColorPicker color={color} onChange={onChange} />
           </Popover.Popup>
         </Popover.Positioner>
       </Popover.Portal>

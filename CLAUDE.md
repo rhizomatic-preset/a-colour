@@ -46,8 +46,10 @@ There's also a `buildNameVectorIndex` / `findClosestColorNames` pair (TF-IDF ove
 - **React 19** + **Vite 8** + **TypeScript 6** + **Tailwind v4** (via `@tailwindcss/vite`, not a config file — utilities come from `@import "tailwindcss"` in `src/index.css`).
 - **UI primitives**: `@base-ui/react` (Popover, Button) — *not* Radix, even though `components.json` exists from a shadcn scaffold. The shadcn config is mostly historical; if adding components, prefer base-ui or hand-rolled over `npx shadcn add`.
 - **Icons**: `lucide-react`.
-- **Package manager**: pnpm. There's a `pnpm-workspace.yaml` but only this one package. `pnpm-lock.yaml` is in `.gitignore` (intentional — we treat it as generated).
-- **No test framework** is configured. Don't add one without asking — the project is small and the matching logic is the only thing worth testing.
+- **Package manager**: pnpm (pinned via `packageManager` in `package.json`). `pnpm-lock.yaml` is committed.
+- **Lint + format**: [Biome](https://biomejs.dev) (`biome.json`). Replaces the old ESLint + (no) Prettier setup. Run via `pnpm check` / `pnpm format` (or via the Justfile, below).
+- **Task runner**: [just](https://github.com/casey/just) (`justfile`). The three canonical recipes are `just install`, `just check`, `just run` — see below.
+- **No test framework** is configured. Don't add one without asking — the project is small and the matching logic is the only thing worth testing. When tests do land, wire them into `pnpm check` so `just check` stays the single quality gate.
 - `@huggingface/transformers` is in `dependencies` but unused; it was for an experiment, leave it for now.
 
 ### Path aliases & conventions
@@ -79,12 +81,23 @@ The codebase is small and functional (no classes worth speaking of), so apply th
 
 ## Commands
 
+Day-to-day, use the Justfile:
+
+```
+just install    # pnpm install
+just check      # biome check (lint + format) + tsc -b — the quality gate
+just run        # pnpm dev — start the vite dev server
+```
+
+Underlying pnpm scripts (use directly when you need something the Justfile doesn't expose):
+
 ```
 pnpm install
-pnpm dev        # vite dev server
-pnpm build      # tsc -b && vite build
-pnpm preview    # serve the production build
-pnpm lint
+pnpm dev
+pnpm build         # tsc -b && vite build
+pnpm preview       # serve the production build
+pnpm check         # biome check . && tsc -b
+pnpm format        # biome format --write .
 ```
 
 ## What's missing (wanted)

@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 @import "@fontsource-variable/jetbrains-mono";
 @import "tailwindcss";
 
 /* Paper/ink CMYK-inspired palette - neutral base, color is the highlight */
 :root {
-  --paper: #f2ede6;        /* warm off-white background */
-  --ink: #111010;          /* near-black text */
-  --silver: #9a9a9a;       /* medium gray for secondary text */
-  --ghost: #e0dbd2;        /* light gray borders/separators */
-  --highlight: #2b7c76;    /* accent color (teal) - can be overridden by user's picked color */
+  --paper: #f2ede6; /* warm off-white background */
+  --ink: #111010; /* near-black text */
+  --silver: #9a9a9a; /* medium gray for secondary text */
+  --ghost: #e0dbd2; /* light gray borders/separators */
+  --highlight: #2b7c76; /* accent color (teal) - can be overridden by user's picked color */
   --highlight-dim: #1d5652;
   --highlight-pale: #d4ecea;
 
@@ -84,11 +84,7 @@ body::before {
   z-index: 9000;
   background-image:
     radial-gradient(circle, rgba(0, 0, 0, 0.09) 0.6px, transparent 0.6px),
-    radial-gradient(
-      circle,
-      var(--highlight) 0.06 0.6px,
-      transparent 0.6px
-    ),
+    radial-gradient(circle, var(--highlight) 0.06 0.6px, transparent 0.6px),
     radial-gradient(circle, rgba(0, 0, 0, 0.04) 0.6px, transparent 0.6px);
   background-size:
     3px 3px,
@@ -132,8 +128,12 @@ body::after {
 }
 
 /* Headings use system fonts */
-h1, h2, h3, .hero-title, .tier-name {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+h1,
+h2,
+h3,
+.hero-title,
+.tier-name {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   letter-spacing: -0.01em;
 }
 
@@ -165,7 +165,9 @@ h1, h2, h3, .hero-title, .tier-name {
   color: inherit;
   text-decoration: none;
   opacity: 0.6;
-  transition: opacity 0.2s, color 0.2s;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
 }
 
 .brand-link a:hover {
@@ -222,7 +224,9 @@ h1 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .mode-btn:not(:last-child) {
@@ -267,7 +271,9 @@ h1 {
   text-transform: uppercase;
   border-radius: 0 !important;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s !important;
+  transition:
+    color 0.2s,
+    border-color 0.2s !important;
 }
 
 .image-action-btn:hover {
@@ -324,7 +330,9 @@ h1 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 
 .paste-target:hover {
@@ -387,7 +395,9 @@ h1 {
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .hex-input:focus {
@@ -435,7 +445,9 @@ h1 {
   padding: 14px;
   border: 1px solid var(--ghost);
   background: rgba(255, 255, 255, 0.35);
-  transition: transform 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
 }
 
 .match-card:hover {

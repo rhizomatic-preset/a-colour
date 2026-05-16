@@ -1,9 +1,8 @@
+import { Pipette, Upload } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import colorsCsv from "../guidance/references/colors.csv?raw";
-import { ColorPicker } from "@/components/ui/color-picker";
 import { CameraPicker } from "@/components/camera-picker";
 import { Button } from "@/components/ui/button";
-import { Pipette, Upload } from "lucide-react";
+import { ColorPicker } from "@/components/ui/color-picker";
 import {
   getClosestColors,
   getPrimaryColorName,
@@ -11,6 +10,7 @@ import {
   normalizeHex,
   parseColorCsv,
 } from "@/lib/color-matcher";
+import colorsCsv from "../guidance/references/colors.csv?raw";
 
 const initialColor = "#5d8aa8";
 type PickerMode = "swatch" | "image" | "camera";
@@ -39,25 +39,20 @@ function App() {
   const openEyeDropper = useCallback(async () => {
     if (!hasEyeDropper) return;
     try {
-      // @ts-ignore - EyeDropper is not in standard TS types yet
-      const eyeDropper = new (window as any).EyeDropper();
+      const eyeDropper = new (
+        window as unknown as { EyeDropper: new () => { open: () => Promise<{ sRGBHex: string }> } }
+      ).EyeDropper();
       const result = await eyeDropper.open();
       const hex = result.sRGBHex;
       setSelectedHex(hex);
       setHexDraft(hex);
-    } catch (e) {
-      // Ignore errors (user cancelled)
+    } catch {
+      // User cancelled
     }
   }, [hasEyeDropper]);
 
-  const matches = useMemo(
-    () => getClosestColors(selectedHex, colors, 3),
-    [colors, selectedHex],
-  );
-  const primaryColorName = useMemo(
-    () => getPrimaryColorName(selectedHex),
-    [selectedHex],
-  );
+  const matches = useMemo(() => getClosestColors(selectedHex, colors, 3), [colors, selectedHex]);
+  const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
 
   function updateColor(value: string) {
     const normalized = normalizeHex(value);
@@ -245,9 +240,7 @@ function App() {
             {mode === "swatch" ? (
               <>
                 <ColorPicker color={selectedHex} onChange={updateColor} />
-                <p className="hint">
-                  Click the swatch to pick a colour.
-                </p>
+                <p className="hint">Click the swatch to pick a colour.</p>
 
                 <div className="hex-field">
                   <label className="hex-label" htmlFor="hex-input">
@@ -274,9 +267,7 @@ function App() {
                       </Button>
                     )}
                   </div>
-                  <p className="hex-description">
-                    Sample or type hex directly.
-                  </p>
+                  <p className="hex-description">Sample or type hex directly.</p>
                 </div>
               </>
             ) : mode === "image" ? (
@@ -333,9 +324,7 @@ function App() {
                     Paste an image or click to upload
                   </button>
                 )}
-                <p className="hex-description">
-                  Click the image to sample a pixel colour.
-                </p>
+                <p className="hex-description">Click the image to sample a pixel colour.</p>
               </div>
             ) : (
               <CameraPicker onColorSelect={setColor} />
@@ -363,10 +352,7 @@ function App() {
                   <span className="match-name">{match.name}</span>
                   <span className="match-hex">{match.hex}</span>
                 </span>
-                <span
-                  className="match-meter"
-                  aria-label={`${match.closeness}% visual closeness`}
-                >
+                <span className="match-meter" aria-label={`${match.closeness}% visual closeness`}>
                   <span style={{ width: `${match.closeness}%` }} />
                 </span>
               </li>
