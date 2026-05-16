@@ -8,7 +8,10 @@ export function AboutPanel() {
       </p>
       <dl className="info-modes">
         <dt>Swatch</dt>
-        <dd>Open a colour wheel and choose visually, or paste a hex code.</dd>
+        <dd>
+          Open a colour wheel and choose visually.
+          <span className="desktop-only"> Or paste a hex code.</span>
+        </dd>
         <dt>Image</dt>
         <dd>Paste or upload a picture, then tap a pixel to sample its colour.</dd>
         <dt>Camera</dt>

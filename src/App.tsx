@@ -240,27 +240,6 @@ function App() {
   return (
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
-        <div className="utility-row">
-          <button
-            type="button"
-            className={`utility-btn ${view === "settings" ? "is-active" : ""}`}
-            onClick={() => setView(view === "settings" ? "picker" : "settings")}
-            aria-label={view === "settings" ? "Close settings" : "Open settings"}
-            aria-pressed={view === "settings"}
-          >
-            <SettingsIcon size={18} strokeWidth={1.5} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className={`utility-btn ${view === "about" ? "is-active" : ""}`}
-            onClick={() => setView(view === "about" ? "picker" : "about")}
-            aria-label={view === "about" ? "Close info" : "Open info"}
-            aria-pressed={view === "about"}
-          >
-            <HelpCircle size={18} strokeWidth={1.5} aria-hidden="true" />
-          </button>
-        </div>
-
         <div className="intro">
           <p className="eyebrow">Colour Thesaurus</p>
           <h1 id="app-title">A Colour</h1>
@@ -430,6 +409,28 @@ function App() {
       </section>
 
       <footer className="brand-link">
+        <div className="footer-tools">
+          <button
+            type="button"
+            className={`footer-btn ${view === "settings" ? "is-active" : ""}`}
+            aria-pressed={view === "settings"}
+            aria-label={view === "settings" ? "Close settings" : "Open settings"}
+            onClick={() => setView(view === "settings" ? "picker" : "settings")}
+          >
+            <SettingsIcon size={16} strokeWidth={1.5} aria-hidden="true" />
+            <span className="footer-btn-label">Settings</span>
+          </button>
+          <button
+            type="button"
+            className={`footer-btn ${view === "about" ? "is-active" : ""}`}
+            aria-pressed={view === "about"}
+            aria-label={view === "about" ? "Close info" : "Open info"}
+            onClick={() => setView(view === "about" ? "picker" : "about")}
+          >
+            <HelpCircle size={16} strokeWidth={1.5} aria-hidden="true" />
+            <span className="footer-btn-label">About</span>
+          </button>
+        </div>
         <a href="https://preset.nz" target="_blank" rel="noopener noreferrer">
           preset.nz
         </a>

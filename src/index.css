@@ -147,52 +147,19 @@ h3,
 }
 
 .picker-surface {
-  position: relative;
   width: min(100%, 960px);
   padding: clamp(36px, 5vw, 64px);
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--ghost);
 }
 
-/* ── UTILITY ICONS (settings + info, anchored top-right of picker surface) ── */
-.utility-row {
-  position: absolute;
-  top: clamp(20px, 3vw, 28px);
-  right: clamp(20px, 3vw, 28px);
-  display: flex;
-  gap: 4px;
-  z-index: 1;
-}
-
-.utility-btn {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--silver);
-  cursor: pointer;
-  transition:
-    color 0.2s,
-    border-color 0.2s,
-    background 0.2s;
-}
-
-.utility-btn:hover {
-  color: var(--ink);
-}
-
-.utility-btn.is-active {
-  color: var(--paper);
-  background: var(--ink);
-}
-
 .brand-link {
   width: min(100%, 960px);
-  padding-right: clamp(36px, 5vw, 64px);
-  text-align: right;
+  padding: 16px clamp(36px, 5vw, 64px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   font-size: 12px;
   color: var(--silver);
 }
@@ -209,6 +176,39 @@ h3,
 .brand-link a:hover {
   opacity: 1;
   color: var(--ink);
+}
+
+.footer-tools {
+  display: flex;
+  gap: 4px;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--silver);
+  font-family: "JetBrains Mono Variable", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.footer-btn:hover {
+  color: var(--ink);
+}
+
+.footer-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 /* ── INTRO HEADER ── */
@@ -811,12 +811,6 @@ h1 {
     padding-top: 20px;
   }
 
-  /* Utility row sits right above the tabs — keep it close to the top edge */
-  .utility-row {
-    top: 12px;
-    right: 16px;
-  }
-
   .mode-btn {
     min-width: 0;
     padding: 0;
@@ -832,6 +826,11 @@ h1 {
 
   /* Hex input + pipette aren't useful on phone (no hardware keyboard, no EyeDropper) */
   .hex-field {
+    display: none;
+  }
+
+  /* Content hidden on phone (e.g. About panel's "paste a hex code" hint) */
+  .desktop-only {
     display: none;
   }
 }
