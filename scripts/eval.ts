@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
@@ -77,6 +77,7 @@ async function main() {
   const snapshotExists = existsSync(snapshotPath);
 
   if (updateSnapshot) {
+    mkdirSync(dirname(snapshotPath), { recursive: true });
     writeFileSync(snapshotPath, formatSnapshot(snapshot));
     process.stderr.write(`Wrote snapshot ${snapshotPath.replace(`${ROOT}/`, "")}\n`);
     process.exit(0);

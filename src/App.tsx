@@ -16,6 +16,7 @@ import type { SampleSource } from "@/components/kernel-preview";
 import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
+import colorsCsv from "@/generated/colors-small.csv?raw";
 import {
   type ColorReference,
   getClosestColors,
@@ -32,7 +33,6 @@ import {
   saveLastColor,
   saveSettings,
 } from "@/lib/settings";
-import colorsCsv from "../guidance/references/colors.csv?raw";
 
 type PickerMode = "swatch" | "image" | "camera";
 type View = "picker" | "settings" | "about";

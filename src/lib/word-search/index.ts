@@ -13,15 +13,22 @@ export type SearchOptions = {
   threshold?: number;
 };
 
-/** Phase 0 stub. Real impl arrives in Phase 1A. */
 export async function searchByWord(
   query: string,
-  _library: ColorReference[],
-  _tfidf: TfidfIndex,
-  _embedder: Embedder = NullEmbedder,
-  _options: SearchOptions = {},
+  library: ColorReference[],
+  tfidf: TfidfIndex,
+  embedder: Embedder = NullEmbedder,
+  options: SearchOptions = {},
 ): Promise<WordSearchResult[]> {
-  void tokenize(query);
-  void queryTfidf;
-  return [];
+  const tokens = tokenize(query);
+  if (tokens.length === 0) return [];
+
+  const topN = options.topN ?? 3;
+  const hits = queryTfidf(tfidf, tokens, topN);
+
+  return hits.map((hit) => ({
+    ...library[hit.colorIndex],
+    score: hit.score,
+    engineId: embedder.id,
+  }));
 }

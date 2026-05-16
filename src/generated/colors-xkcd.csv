@@ -1,0 +1,928 @@
+id,name,hex,r,g,b
+acid_green,"Acid Green",#8ffe09,143,254,9
+adobe,"Adobe",#bd6c48,189,108,72
+algae,"Algae",#54ac68,84,172,104
+algae_green,"Algae Green",#21c36f,33,195,111
+almost_black,"Almost Black",#070d0d,7,13,13
+amber,"Amber",#feb308,254,179,8
+amethyst,"Amethyst",#9b5fc0,155,95,192
+apple,"Apple",#6ecb3c,110,203,60
+apple_green,"Apple Green",#76cd26,118,205,38
+apricot,"Apricot",#ffb16d,255,177,109
+aqua,"Aqua",#13eac9,19,234,201
+aqua_blue,"Aqua Blue",#02d8e9,2,216,233
+aqua_green,"Aqua Green",#12e193,18,225,147
+aqua_marine,"Aqua Marine",#2ee8bb,46,232,187
+aquamarine,"Aquamarine",#04d8b2,4,216,178
+army_green,"Army Green",#4b5d16,75,93,22
+asparagus,"Asparagus",#77ab56,119,171,86
+aubergine,"Aubergine",#3d0734,61,7,52
+auburn,"Auburn",#9a3001,154,48,1
+avocado,"Avocado",#90b134,144,177,52
+avocado_green,"Avocado Green",#87a922,135,169,34
+azul,"Azul",#1d5dec,29,93,236
+azure,"Azure",#069af3,6,154,243
+baby_blue,"Baby Blue",#a2cffe,162,207,254
+baby_green,"Baby Green",#8cff9e,140,255,158
+baby_pink,"Baby Pink",#ffb7ce,255,183,206
+baby_poo,"Baby Poo",#ab9004,171,144,4
+baby_puke_green,"Baby Puke Green",#b6c406,182,196,6
+baby_purple,"Baby Purple",#ca9bf7,202,155,247
+banana,"Banana",#ffff7e,255,255,126
+banana_yellow,"Banana Yellow",#fafe4b,250,254,75
+barbie_pink,"Barbie Pink",#fe46a5,254,70,165
+barf_green,"Barf Green",#94ac02,148,172,2
+barney,"Barney",#ac1db8,172,29,184
+barney_purple,"Barney Purple",#a00498,160,4,152
+battleship_grey,"Battleship Grey",#6b7c85,107,124,133
+beige,"Beige",#e6daa6,230,218,166
+berry,"Berry",#990f4b,153,15,75
+bile,"Bile",#b5c306,181,195,6
+black,"Black",#000000,0,0,0
+bland,"Bland",#afa88b,175,168,139
+blood,"Blood",#770001,119,0,1
+blood_orange,"Blood Orange",#fe4b03,254,75,3
+blood_red,"Blood Red",#980002,152,0,2
+blue,"Blue",#0343df,3,67,223
+blue_blue,"Blue Blue",#2242c7,34,66,199
+blue_green,"Blue/green",#0f9b8e,15,155,142
+blue_green,"Blue Green",#137e6d,19,126,109
+blue_grey,"Blue/grey",#758da3,117,141,163
+blue_grey,"Blue Grey",#607c8e,96,124,142
+blue_purple,"Blue/purple",#5a06ef,90,6,239
+blue_purple,"Blue Purple",#5729ce,87,41,206
+blue_violet,"Blue Violet",#5d06e9,93,6,233
+blue_with_a_hint_of_purple,"Blue With A Hint Of Purple",#533cc6,83,60,198
+blueberry,"Blueberry",#464196,70,65,150
+bluegreen,"Bluegreen",#017a79,1,122,121
+bluegrey,"Bluegrey",#85a3b2,133,163,178
+bluey_green,"Bluey Green",#2bb179,43,177,121
+bluey_grey,"Bluey Grey",#89a0b0,137,160,176
+bluey_purple,"Bluey Purple",#6241c7,98,65,199
+bluish,"Bluish",#2976bb,41,118,187
+bluish_green,"Bluish Green",#10a674,16,166,116
+bluish_grey,"Bluish Grey",#748b97,116,139,151
+bluish_purple,"Bluish Purple",#703be7,112,59,231
+blurple,"Blurple",#5539cc,85,57,204
+blush,"Blush",#f29e8e,242,158,142
+blush_pink,"Blush Pink",#fe828c,254,130,140
+booger,"Booger",#9bb53c,155,181,60
+booger_green,"Booger Green",#96b403,150,180,3
+bordeaux,"Bordeaux",#7b002c,123,0,44
+boring_green,"Boring Green",#63b365,99,179,101
+bottle_green,"Bottle Green",#044a05,4,74,5
+brick,"Brick",#a03623,160,54,35
+brick_orange,"Brick Orange",#c14a09,193,74,9
+brick_red,"Brick Red",#8f1402,143,20,2
+bright_aqua,"Bright Aqua",#0bf9ea,11,249,234
+bright_blue,"Bright Blue",#0165fc,1,101,252
+bright_cyan,"Bright Cyan",#41fdfe,65,253,254
+bright_green,"Bright Green",#01ff07,1,255,7
+bright_lavender,"Bright Lavender",#c760ff,199,96,255
+bright_light_blue,"Bright Light Blue",#26f7fd,38,247,253
+bright_light_green,"Bright Light Green",#2dfe54,45,254,84
+bright_lilac,"Bright Lilac",#c95efb,201,94,251
+bright_lime,"Bright Lime",#87fd05,135,253,5
+bright_lime_green,"Bright Lime Green",#65fe08,101,254,8
+bright_magenta,"Bright Magenta",#ff08e8,255,8,232
+bright_olive,"Bright Olive",#9cbb04,156,187,4
+bright_orange,"Bright Orange",#ff5b00,255,91,0
+bright_pink,"Bright Pink",#fe01b1,254,1,177
+bright_purple,"Bright Purple",#be03fd,190,3,253
+bright_red,"Bright Red",#ff000d,255,0,13
+bright_sea_green,"Bright Sea Green",#05ffa6,5,255,166
+bright_sky_blue,"Bright Sky Blue",#02ccfe,2,204,254
+bright_teal,"Bright Teal",#01f9c6,1,249,198
+bright_turquoise,"Bright Turquoise",#0ffef9,15,254,249
+bright_violet,"Bright Violet",#ad0afd,173,10,253
+bright_yellow,"Bright Yellow",#fffd01,255,253,1
+bright_yellow_green,"Bright Yellow Green",#9dff00,157,255,0
+british_racing_green,"British Racing Green",#05480d,5,72,13
+bronze,"Bronze",#a87900,168,121,0
+brown,"Brown",#653700,101,55,0
+brown_green,"Brown Green",#706c11,112,108,17
+brown_grey,"Brown Grey",#8d8468,141,132,104
+brown_orange,"Brown Orange",#b96902,185,105,2
+brown_red,"Brown Red",#922b05,146,43,5
+brown_yellow,"Brown Yellow",#b29705,178,151,5
+brownish,"Brownish",#9c6d57,156,109,87
+brownish_green,"Brownish Green",#6a6e09,106,110,9
+brownish_grey,"Brownish Grey",#86775f,134,119,95
+brownish_orange,"Brownish Orange",#cb7723,203,119,35
+brownish_pink,"Brownish Pink",#c27e79,194,126,121
+brownish_purple,"Brownish Purple",#76424e,118,66,78
+brownish_red,"Brownish Red",#9e3623,158,54,35
+brownish_yellow,"Brownish Yellow",#c9b003,201,176,3
+browny_green,"Browny Green",#6f6c0a,111,108,10
+browny_orange,"Browny Orange",#ca6b02,202,107,2
+bruise,"Bruise",#7e4071,126,64,113
+bubble_gum_pink,"Bubble Gum Pink",#ff69af,255,105,175
+bubblegum,"Bubblegum",#ff6cb5,255,108,181
+bubblegum_pink,"Bubblegum Pink",#fe83cc,254,131,204
+buff,"Buff",#fef69e,254,246,158
+burgundy,"Burgundy",#610023,97,0,35
+burnt_orange,"Burnt Orange",#c04e01,192,78,1
+burnt_red,"Burnt Red",#9f2305,159,35,5
+burnt_siena,"Burnt Siena",#b75203,183,82,3
+burnt_sienna,"Burnt Sienna",#b04e0f,176,78,15
+burnt_umber,"Burnt Umber",#a0450e,160,69,14
+burnt_yellow,"Burnt Yellow",#d5ab09,213,171,9
+burple,"Burple",#6832e3,104,50,227
+butter,"Butter",#ffff81,255,255,129
+butter_yellow,"Butter Yellow",#fffd74,255,253,116
+butterscotch,"Butterscotch",#fdb147,253,177,71
+cadet_blue,"Cadet Blue",#4e7496,78,116,150
+camel,"Camel",#c69f59,198,159,89
+camo,"Camo",#7f8f4e,127,143,78
+camo_green,"Camo Green",#526525,82,101,37
+camouflage_green,"Camouflage Green",#4b6113,75,97,19
+canary,"Canary",#fdff63,253,255,99
+canary_yellow,"Canary Yellow",#fffe40,255,254,64
+candy_pink,"Candy Pink",#ff63e9,255,99,233
+caramel,"Caramel",#af6f09,175,111,9
+carmine,"Carmine",#9d0216,157,2,22
+carnation,"Carnation",#fd798f,253,121,143
+carnation_pink,"Carnation Pink",#ff7fa7,255,127,167
+carolina_blue,"Carolina Blue",#8ab8fe,138,184,254
+celadon,"Celadon",#befdb7,190,253,183
+celery,"Celery",#c1fd95,193,253,149
+cement,"Cement",#a5a391,165,163,145
+cerise,"Cerise",#de0c62,222,12,98
+cerulean,"Cerulean",#0485d1,4,133,209
+cerulean_blue,"Cerulean Blue",#056eee,5,110,238
+charcoal,"Charcoal",#343837,52,56,55
+charcoal_grey,"Charcoal Grey",#3c4142,60,65,66
+chartreuse,"Chartreuse",#c1f80a,193,248,10
+cherry,"Cherry",#cf0234,207,2,52
+cherry_red,"Cherry Red",#f7022a,247,2,42
+chestnut,"Chestnut",#742802,116,40,2
+chocolate,"Chocolate",#3d1c02,61,28,2
+chocolate_brown,"Chocolate Brown",#411900,65,25,0
+cinnamon,"Cinnamon",#ac4f06,172,79,6
+claret,"Claret",#680018,104,0,24
+clay,"Clay",#b66a50,182,106,80
+clay_brown,"Clay Brown",#b2713d,178,113,61
+clear_blue,"Clear Blue",#247afd,36,122,253
+cloudy_blue,"Cloudy Blue",#acc2d9,172,194,217
+cobalt,"Cobalt",#1e488f,30,72,143
+cobalt_blue,"Cobalt Blue",#030aa7,3,10,167
+cocoa,"Cocoa",#875f42,135,95,66
+coffee,"Coffee",#a6814c,166,129,76
+cool_blue,"Cool Blue",#4984b8,73,132,184
+cool_green,"Cool Green",#33b864,51,184,100
+cool_grey,"Cool Grey",#95a3a6,149,163,166
+copper,"Copper",#b66325,182,99,37
+coral,"Coral",#fc5a50,252,90,80
+coral_pink,"Coral Pink",#ff6163,255,97,99
+cornflower,"Cornflower",#6a79f7,106,121,247
+cornflower_blue,"Cornflower Blue",#5170d7,81,112,215
+cranberry,"Cranberry",#9e003a,158,0,58
+cream,"Cream",#ffffc2,255,255,194
+creme,"Creme",#ffffb6,255,255,182
+crimson,"Crimson",#8c000f,140,0,15
+custard,"Custard",#fffd78,255,253,120
+cyan,"Cyan",#00ffff,0,255,255
+dandelion,"Dandelion",#fedf08,254,223,8
+dark,"Dark",#1b2431,27,36,49
+dark_aqua,"Dark Aqua",#05696b,5,105,107
+dark_aquamarine,"Dark Aquamarine",#017371,1,115,113
+dark_beige,"Dark Beige",#ac9362,172,147,98
+dark_blue,"Dark Blue",#00035b,0,3,91
+dark_blue_green,"Dark Blue Green",#005249,0,82,73
+dark_blue_grey,"Dark Blue Grey",#1f3b4d,31,59,77
+dark_brown,"Dark Brown",#341c02,52,28,2
+dark_coral,"Dark Coral",#cf524e,207,82,78
+dark_cream,"Dark Cream",#fff39a,255,243,154
+dark_cyan,"Dark Cyan",#0a888a,10,136,138
+dark_forest_green,"Dark Forest Green",#002d04,0,45,4
+dark_fuchsia,"Dark Fuchsia",#9d0759,157,7,89
+dark_gold,"Dark Gold",#b59410,181,148,16
+dark_grass_green,"Dark Grass Green",#388004,56,128,4
+dark_green,"Dark Green",#033500,3,53,0
+dark_green_blue,"Dark Green Blue",#1f6357,31,99,87
+dark_grey,"Dark Grey",#363737,54,55,55
+dark_grey_blue,"Dark Grey Blue",#29465b,41,70,91
+dark_hot_pink,"Dark Hot Pink",#d90166,217,1,102
+dark_indigo,"Dark Indigo",#1f0954,31,9,84
+dark_khaki,"Dark Khaki",#9b8f55,155,143,85
+dark_lavender,"Dark Lavender",#856798,133,103,152
+dark_lilac,"Dark Lilac",#9c6da5,156,109,165
+dark_lime,"Dark Lime",#84b701,132,183,1
+dark_lime_green,"Dark Lime Green",#7ebd01,126,189,1
+dark_magenta,"Dark Magenta",#960056,150,0,86
+dark_maroon,"Dark Maroon",#3c0008,60,0,8
+dark_mauve,"Dark Mauve",#874c62,135,76,98
+dark_mint,"Dark Mint",#48c072,72,192,114
+dark_mint_green,"Dark Mint Green",#20c073,32,192,115
+dark_mustard,"Dark Mustard",#a88905,168,137,5
+dark_navy,"Dark Navy",#000435,0,4,53
+dark_navy_blue,"Dark Navy Blue",#00022e,0,2,46
+dark_olive,"Dark Olive",#373e02,55,62,2
+dark_olive_green,"Dark Olive Green",#3c4d03,60,77,3
+dark_orange,"Dark Orange",#c65102,198,81,2
+dark_pastel_green,"Dark Pastel Green",#56ae57,86,174,87
+dark_peach,"Dark Peach",#de7e5d,222,126,93
+dark_periwinkle,"Dark Periwinkle",#665fd1,102,95,209
+dark_pink,"Dark Pink",#cb416b,203,65,107
+dark_plum,"Dark Plum",#3f012c,63,1,44
+dark_purple,"Dark Purple",#35063e,53,6,62
+dark_red,"Dark Red",#840000,132,0,0
+dark_rose,"Dark Rose",#b5485d,181,72,93
+dark_royal_blue,"Dark Royal Blue",#02066f,2,6,111
+dark_sage,"Dark Sage",#598556,89,133,86
+dark_salmon,"Dark Salmon",#c85a53,200,90,83
+dark_sand,"Dark Sand",#a88f59,168,143,89
+dark_sea_green,"Dark Sea Green",#11875d,17,135,93
+dark_seafoam,"Dark Seafoam",#1fb57a,31,181,122
+dark_seafoam_green,"Dark Seafoam Green",#3eaf76,62,175,118
+dark_sky_blue,"Dark Sky Blue",#448ee4,68,142,228
+dark_slate_blue,"Dark Slate Blue",#214761,33,71,97
+dark_tan,"Dark Tan",#af884a,175,136,74
+dark_taupe,"Dark Taupe",#7f684e,127,104,78
+dark_teal,"Dark Teal",#014d4e,1,77,78
+dark_turquoise,"Dark Turquoise",#045c5a,4,92,90
+dark_violet,"Dark Violet",#34013f,52,1,63
+dark_yellow,"Dark Yellow",#d5b60a,213,182,10
+dark_yellow_green,"Dark Yellow Green",#728f02,114,143,2
+darkblue,"Darkblue",#030764,3,7,100
+darkgreen,"Darkgreen",#054907,5,73,7
+darkish_blue,"Darkish Blue",#014182,1,65,130
+darkish_green,"Darkish Green",#287c37,40,124,55
+darkish_pink,"Darkish Pink",#da467d,218,70,125
+darkish_purple,"Darkish Purple",#751973,117,25,115
+darkish_red,"Darkish Red",#a90308,169,3,8
+deep_aqua,"Deep Aqua",#08787f,8,120,127
+deep_blue,"Deep Blue",#040273,4,2,115
+deep_brown,"Deep Brown",#410200,65,2,0
+deep_green,"Deep Green",#02590f,2,89,15
+deep_lavender,"Deep Lavender",#8d5eb7,141,94,183
+deep_lilac,"Deep Lilac",#966ebd,150,110,189
+deep_magenta,"Deep Magenta",#a0025c,160,2,92
+deep_orange,"Deep Orange",#dc4d01,220,77,1
+deep_pink,"Deep Pink",#cb0162,203,1,98
+deep_purple,"Deep Purple",#36013f,54,1,63
+deep_red,"Deep Red",#9a0200,154,2,0
+deep_rose,"Deep Rose",#c74767,199,71,103
+deep_sea_blue,"Deep Sea Blue",#015482,1,84,130
+deep_sky_blue,"Deep Sky Blue",#0d75f8,13,117,248
+deep_teal,"Deep Teal",#00555a,0,85,90
+deep_turquoise,"Deep Turquoise",#017374,1,115,116
+deep_violet,"Deep Violet",#490648,73,6,72
+denim,"Denim",#3b638c,59,99,140
+denim_blue,"Denim Blue",#3b5b92,59,91,146
+desert,"Desert",#ccad60,204,173,96
+dirt,"Dirt",#8a6e45,138,110,69
+dirt_brown,"Dirt Brown",#836539,131,101,57
+dirty_blue,"Dirty Blue",#3f829d,63,130,157
+dirty_green,"Dirty Green",#667e2c,102,126,44
+dirty_orange,"Dirty Orange",#c87606,200,118,6
+dirty_pink,"Dirty Pink",#ca7b80,202,123,128
+dirty_purple,"Dirty Purple",#734a65,115,74,101
+dirty_yellow,"Dirty Yellow",#cdc50a,205,197,10
+dodger_blue,"Dodger Blue",#3e82fc,62,130,252
+drab,"Drab",#828344,130,131,68
+drab_green,"Drab Green",#749551,116,149,81
+dried_blood,"Dried Blood",#4b0101,75,1,1
+duck_egg_blue,"Duck Egg Blue",#c3fbf4,195,251,244
+dull_blue,"Dull Blue",#49759c,73,117,156
+dull_brown,"Dull Brown",#876e4b,135,110,75
+dull_green,"Dull Green",#74a662,116,166,98
+dull_orange,"Dull Orange",#d8863b,216,134,59
+dull_pink,"Dull Pink",#d5869d,213,134,157
+dull_purple,"Dull Purple",#84597e,132,89,126
+dull_red,"Dull Red",#bb3f3f,187,63,63
+dull_teal,"Dull Teal",#5f9e8f,95,158,143
+dull_yellow,"Dull Yellow",#eedc5b,238,220,91
+dusk,"Dusk",#4e5481,78,84,129
+dusk_blue,"Dusk Blue",#26538d,38,83,141
+dusky_blue,"Dusky Blue",#475f94,71,95,148
+dusky_pink,"Dusky Pink",#cc7a8b,204,122,139
+dusky_purple,"Dusky Purple",#895b7b,137,91,123
+dusky_rose,"Dusky Rose",#ba6873,186,104,115
+dust,"Dust",#b2996e,178,153,110
+dusty_blue,"Dusty Blue",#5a86ad,90,134,173
+dusty_green,"Dusty Green",#76a973,118,169,115
+dusty_lavender,"Dusty Lavender",#ac86a8,172,134,168
+dusty_orange,"Dusty Orange",#f0833a,240,131,58
+dusty_pink,"Dusty Pink",#d58a94,213,138,148
+dusty_purple,"Dusty Purple",#825f87,130,95,135
+dusty_red,"Dusty Red",#b9484e,185,72,78
+dusty_rose,"Dusty Rose",#c0737a,192,115,122
+dusty_teal,"Dusty Teal",#4c9085,76,144,133
+earth,"Earth",#a2653e,162,101,62
+easter_green,"Easter Green",#8cfd7e,140,253,126
+easter_purple,"Easter Purple",#c071fe,192,113,254
+ecru,"Ecru",#feffca,254,255,202
+egg_shell,"Egg Shell",#fffcc4,255,252,196
+eggplant,"Eggplant",#380835,56,8,53
+eggplant_purple,"Eggplant Purple",#430541,67,5,65
+eggshell,"Eggshell",#ffffd4,255,255,212
+eggshell_blue,"Eggshell Blue",#c4fff7,196,255,247
+electric_blue,"Electric Blue",#0652ff,6,82,255
+electric_green,"Electric Green",#21fc0d,33,252,13
+electric_lime,"Electric Lime",#a8ff04,168,255,4
+electric_pink,"Electric Pink",#ff0490,255,4,144
+electric_purple,"Electric Purple",#aa23ff,170,35,255
+emerald,"Emerald",#01a049,1,160,73
+emerald_green,"Emerald Green",#028f1e,2,143,30
+evergreen,"Evergreen",#05472a,5,71,42
+faded_blue,"Faded Blue",#658cbb,101,140,187
+faded_green,"Faded Green",#7bb274,123,178,116
+faded_orange,"Faded Orange",#f0944d,240,148,77
+faded_pink,"Faded Pink",#de9dac,222,157,172
+faded_purple,"Faded Purple",#916e99,145,110,153
+faded_red,"Faded Red",#d3494e,211,73,78
+faded_yellow,"Faded Yellow",#feff7f,254,255,127
+fawn,"Fawn",#cfaf7b,207,175,123
+fern,"Fern",#63a950,99,169,80
+fern_green,"Fern Green",#548d44,84,141,68
+fire_engine_red,"Fire Engine Red",#fe0002,254,0,2
+flat_blue,"Flat Blue",#3c73a8,60,115,168
+flat_green,"Flat Green",#699d4c,105,157,76
+fluorescent_green,"Fluorescent Green",#08ff08,8,255,8
+fluro_green,"Fluro Green",#0aff02,10,255,2
+foam_green,"Foam Green",#90fda9,144,253,169
+forest,"Forest",#0b5509,11,85,9
+forest_green,"Forest Green",#06470c,6,71,12
+forrest_green,"Forrest Green",#154406,21,68,6
+french_blue,"French Blue",#436bad,67,107,173
+fresh_green,"Fresh Green",#69d84f,105,216,79
+frog_green,"Frog Green",#58bc08,88,188,8
+fuchsia,"Fuchsia",#ed0dd9,237,13,217
+gold,"Gold",#dbb40c,219,180,12
+golden,"Golden",#f5bf03,245,191,3
+golden_brown,"Golden Brown",#b27a01,178,122,1
+golden_rod,"Golden Rod",#f9bc08,249,188,8
+golden_yellow,"Golden Yellow",#fec615,254,198,21
+goldenrod,"Goldenrod",#fac205,250,194,5
+grape,"Grape",#6c3461,108,52,97
+grape_purple,"Grape Purple",#5d1451,93,20,81
+grapefruit,"Grapefruit",#fd5956,253,89,86
+grass,"Grass",#5cac2d,92,172,45
+grass_green,"Grass Green",#3f9b0b,63,155,11
+grassy_green,"Grassy Green",#419c03,65,156,3
+green,"Green",#15b01a,21,176,26
+green_apple,"Green Apple",#5edc1f,94,220,31
+green_blue,"Green/blue",#01c08d,1,192,141
+green_blue,"Green Blue",#06b48b,6,180,139
+green_brown,"Green Brown",#544e03,84,78,3
+green_grey,"Green Grey",#77926f,119,146,111
+green_teal,"Green Teal",#0cb577,12,181,119
+green_yellow,"Green/yellow",#b5ce08,181,206,8
+green_yellow,"Green Yellow",#c9ff27,201,255,39
+greenblue,"Greenblue",#23c48b,35,196,139
+greenish,"Greenish",#40a368,64,163,104
+greenish_beige,"Greenish Beige",#c9d179,201,209,121
+greenish_blue,"Greenish Blue",#0b8b87,11,139,135
+greenish_brown,"Greenish Brown",#696112,105,97,18
+greenish_cyan,"Greenish Cyan",#2afeb7,42,254,183
+greenish_grey,"Greenish Grey",#96ae8d,150,174,141
+greenish_tan,"Greenish Tan",#bccb7a,188,203,122
+greenish_teal,"Greenish Teal",#32bf84,50,191,132
+greenish_turquoise,"Greenish Turquoise",#00fbb0,0,251,176
+greenish_yellow,"Greenish Yellow",#cdfd02,205,253,2
+greeny_blue,"Greeny Blue",#42b395,66,179,149
+greeny_brown,"Greeny Brown",#696006,105,96,6
+greeny_grey,"Greeny Grey",#7ea07a,126,160,122
+greeny_yellow,"Greeny Yellow",#c6f808,198,248,8
+grey,"Grey",#929591,146,149,145
+grey_blue,"Grey/blue",#647d8e,100,125,142
+grey_blue,"Grey Blue",#6b8ba4,107,139,164
+grey_brown,"Grey Brown",#7f7053,127,112,83
+grey_green,"Grey/green",#86a17d,134,161,125
+grey_green,"Grey Green",#789b73,120,155,115
+grey_pink,"Grey Pink",#c3909b,195,144,155
+grey_purple,"Grey Purple",#826d8c,130,109,140
+grey_teal,"Grey Teal",#5e9b8a,94,155,138
+greyblue,"Greyblue",#77a1b5,119,161,181
+greyish,"Greyish",#a8a495,168,164,149
+greyish_blue,"Greyish Blue",#5e819d,94,129,157
+greyish_brown,"Greyish Brown",#7a6a4f,122,106,79
+greyish_green,"Greyish Green",#82a67d,130,166,125
+greyish_pink,"Greyish Pink",#c88d94,200,141,148
+greyish_purple,"Greyish Purple",#887191,136,113,145
+greyish_teal,"Greyish Teal",#719f91,113,159,145
+gross_green,"Gross Green",#a0bf16,160,191,22
+gunmetal,"Gunmetal",#536267,83,98,103
+hazel,"Hazel",#8e7618,142,118,24
+heather,"Heather",#a484ac,164,132,172
+heliotrope,"Heliotrope",#d94ff5,217,79,245
+highlighter_green,"Highlighter Green",#1bfc06,27,252,6
+hospital_green,"Hospital Green",#9be5aa,155,229,170
+hot_green,"Hot Green",#25ff29,37,255,41
+hot_magenta,"Hot Magenta",#f504c9,245,4,201
+hot_pink,"Hot Pink",#ff028d,255,2,141
+hot_purple,"Hot Purple",#cb00f5,203,0,245
+hunter_green,"Hunter Green",#0b4008,11,64,8
+ice,"Ice",#d6fffa,214,255,250
+ice_blue,"Ice Blue",#d7fffe,215,255,254
+icky_green,"Icky Green",#8fae22,143,174,34
+indian_red,"Indian Red",#850e04,133,14,4
+indigo,"Indigo",#380282,56,2,130
+indigo_blue,"Indigo Blue",#3a18b1,58,24,177
+iris,"Iris",#6258c4,98,88,196
+irish_green,"Irish Green",#019529,1,149,41
+ivory,"Ivory",#ffffcb,255,255,203
+jade,"Jade",#1fa774,31,167,116
+jade_green,"Jade Green",#2baf6a,43,175,106
+jungle_green,"Jungle Green",#048243,4,130,67
+kelley_green,"Kelley Green",#009337,0,147,55
+kelly_green,"Kelly Green",#02ab2e,2,171,46
+kermit_green,"Kermit Green",#5cb200,92,178,0
+key_lime,"Key Lime",#aeff6e,174,255,110
+khaki,"Khaki",#aaa662,170,166,98
+khaki_green,"Khaki Green",#728639,114,134,57
+kiwi,"Kiwi",#9cef43,156,239,67
+kiwi_green,"Kiwi Green",#8ee53f,142,229,63
+lavender,"Lavender",#c79fef,199,159,239
+lavender_blue,"Lavender Blue",#8b88f8,139,136,248
+lavender_pink,"Lavender Pink",#dd85d7,221,133,215
+lawn_green,"Lawn Green",#4da409,77,164,9
+leaf,"Leaf",#71aa34,113,170,52
+leaf_green,"Leaf Green",#5ca904,92,169,4
+leafy_green,"Leafy Green",#51b73b,81,183,59
+leather,"Leather",#ac7434,172,116,52
+lemon,"Lemon",#fdff52,253,255,82
+lemon_green,"Lemon Green",#adf802,173,248,2
+lemon_lime,"Lemon Lime",#bffe28,191,254,40
+lemon_yellow,"Lemon Yellow",#fdff38,253,255,56
+lichen,"Lichen",#8fb67b,143,182,123
+light_aqua,"Light Aqua",#8cffdb,140,255,219
+light_aquamarine,"Light Aquamarine",#7bfdc7,123,253,199
+light_beige,"Light Beige",#fffeb6,255,254,182
+light_blue,"Light Blue",#95d0fc,149,208,252
+light_blue_green,"Light Blue Green",#7efbb3,126,251,179
+light_blue_grey,"Light Blue Grey",#b7c9e2,183,201,226
+light_bluish_green,"Light Bluish Green",#76fda8,118,253,168
+light_bright_green,"Light Bright Green",#53fe5c,83,254,92
+light_brown,"Light Brown",#ad8150,173,129,80
+light_burgundy,"Light Burgundy",#a8415b,168,65,91
+light_cyan,"Light Cyan",#acfffc,172,255,252
+light_eggplant,"Light Eggplant",#894585,137,69,133
+light_forest_green,"Light Forest Green",#4f9153,79,145,83
+light_gold,"Light Gold",#fddc5c,253,220,92
+light_grass_green,"Light Grass Green",#9af764,154,247,100
+light_green,"Light Green",#96f97b,150,249,123
+light_green_blue,"Light Green Blue",#56fca2,86,252,162
+light_greenish_blue,"Light Greenish Blue",#63f7b4,99,247,180
+light_grey,"Light Grey",#d8dcd6,216,220,214
+light_grey_blue,"Light Grey Blue",#9dbcd4,157,188,212
+light_grey_green,"Light Grey Green",#b7e1a1,183,225,161
+light_indigo,"Light Indigo",#6d5acf,109,90,207
+light_khaki,"Light Khaki",#e6f2a2,230,242,162
+light_lavendar,"Light Lavendar",#efc0fe,239,192,254
+light_lavender,"Light Lavender",#dfc5fe,223,197,254
+light_light_blue,"Light Light Blue",#cafffb,202,255,251
+light_light_green,"Light Light Green",#c8ffb0,200,255,176
+light_lilac,"Light Lilac",#edc8ff,237,200,255
+light_lime,"Light Lime",#aefd6c,174,253,108
+light_lime_green,"Light Lime Green",#b9ff66,185,255,102
+light_magenta,"Light Magenta",#fa5ff7,250,95,247
+light_maroon,"Light Maroon",#a24857,162,72,87
+light_mauve,"Light Mauve",#c292a1,194,146,161
+light_mint,"Light Mint",#b6ffbb,182,255,187
+light_mint_green,"Light Mint Green",#a6fbb2,166,251,178
+light_moss_green,"Light Moss Green",#a6c875,166,200,117
+light_mustard,"Light Mustard",#f7d560,247,213,96
+light_navy,"Light Navy",#155084,21,80,132
+light_navy_blue,"Light Navy Blue",#2e5a88,46,90,136
+light_neon_green,"Light Neon Green",#4efd54,78,253,84
+light_olive,"Light Olive",#acbf69,172,191,105
+light_olive_green,"Light Olive Green",#a4be5c,164,190,92
+light_orange,"Light Orange",#fdaa48,253,170,72
+light_pastel_green,"Light Pastel Green",#b2fba5,178,251,165
+light_pea_green,"Light Pea Green",#c4fe82,196,254,130
+light_peach,"Light Peach",#ffd8b1,255,216,177
+light_periwinkle,"Light Periwinkle",#c1c6fc,193,198,252
+light_pink,"Light Pink",#ffd1df,255,209,223
+light_plum,"Light Plum",#9d5783,157,87,131
+light_purple,"Light Purple",#bf77f6,191,119,246
+light_red,"Light Red",#ff474c,255,71,76
+light_rose,"Light Rose",#ffc5cb,255,197,203
+light_royal_blue,"Light Royal Blue",#3a2efe,58,46,254
+light_sage,"Light Sage",#bcecac,188,236,172
+light_salmon,"Light Salmon",#fea993,254,169,147
+light_sea_green,"Light Sea Green",#98f6b0,152,246,176
+light_seafoam,"Light Seafoam",#a0febf,160,254,191
+light_seafoam_green,"Light Seafoam Green",#a7ffb5,167,255,181
+light_sky_blue,"Light Sky Blue",#c6fcff,198,252,255
+light_tan,"Light Tan",#fbeeac,251,238,172
+light_teal,"Light Teal",#90e4c1,144,228,193
+light_turquoise,"Light Turquoise",#7ef4cc,126,244,204
+light_urple,"Light Urple",#b36ff6,179,111,246
+light_violet,"Light Violet",#d6b4fc,214,180,252
+light_yellow,"Light Yellow",#fffe7a,255,254,122
+light_yellow_green,"Light Yellow Green",#ccfd7f,204,253,127
+light_yellowish_green,"Light Yellowish Green",#c2ff89,194,255,137
+lightblue,"Lightblue",#7bc8f6,123,200,246
+lighter_green,"Lighter Green",#75fd63,117,253,99
+lighter_purple,"Lighter Purple",#a55af4,165,90,244
+lightgreen,"Lightgreen",#76ff7b,118,255,123
+lightish_blue,"Lightish Blue",#3d7afd,61,122,253
+lightish_green,"Lightish Green",#61e160,97,225,96
+lightish_purple,"Lightish Purple",#a552e6,165,82,230
+lightish_red,"Lightish Red",#fe2f4a,254,47,74
+lilac,"Lilac",#cea2fd,206,162,253
+liliac,"Liliac",#c48efd,196,142,253
+lime,"Lime",#aaff32,170,255,50
+lime_green,"Lime Green",#89fe05,137,254,5
+lime_yellow,"Lime Yellow",#d0fe1d,208,254,29
+lipstick,"Lipstick",#d5174e,213,23,78
+lipstick_red,"Lipstick Red",#c0022f,192,2,47
+macaroni_and_cheese,"Macaroni And Cheese",#efb435,239,180,53
+magenta,"Magenta",#c20078,194,0,120
+mahogany,"Mahogany",#4a0100,74,1,0
+maize,"Maize",#f4d054,244,208,84
+mango,"Mango",#ffa62b,255,166,43
+manilla,"Manilla",#fffa86,255,250,134
+marigold,"Marigold",#fcc006,252,192,6
+marine,"Marine",#042e60,4,46,96
+marine_blue,"Marine Blue",#01386a,1,56,106
+maroon,"Maroon",#650021,101,0,33
+mauve,"Mauve",#ae7181,174,113,129
+medium_blue,"Medium Blue",#2c6fbb,44,111,187
+medium_brown,"Medium Brown",#7f5112,127,81,18
+medium_green,"Medium Green",#39ad48,57,173,72
+medium_grey,"Medium Grey",#7d7f7c,125,127,124
+medium_pink,"Medium Pink",#f36196,243,97,150
+medium_purple,"Medium Purple",#9e43a2,158,67,162
+melon,"Melon",#ff7855,255,120,85
+merlot,"Merlot",#730039,115,0,57
+metallic_blue,"Metallic Blue",#4f738e,79,115,142
+mid_blue,"Mid Blue",#276ab3,39,106,179
+mid_green,"Mid Green",#50a747,80,167,71
+midnight,"Midnight",#03012d,3,1,45
+midnight_blue,"Midnight Blue",#020035,2,0,53
+midnight_purple,"Midnight Purple",#280137,40,1,55
+military_green,"Military Green",#667c3e,102,124,62
+milk_chocolate,"Milk Chocolate",#7f4e1e,127,78,30
+mint,"Mint",#9ffeb0,159,254,176
+mint_green,"Mint Green",#8fff9f,143,255,159
+minty_green,"Minty Green",#0bf77d,11,247,125
+mocha,"Mocha",#9d7651,157,118,81
+moss,"Moss",#769958,118,153,88
+moss_green,"Moss Green",#658b38,101,139,56
+mossy_green,"Mossy Green",#638b27,99,139,39
+mud,"Mud",#735c12,115,92,18
+mud_brown,"Mud Brown",#60460f,96,70,15
+mud_green,"Mud Green",#606602,96,102,2
+muddy_brown,"Muddy Brown",#886806,136,104,6
+muddy_green,"Muddy Green",#657432,101,116,50
+muddy_yellow,"Muddy Yellow",#bfac05,191,172,5
+mulberry,"Mulberry",#920a4e,146,10,78
+murky_green,"Murky Green",#6c7a0e,108,122,14
+mushroom,"Mushroom",#ba9e88,186,158,136
+mustard,"Mustard",#ceb301,206,179,1
+mustard_brown,"Mustard Brown",#ac7e04,172,126,4
+mustard_green,"Mustard Green",#a8b504,168,181,4
+mustard_yellow,"Mustard Yellow",#d2bd0a,210,189,10
+muted_blue,"Muted Blue",#3b719f,59,113,159
+muted_green,"Muted Green",#5fa052,95,160,82
+muted_pink,"Muted Pink",#d1768f,209,118,143
+muted_purple,"Muted Purple",#805b87,128,91,135
+nasty_green,"Nasty Green",#70b23f,112,178,63
+navy,"Navy",#01153e,1,21,62
+navy_blue,"Navy Blue",#001146,0,17,70
+navy_green,"Navy Green",#35530a,53,83,10
+neon_blue,"Neon Blue",#04d9ff,4,217,255
+neon_green,"Neon Green",#0cff0c,12,255,12
+neon_pink,"Neon Pink",#fe019a,254,1,154
+neon_purple,"Neon Purple",#bc13fe,188,19,254
+neon_red,"Neon Red",#ff073a,255,7,58
+neon_yellow,"Neon Yellow",#cfff04,207,255,4
+nice_blue,"Nice Blue",#107ab0,16,122,176
+night_blue,"Night Blue",#040348,4,3,72
+ocean,"Ocean",#017b92,1,123,146
+ocean_blue,"Ocean Blue",#03719c,3,113,156
+ocean_green,"Ocean Green",#3d9973,61,153,115
+ocher,"Ocher",#bf9b0c,191,155,12
+ochre,"Ochre",#bf9005,191,144,5
+ocre,"Ocre",#c69c04,198,156,4
+off_blue,"Off Blue",#5684ae,86,132,174
+off_green,"Off Green",#6ba353,107,163,83
+off_white,"Off White",#ffffe4,255,255,228
+off_yellow,"Off Yellow",#f1f33f,241,243,63
+old_pink,"Old Pink",#c77986,199,121,134
+old_rose,"Old Rose",#c87f89,200,127,137
+olive,"Olive",#6e750e,110,117,14
+olive_brown,"Olive Brown",#645403,100,84,3
+olive_drab,"Olive Drab",#6f7632,111,118,50
+olive_green,"Olive Green",#677a04,103,122,4
+olive_yellow,"Olive Yellow",#c2b709,194,183,9
+orange,"Orange",#f97306,249,115,6
+orange_brown,"Orange Brown",#be6400,190,100,0
+orange_pink,"Orange Pink",#ff6f52,255,111,82
+orange_red,"Orange Red",#fd411e,253,65,30
+orange_yellow,"Orange Yellow",#ffad01,255,173,1
+orangeish,"Orangeish",#fd8d49,253,141,73
+orangered,"Orangered",#fe420f,254,66,15
+orangey_brown,"Orangey Brown",#b16002,177,96,2
+orangey_red,"Orangey Red",#fa4224,250,66,36
+orangey_yellow,"Orangey Yellow",#fdb915,253,185,21
+orangish,"Orangish",#fc824a,252,130,74
+orangish_brown,"Orangish Brown",#b25f03,178,95,3
+orangish_red,"Orangish Red",#f43605,244,54,5
+orchid,"Orchid",#c875c4,200,117,196
+pale,"Pale",#fff9d0,255,249,208
+pale_aqua,"Pale Aqua",#b8ffeb,184,255,235
+pale_blue,"Pale Blue",#d0fefe,208,254,254
+pale_brown,"Pale Brown",#b1916e,177,145,110
+pale_cyan,"Pale Cyan",#b7fffa,183,255,250
+pale_gold,"Pale Gold",#fdde6c,253,222,108
+pale_green,"Pale Green",#c7fdb5,199,253,181
+pale_grey,"Pale Grey",#fdfdfe,253,253,254
+pale_lavender,"Pale Lavender",#eecffe,238,207,254
+pale_light_green,"Pale Light Green",#b1fc99,177,252,153
+pale_lilac,"Pale Lilac",#e4cbff,228,203,255
+pale_lime,"Pale Lime",#befd73,190,253,115
+pale_lime_green,"Pale Lime Green",#b1ff65,177,255,101
+pale_magenta,"Pale Magenta",#d767ad,215,103,173
+pale_mauve,"Pale Mauve",#fed0fc,254,208,252
+pale_olive,"Pale Olive",#b9cc81,185,204,129
+pale_olive_green,"Pale Olive Green",#b1d27b,177,210,123
+pale_orange,"Pale Orange",#ffa756,255,167,86
+pale_peach,"Pale Peach",#ffe5ad,255,229,173
+pale_pink,"Pale Pink",#ffcfdc,255,207,220
+pale_purple,"Pale Purple",#b790d4,183,144,212
+pale_red,"Pale Red",#d9544d,217,84,77
+pale_rose,"Pale Rose",#fdc1c5,253,193,197
+pale_salmon,"Pale Salmon",#ffb19a,255,177,154
+pale_sky_blue,"Pale Sky Blue",#bdf6fe,189,246,254
+pale_teal,"Pale Teal",#82cbb2,130,203,178
+pale_turquoise,"Pale Turquoise",#a5fbd5,165,251,213
+pale_violet,"Pale Violet",#ceaefa,206,174,250
+pale_yellow,"Pale Yellow",#ffff84,255,255,132
+parchment,"Parchment",#fefcaf,254,252,175
+pastel_blue,"Pastel Blue",#a2bffe,162,191,254
+pastel_green,"Pastel Green",#b0ff9d,176,255,157
+pastel_orange,"Pastel Orange",#ff964f,255,150,79
+pastel_pink,"Pastel Pink",#ffbacd,255,186,205
+pastel_purple,"Pastel Purple",#caa0ff,202,160,255
+pastel_red,"Pastel Red",#db5856,219,88,86
+pastel_yellow,"Pastel Yellow",#fffe71,255,254,113
+pea,"Pea",#a4bf20,164,191,32
+pea_green,"Pea Green",#8eab12,142,171,18
+pea_soup,"Pea Soup",#929901,146,153,1
+pea_soup_green,"Pea Soup Green",#94a617,148,166,23
+peach,"Peach",#ffb07c,255,176,124
+peachy_pink,"Peachy Pink",#ff9a8a,255,154,138
+peacock_blue,"Peacock Blue",#016795,1,103,149
+pear,"Pear",#cbf85f,203,248,95
+periwinkle,"Periwinkle",#8e82fe,142,130,254
+periwinkle_blue,"Periwinkle Blue",#8f99fb,143,153,251
+perrywinkle,"Perrywinkle",#8f8ce7,143,140,231
+petrol,"Petrol",#005f6a,0,95,106
+pig_pink,"Pig Pink",#e78ea5,231,142,165
+pine,"Pine",#2b5d34,43,93,52
+pine_green,"Pine Green",#0a481e,10,72,30
+pink,"Pink",#ff81c0,255,129,192
+pink_purple,"Pink/purple",#ef1de7,239,29,231
+pink_purple,"Pink Purple",#db4bda,219,75,218
+pink_red,"Pink Red",#f5054f,245,5,79
+pinkish,"Pinkish",#d46a7e,212,106,126
+pinkish_brown,"Pinkish Brown",#b17261,177,114,97
+pinkish_grey,"Pinkish Grey",#c8aca9,200,172,169
+pinkish_orange,"Pinkish Orange",#ff724c,255,114,76
+pinkish_purple,"Pinkish Purple",#d648d7,214,72,215
+pinkish_red,"Pinkish Red",#f10c45,241,12,69
+pinkish_tan,"Pinkish Tan",#d99b82,217,155,130
+pinky,"Pinky",#fc86aa,252,134,170
+pinky_purple,"Pinky Purple",#c94cbe,201,76,190
+pinky_red,"Pinky Red",#fc2647,252,38,71
+piss_yellow,"Piss Yellow",#ddd618,221,214,24
+pistachio,"Pistachio",#c0fa8b,192,250,139
+plum,"Plum",#580f41,88,15,65
+plum_purple,"Plum Purple",#4e0550,78,5,80
+poison_green,"Poison Green",#40fd14,64,253,20
+powder_blue,"Powder Blue",#b1d1fc,177,209,252
+powder_pink,"Powder Pink",#ffb2d0,255,178,208
+primary_blue,"Primary Blue",#0804f9,8,4,249
+prussian_blue,"Prussian Blue",#004577,0,69,119
+puce,"Puce",#a57e52,165,126,82
+pumpkin,"Pumpkin",#e17701,225,119,1
+pumpkin_orange,"Pumpkin Orange",#fb7d07,251,125,7
+pure_blue,"Pure Blue",#0203e2,2,3,226
+purple,"Purple",#7e1e9c,126,30,156
+purple_blue,"Purple/blue",#5d21d0,93,33,208
+purple_blue,"Purple Blue",#632de9,99,45,233
+purple_brown,"Purple Brown",#673a3f,103,58,63
+purple_grey,"Purple Grey",#866f85,134,111,133
+purple_pink,"Purple/pink",#d725de,215,37,222
+purple_pink,"Purple Pink",#e03fd8,224,63,216
+purple_red,"Purple Red",#990147,153,1,71
+purpleish,"Purpleish",#98568d,152,86,141
+purpleish_blue,"Purpleish Blue",#6140ef,97,64,239
+purpleish_pink,"Purpleish Pink",#df4ec8,223,78,200
+purpley,"Purpley",#8756e4,135,86,228
+purpley_blue,"Purpley Blue",#5f34e7,95,52,231
+purpley_grey,"Purpley Grey",#947e94,148,126,148
+purpley_pink,"Purpley Pink",#c83cb9,200,60,185
+purplish,"Purplish",#94568c,148,86,140
+purplish_blue,"Purplish Blue",#601ef9,96,30,249
+purplish_brown,"Purplish Brown",#6b4247,107,66,71
+purplish_grey,"Purplish Grey",#7a687f,122,104,127
+purplish_pink,"Purplish Pink",#ce5dae,206,93,174
+purplish_red,"Purplish Red",#b0054b,176,5,75
+purply,"Purply",#983fb2,152,63,178
+purply_blue,"Purply Blue",#661aee,102,26,238
+purply_pink,"Purply Pink",#f075e6,240,117,230
+putty,"Putty",#beae8a,190,174,138
+racing_green,"Racing Green",#014600,1,70,0
+radioactive_green,"Radioactive Green",#2cfa1f,44,250,31
+raspberry,"Raspberry",#b00149,176,1,73
+raw_sienna,"Raw Sienna",#9a6200,154,98,0
+raw_umber,"Raw Umber",#a75e09,167,94,9
+really_light_blue,"Really Light Blue",#d4ffff,212,255,255
+red,"Red",#e50000,229,0,0
+red_brown,"Red Brown",#8b2e16,139,46,22
+red_orange,"Red Orange",#fd3c06,253,60,6
+red_pink,"Red Pink",#fa2a55,250,42,85
+red_purple,"Red Purple",#820747,130,7,71
+red_violet,"Red Violet",#9e0168,158,1,104
+red_wine,"Red Wine",#8c0034,140,0,52
+reddish,"Reddish",#c44240,196,66,64
+reddish_brown,"Reddish Brown",#7f2b0a,127,43,10
+reddish_grey,"Reddish Grey",#997570,153,117,112
+reddish_orange,"Reddish Orange",#f8481c,248,72,28
+reddish_pink,"Reddish Pink",#fe2c54,254,44,84
+reddish_purple,"Reddish Purple",#910951,145,9,81
+reddy_brown,"Reddy Brown",#6e1005,110,16,5
+rich_blue,"Rich Blue",#021bf9,2,27,249
+rich_purple,"Rich Purple",#720058,114,0,88
+robin_egg_blue,"Robin Egg Blue",#8af1fe,138,241,254
+robin_s_egg,"Robin's Egg",#6dedfd,109,237,253
+robin_s_egg_blue,"Robin's Egg Blue",#98eff9,152,239,249
+rosa,"Rosa",#fe86a4,254,134,164
+rose,"Rose",#cf6275,207,98,117
+rose_pink,"Rose Pink",#f7879a,247,135,154
+rose_red,"Rose Red",#be013c,190,1,60
+rosy_pink,"Rosy Pink",#f6688e,246,104,142
+rouge,"Rouge",#ab1239,171,18,57
+royal,"Royal",#0c1793,12,23,147
+royal_blue,"Royal Blue",#0504aa,5,4,170
+royal_purple,"Royal Purple",#4b006e,75,0,110
+ruby,"Ruby",#ca0147,202,1,71
+russet,"Russet",#a13905,161,57,5
+rust,"Rust",#a83c09,168,60,9
+rust_brown,"Rust Brown",#8b3103,139,49,3
+rust_orange,"Rust Orange",#c45508,196,85,8
+rust_red,"Rust Red",#aa2704,170,39,4
+rusty_orange,"Rusty Orange",#cd5909,205,89,9
+rusty_red,"Rusty Red",#af2f0d,175,47,13
+saffron,"Saffron",#feb209,254,178,9
+sage,"Sage",#87ae73,135,174,115
+sage_green,"Sage Green",#88b378,136,179,120
+salmon,"Salmon",#ff796c,255,121,108
+salmon_pink,"Salmon Pink",#fe7b7c,254,123,124
+sand,"Sand",#e2ca76,226,202,118
+sand_brown,"Sand Brown",#cba560,203,165,96
+sand_yellow,"Sand Yellow",#fce166,252,225,102
+sandstone,"Sandstone",#c9ae74,201,174,116
+sandy,"Sandy",#f1da7a,241,218,122
+sandy_brown,"Sandy Brown",#c4a661,196,166,97
+sandy_yellow,"Sandy Yellow",#fdee73,253,238,115
+sap_green,"Sap Green",#5c8b15,92,139,21
+sapphire,"Sapphire",#2138ab,33,56,171
+scarlet,"Scarlet",#be0119,190,1,25
+sea,"Sea",#3c9992,60,153,146
+sea_blue,"Sea Blue",#047495,4,116,149
+sea_green,"Sea Green",#53fca1,83,252,161
+seafoam,"Seafoam",#80f9ad,128,249,173
+seafoam_blue,"Seafoam Blue",#78d1b6,120,209,182
+seafoam_green,"Seafoam Green",#7af9ab,122,249,171
+seaweed,"Seaweed",#18d17b,24,209,123
+seaweed_green,"Seaweed Green",#35ad6b,53,173,107
+sepia,"Sepia",#985e2b,152,94,43
+shamrock,"Shamrock",#01b44c,1,180,76
+shamrock_green,"Shamrock Green",#02c14d,2,193,77
+shocking_pink,"Shocking Pink",#fe02a2,254,2,162
+sick_green,"Sick Green",#9db92c,157,185,44
+sickly_green,"Sickly Green",#94b21c,148,178,28
+sickly_yellow,"Sickly Yellow",#d0e429,208,228,41
+sienna,"Sienna",#a9561e,169,86,30
+silver,"Silver",#c5c9c7,197,201,199
+sky,"Sky",#82cafc,130,202,252
+sky_blue,"Sky Blue",#75bbfd,117,187,253
+slate,"Slate",#516572,81,101,114
+slate_blue,"Slate Blue",#5b7c99,91,124,153
+slate_green,"Slate Green",#658d6d,101,141,109
+slate_grey,"Slate Grey",#59656d,89,101,109
+slime_green,"Slime Green",#99cc04,153,204,4
+soft_blue,"Soft Blue",#6488ea,100,136,234
+soft_green,"Soft Green",#6fc276,111,194,118
+soft_pink,"Soft Pink",#fdb0c0,253,176,192
+soft_purple,"Soft Purple",#a66fb5,166,111,181
+spearmint,"Spearmint",#1ef876,30,248,118
+spring_green,"Spring Green",#a9f971,169,249,113
+spruce,"Spruce",#0a5f38,10,95,56
+squash,"Squash",#f2ab15,242,171,21
+steel,"Steel",#738595,115,133,149
+steel_blue,"Steel Blue",#5a7d9a,90,125,154
+steel_grey,"Steel Grey",#6f828a,111,130,138
+stone,"Stone",#ada587,173,165,135
+stormy_blue,"Stormy Blue",#507b9c,80,123,156
+straw,"Straw",#fcf679,252,246,121
+strawberry,"Strawberry",#fb2943,251,41,67
+strong_blue,"Strong Blue",#0c06f7,12,6,247
+strong_pink,"Strong Pink",#ff0789,255,7,137
+sun_yellow,"Sun Yellow",#ffdf22,255,223,34
+sunflower,"Sunflower",#ffc512,255,197,18
+sunflower_yellow,"Sunflower Yellow",#ffda03,255,218,3
+sunny_yellow,"Sunny Yellow",#fff917,255,249,23
+sunshine_yellow,"Sunshine Yellow",#fffd37,255,253,55
+swamp,"Swamp",#698339,105,131,57
+swamp_green,"Swamp Green",#748500,116,133,0
+tan,"Tan",#d1b26f,209,178,111
+tan_brown,"Tan Brown",#ab7e4c,171,126,76
+tan_green,"Tan Green",#a9be70,169,190,112
+tangerine,"Tangerine",#ff9408,255,148,8
+taupe,"Taupe",#b9a281,185,162,129
+tea,"Tea",#65ab7c,101,171,124
+tea_green,"Tea Green",#bdf8a3,189,248,163
+teal,"Teal",#029386,2,147,134
+teal_blue,"Teal Blue",#01889f,1,136,159
+teal_green,"Teal Green",#25a36f,37,163,111
+tealish,"Tealish",#24bca8,36,188,168
+tealish_green,"Tealish Green",#0cdc73,12,220,115
+terra_cotta,"Terra Cotta",#c9643b,201,100,59
+terracota,"Terracota",#cb6843,203,104,67
+terracotta,"Terracotta",#ca6641,202,102,65
+tiffany_blue,"Tiffany Blue",#7bf2da,123,242,218
+tomato,"Tomato",#ef4026,239,64,38
+tomato_red,"Tomato Red",#ec2d01,236,45,1
+topaz,"Topaz",#13bbaf,19,187,175
+toupe,"Toupe",#c7ac7d,199,172,125
+toxic_green,"Toxic Green",#61de2a,97,222,42
+tree_green,"Tree Green",#2a7e19,42,126,25
+true_blue,"True Blue",#010fcc,1,15,204
+true_green,"True Green",#089404,8,148,4
+turquoise,"Turquoise",#06c2ac,6,194,172
+turquoise_blue,"Turquoise Blue",#06b1c4,6,177,196
+turquoise_green,"Turquoise Green",#04f489,4,244,137
+turtle_green,"Turtle Green",#75b84f,117,184,79
+twilight,"Twilight",#4e518b,78,81,139
+twilight_blue,"Twilight Blue",#0a437a,10,67,122
+ugly_blue,"Ugly Blue",#31668a,49,102,138
+ugly_brown,"Ugly Brown",#7d7103,125,113,3
+ugly_green,"Ugly Green",#7a9703,122,151,3
+ugly_pink,"Ugly Pink",#cd7584,205,117,132
+ugly_purple,"Ugly Purple",#a442a0,164,66,160
+ugly_yellow,"Ugly Yellow",#d0c101,208,193,1
+ultramarine,"Ultramarine",#2000b1,32,0,177
+ultramarine_blue,"Ultramarine Blue",#1805db,24,5,219
+umber,"Umber",#b26400,178,100,0
+velvet,"Velvet",#750851,117,8,81
+vermillion,"Vermillion",#f4320c,244,50,12
+very_dark_blue,"Very Dark Blue",#000133,0,1,51
+very_dark_brown,"Very Dark Brown",#1d0200,29,2,0
+very_dark_green,"Very Dark Green",#062e03,6,46,3
+very_dark_purple,"Very Dark Purple",#2a0134,42,1,52
+very_light_blue,"Very Light Blue",#d5ffff,213,255,255
+very_light_brown,"Very Light Brown",#d3b683,211,182,131
+very_light_green,"Very Light Green",#d1ffbd,209,255,189
+very_light_pink,"Very Light Pink",#fff4f2,255,244,242
+very_light_purple,"Very Light Purple",#f6cefc,246,206,252
+very_pale_blue,"Very Pale Blue",#d6fffe,214,255,254
+very_pale_green,"Very Pale Green",#cffdbc,207,253,188
+vibrant_blue,"Vibrant Blue",#0339f8,3,57,248
+vibrant_green,"Vibrant Green",#0add08,10,221,8
+vibrant_purple,"Vibrant Purple",#ad03de,173,3,222
+violet,"Violet",#9a0eea,154,14,234
+violet_blue,"Violet Blue",#510ac9,81,10,201
+violet_pink,"Violet Pink",#fb5ffc,251,95,252
+violet_red,"Violet Red",#a50055,165,0,85
+viridian,"Viridian",#1e9167,30,145,103
+vivid_blue,"Vivid Blue",#152eff,21,46,255
+vivid_green,"Vivid Green",#2fef10,47,239,16
+vivid_purple,"Vivid Purple",#9900fa,153,0,250
+warm_blue,"Warm Blue",#4b57db,75,87,219
+warm_brown,"Warm Brown",#964e02,150,78,2
+warm_grey,"Warm Grey",#978a84,151,138,132
+warm_pink,"Warm Pink",#fb5581,251,85,129
+warm_purple,"Warm Purple",#952e8f,149,46,143
+washed_out_green,"Washed Out Green",#bcf5a6,188,245,166
+water_blue,"Water Blue",#0e87cc,14,135,204
+watermelon,"Watermelon",#fd4659,253,70,89
+weird_green,"Weird Green",#3ae57f,58,229,127
+wheat,"Wheat",#fbdd7e,251,221,126
+white,"White",#ffffff,255,255,255
+windows_blue,"Windows Blue",#3778bf,55,120,191
+wine,"Wine",#80013f,128,1,63
+wine_red,"Wine Red",#7b0323,123,3,35
+wintergreen,"Wintergreen",#20f986,32,249,134
+wisteria,"Wisteria",#a87dc2,168,125,194
+yellow,"Yellow",#ffff14,255,255,20
+yellow_brown,"Yellow Brown",#b79400,183,148,0
+yellow_green,"Yellow/green",#c8fd3d,200,253,61
+yellow_green,"Yellow Green",#c0fb2d,192,251,45
+yellow_ochre,"Yellow Ochre",#cb9d06,203,157,6
+yellow_orange,"Yellow Orange",#fcb001,252,176,1
+yellow_tan,"Yellow Tan",#ffe36e,255,227,110
+yellowgreen,"Yellowgreen",#bbf90f,187,249,15
+yellowish,"Yellowish",#faee66,250,238,102
+yellowish_brown,"Yellowish Brown",#9b7a01,155,122,1
+yellowish_green,"Yellowish Green",#b0dd16,176,221,22
+yellowish_orange,"Yellowish Orange",#ffab0f,255,171,15
+yellowish_tan,"Yellowish Tan",#fcfc81,252,252,129
+yellowy_brown,"Yellowy Brown",#ae8b0c,174,139,12
+yellowy_green,"Yellowy Green",#bff128,191,241,40

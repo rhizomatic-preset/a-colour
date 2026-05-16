@@ -1,0 +1,25 @@
+# xkcd colour names dropped at build time. Conservative; trim if you disagree.
+# One name per line, lowercase, exactly as it appears in xkcd-rgb.txt.
+# Lines starting with `#` are comments.
+baby poop
+baby poop green
+baby shit brown
+baby shit green
+diarrhea
+poo
+poo brown
+poop
+poop brown
+poop green
+puke
+puke brown
+puke green
+puke yellow
+shit
+shit brown
+shit green
+snot
+snot green
+vomit
+vomit green
+vomit yellow
