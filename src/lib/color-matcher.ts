@@ -52,6 +52,7 @@ export function getClosestColors(
   inputHex: string,
   colors: ColorReference[],
   limit = 3,
+  maxDistance = Number.POSITIVE_INFINITY,
 ): ColorMatch[] {
   const input = hexToRgb(normalizeHex(inputHex));
   const inputLab = rgbToOklab(input.r, input.g, input.b);
@@ -72,6 +73,7 @@ export function getClosestColors(
         closeness: Math.max(0, Math.round((1 - distance / 0.45) * 100)),
       };
     })
+    .filter((match) => match.distance <= maxDistance)
     .sort((a, b) => a.distance - b.distance)
     .slice(0, limit);
 }

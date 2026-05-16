@@ -147,10 +147,46 @@ h3,
 }
 
 .picker-surface {
+  position: relative;
   width: min(100%, 960px);
   padding: clamp(36px, 5vw, 64px);
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--ghost);
+}
+
+/* ── UTILITY ICONS (settings + info, anchored top-right of picker surface) ── */
+.utility-row {
+  position: absolute;
+  top: clamp(20px, 3vw, 28px);
+  right: clamp(20px, 3vw, 28px);
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.utility-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--silver);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.utility-btn:hover {
+  color: var(--ink);
+}
+
+.utility-btn.is-active {
+  color: var(--paper);
+  background: var(--ink);
 }
 
 .brand-link {
@@ -241,6 +277,166 @@ h1 {
 /* Icons inside tab buttons — hidden on desktop, shown via the ≤520px block below */
 .mode-icon {
   display: none;
+}
+
+/* ── SEGMENTED CONTROL (settings choices) ── */
+.seg-row {
+  display: inline-flex;
+  border: 1px solid var(--ghost);
+  width: 100%;
+}
+
+.seg-btn {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  height: 36px;
+  min-width: 40px;
+  padding: 0 12px;
+  font-family: "JetBrains Mono Variable", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.seg-btn:not(:last-child) {
+  border-right: 1px solid var(--ghost);
+}
+
+.seg-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── SETTINGS / INFO PANELS ── */
+.settings-panel,
+.info-panel {
+  display: grid;
+  gap: 20px;
+  width: min(100%, 340px);
+  font-family: "JetBrains Mono Variable", monospace;
+  align-content: start;
+}
+
+.settings-title,
+.info-title {
+  font-family: "JetBrains Mono Variable", monospace;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin: 0;
+}
+
+.setting-field {
+  display: grid;
+  gap: 8px;
+}
+
+.setting-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.setting-value {
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.setting-hint {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--off);
+  line-height: 1.5;
+}
+
+.setting-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--ghost);
+  outline: none;
+  cursor: pointer;
+}
+
+.setting-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.setting-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--ink);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.info-lead {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.info-modes {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px 16px;
+  margin: 0;
+}
+
+.info-modes dt {
+  font-family: "JetBrains Mono Variable", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+  padding-top: 3px;
+}
+
+.info-modes dd {
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.info-note {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  padding-top: 8px;
+  border-top: 1px dashed var(--ghost);
+}
+
+.info-footer {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--off);
 }
 
 /* ── PICKER GRID LAYOUT ── */
@@ -603,9 +799,22 @@ h1 {
     display: none;
   }
 
+  /* Trim the top whitespace — there's no heading above the tabs */
+  .app-shell {
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
   /* Drop the picker-surface top border — with .intro hidden it's a floating line */
   .picker-surface {
     border-top: 0;
+    padding-top: 20px;
+  }
+
+  /* Utility row sits right above the tabs — keep it close to the top edge */
+  .utility-row {
+    top: 12px;
+    right: 16px;
   }
 
   .mode-btn {

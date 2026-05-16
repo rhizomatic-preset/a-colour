@@ -1,6 +1,16 @@
-import { Camera, Image as ImageIcon, Palette, Pipette, Upload } from "lucide-react";
+import {
+  Camera,
+  HelpCircle,
+  Image as ImageIcon,
+  Palette,
+  Pipette,
+  Settings as SettingsIcon,
+  Upload,
+} from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AboutPanel } from "@/components/about-panel";
 import { CameraPicker } from "@/components/camera-picker";
+import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
 import {
@@ -10,20 +20,42 @@ import {
   normalizeHex,
   parseColorCsv,
 } from "@/lib/color-matcher";
+import { sampleAverageColor } from "@/lib/sampling";
+import {
+  loadLastColor,
+  loadSettings,
+  type Settings,
+  saveLastColor,
+  saveSettings,
+} from "@/lib/settings";
 import colorsCsv from "../guidance/references/colors.csv?raw";
 
-const initialColor = "#5d8aa8";
 type PickerMode = "swatch" | "image" | "camera";
+type View = "picker" | "settings" | "about";
+
+function pickRandomColor(library: ReturnType<typeof parseColorCsv>): string {
+  if (library.length === 0) return "#5d8aa8";
+  return library[Math.floor(Math.random() * library.length)].hex;
+}
 
 function App() {
   const imageInputRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
   const colors = useMemo(() => parseColorCsv(colorsCsv), []);
-  const [selectedHex, setSelectedHex] = useState(initialColor);
-  const [hexDraft, setHexDraft] = useState(initialColor);
+  const [selectedHex, setSelectedHex] = useState<string>(() =>
+    loadLastColor(pickRandomColor(colors)),
+  );
+  const [hexDraft, setHexDraft] = useState<string>(selectedHex);
+  const [settings, setSettings] = useState<Settings>(() => loadSettings());
 
   const [mode, setMode] = useState<PickerMode>("swatch");
+  const [view, setView] = useState<View>("picker");
+
+  function selectMode(next: PickerMode) {
+    setMode(next);
+    setView("picker");
+  }
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [samplePoint, setSamplePoint] = useState<{
     x: number;
@@ -51,8 +83,19 @@ function App() {
     }
   }, [hasEyeDropper]);
 
-  const matches = useMemo(() => getClosestColors(selectedHex, colors, 3), [colors, selectedHex]);
+  const matches = useMemo(
+    () => getClosestColors(selectedHex, colors, settings.matchCount, settings.maxDistance),
+    [colors, selectedHex, settings.matchCount, settings.maxDistance],
+  );
   const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
+
+  useEffect(() => {
+    saveLastColor(selectedHex);
+  }, [selectedHex]);
+
+  useEffect(() => {
+    saveSettings(settings);
+  }, [settings]);
 
   function updateColor(value: string) {
     const normalized = normalizeHex(value);
@@ -142,10 +185,7 @@ function App() {
     }
 
     context.drawImage(image, 0, 0);
-    const pixel = context.getImageData(sourceX, sourceY, 1, 1).data;
-    const hex = `#${[pixel[0], pixel[1], pixel[2]]
-      .map((value) => value.toString(16).padStart(2, "0"))
-      .join("")}`;
+    const hex = sampleAverageColor(context, sourceX, sourceY, settings.sampleKernel);
 
     setSamplePoint({ x, y });
     setColor(hex);
@@ -200,6 +240,27 @@ function App() {
   return (
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
+        <div className="utility-row">
+          <button
+            type="button"
+            className={`utility-btn ${view === "settings" ? "is-active" : ""}`}
+            onClick={() => setView(view === "settings" ? "picker" : "settings")}
+            aria-label={view === "settings" ? "Close settings" : "Open settings"}
+            aria-pressed={view === "settings"}
+          >
+            <SettingsIcon size={18} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className={`utility-btn ${view === "about" ? "is-active" : ""}`}
+            onClick={() => setView(view === "about" ? "picker" : "about")}
+            aria-label={view === "about" ? "Close info" : "Open info"}
+            aria-pressed={view === "about"}
+          >
+            <HelpCircle size={18} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+        </div>
+
         <div className="intro">
           <p className="eyebrow">Colour Thesaurus</p>
           <h1 id="app-title">A Colour</h1>
@@ -208,30 +269,30 @@ function App() {
         <div className="mode-row" role="tablist" aria-label="Picker mode">
           <button
             type="button"
-            className={`mode-btn ${mode === "swatch" ? "is-active" : ""}`}
+            className={`mode-btn ${view === "picker" && mode === "swatch" ? "is-active" : ""}`}
             role="tab"
-            aria-selected={mode === "swatch"}
-            onClick={() => setMode("swatch")}
+            aria-selected={view === "picker" && mode === "swatch"}
+            onClick={() => selectMode("swatch")}
           >
             <Palette className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
             <span className="mode-label">Swatch</span>
           </button>
           <button
             type="button"
-            className={`mode-btn ${mode === "image" ? "is-active" : ""}`}
+            className={`mode-btn ${view === "picker" && mode === "image" ? "is-active" : ""}`}
             role="tab"
-            aria-selected={mode === "image"}
-            onClick={() => setMode("image")}
+            aria-selected={view === "picker" && mode === "image"}
+            onClick={() => selectMode("image")}
           >
             <ImageIcon className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
             <span className="mode-label">Image</span>
           </button>
           <button
             type="button"
-            className={`mode-btn ${mode === "camera" ? "is-active" : ""}`}
+            className={`mode-btn ${view === "picker" && mode === "camera" ? "is-active" : ""}`}
             role="tab"
-            aria-selected={mode === "camera"}
-            onClick={() => setMode("camera")}
+            aria-selected={view === "picker" && mode === "camera"}
+            onClick={() => selectMode("camera")}
           >
             <Camera className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
             <span className="mode-label">Camera</span>
@@ -239,8 +300,12 @@ function App() {
         </div>
 
         <div className="picker-grid">
-          <div key={`${mode}-panel`} className="swatch-panel">
-            {mode === "swatch" ? (
+          <div key={`${view}-${mode}-panel`} className="swatch-panel">
+            {view === "settings" ? (
+              <SettingsPanel settings={settings} onChange={setSettings} />
+            ) : view === "about" ? (
+              <AboutPanel />
+            ) : mode === "swatch" ? (
               <>
                 <ColorPicker color={selectedHex} onChange={updateColor} />
                 <p className="hex-description">Click the swatch to pick a colour.</p>
@@ -330,7 +395,7 @@ function App() {
                 <p className="hex-description">Click the image to sample a pixel colour.</p>
               </div>
             ) : (
-              <CameraPicker onColorSelect={setColor} />
+              <CameraPicker onColorSelect={setColor} sampleKernel={settings.sampleKernel} />
             )}
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>

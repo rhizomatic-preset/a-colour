@@ -98,6 +98,19 @@ describe("getClosestColors", () => {
   it("respects the limit argument", () => {
     expect(getClosestColors("#ff0000", colors, 2)).toHaveLength(2);
   });
+
+  it("filters matches above maxDistance", () => {
+    // Tight threshold: only colours very close to red should pass.
+    const matches = getClosestColors("#ff0000", colors, 10, 0.05);
+    expect(matches.every((m) => m.distance <= 0.05)).toBe(true);
+    expect(matches.some((m) => m.id === "red")).toBe(true);
+    expect(matches.some((m) => m.id === "blue")).toBe(false);
+  });
+
+  it("returns [] when maxDistance excludes everything", () => {
+    // Input is not in the library; maxDistance = 0 means nothing can match.
+    expect(getClosestColors("#7f7f7f", colors, 5, 0)).toEqual([]);
+  });
 });
 
 describe("getPrimaryColorName", () => {

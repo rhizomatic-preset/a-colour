@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { sampleAverageColor } from "@/lib/sampling";
+import type { SampleKernel } from "@/lib/settings";
 
 interface CameraPickerProps {
   onColorSelect: (hex: string) => void;
+  sampleKernel: SampleKernel;
 }
 
-export function CameraPicker({ onColorSelect }: CameraPickerProps) {
+export function CameraPicker({ onColorSelect, sampleKernel }: CameraPickerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [zoom, setZoom] = useState(1);
@@ -132,43 +135,13 @@ export function CameraPicker({ onColorSelect }: CameraPickerProps) {
     const ctx = canvas.getContext("2d", { willReadFrequently: true });
     if (!ctx) return;
 
-    // Sampling must be relative to the zoomed canvas,
-    // which is what we get from event.clientX/Y
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
 
-    const sourceX = x * scaleX;
-    const sourceY = y * scaleY;
-
-    const size = 3;
-    const half = Math.floor(size / 2);
-
     try {
-      const imageData = ctx.getImageData(
-        Math.max(0, sourceX - half),
-        Math.max(0, sourceY - half),
-        size,
-        size,
-      ).data;
-
-      let r = 0,
-        g = 0,
-        b = 0,
-        count = 0;
-      for (let i = 0; i < imageData.length; i += 4) {
-        r += imageData[i];
-        g += imageData[i + 1];
-        b += imageData[i + 2];
-        count++;
-      }
-
-      if (count > 0) {
-        const hex = `#${[Math.round(r / count), Math.round(g / count), Math.round(b / count)]
-          .map((v) => v.toString(16).padStart(2, "0"))
-          .join("")}`;
-        onColorSelect(hex);
-      }
+      const hex = sampleAverageColor(ctx, x * scaleX, y * scaleY, sampleKernel);
+      onColorSelect(hex);
     } catch (e) {
       console.error("Sampling error:", e);
     }

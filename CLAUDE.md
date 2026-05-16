@@ -41,6 +41,24 @@ In `src/lib/color-matcher.ts`. The matching is **perceptual**, not RGB-Euclidean
 
 There's also a `buildNameVectorIndex` / `findClosestColorNames` pair (TF-IDF over colour names) that isn't wired into the UI yet. It's there for an eventual "type a word, get a colour" reverse-lookup mode (the README already promises this).
 
+## Persistence
+
+Two distinct localStorage keys live in `src/lib/settings.ts`:
+
+- `color-trickser:settings` — user preferences (`matchCount`, `sampleKernel`, `maxDistance`). Merged over `DEFAULT_SETTINGS` on load so adding a new field doesn't break older stored payloads.
+- `color-trickser:lastColor` — the most-recently picked hex. On first ever load, the initial colour is a random pick from the library (`pickRandomColor` in `App.tsx`). Subsequent loads restore the saved hex.
+
+Both helpers swallow `localStorage` errors (private mode, full quota) and silently fall back to defaults — no error UI.
+
+## Views, modes, and sampling
+
+The app has two orthogonal axes of state in `App.tsx`:
+
+- `mode: "swatch" | "image" | "camera"` — which input source is showing in the picker.
+- `view: "picker" | "settings" | "about"` — which surface is shown. `settings` and `about` swap the swatch-panel for the corresponding component while keeping the matches list visible (so settings tweaks are observable live). Tabs read `view === "picker" && mode === X` for their active state.
+
+Sampling lives in `src/lib/sampling.ts` (`sampleAverageColor`) and is shared by image mode (`sampleFromImage` in `App.tsx`) and the live camera (`sampleColor` in `camera-picker.tsx`). The kernel size comes from `settings.sampleKernel`. Boundary clipping uses a truncated read at the canvas edge rather than padding — corner samples still produce a usable average.
+
 ## Tech stack notes
 
 - **React 19** + **Vite 8** + **TypeScript 6** + **Tailwind v4** (via `@tailwindcss/vite`, not a config file — utilities come from `@import "tailwindcss"` in `src/index.css`).
