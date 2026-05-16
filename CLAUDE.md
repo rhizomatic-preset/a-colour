@@ -123,12 +123,10 @@ pnpm format        # biome format --write .
 
 ## What's missing (wanted)
 
-PWA is wired (`VitePWA` in `vite.config.ts` with `autoUpdate`, manifest + Workbox precache), and the landscape-phone layout shipped (`@media (orientation: landscape) and (max-height: 520px)` in `src/index.css`). What's still open:
+PWA is wired (`VitePWA` in `vite.config.ts` with `autoUpdate`, manifest + Workbox precache), the landscape-phone layout shipped, and the camera-permission fallback + colour-picker popover offset are both fixed. What's still open:
 
-1. **Camera permission failure UI.** When `getUserMedia` rejects (denied, no camera, http on iOS), `camera-picker.tsx` only `console.error`s. Needs a visible fallback panel telling the kid what to do.
-2. **Colour-picker popover offset.** `src/components/ui/color-picker.tsx` uses a hard-coded `sideOffset={-170}` calibrated for a 340px swatch; on smaller portrait swatches it lands wrong.
-3. **Hardcoded 340px sizes in portrait.** `.paste-target` and `.sample-image` cap at 340px (`src/index.css` lines ~738, 761). Fine on desktop, big chunk of a phone-portrait viewport. Landscape overrides exist; portrait still bites.
-4. **Word-mode engine (Phase 2B).** The 1.5b expander has shipped; the bake-off named `glove-300d` as the engine to wire next. Open decision before starting: bundle the 1.2MB `.bin` directly (simpler, no UX) vs IndexedDB + download progress UX (more work, smaller initial bundle). Epic at `~/rhizomatic-preset/guidance/projects/color-thesaurus/epics/01-word-mode/README.md`.
-5. **Hue classifier still uses HSL bands.** `getPrimaryColorName` in `src/lib/color-matcher.ts` is a blunt HSL-hue cutoff (one tweak landed: red is `h<10 || h>=350`). The matcher itself is Oklab; the classifier disagreeing at boundaries is the structural fix.
+1. **Hardcoded 340px sizes in portrait.** `.paste-target` and `.sample-image` cap at 340px (`src/index.css` ~lines 738, 761). Fine on desktop, big chunk of a phone-portrait viewport. Landscape overrides exist; portrait still bites.
+2. **Word-mode engine (Phase 2B).** The 1.5b expander has shipped; the bake-off named `glove-300d` as the engine to wire next. Open decision before starting: bundle the 1.2MB `.bin` directly (simpler, no UX) vs IndexedDB + download progress UX (more work, smaller initial bundle). Epic at `~/rhizomatic-preset/guidance/projects/color-thesaurus/epics/01-word-mode/README.md`.
+3. **Hue classifier still uses HSL bands.** `getPrimaryColorName` in `src/lib/color-matcher.ts` is a blunt HSL-hue cutoff (one tweak landed: red is `h<10 || h>=350`). The matcher itself is Oklab; the classifier disagreeing at boundaries is the structural fix.
 
 When working on any of these, treat the existing perceptual matching and the NZ spelling as load-bearing and don't regress them.
