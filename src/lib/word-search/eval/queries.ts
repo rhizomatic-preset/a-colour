@@ -24,6 +24,8 @@ export type EvalCategory =
   | "object-rooted"
   | "cultural"
   | "compound"
+  | "te-reo"
+  | "weather"
   | "poetic";
 
 export type EvalCase = {
@@ -136,6 +138,40 @@ export const EVAL_QUERIES: EvalCase[] = [
   { query: "dark forest green", expectedFamily: "green", category: "compound" },
   { query: "faded denim", expectedFamily: "blue", category: "compound" },
   { query: "autumn leaves", expectedFamily: "orange", category: "compound" },
+
+  // te-reo (8) — Te Reo Māori colour vocabulary. Macronned spellings exercise the
+  // tokenizer's NFD diacritic fold AND the macron-less dictionary keys end-to-end.
+  { query: "whero", expectedFamily: "red", category: "te-reo" },
+  {
+    query: "kākāriki",
+    expectedFamily: "green",
+    category: "te-reo",
+    notes: "macron fold: kākāriki → kakariki",
+  },
+  {
+    query: "kōwhai",
+    expectedFamily: "yellow",
+    category: "te-reo",
+    notes: "macron fold: kōwhai → kowhai",
+  },
+  { query: "kahurangi", expectedFamily: "blue", category: "te-reo" },
+  {
+    query: "māwhero",
+    expectedFamily: "pink",
+    category: "te-reo",
+    notes: "macron fold: māwhero → mawhero",
+  },
+  { query: "mangu", expectedFamily: "black", category: "te-reo" },
+  { query: "kiwikiwi", expectedFamily: "gray", category: "te-reo" },
+  { query: "waiporoporo", expectedFamily: "purple", category: "te-reo" },
+
+  // weather (6) — atmospheric / outdoor terms; companion to object-rooted.
+  { query: "cloud", expectedFamily: "white", category: "weather" },
+  { query: "cloudy", expectedFamily: "gray", category: "weather" },
+  { query: "rain", expectedFamily: "gray", category: "weather" },
+  { query: "rainy", expectedFamily: "gray", category: "weather" },
+  { query: "lightning", expectedFamily: "yellow", category: "weather" },
+  { query: "puddle", expectedFamily: "brown", category: "weather" },
 
   // poetic (3) — inspection-only; no expectedFamily so they aren't scored.
   { query: "melancholy", category: "poetic", notes: "inspection-only" },

@@ -675,6 +675,12 @@ h1 {
   gap: clamp(36px, 5vw, 48px);
 }
 
+/* Word picker owns the whole row — no perceptual matches column. */
+.picker-grid.is-single-column {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
 /* ── IMAGE PICKER SECTION ── */
 .image-picker {
   display: grid;
@@ -1037,7 +1043,7 @@ h1 {
   .mode-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   .picker-grid {
@@ -1145,4 +1151,178 @@ h1 {
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* ── WORD PICKER ── */
+.word-picker {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 340px);
+  align-content: start;
+}
+
+.word-input {
+  height: 48px;
+  border: 1px solid var(--ghost);
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.word-input::placeholder {
+  color: var(--silver);
+  font-style: italic;
+}
+
+.word-input:focus {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--highlight) 18%, transparent);
+}
+
+.word-hint {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--off);
+}
+
+.word-hint strong {
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.word-empty {
+  display: grid;
+  gap: 10px;
+}
+
+.word-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.word-suggestion {
+  border: 1px solid var(--ghost);
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
+  padding: 8px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.word-suggestion:hover {
+  color: var(--ink);
+  border-color: var(--highlight);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* ── WORD RESULT CARDS ── */
+.word-results {
+  display: grid;
+  gap: 12px;
+}
+
+.word-result-card {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 4px 14px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--ghost);
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.word-result-card:hover {
+  border-color: var(--highlight);
+  transform: translateX(-2px);
+}
+
+.word-result-card:focus-visible {
+  outline: none;
+  border-color: var(--highlight);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--highlight) 18%, transparent);
+}
+
+.word-result-card__swatch {
+  grid-row: 1 / span 2;
+  width: 72px;
+  aspect-ratio: 1;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.word-result-card__hex {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  align-self: end;
+}
+
+.word-result-card__name {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 11px;
+  color: var(--silver);
+  align-self: start;
+  overflow-wrap: anywhere;
+}
+
+/* ── VERTICAL SEGMENTED CONTROL (settings) ── */
+.seg-col {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--ghost);
+}
+
+.seg-row-btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 10px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.seg-row-btn:not(:last-child) {
+  border-bottom: 1px solid var(--ghost);
+}
+
+.seg-row-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.seg-row-btn.is-disabled,
+.seg-row-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }

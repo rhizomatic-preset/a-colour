@@ -9,6 +9,8 @@ const CATEGORY_ORDER: EvalCategory[] = [
   "object-rooted",
   "cultural",
   "compound",
+  "te-reo",
+  "weather",
   "poetic",
 ];
 

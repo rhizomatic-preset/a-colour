@@ -7,6 +7,7 @@ import {
   Palette,
   Pipette,
   Settings as SettingsIcon,
+  Type,
   Upload,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -16,7 +17,10 @@ import type { SampleSource } from "@/components/kernel-preview";
 import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
+import { WordPicker } from "@/components/word-picker";
 import colorsCsv from "@/generated/colors-small.csv?raw";
+import expansionDict from "@/generated/expansions-handcurated.json";
+import tfidfJson from "@/generated/tfidf-small.json";
 import {
   type ColorReference,
   getClosestColors,
@@ -33,8 +37,10 @@ import {
   saveLastColor,
   saveSettings,
 } from "@/lib/settings";
+import { buildHandcuratedExpander } from "@/lib/word-search/expander";
+import { loadTfidfIndex } from "@/lib/word-search/tfidf-index";
 
-type PickerMode = "swatch" | "image" | "camera";
+type PickerMode = "swatch" | "image" | "camera" | "word";
 type View = "picker" | "settings" | "about";
 
 function pickRandomColor(library: ReturnType<typeof parseColorCsv>): string {
@@ -52,6 +58,11 @@ function App() {
   const imageRef = useRef<HTMLImageElement>(null);
   const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
   const builtInColors = useMemo(() => parseColorCsv(colorsCsv), []);
+  const tfidf = useMemo(() => loadTfidfIndex(tfidfJson), []);
+  const expander = useMemo(
+    () => buildHandcuratedExpander(expansionDict as Record<string, string[]>),
+    [],
+  );
   const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
   const colors = customLibrary?.colors ?? builtInColors;
   const libraryName = customLibrary?.name ?? "Built-in (xkcd + CSS)";
@@ -344,9 +355,21 @@ function App() {
             <Camera className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
             <span className="mode-label">Camera</span>
           </button>
+          <button
+            type="button"
+            className={`mode-btn ${view === "picker" && mode === "word" ? "is-active" : ""}`}
+            role="tab"
+            aria-selected={view === "picker" && mode === "word"}
+            onClick={() => selectMode("word")}
+          >
+            <Type className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
+            <span className="mode-label">Word</span>
+          </button>
         </div>
 
-        <div className="picker-grid">
+        <div
+          className={`picker-grid ${view === "picker" && mode === "word" ? "is-single-column" : ""}`}
+        >
           <div className="swatch-panel">
             {/* Camera always-mounted when in camera mode, hidden when in settings/about so the MediaStream survives view toggles. */}
             {mode === "camera" && (
@@ -405,6 +428,14 @@ function App() {
                     <p className="hex-description">Sample or type hex directly.</p>
                   </div>
                 </>
+              ) : mode === "word" ? (
+                <WordPicker
+                  library={colors}
+                  tfidf={tfidf}
+                  expander={expander}
+                  topN={settings.matchCount}
+                  onColorSelect={setColor}
+                />
               ) : mode === "image" ? (
                 <div className="image-picker">
                   <input
@@ -466,47 +497,49 @@ function App() {
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>
 
-          <ol className="matches" aria-label="Likely colour names">
-            <li className="primary-family" aria-live="polite">
-              Closest primary colour: <strong>{primaryColorName}</strong>
-            </li>
-            {matches.map((match, index) => (
-              <li
-                className="match-card cursor-pointer"
-                key={match.id}
-                onClick={() => setColor(match.hex)}
-              >
-                <span className="match-rank">{index + 1}</span>
-                <span
-                  className="match-swatch"
-                  style={{ backgroundColor: match.hex }}
-                  aria-hidden="true"
-                />
-                <span className="match-copy">
-                  <span className="match-name">{match.name}</span>
-                  <span className="match-hex">{match.hex}</span>
-                </span>
-                <button
-                  type="button"
-                  className={`match-copy-btn ${copiedHex === match.hex ? "is-copied" : ""}`}
-                  aria-label={`Copy ${match.hex}`}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    copyHex(match.hex);
-                  }}
-                >
-                  {copiedHex === match.hex ? (
-                    <Check size={14} strokeWidth={1.8} aria-hidden="true" />
-                  ) : (
-                    <Clipboard size={14} strokeWidth={1.5} aria-hidden="true" />
-                  )}
-                </button>
-                <span className="match-meter" aria-label={`${match.closeness}% visual closeness`}>
-                  <span style={{ width: `${match.closeness}%` }} />
-                </span>
+          {!(view === "picker" && mode === "word") && (
+            <ol className="matches" aria-label="Likely colour names">
+              <li className="primary-family" aria-live="polite">
+                Closest primary colour: <strong>{primaryColorName}</strong>
               </li>
-            ))}
-          </ol>
+              {matches.map((match, index) => (
+                <li
+                  className="match-card cursor-pointer"
+                  key={match.id}
+                  onClick={() => setColor(match.hex)}
+                >
+                  <span className="match-rank">{index + 1}</span>
+                  <span
+                    className="match-swatch"
+                    style={{ backgroundColor: match.hex }}
+                    aria-hidden="true"
+                  />
+                  <span className="match-copy">
+                    <span className="match-name">{match.name}</span>
+                    <span className="match-hex">{match.hex}</span>
+                  </span>
+                  <button
+                    type="button"
+                    className={`match-copy-btn ${copiedHex === match.hex ? "is-copied" : ""}`}
+                    aria-label={`Copy ${match.hex}`}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      copyHex(match.hex);
+                    }}
+                  >
+                    {copiedHex === match.hex ? (
+                      <Check size={14} strokeWidth={1.8} aria-hidden="true" />
+                    ) : (
+                      <Clipboard size={14} strokeWidth={1.5} aria-hidden="true" />
+                    )}
+                  </button>
+                  <span className="match-meter" aria-label={`${match.closeness}% visual closeness`}>
+                    <span style={{ width: `${match.closeness}%` }} />
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
       </section>
 

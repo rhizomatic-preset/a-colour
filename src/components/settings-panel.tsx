@@ -175,6 +175,71 @@ export function SettingsPanel({
       </details>
 
       <details className="setting-section">
+        <summary>Word mode</summary>
+        <div className="setting-field">
+          <span className="setting-label">Colour library used by Word mode</span>
+          <div className="seg-col" role="radiogroup" aria-label="Colour library used by Word mode">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={settings.wordMode.library === "small"}
+              className={`seg-row-btn ${settings.wordMode.library === "small" ? "is-active" : ""}`}
+              onClick={() =>
+                onChange({
+                  ...settings,
+                  wordMode: { ...settings.wordMode, library: "small" },
+                })
+              }
+            >
+              Small (bundled, ~980)
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={false}
+              aria-disabled
+              disabled
+              className="seg-row-btn is-disabled"
+            >
+              Large (~30 000, requires download)
+            </button>
+          </div>
+          <p className="setting-hint">Not enabled in this build.</p>
+        </div>
+
+        <div className="setting-field">
+          <span className="setting-label">Engine</span>
+          <div className="seg-col" role="radiogroup" aria-label="Word mode engine">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={settings.wordMode.engine === "literal"}
+              className={`seg-row-btn ${settings.wordMode.engine === "literal" ? "is-active" : ""}`}
+              onClick={() =>
+                onChange({
+                  ...settings,
+                  wordMode: { ...settings.wordMode, engine: "literal" },
+                })
+              }
+            >
+              Literal + handcurated expansion
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={false}
+              aria-disabled
+              disabled
+              className="seg-row-btn is-disabled"
+            >
+              Static embeddings (~5–10 MB, requires download)
+            </button>
+          </div>
+          <p className="setting-hint">Not enabled in this build.</p>
+        </div>
+      </details>
+
+      <details className="setting-section">
         <summary>Library</summary>
         <div className="setting-field">
           <span className="setting-label">

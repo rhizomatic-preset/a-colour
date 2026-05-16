@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -274,6 +274,13 @@ function main(): void {
     summary.push({ id, rows: entries.length, vocab: index.vocab.length });
     process.stderr.write(`Wrote ${rel(csvPath)} and ${rel(tfidfPath)}\n`);
   }
+
+  // Mirror the handcurated query-expansion dictionary so the runtime import resolves to the
+  // same source as the eval rig. scripts/data/query-expansions.json is the single source of truth.
+  const expansionsSrc = resolve(DATA, "query-expansions.json");
+  const expansionsDst = resolve(OUT, "expansions-handcurated.json");
+  copyFileSync(expansionsSrc, expansionsDst);
+  process.stderr.write(`Wrote ${rel(expansionsDst)} (mirror of ${rel(expansionsSrc)})\n`);
 
   process.stderr.write("\nSummary:\n");
   for (const s of summary) {

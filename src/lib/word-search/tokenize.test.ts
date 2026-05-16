@@ -39,4 +39,16 @@ describe("tokenize", () => {
   it("strips leading and trailing punctuation", () => {
     expect(tokenize("!!red!!")).toEqual(["red"]);
   });
+
+  it("folds Te Reo macrons onto plain ASCII", () => {
+    expect(tokenize("kākāriki")).toEqual(["kakariki"]);
+    expect(tokenize("kōwhai")).toEqual(["kowhai"]);
+    expect(tokenize("Māori")).toEqual(["maori"]);
+    expect(tokenize("MĀWHERO")).toEqual(["mawhero"]);
+  });
+
+  it("folds common diacritics for free", () => {
+    expect(tokenize("café")).toEqual(["cafe"]);
+    expect(tokenize("naïve")).toEqual(["naive"]);
+  });
 });
