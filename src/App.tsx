@@ -17,6 +17,7 @@ import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
 import {
+  type ColorReference,
   getClosestColors,
   getPrimaryColorName,
   isValidHex,
@@ -41,14 +42,40 @@ function pickRandomColor(library: ReturnType<typeof parseColorCsv>): string {
   return library[Math.floor(Math.random() * library.length)].hex;
 }
 
+type CustomLibrary = {
+  name: string;
+  colors: ColorReference[];
+};
+
 function App() {
   const imageInputRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const sampleCanvasRef = useRef<HTMLCanvasElement>(null);
-  const colors = useMemo(() => parseColorCsv(colorsCsv), []);
+  const builtInColors = useMemo(() => parseColorCsv(colorsCsv), []);
+  const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
+  const colors = customLibrary?.colors ?? builtInColors;
+  const libraryName = customLibrary?.name ?? "Built-in (X11 / CSS)";
   const [selectedHex, setSelectedHex] = useState<string>(() =>
-    loadLastColor(pickRandomColor(colors)),
+    loadLastColor(pickRandomColor(builtInColors)),
   );
+
+  function loadCustomLibrary(file: File) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result !== "string") return;
+      const parsed = parseColorCsv(reader.result);
+      if (parsed.length === 0) {
+        // Bad CSV — leave the library alone; the UI will reflect this via no change.
+        return;
+      }
+      setCustomLibrary({ name: file.name, colors: parsed });
+    };
+    reader.readAsText(file);
+  }
+
+  function resetLibrary() {
+    setCustomLibrary(null);
+  }
   const [hexDraft, setHexDraft] = useState<string>(selectedHex);
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
 
@@ -337,6 +364,11 @@ function App() {
                   settings={settings}
                   sampleSource={sampleSource}
                   onChange={setSettings}
+                  libraryName={libraryName}
+                  libraryCount={colors.length}
+                  isCustomLibrary={customLibrary !== null}
+                  onLoadLibrary={loadCustomLibrary}
+                  onResetLibrary={resetLibrary}
                 />
               ) : view === "about" ? (
                 <AboutPanel />

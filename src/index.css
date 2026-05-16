@@ -412,6 +412,20 @@ h1 {
   touch-action: pan-y;
 }
 
+.library-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.library-btn {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 0 14px;
+  height: 32px;
+  border: 1px solid var(--ghost);
+}
+
 .settings-reset {
   margin-top: 8px;
   align-self: start;

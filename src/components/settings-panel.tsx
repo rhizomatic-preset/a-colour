@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { DistanceWeights } from "@/lib/color-matcher";
 import {
   DEFAULT_SETTINGS,
@@ -11,6 +12,11 @@ interface SettingsPanelProps {
   settings: Settings;
   sampleSource: SampleSource | null;
   onChange: (settings: Settings) => void;
+  libraryName: string;
+  libraryCount: number;
+  isCustomLibrary: boolean;
+  onLoadLibrary: (file: File) => void;
+  onResetLibrary: () => void;
 }
 
 const MATCH_COUNTS: MatchCount[] = [1, 3, 5];
@@ -35,8 +41,18 @@ const WEIGHT_FIELDS: ReadonlyArray<{ key: WeightKey; label: string; hint: string
   },
 ];
 
-export function SettingsPanel({ settings, sampleSource, onChange }: SettingsPanelProps) {
+export function SettingsPanel({
+  settings,
+  sampleSource,
+  onChange,
+  libraryName,
+  libraryCount,
+  isCustomLibrary,
+  onLoadLibrary,
+  onResetLibrary,
+}: SettingsPanelProps) {
   const isDirty = JSON.stringify(settings) !== JSON.stringify(DEFAULT_SETTINGS);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="settings-panel">
@@ -154,6 +170,46 @@ export function SettingsPanel({ settings, sampleSource, onChange }: SettingsPane
           <p className="setting-hint">
             Lean matches toward a specific hue family — useful when you know the colour ("it's
             definitely yellow") but the sample is ambiguous.
+          </p>
+        </div>
+      </details>
+
+      <details className="setting-section">
+        <summary>Library</summary>
+        <div className="setting-field">
+          <span className="setting-label">
+            Active library
+            <span className="setting-value">{libraryCount} colours</span>
+          </span>
+          <p className="setting-hint">{libraryName}</p>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv,text/csv"
+            className="native-color-input"
+            onChange={(event) => {
+              const file = event.target.files?.[0];
+              if (file) onLoadLibrary(file);
+              event.target.value = ""; // allow re-uploading the same file later
+            }}
+          />
+          <div className="library-actions">
+            <button
+              type="button"
+              className="seg-btn library-btn"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              Load CSV…
+            </button>
+            {isCustomLibrary && (
+              <button type="button" className="seg-btn library-btn" onClick={onResetLibrary}>
+                Use built-in
+              </button>
+            )}
+          </div>
+          <p className="setting-hint">
+            CSV: <code>id,"Name",#hex,r,g,b</code> per line. Loaded for this session only — refresh
+            to revert.
           </p>
         </div>
       </details>
