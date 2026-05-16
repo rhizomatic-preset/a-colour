@@ -24,13 +24,6 @@ export const DEFAULT_WEIGHTS: DistanceWeights = {
   hue: 0.7,
 };
 
-type NameVectorIndex = {
-  colors: ColorReference[];
-  vectors: Array<Map<string, number>>;
-  norms: number[];
-  idf: Map<string, number>;
-};
-
 type Oklab = {
   l: number;
   a: number;
@@ -157,71 +150,6 @@ export function getPrimaryColorName(inputHex: string) {
   if (h < 290) return "purple";
   if (h < 330) return "magenta";
   return "pink";
-}
-
-export function buildNameVectorIndex(colors: ColorReference[]): NameVectorIndex {
-  const documents = colors.map((color) =>
-    tokenizeText(`${color.name} ${getPrimaryColorName(color.hex)}`),
-  );
-  const docCount = documents.length;
-  const documentFrequency = new Map<string, number>();
-
-  for (const tokens of documents) {
-    const uniqueTokens = new Set(tokens);
-    for (const token of uniqueTokens) {
-      documentFrequency.set(token, (documentFrequency.get(token) ?? 0) + 1);
-    }
-  }
-
-  const idf = new Map<string, number>();
-  for (const [token, frequency] of documentFrequency) {
-    idf.set(token, Math.log((docCount + 1) / (frequency + 1)) + 1);
-  }
-
-  const vectors = documents.map((tokens) => toTfidfVector(tokens, idf));
-  const norms = vectors.map((vector) => vectorNorm(vector));
-
-  return {
-    colors,
-    vectors,
-    norms,
-    idf,
-  };
-}
-
-export function findClosestColorNames(
-  queryVariants: string[],
-  index: NameVectorIndex,
-  limit = 3,
-): ColorMatch[] {
-  const variants = queryVariants.map((variant) => variant.trim()).filter(Boolean);
-  if (variants.length === 0) {
-    return [];
-  }
-
-  const queryVectors = variants.map((queryTerm) =>
-    toTfidfVector(tokenizeText(queryTerm), index.idf),
-  );
-  const queryNorms = queryVectors.map((vector) => vectorNorm(vector));
-
-  return index.colors
-    .map((color, indexPosition) => {
-      const vector = index.vectors[indexPosition];
-      const vectorNorm = index.norms[indexPosition];
-      const similarity = Math.max(
-        ...queryVectors.map((queryVector, queryIndex) =>
-          cosineSimilarity(queryVector, vector, queryNorms[queryIndex], vectorNorm),
-        ),
-      );
-
-      return {
-        ...color,
-        distance: 1 - similarity,
-        closeness: Math.max(0, Math.round(similarity * 100)),
-      };
-    })
-    .sort((first, second) => second.closeness - first.closeness)
-    .slice(0, limit);
 }
 
 export function normalizeHex(hex: string) {
@@ -368,57 +296,4 @@ function rgbToHsl(r: number, g: number, b: number) {
   }
 
   return { h: hue * 60, s: saturation, l: lightness };
-}
-
-function tokenizeText(input: string) {
-  const normalized = input
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-  if (!normalized) {
-    return [];
-  }
-
-  return normalized.split(/\s+/);
-}
-
-function toTfidfVector(tokens: string[], idf: Map<string, number>) {
-  const tf = new Map<string, number>();
-  for (const token of tokens) {
-    tf.set(token, (tf.get(token) ?? 0) + 1);
-  }
-
-  const vector = new Map<string, number>();
-  for (const [token, frequency] of tf) {
-    const tokenIdf = idf.get(token) ?? 0.7;
-    vector.set(token, frequency * tokenIdf);
-  }
-
-  return vector;
-}
-
-function vectorNorm(vector: Map<string, number>) {
-  let sum = 0;
-  for (const value of vector.values()) {
-    sum += value * value;
-  }
-  return Math.sqrt(sum);
-}
-
-function cosineSimilarity(
-  first: Map<string, number>,
-  second: Map<string, number>,
-  firstNorm: number,
-  secondNorm: number,
-) {
-  if (firstNorm === 0 || secondNorm === 0) {
-    return 0;
-  }
-
-  let dot = 0;
-  for (const [token, weight] of first) {
-    dot += weight * (second.get(token) ?? 0);
-  }
-
-  return dot / (firstNorm * secondNorm);
 }

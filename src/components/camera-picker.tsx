@@ -18,6 +18,23 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
   const requestRef = useRef<number>(0);
   const [lastTouchDistance, setLastTouchDistance] = useState(0);
 
+  // Surgical pinch-zoom guard: native non-passive touch listeners on the canvas
+  // preventDefault on 2+ finger gestures so iOS Safari can't grab a pinch and
+  // zoom the whole page. The rest of the page stays zoomable.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    function blockMultiTouch(event: TouchEvent) {
+      if (event.touches.length > 1) event.preventDefault();
+    }
+    canvas.addEventListener("touchstart", blockMultiTouch, { passive: false });
+    canvas.addEventListener("touchmove", blockMultiTouch, { passive: false });
+    return () => {
+      canvas.removeEventListener("touchstart", blockMultiTouch);
+      canvas.removeEventListener("touchmove", blockMultiTouch);
+    };
+  }, []);
+
   useEffect(() => {
     async function startCamera() {
       try {

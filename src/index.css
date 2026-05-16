@@ -814,6 +814,7 @@ h1 {
 .matches {
   display: grid;
   gap: 10px;
+  align-content: start;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -1054,6 +1055,15 @@ h1 {
   .desktop-only {
     display: none;
   }
+}
+
+/* Camera shell — wraps CameraPicker so the stream survives view toggles. */
+.camera-shell {
+  display: contents;
+}
+
+.camera-shell.is-hidden {
+  display: none;
 }
 
 /* ── CAMERA PICKER ── */

@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
-    "@huggingface/transformers": "^4.2.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",
     "react-colorful": "^5.7.0",

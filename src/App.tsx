@@ -320,111 +320,117 @@ function App() {
         </div>
 
         <div className="picker-grid">
-          <div key={`${view}-${mode}-panel`} className="swatch-panel">
-            {view === "settings" ? (
-              <SettingsPanel
-                settings={settings}
-                sampleSource={sampleSource}
-                onChange={setSettings}
-              />
-            ) : view === "about" ? (
-              <AboutPanel />
-            ) : mode === "swatch" ? (
-              <>
-                <ColorPicker color={selectedHex} onChange={updateColor} />
-                <p className="hex-description">Click the swatch to pick a colour.</p>
-
-                <div className="hex-field">
-                  <label className="hex-label" htmlFor="hex-input">
-                    Hex
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      id="hex-input"
-                      className="hex-input flex-1"
-                      type="text"
-                      value={hexDraft}
-                      maxLength={7}
-                      spellCheck={false}
-                      onBlur={resetInvalidDraft}
-                      onChange={(event) => updateColor(event.target.value)}
-                    />
-                    {hasEyeDropper && (
-                      <Button
-                        onClick={openEyeDropper}
-                        className="h-[42px] w-[42px] p-0 bg-transparent text-[var(--silver)] hover:text-[var(--ink)] active:text-[var(--ink)] transition-colors border border-[var(--ghost)] rounded-none"
-                        aria-label="Eye dropper"
-                      >
-                        <Pipette size={18} strokeWidth={1.5} />
-                      </Button>
-                    )}
-                  </div>
-                  <p className="hex-description">Sample or type hex directly.</p>
-                </div>
-              </>
-            ) : mode === "image" ? (
-              <div className="image-picker">
-                <input
-                  ref={imageInputRef}
-                  className="native-color-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={(event) => {
-                    const file = event.target.files?.[0];
-                    if (file) {
-                      loadImageFile(file);
-                    }
-                  }}
+          <div className="swatch-panel">
+            {/* Camera always-mounted when in camera mode, hidden when in settings/about so the MediaStream survives view toggles. */}
+            {mode === "camera" && (
+              <div className={`camera-shell ${view === "picker" ? "" : "is-hidden"}`}>
+                <CameraPicker
+                  onColorSelect={setColor}
+                  onSampleSource={setSampleSource}
+                  sampleKernel={settings.sampleKernel}
                 />
-                {imageUrl ? (
-                  <div className="image-stage-container">
-                    <div className="image-stage">
-                      <img
-                        ref={imageRef}
-                        src={imageUrl}
-                        alt="Pasted source"
-                        className="sample-image"
-                        draggable={false}
-                        onPointerDown={handleImagePointerDown}
-                        onPointerMove={handleImagePointerMove}
-                        onPointerUp={handleImagePointerUp}
-                        onPointerCancel={handleImagePointerUp}
-                      />
-                      {samplePoint ? (
-                        <span
-                          className="sample-dot"
-                          style={{ left: samplePoint.x, top: samplePoint.y }}
-                          aria-hidden="true"
-                        />
-                      ) : null}
-                    </div>
-                    <Button
-                      onClick={() => imageInputRef.current?.click()}
-                      className="image-action-btn"
-                      aria-label="Upload new image"
-                    >
-                      <Upload size={14} strokeWidth={1.5} />
-                      <span>Open New Image</span>
-                    </Button>
-                  </div>
-                ) : (
-                  <button
-                    type="button"
-                    className="paste-target"
-                    onClick={() => imageInputRef.current?.click()}
-                  >
-                    Paste an image or click to upload
-                  </button>
-                )}
-                <p className="hex-description">Click the image to sample a pixel colour.</p>
               </div>
-            ) : (
-              <CameraPicker
-                onColorSelect={setColor}
-                onSampleSource={setSampleSource}
-                sampleKernel={settings.sampleKernel}
-              />
             )}
+            {
+              view === "settings" ? (
+                <SettingsPanel
+                  settings={settings}
+                  sampleSource={sampleSource}
+                  onChange={setSettings}
+                />
+              ) : view === "about" ? (
+                <AboutPanel />
+              ) : mode === "swatch" ? (
+                <>
+                  <ColorPicker color={selectedHex} onChange={updateColor} />
+                  <p className="hex-description">Click the swatch to pick a colour.</p>
+
+                  <div className="hex-field">
+                    <label className="hex-label" htmlFor="hex-input">
+                      Hex
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        id="hex-input"
+                        className="hex-input flex-1"
+                        type="text"
+                        value={hexDraft}
+                        maxLength={7}
+                        spellCheck={false}
+                        onBlur={resetInvalidDraft}
+                        onChange={(event) => updateColor(event.target.value)}
+                      />
+                      {hasEyeDropper && (
+                        <Button
+                          onClick={openEyeDropper}
+                          className="h-[42px] w-[42px] p-0 bg-transparent text-[var(--silver)] hover:text-[var(--ink)] active:text-[var(--ink)] transition-colors border border-[var(--ghost)] rounded-none"
+                          aria-label="Eye dropper"
+                        >
+                          <Pipette size={18} strokeWidth={1.5} />
+                        </Button>
+                      )}
+                    </div>
+                    <p className="hex-description">Sample or type hex directly.</p>
+                  </div>
+                </>
+              ) : mode === "image" ? (
+                <div className="image-picker">
+                  <input
+                    ref={imageInputRef}
+                    className="native-color-input"
+                    type="file"
+                    accept="image/*"
+                    onChange={(event) => {
+                      const file = event.target.files?.[0];
+                      if (file) {
+                        loadImageFile(file);
+                      }
+                    }}
+                  />
+                  {imageUrl ? (
+                    <div className="image-stage-container">
+                      <div className="image-stage">
+                        <img
+                          ref={imageRef}
+                          src={imageUrl}
+                          alt="Pasted source"
+                          className="sample-image"
+                          draggable={false}
+                          onPointerDown={handleImagePointerDown}
+                          onPointerMove={handleImagePointerMove}
+                          onPointerUp={handleImagePointerUp}
+                          onPointerCancel={handleImagePointerUp}
+                        />
+                        {samplePoint ? (
+                          <span
+                            className="sample-dot"
+                            style={{ left: samplePoint.x, top: samplePoint.y }}
+                            aria-hidden="true"
+                          />
+                        ) : null}
+                      </div>
+                      <Button
+                        onClick={() => imageInputRef.current?.click()}
+                        className="image-action-btn"
+                        aria-label="Upload new image"
+                      >
+                        <Upload size={14} strokeWidth={1.5} />
+                        <span>Open New Image</span>
+                      </Button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      className="paste-target"
+                      onClick={() => imageInputRef.current?.click()}
+                    >
+                      Paste an image or click to upload
+                    </button>
+                  )}
+                  <p className="hex-description">Click the image to sample a pixel colour.</p>
+                </div>
+              ) : null /* camera rendered above the ladder so it survives view changes */
+            }
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>
 

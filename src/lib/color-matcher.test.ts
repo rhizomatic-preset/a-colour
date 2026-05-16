@@ -1,9 +1,7 @@
 import { describe, expect, it } from "vitest";
 import realColorsCsv from "../../guidance/references/colors.csv?raw";
 import {
-  buildNameVectorIndex,
   DEFAULT_WEIGHTS,
-  findClosestColorNames,
   getClosestColors,
   getPrimaryColorName,
   isValidHex,
@@ -155,18 +153,5 @@ describe("getPrimaryColorName", () => {
     ["#8b4513", "brown"],
   ])("classifies %s as %s", (hex, expected) => {
     expect(getPrimaryColorName(hex)).toBe(expected);
-  });
-});
-
-describe("findClosestColorNames", () => {
-  const index = buildNameVectorIndex(colors);
-
-  it("matches by name token", () => {
-    const matches = findClosestColorNames(["lemon"], index, 2);
-    expect(matches[0].id).toBe("lemon");
-  });
-
-  it("returns [] for empty query", () => {
-    expect(findClosestColorNames([], index, 3)).toEqual([]);
   });
 });
