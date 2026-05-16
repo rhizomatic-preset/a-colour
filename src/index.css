@@ -1326,3 +1326,219 @@ h1 {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+/* ── LANDSCAPE PHONE ──
+ * Phones held sideways: too short for the portrait stack, plenty wide for three
+ * columns (menu / picker / results). Triggers on phone heights only — tablets
+ * and desktop windows stay taller than 520px. Pure CSS; no JS layout, no
+ * markup changes. Footer Option A: tool buttons and preset.nz link live at
+ * the bottom of the menu column (fixed-positioned so they don't fight the
+ * picker-surface grid).
+ */
+@media (orientation: landscape) and (max-height: 520px) {
+  .app-shell {
+    padding: 0;
+    min-height: 100svh;
+  }
+
+  /* Intro heading hidden — same call as the ≤520px phone block, but width
+     can exceed 520px in landscape (iPhone Pro Max landscape is 932 wide). */
+  .intro {
+    display: none;
+  }
+
+  /* Reserve the menu-column rail on the left for the fixed footer chrome. */
+  .picker-surface {
+    width: 100%;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: auto minmax(220px, 1fr) minmax(220px, 1.2fr);
+    grid-template-rows: 1fr;
+    gap: 12px;
+    padding: 12px;
+    border: 0;
+  }
+
+  /* Vertical mode menu — column 1. Stacks the existing four .mode-btn
+     children top-to-bottom; icons only, same as ≤520px portrait. Bottom
+     padding clears the fixed footer-tools + brand-link beneath it. */
+  .mode-row {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 0;
+    border-right: 2px solid var(--ink);
+    margin: 0;
+    padding-bottom: 96px;
+    align-self: stretch;
+    overflow: hidden;
+  }
+
+  .mode-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    padding: 0;
+    border-right: 0;
+  }
+
+  .mode-btn:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid var(--ghost);
+  }
+
+  .mode-btn .mode-label {
+    display: none;
+  }
+
+  .mode-icon {
+    display: inline-block;
+  }
+
+  /* Flatten the picker-grid so swatch-panel and matches drop into the
+     picker-surface grid as columns 2 and 3. */
+  .picker-grid {
+    display: contents;
+  }
+
+  .swatch-panel {
+    grid-column: 2;
+    grid-row: 1;
+    align-content: start;
+    justify-items: stretch;
+    gap: 10px;
+    min-width: 0;
+    overflow-y: auto;
+  }
+
+  .matches {
+    grid-column: 3;
+    grid-row: 1;
+    align-content: start;
+    min-width: 0;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  /* Word picker takes only column 2 — its sibling .matches isn't rendered
+     in word mode, leaving column 3 empty. Span both right columns so the
+     word-result cards have room. */
+  .picker-grid.is-single-column .swatch-panel {
+    grid-column: 2 / span 2;
+    justify-items: stretch;
+  }
+
+  /* Settings / About panels: when shown, the swatch-panel hosts them and the
+     matches list is irrelevant to the form. Span both right columns and
+     hide the matches list. The menu column stays visible. */
+  .swatch-panel:has(.settings-panel),
+  .swatch-panel:has(.info-panel) {
+    grid-column: 2 / span 2;
+  }
+
+  .swatch-panel:has(.settings-panel) ~ .matches,
+  .swatch-panel:has(.info-panel) ~ .matches {
+    display: none;
+  }
+
+  .settings-panel,
+  .info-panel {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Cap the big circular swatch to the shorter axis so it sits in one
+     screen alongside the matches column. */
+  .main-swatch,
+  .main-image-swatch {
+    width: min(40svh, 40svw);
+    height: min(40svh, 40svw);
+  }
+
+  .camera-picker,
+  .word-picker,
+  .image-picker {
+    width: 100%;
+  }
+
+  .camera-stage {
+    width: 100%;
+    max-width: min(40svh, 40svw);
+    max-height: 80svh;
+  }
+
+  .paste-target {
+    height: auto;
+    min-height: 120px;
+    max-height: 80svh;
+    padding: 20px;
+  }
+
+  .sample-image {
+    max-height: 80svh;
+  }
+
+  /* Hex field hidden on phone (no keyboard / EyeDropper) — already handled
+     ≤520px, but the landscape breakpoint can fire at widths up to ~932px. */
+  .hex-field {
+    display: none;
+  }
+
+  /* Word-mode suggestion chips wrap under the input. */
+  .word-suggestions {
+    flex-wrap: wrap;
+  }
+
+  /* Footer chrome — pinned to the bottom of the menu column. Tool buttons
+     stack above a tiny preset.nz link. Container is the same .brand-link
+     element from the markup, repositioned via fixed. */
+  .brand-link {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    padding: 0 0 8px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    pointer-events: none;
+  }
+
+  .brand-link > * {
+    pointer-events: auto;
+  }
+
+  .footer-tools {
+    flex-direction: column;
+    gap: 2px;
+    align-items: stretch;
+  }
+
+  .footer-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .footer-btn-label {
+    display: none;
+  }
+
+  .brand-link a {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--silver);
+  }
+}
+
+/* Extra-narrow phones in landscape: hide the preset.nz link in the menu
+ * rail; it still lives in the About panel. Keeps the chrome column clean
+ * when there's no room for even a 9px brand link. */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 640px) {
+  .brand-link a {
+    display: none;
+  }
+}
