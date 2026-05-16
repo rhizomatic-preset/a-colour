@@ -3,12 +3,21 @@ import { DEFAULT_WEIGHTS, type DistanceWeights } from "@/lib/color-matcher";
 export type MatchCount = 1 | 3 | 5;
 export type SampleKernel = 1 | 3 | 5 | 7;
 
+export type WordModeLibrary = "small" | "large";
+export type WordModeEngine = "literal" | (string & {});
+
+export type WordModeSettings = {
+  library: WordModeLibrary;
+  engine: WordModeEngine;
+};
+
 export type Settings = {
   matchCount: MatchCount;
   sampleKernel: SampleKernel;
   weights: DistanceWeights;
   /** Hue bias in degrees (0–360), or null when no bias is applied. */
   hueBias: number | null;
+  wordMode: WordModeSettings;
 };
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -16,6 +25,7 @@ export const DEFAULT_SETTINGS: Settings = {
   sampleKernel: 3,
   weights: DEFAULT_WEIGHTS,
   hueBias: null,
+  wordMode: { library: "small", engine: "literal" },
 };
 
 const STORAGE_KEY = "color-trickser:settings";
@@ -31,6 +41,7 @@ export function loadSettings(): Settings {
       ...DEFAULT_SETTINGS,
       ...parsed,
       weights: { ...DEFAULT_SETTINGS.weights, ...(parsed.weights ?? {}) },
+      wordMode: { ...DEFAULT_SETTINGS.wordMode, ...(parsed.wordMode ?? {}) },
     };
   } catch {
     return DEFAULT_SETTINGS;
