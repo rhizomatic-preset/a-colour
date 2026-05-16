@@ -26,6 +26,7 @@ export type EvalCategory =
   | "compound"
   | "te-reo"
   | "weather"
+  | "open-vocab"
   | "poetic";
 
 export type EvalCase = {
@@ -172,6 +173,71 @@ export const EVAL_QUERIES: EvalCase[] = [
   { query: "rainy", expectedFamily: "gray", category: "weather" },
   { query: "lightning", expectedFamily: "yellow", category: "weather" },
   { query: "puddle", expectedFamily: "brown", category: "weather" },
+
+  // open-vocab (10) — Phase 1.5b targets. Inputs no in-vocab token or hand-dictionary
+  // entry can reach. Static word-embedding expansion is the only path. Expected to score
+  // ~0/0 under literal + handcurated; the lift here is the headline number for 1.5b.
+  // Reference: design/open-vocabulary.md.
+  {
+    query: "rainbow trout",
+    expectedFamily: "pink",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — pinkish-silver fish; needs static-embedding expansion",
+  },
+  {
+    query: "ender dragon",
+    expectedFamily: "purple",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — Minecraft Ender Dragon is dark purple/magenta",
+  },
+  {
+    query: "caterpillar",
+    expectedFamily: "green",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — default kid mental model is green",
+  },
+  {
+    query: "salamander",
+    expectedFamily: "orange",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — fire salamander connotations; orange / yellow",
+  },
+  {
+    query: "octopus",
+    expectedFamily: "pink",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — common octopus is pinkish/red/magenta",
+  },
+  {
+    query: "charizard",
+    expectedFamily: "orange",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — Charizard is orange with flame",
+  },
+  {
+    query: "kirby",
+    expectedFamily: "pink",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — Kirby is bubble-gum pink",
+  },
+  {
+    query: "lego car",
+    expectedFamily: "red",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — classic Lego is bright primary red/yellow/blue",
+  },
+  {
+    query: "pumpkin spice",
+    expectedFamily: "orange",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — orange / brown autumnal cluster",
+  },
+  {
+    query: "deku cosplay",
+    expectedFamily: "green",
+    category: "open-vocab",
+    notes: "Phase 1.5b target — My Hero Academia Deku is green",
+  },
 
   // poetic (3) — inspection-only; no expectedFamily so they aren't scored.
   { query: "melancholy", category: "poetic", notes: "inspection-only" },
