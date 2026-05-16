@@ -1507,16 +1507,20 @@ h1 {
   /* Footer chrome — pinned to the bottom of the menu column. Tool buttons
      stack above a tiny preset.nz link. Container is the same .brand-link
      element from the markup, repositioned via fixed. */
+  /* Anchored to left: 12px so the footer cells sit in the same column as
+     the mode tabs (which start at the .picker-surface padding-left of 12px).
+     Without this they're flush to the viewport edge while the mode tabs
+     are inset, so neither the icons nor the rail align. */
   .brand-link {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    left: 12px;
+    bottom: 12px;
     width: auto;
-    padding: 0 0 8px 0;
+    padding: 0;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-end;
-    gap: 6px;
+    gap: 0;
     pointer-events: none;
   }
 
@@ -1524,10 +1528,13 @@ h1 {
     pointer-events: auto;
   }
 
+  /* Footer tools sit visually contiguous with the mode rail — same width,
+     same dark right border, same inter-button divider, same colour. */
   .footer-tools {
     flex-direction: column;
-    gap: 2px;
+    gap: 0;
     align-items: stretch;
+    border-right: 2px solid var(--ink);
   }
 
   .footer-btn {
@@ -1535,6 +1542,19 @@ h1 {
     height: 44px;
     padding: 0;
     justify-content: center;
+    color: var(--off);
+  }
+
+  .footer-btn:not(:last-child) {
+    border-bottom: 1px solid var(--ghost);
+  }
+
+  /* Match the mode-btn icon size (18px). The SVG has inline width/height
+     attributes from the size={16} prop in App.tsx; CSS width/height
+     overrides them. */
+  .footer-btn svg {
+    width: 18px;
+    height: 18px;
   }
 
   .footer-btn-label {
