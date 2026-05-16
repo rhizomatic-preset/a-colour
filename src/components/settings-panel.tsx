@@ -5,9 +5,11 @@ import {
   type SampleKernel,
   type Settings,
 } from "@/lib/settings";
+import { KernelPreview, type SampleSource } from "./kernel-preview";
 
 interface SettingsPanelProps {
   settings: Settings;
+  sampleSource: SampleSource | null;
   onChange: (settings: Settings) => void;
 }
 
@@ -33,78 +35,128 @@ const WEIGHT_FIELDS: ReadonlyArray<{ key: WeightKey; label: string; hint: string
   },
 ];
 
-export function SettingsPanel({ settings, onChange }: SettingsPanelProps) {
+export function SettingsPanel({ settings, sampleSource, onChange }: SettingsPanelProps) {
   const isDirty = JSON.stringify(settings) !== JSON.stringify(DEFAULT_SETTINGS);
 
   return (
     <div className="settings-panel">
       <h2 className="settings-title">Settings</h2>
 
-      <div className="setting-field">
-        <span className="setting-label">Matches shown</span>
-        <div className="seg-row" role="radiogroup" aria-label="Matches shown">
-          {MATCH_COUNTS.map((value) => (
-            <button
-              key={value}
-              type="button"
-              role="radio"
-              aria-checked={settings.matchCount === value}
-              className={`seg-btn ${settings.matchCount === value ? "is-active" : ""}`}
-              onClick={() => onChange({ ...settings, matchCount: value })}
-            >
-              {value}
-            </button>
-          ))}
+      <details className="setting-section" open>
+        <summary>Show me</summary>
+        <div className="setting-field">
+          <span className="setting-label">Matches shown</span>
+          <div className="seg-row" role="radiogroup" aria-label="Matches shown">
+            {MATCH_COUNTS.map((value) => (
+              <button
+                key={value}
+                type="button"
+                role="radio"
+                aria-checked={settings.matchCount === value}
+                className={`seg-btn ${settings.matchCount === value ? "is-active" : ""}`}
+                onClick={() => onChange({ ...settings, matchCount: value })}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+          <p className="setting-hint">How many closest names to list.</p>
         </div>
-        <p className="setting-hint">How many closest names to list.</p>
-      </div>
+      </details>
 
-      <div className="setting-field">
-        <span className="setting-label">Sample kernel</span>
-        <div className="seg-row" role="radiogroup" aria-label="Sample kernel">
-          {SAMPLE_KERNELS.map((value) => (
-            <button
-              key={value}
-              type="button"
-              role="radio"
-              aria-checked={settings.sampleKernel === value}
-              className={`seg-btn ${settings.sampleKernel === value ? "is-active" : ""}`}
-              onClick={() => onChange({ ...settings, sampleKernel: value })}
-            >
-              {value}×{value}
-            </button>
-          ))}
+      <details className="setting-section">
+        <summary>Sampling</summary>
+        <div className="setting-field">
+          <span className="setting-label">Sample kernel</span>
+          <div className="seg-row" role="radiogroup" aria-label="Sample kernel">
+            {SAMPLE_KERNELS.map((value) => (
+              <button
+                key={value}
+                type="button"
+                role="radio"
+                aria-checked={settings.sampleKernel === value}
+                className={`seg-btn ${settings.sampleKernel === value ? "is-active" : ""}`}
+                onClick={() => onChange({ ...settings, sampleKernel: value })}
+              >
+                {value}×{value}
+              </button>
+            ))}
+          </div>
+          <p className="setting-hint">
+            Average an N×N pixel block on the next sample. Larger smooths noise but blurs edges.
+          </p>
         </div>
-        <p className="setting-hint">
-          Average an N×N pixel block when sampling. Only affects the next sample; larger smooths
-          noise but blurs edges.
-        </p>
-      </div>
+        <KernelPreview source={sampleSource} kernel={settings.sampleKernel} />
+      </details>
 
-      {WEIGHT_FIELDS.map(({ key, label, hint }) => (
-        <div className="setting-field" key={key}>
+      <details className="setting-section">
+        <summary>Bias matching</summary>
+        {WEIGHT_FIELDS.map(({ key, label, hint }) => (
+          <div className="setting-field" key={key}>
+            <span className="setting-label">
+              {label}
+              <span className="setting-value">{settings.weights[key].toFixed(2)}</span>
+            </span>
+            <input
+              type="range"
+              className="setting-range"
+              min={0}
+              max={3}
+              step={0.05}
+              value={settings.weights[key]}
+              onChange={(event) =>
+                onChange({
+                  ...settings,
+                  weights: { ...settings.weights, [key]: Number.parseFloat(event.target.value) },
+                })
+              }
+              aria-label={label}
+            />
+            <p className="setting-hint">{hint}</p>
+          </div>
+        ))}
+
+        <div className="setting-field">
           <span className="setting-label">
-            {label}
-            <span className="setting-value">{settings.weights[key].toFixed(2)}</span>
+            Hue bias
+            <span className="setting-value">
+              {settings.hueBias === null ? "Off" : `${Math.round(settings.hueBias)}°`}
+            </span>
           </span>
-          <input
-            type="range"
-            className="setting-range"
-            min={0}
-            max={3}
-            step={0.05}
-            value={settings.weights[key]}
-            onChange={(event) =>
-              onChange({
-                ...settings,
-                weights: { ...settings.weights, [key]: Number.parseFloat(event.target.value) },
-              })
-            }
-            aria-label={label}
-          />
-          <p className="setting-hint">{hint}</p>
+          <div className="hue-bias-row">
+            <button
+              type="button"
+              className={`seg-btn hue-bias-toggle ${settings.hueBias === null ? "" : "is-active"}`}
+              onClick={() =>
+                onChange({
+                  ...settings,
+                  hueBias: settings.hueBias === null ? 60 : null,
+                })
+              }
+              aria-pressed={settings.hueBias !== null}
+            >
+              {settings.hueBias === null ? "Off" : "On"}
+            </button>
+            <input
+              type="range"
+              className="setting-range hue-range"
+              min={0}
+              max={359}
+              step={1}
+              value={settings.hueBias ?? 0}
+              disabled={settings.hueBias === null}
+              onChange={(event) =>
+                onChange({ ...settings, hueBias: Number.parseFloat(event.target.value) })
+              }
+              aria-label="Hue bias"
+            />
+          </div>
+          <p className="setting-hint">
+            Lean matches toward a specific hue family — useful when you know the colour ("it's
+            definitely yellow") but the sample is ambiguous.
+          </p>
         </div>
-      ))}
+      </details>
 
       <button
         type="button"

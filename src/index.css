@@ -437,6 +437,134 @@ h1 {
   cursor: default;
 }
 
+/* ── EXPANDABLE SETTINGS SECTIONS ── */
+.setting-section {
+  border-top: 1px solid var(--ghost);
+  padding: 12px 0;
+  display: grid;
+  gap: 16px;
+}
+
+.setting-section[open] {
+  padding-bottom: 18px;
+}
+
+.setting-section > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--off);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+
+.setting-section > summary::-webkit-details-marker {
+  display: none;
+}
+
+.setting-section > summary:hover {
+  color: var(--ink);
+}
+
+.setting-section > summary::after {
+  content: "+";
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--silver);
+}
+
+.setting-section[open] > summary::after {
+  content: "−";
+}
+
+/* ── HUE BIAS CONTROL ── */
+.hue-bias-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hue-bias-toggle {
+  flex: 0 0 auto;
+  min-width: 56px;
+  height: 32px;
+}
+
+.hue-range {
+  flex: 1;
+  height: 14px;
+  background: linear-gradient(
+    to right,
+    hsl(0, 90%, 50%),
+    hsl(60, 90%, 50%),
+    hsl(120, 90%, 50%),
+    hsl(180, 90%, 50%),
+    hsl(240, 90%, 50%),
+    hsl(300, 90%, 50%),
+    hsl(360, 90%, 50%)
+  );
+  border: 1px solid var(--ghost);
+}
+
+.hue-range:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ── KERNEL PREVIEW ── */
+.kernel-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--ghost);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.kernel-canvas {
+  width: 154px; /* 11×14 — visual size, the canvas internally is bigger */
+  height: 154px;
+  flex: 0 0 auto;
+  image-rendering: pixelated;
+  background: var(--ghost);
+}
+
+.kernel-result {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.kernel-result-swatch {
+  width: 36px;
+  height: 36px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.kernel-result-hex {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.setting-empty {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--off);
+  padding: 12px;
+  border: 1px dashed var(--ghost);
+}
+
 .setting-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

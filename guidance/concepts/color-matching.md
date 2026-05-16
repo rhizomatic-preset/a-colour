@@ -39,22 +39,37 @@ This is what the **Hue / Chroma / Lightness emphasis sliders** in Settings exist
 
 ## Biasing the lookup
 
-The Settings panel exposes three sliders, each `0 → 3` with `0.05` steps, defaulting to the tuned values:
+The Settings panel ("Bias matching" section) exposes two complementary controls.
+
+### Weight sliders — reshape the *kind* of matching
+
+Three sliders, each `0 → 3` with `0.05` steps, default to the tuned values:
 
 - **Lightness emphasis** (`wL`, default 1.6) — how much a lightness difference counts. Drag it down when a dark colour reads as the wrong colour family.
 - **Chroma emphasis** (`wC`, default 1.2) — how much a saturation difference counts. Drag it up to keep muted and vivid versions of a hue distinct.
 - **Hue emphasis** (`wH`, default 0.7) — how much hue (red / yellow / green / …) difference counts. Drag it up to bias matching by colour family.
 
-The matches list to the right of the Settings panel updates live as you drag, so the effect is immediately visible. A small **Reset to defaults** button at the bottom of the panel restores the tuned values when you want to start over (disabled when nothing has changed).
+### Hue bias — lean toward a *specific* hue family
+
+A toggle + rainbow slider that adds a penalty to every chromatic candidate proportional to how far its hue sits from the chosen one. Default off. When on, the slider picks an HSL hue in degrees (0 = red, 60 = yellow, 120 = green, 240 = blue) and the matcher maps that to the corresponding Oklab angle internally.
+
+The penalty is `(hueAngularDistance / π) × 0.5` — so a perfect hue match pays no penalty, a 90° miss pays `+0.25`, and the opposite hue pays `+0.5`. Neutral candidates (chroma < 0.03) are exempt so greys stay competitive when their lightness is right.
+
+The matches list to the right of the Settings panel updates live as you drag any of these, so the effect is immediately visible. A small **Reset to defaults** button at the bottom of the panel restores everything when you want to start over (disabled when nothing has changed).
 
 ### Worked example — the yellow Lego
 
-Input: `#806800` (a dark mustard yellow).
+Input `#806800` (a dark mustard yellow), against the real 865-colour library:
 
-- **Defaults (1.6 / 1.2 / 0.7):** closest named match is a brown.
-- **Lightness 0, Hue 2:** closest named match is a yellow.
+- **No bias, default weights:** `Golden Brown · Fern Green · Raw Umber` — lightness dominates, brown wins.
+- **Hue bias 60° (yellow), default weights:** `Heart Gold · Olive · Dark Olive Green` — yellower family climbs.
+- **Lightness 0, Hue 2 weights (no hue bias):** also shifts toward yellows.
 
-This is what the test `getClosestColors` in `src/lib/color-matcher.test.ts` asserts, so the relationship is locked in by the suite.
+The two mechanisms compose — use weights to broadly reshape the matcher, use hue bias when you know the right answer and want to lean in.
+
+## The kernel preview
+
+The "Sampling" section in Settings includes a live preview of the most-recent sample. Tap a pixel in Image or Camera mode and the surrounding 15×15 pixel window is captured (in memory, not localStorage). The Settings panel renders that block scaled up with the current kernel box drawn on top. Changing the kernel size re-averages the same block immediately, so you can see how 1×1 vs 7×7 changes the resulting hex against an actual sampled region — no need to re-sample. Until you've captured a sample in this session, the preview shows an empty-state prompt.
 
 ## What about `maxDistance`?
 

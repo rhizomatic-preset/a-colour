@@ -103,6 +103,15 @@ describe("getClosestColors", () => {
     expect(getClosestColors("#ff0000", colors, 2)).toHaveLength(2);
   });
 
+  it("hue bias toward yellow (60°) shifts a dark mustard's top match away from the brown family", () => {
+    const darkYellow = "#806800";
+    const noBias = getClosestColors(darkYellow, realColors, 1, DEFAULT_WEIGHTS, null)[0];
+    const yellowBiased = getClosestColors(darkYellow, realColors, 1, DEFAULT_WEIGHTS, 60)[0];
+    expect(noBias.id).not.toBe(yellowBiased.id);
+    // Yellow-biased top match should not contain "brown" in its name.
+    expect(yellowBiased.name.toLowerCase()).not.toContain("brown");
+  });
+
   it("the real 865-colour library reshuffles when weights change (dark yellow #806800)", () => {
     const darkYellow = "#806800";
     const defaultTop = getClosestColors(darkYellow, realColors, 3, DEFAULT_WEIGHTS).map(

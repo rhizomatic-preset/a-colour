@@ -7,12 +7,15 @@ export type Settings = {
   matchCount: MatchCount;
   sampleKernel: SampleKernel;
   weights: DistanceWeights;
+  /** Hue bias in degrees (0–360), or null when no bias is applied. */
+  hueBias: number | null;
 };
 
 export const DEFAULT_SETTINGS: Settings = {
   matchCount: 3,
   sampleKernel: 3,
   weights: DEFAULT_WEIGHTS,
+  hueBias: null,
 };
 
 const STORAGE_KEY = "color-trickser:settings";

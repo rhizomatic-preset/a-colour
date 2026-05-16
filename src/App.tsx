@@ -12,6 +12,7 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AboutPanel } from "@/components/about-panel";
 import { CameraPicker } from "@/components/camera-picker";
+import type { SampleSource } from "@/components/kernel-preview";
 import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
@@ -54,6 +55,25 @@ function App() {
   const [mode, setMode] = useState<PickerMode>("swatch");
   const [view, setView] = useState<View>("picker");
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
+  const [sampleSource, setSampleSource] = useState<SampleSource | null>(null);
+
+  function captureSampleSource(
+    context: CanvasRenderingContext2D,
+    sourceX: number,
+    sourceY: number,
+    sourceWidth: number,
+    sourceHeight: number,
+  ) {
+    const half = 7; // 15×15 window around the sampled pixel
+    const left = Math.max(0, Math.min(sourceWidth - half * 2 - 1, Math.floor(sourceX) - half));
+    const top = Math.max(0, Math.min(sourceHeight - half * 2 - 1, Math.floor(sourceY) - half));
+    const region = context.getImageData(left, top, half * 2 + 1, half * 2 + 1);
+    setSampleSource({
+      imageData: region,
+      centerX: Math.floor(sourceX) - left,
+      centerY: Math.floor(sourceY) - top,
+    });
+  }
 
   async function copyHex(hex: string) {
     try {
@@ -97,8 +117,15 @@ function App() {
   }, [hasEyeDropper]);
 
   const matches = useMemo(
-    () => getClosestColors(selectedHex, colors, settings.matchCount, settings.weights),
-    [colors, selectedHex, settings.matchCount, settings.weights],
+    () =>
+      getClosestColors(
+        selectedHex,
+        colors,
+        settings.matchCount,
+        settings.weights,
+        settings.hueBias,
+      ),
+    [colors, selectedHex, settings.matchCount, settings.weights, settings.hueBias],
   );
   const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
 
@@ -200,6 +227,7 @@ function App() {
     context.drawImage(image, 0, 0);
     const hex = sampleAverageColor(context, sourceX, sourceY, settings.sampleKernel);
 
+    captureSampleSource(context, sourceX, sourceY, image.naturalWidth, image.naturalHeight);
     setSamplePoint({ x, y });
     setColor(hex);
   }
@@ -294,7 +322,11 @@ function App() {
         <div className="picker-grid">
           <div key={`${view}-${mode}-panel`} className="swatch-panel">
             {view === "settings" ? (
-              <SettingsPanel settings={settings} onChange={setSettings} />
+              <SettingsPanel
+                settings={settings}
+                sampleSource={sampleSource}
+                onChange={setSettings}
+              />
             ) : view === "about" ? (
               <AboutPanel />
             ) : mode === "swatch" ? (
@@ -387,7 +419,11 @@ function App() {
                 <p className="hex-description">Click the image to sample a pixel colour.</p>
               </div>
             ) : (
-              <CameraPicker onColorSelect={setColor} sampleKernel={settings.sampleKernel} />
+              <CameraPicker
+                onColorSelect={setColor}
+                onSampleSource={setSampleSource}
+                sampleKernel={settings.sampleKernel}
+              />
             )}
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>

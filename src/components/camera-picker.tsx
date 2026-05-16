@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import type { SampleSource } from "@/components/kernel-preview";
 import { sampleAverageColor } from "@/lib/sampling";
 import type { SampleKernel } from "@/lib/settings";
 
 interface CameraPickerProps {
   onColorSelect: (hex: string) => void;
+  onSampleSource?: (source: SampleSource) => void;
   sampleKernel: SampleKernel;
 }
 
-export function CameraPicker({ onColorSelect, sampleKernel }: CameraPickerProps) {
+export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: CameraPickerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [zoom, setZoom] = useState(1);
@@ -138,10 +140,24 @@ export function CameraPicker({ onColorSelect, sampleKernel }: CameraPickerProps)
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
+    const sourceX = x * scaleX;
+    const sourceY = y * scaleY;
 
     try {
-      const hex = sampleAverageColor(ctx, x * scaleX, y * scaleY, sampleKernel);
+      const hex = sampleAverageColor(ctx, sourceX, sourceY, sampleKernel);
       onColorSelect(hex);
+
+      if (onSampleSource) {
+        const half = 7; // 15×15 sample window around the pixel
+        const left = Math.max(0, Math.min(canvas.width - half * 2 - 1, Math.floor(sourceX) - half));
+        const top = Math.max(0, Math.min(canvas.height - half * 2 - 1, Math.floor(sourceY) - half));
+        const region = ctx.getImageData(left, top, half * 2 + 1, half * 2 + 1);
+        onSampleSource({
+          imageData: region,
+          centerX: Math.floor(sourceX) - left,
+          centerY: Math.floor(sourceY) - top,
+        });
+      }
     } catch (e) {
       console.error("Sampling error:", e);
     }

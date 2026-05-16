@@ -65,11 +65,13 @@ export function getClosestColors(
   colors: ColorReference[],
   limit = 3,
   weights: DistanceWeights = DEFAULT_WEIGHTS,
+  hueBiasDegrees: number | null = null,
 ): ColorMatch[] {
   const input = hexToRgb(normalizeHex(inputHex));
   const inputLab = rgbToOklab(input.r, input.g, input.b);
   const inputChroma = oklabChroma(inputLab);
   const isInputNeutral = inputChroma < 0.04;
+  const targetHueRad = hueBiasDegrees !== null ? hueDegreesToOklabAngle(hueBiasDegrees) : null;
 
   return colors
     .map((color) => {
@@ -77,7 +79,15 @@ export function getClosestColors(
       const colorChroma = oklabChroma(lab);
       const baseDistance = weightedOklabDistance(inputLab, lab, weights);
       const neutralPenalty = isInputNeutral && colorChroma > 0.06 ? (colorChroma - 0.06) * 0.9 : 0;
-      const distance = baseDistance + neutralPenalty;
+      // Hue-bias lobe: penalise chromatic candidates that are far from the target hue.
+      // Neutral candidates (low chroma) are unaffected — they're "uncoloured".
+      let lobePenalty = 0;
+      if (targetHueRad !== null && colorChroma > 0.03) {
+        const candidateHueRad = Math.atan2(lab.b, lab.a);
+        const deltaHue = Math.abs(normalizeHueDelta(candidateHueRad - targetHueRad));
+        lobePenalty = (deltaHue / Math.PI) * 0.5;
+      }
+      const distance = baseDistance + neutralPenalty + lobePenalty;
 
       return {
         ...color,
@@ -87,6 +97,40 @@ export function getClosestColors(
     })
     .sort((a, b) => a.distance - b.distance)
     .slice(0, limit);
+}
+
+/**
+ * Map an HSL-style hue in degrees (0=red, 60=yellow, 120=green, 240=blue) to the
+ * matching angle in Oklab space, so the user-facing rainbow slider lines up with
+ * how the matcher actually compares hues.
+ */
+function hueDegreesToOklabAngle(hueDegrees: number): number {
+  const h = (((hueDegrees % 360) + 360) % 360) / 60;
+  const x = 1 - Math.abs((h % 2) - 1);
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  if (h < 1) {
+    r = 1;
+    g = x;
+  } else if (h < 2) {
+    r = x;
+    g = 1;
+  } else if (h < 3) {
+    g = 1;
+    b = x;
+  } else if (h < 4) {
+    g = x;
+    b = 1;
+  } else if (h < 5) {
+    r = x;
+    b = 1;
+  } else {
+    r = 1;
+    b = x;
+  }
+  const lab = rgbToOklab(r * 255, g * 255, b * 255);
+  return Math.atan2(lab.b, lab.a);
 }
 
 export function getPrimaryColorName(inputHex: string) {
