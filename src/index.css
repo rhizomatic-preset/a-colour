@@ -603,6 +603,11 @@ h1 {
     display: none;
   }
 
+  /* Drop the picker-surface top border — with .intro hidden it's a floating line */
+  .picker-surface {
+    border-top: 0;
+  }
+
   .mode-btn {
     min-width: 0;
     padding: 0;
@@ -614,6 +619,11 @@ h1 {
 
   .mode-icon {
     display: inline-block;
+  }
+
+  /* Hex input + pipette aren't useful on phone (no hardware keyboard, no EyeDropper) */
+  .hex-field {
+    display: none;
   }
 }
 
