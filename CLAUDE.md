@@ -49,7 +49,7 @@ There's also a `buildNameVectorIndex` / `findClosestColorNames` pair (TF-IDF ove
 - **Package manager**: pnpm (pinned via `packageManager` in `package.json`). `pnpm-lock.yaml` is committed.
 - **Lint + format**: [Biome](https://biomejs.dev) (`biome.json`). Replaces the old ESLint + (no) Prettier setup. Run via `pnpm check` / `pnpm format` (or via the Justfile, below).
 - **Task runner**: [just](https://github.com/casey/just) (`justfile`). The three canonical recipes are `just install`, `just check`, `just run` — see below.
-- **No test framework** is configured. Don't add one without asking — the project is small and the matching logic is the only thing worth testing. When tests do land, wire them into `pnpm check` so `just check` stays the single quality gate.
+- **Tests**: [Vitest](https://vitest.dev) (shares Vite's resolver — no parallel config). Tests live next to the code: `src/lib/color-matcher.test.ts`. The perceptual matching is the load-bearing thing worth testing, and that's what's covered. Don't reach for `@testing-library/react` / DOM / jsdom unless you have a real reason — UI tests are not worth their cost on a project this opinionated. Tests run inside `pnpm check`, so `just check` stays the single quality gate.
 - `@huggingface/transformers` is in `dependencies` but unused; it was for an experiment, leave it for now.
 
 ### Path aliases & conventions
@@ -85,7 +85,7 @@ Day-to-day, use the Justfile:
 
 ```
 just install    # pnpm install
-just check      # biome check (lint + format) + tsc -b — the quality gate
+just check      # biome + tsc -b + vitest run — the quality gate
 just run        # pnpm dev — start the vite dev server
 ```
 
@@ -96,7 +96,8 @@ pnpm install
 pnpm dev
 pnpm build         # tsc -b && vite build
 pnpm preview       # serve the production build
-pnpm check         # biome check . && tsc -b
+pnpm test          # vitest run
+pnpm check         # biome check . && tsc -b && vitest run
 pnpm format        # biome format --write .
 ```
 
