@@ -1,5 +1,5 @@
 import { type ColorReference, getPrimaryColorName } from "@/lib/color-matcher";
-import { searchByWord } from "@/lib/word-search";
+import { searchByWord, type WordSearchResult } from "@/lib/word-search";
 import { type Embedder, NullEmbedder } from "@/lib/word-search/embedder";
 import type { EvalCase } from "@/lib/word-search/eval/queries";
 import { NoopExpander, type QueryExpander } from "@/lib/word-search/expander";
@@ -24,6 +24,13 @@ export type RunResult = {
   cases: CaseResult[];
 };
 
+/**
+ * Pluggable per-case searcher. Phase 0/1 wires the standard literal
+ * `searchByWord`; Phase 2A bake-off scripts inject a candidate-specific
+ * hybrid searcher without touching the runtime path.
+ */
+export type CaseSearcher = (query: string) => Promise<WordSearchResult[]>;
+
 export async function runEval(input: {
   cases: EvalCase[];
   library: ColorReference[];
@@ -31,16 +38,25 @@ export async function runEval(input: {
   embedder?: Embedder;
   expander?: QueryExpander;
   libraryId: string;
+  /** Bake-off override; defaults to the literal-path searchByWord. */
+  searcher?: CaseSearcher;
+  /** Optional override for the `engine` field in the resulting RunResult. */
+  engineLabel?: string;
 }): Promise<RunResult> {
   const embedder = input.embedder ?? NullEmbedder;
   const expander = input.expander ?? NoopExpander;
+  const engineLabel = input.engineLabel ?? embedder.id;
+  const searcher: CaseSearcher =
+    input.searcher ??
+    ((query: string) =>
+      searchByWord(query, input.library, input.tfidf, embedder, {
+        topN: 3,
+        expander,
+      }));
   const caseResults: CaseResult[] = [];
 
   for (const evalCase of input.cases) {
-    const hits = await searchByWord(evalCase.query, input.library, input.tfidf, embedder, {
-      topN: 3,
-      expander,
-    });
+    const hits = await searcher(evalCase.query);
 
     const results = hits.map((hit) => ({
       name: hit.name,
@@ -71,7 +87,7 @@ export async function runEval(input: {
 
   return {
     library: input.libraryId,
-    engine: embedder.id,
+    engine: engineLabel,
     expander: expander.id,
     generatedAt: new Date().toISOString(),
     cases: caseResults,

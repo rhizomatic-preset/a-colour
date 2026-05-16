@@ -1,0 +1,1974 @@
+{
+  "library": "small",
+  "engine": "glove-50d",
+  "threshold": null,
+  "generatedAt": "2026-05-16T22:07:09.642Z",
+  "casesByCategory": {
+    "trivial": [
+      {
+        "query": "red",
+        "results": [
+          {
+            "name": "Dusty Red",
+            "hex": "#b9484e",
+            "family": "red",
+            "score": 0.727606875108999
+          },
+          {
+            "name": "Red",
+            "hex": "#e50000",
+            "family": "red",
+            "score": 0.7184212081070996
+          },
+          {
+            "name": "Blood Red",
+            "hex": "#980002",
+            "family": "red",
+            "score": 0.6708203932499369
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "blue",
+        "results": [
+          {
+            "name": "Mid Blue",
+            "hex": "#276ab3",
+            "family": "blue",
+            "score": 0.7745966692414833
+          },
+          {
+            "name": "Nice Blue",
+            "hex": "#107ab0",
+            "family": "blue",
+            "score": 0.7745966692414833
+          },
+          {
+            "name": "Water Blue",
+            "hex": "#0e87cc",
+            "family": "blue",
+            "score": 0.7745966692414833
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "green",
+        "results": [
+          {
+            "name": "Soft Green",
+            "hex": "#6fc276",
+            "family": "green",
+            "score": 0.904534033733291
+          },
+          {
+            "name": "Dusty Green",
+            "hex": "#76a973",
+            "family": "green",
+            "score": 0.8660254037844388
+          },
+          {
+            "name": "Boring Green",
+            "hex": "#63b365",
+            "family": "green",
+            "score": 0.8320502943378437
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "orange",
+        "results": [
+          {
+            "name": "Dull Orange",
+            "hex": "#d8863b",
+            "family": "orange",
+            "score": 0.8017837257372732
+          },
+          {
+            "name": "Faded Orange",
+            "hex": "#f0944d",
+            "family": "orange",
+            "score": 0.7745966692414834
+          },
+          {
+            "name": "Orange",
+            "hex": "#f97306",
+            "family": "orange",
+            "score": 0.7071067811865475
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "yellow",
+        "results": [
+          {
+            "name": "Yellow",
+            "hex": "#ffff14",
+            "family": "yellow",
+            "score": 0.7844645405527362
+          },
+          {
+            "name": "Banana Yellow",
+            "hex": "#fafe4b",
+            "family": "yellow",
+            "score": 0.6708203932499368
+          },
+          {
+            "name": "Bright Yellow",
+            "hex": "#fffd01",
+            "family": "yellow",
+            "score": 0.6708203932499368
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "purple",
+        "results": [
+          {
+            "name": "Pale Purple",
+            "hex": "#b790d4",
+            "family": "purple",
+            "score": 0.7276068751089989
+          },
+          {
+            "name": "Faded Purple",
+            "hex": "#916e99",
+            "family": "purple",
+            "score": 0.6708203932499369
+          },
+          {
+            "name": "Midnight Purple",
+            "hex": "#280137",
+            "family": "purple",
+            "score": 0.6708203932499369
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "pink",
+        "results": [
+          {
+            "name": "Pig Pink",
+            "hex": "#e78ea5",
+            "family": "pink",
+            "score": 0.8320502943378437
+          },
+          {
+            "name": "Dull Pink",
+            "hex": "#d5869d",
+            "family": "pink",
+            "score": 0.8017837257372731
+          },
+          {
+            "name": "Muted Pink",
+            "hex": "#d1768f",
+            "family": "pink",
+            "score": 0.8017837257372731
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "brown",
+        "results": [
+          {
+            "name": "Brown",
+            "hex": "#653700",
+            "family": "brown",
+            "score": 0.7302967433402215
+          },
+          {
+            "name": "Warm Brown",
+            "hex": "#964e02",
+            "family": "brown",
+            "score": 0.7276068751089989
+          },
+          {
+            "name": "Cinnamon",
+            "hex": "#ac4f06",
+            "family": "brown",
+            "score": 0.6324555320336758
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "black",
+        "results": [
+          {
+            "name": "Black",
+            "hex": "#000000",
+            "family": "black",
+            "score": 0.7302967433402214
+          },
+          {
+            "name": "Almost Black",
+            "hex": "#070d0d",
+            "family": "teal",
+            "score": 0.4082482904638631
+          },
+          {
+            "name": "Midnight",
+            "hex": "#03012d",
+            "family": "blue",
+            "score": 0.24253562503633297
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "black"
+      },
+      {
+        "query": "white",
+        "results": [
+          {
+            "name": "White",
+            "hex": "#ffffff",
+            "family": "white",
+            "score": 0.6708203932499369
+          },
+          {
+            "name": "White Smoke",
+            "hex": "#f5f5f5",
+            "family": "white",
+            "score": 0.5163977794943222
+          },
+          {
+            "name": "Off White",
+            "hex": "#ffffe4",
+            "family": "yellow",
+            "score": 0.30151134457776363
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "white"
+      }
+    ],
+    "modified-family": [
+      {
+        "query": "dark blue",
+        "results": [
+          {
+            "name": "Dark Blue",
+            "hex": "#00035b",
+            "family": "blue",
+            "score": 0.7628734752322692
+          },
+          {
+            "name": "Dark Royal Blue",
+            "hex": "#02066f",
+            "family": "blue",
+            "score": 0.7461049775387163
+          },
+          {
+            "name": "Dark Sky Blue",
+            "hex": "#448ee4",
+            "family": "blue",
+            "score": 0.731349665309964
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "light pink",
+        "results": [
+          {
+            "name": "Light Pink",
+            "hex": "#ffd1df",
+            "family": "pink",
+            "score": 0.7211076438894906
+          },
+          {
+            "name": "Pig Pink",
+            "hex": "#e78ea5",
+            "family": "pink",
+            "score": 0.691063127017816
+          },
+          {
+            "name": "Dull Pink",
+            "hex": "#d5869d",
+            "family": "pink",
+            "score": 0.6659250918731319
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "pale yellow",
+        "results": [
+          {
+            "name": "Pale Yellow",
+            "hex": "#ffff84",
+            "family": "yellow",
+            "score": 0.7651804314358748
+          },
+          {
+            "name": "Yellow",
+            "hex": "#ffff14",
+            "family": "yellow",
+            "score": 0.7319892386800632
+          },
+          {
+            "name": "Banana Yellow",
+            "hex": "#fafe4b",
+            "family": "yellow",
+            "score": 0.661263286215341
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "bright red",
+        "results": [
+          {
+            "name": "Bright Red",
+            "hex": "#ff000d",
+            "family": "red",
+            "score": 0.6780978185499994
+          },
+          {
+            "name": "Red",
+            "hex": "#e50000",
+            "family": "red",
+            "score": 0.6695889702410726
+          },
+          {
+            "name": "Cherry Red",
+            "hex": "#f7022a",
+            "family": "red",
+            "score": 0.5908998881469715
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "deep purple",
+        "results": [
+          {
+            "name": "Royal Purple",
+            "hex": "#4b006e",
+            "family": "purple",
+            "score": 0.6305698016109503
+          },
+          {
+            "name": "Rebecca Purple",
+            "hex": "#663399",
+            "family": "purple",
+            "score": 0.6153731153912686
+          },
+          {
+            "name": "Deep Lavender",
+            "hex": "#8d5eb7",
+            "family": "purple",
+            "score": 0.611151615254654
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "light green",
+        "results": [
+          {
+            "name": "Light Seafoam Green",
+            "hex": "#a7ffb5",
+            "family": "green",
+            "score": 0.7592166548223477
+          },
+          {
+            "name": "Light Light Green",
+            "hex": "#c8ffb0",
+            "family": "green",
+            "score": 0.7471278605753051
+          },
+          {
+            "name": "Light Pastel Green",
+            "hex": "#b2fba5",
+            "family": "green",
+            "score": 0.6853228068017773
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "dark brown",
+        "results": [
+          {
+            "name": "Brown",
+            "hex": "#653700",
+            "family": "brown",
+            "score": 0.6995722587149826
+          },
+          {
+            "name": "Dark Brown",
+            "hex": "#341c02",
+            "family": "brown",
+            "score": 0.6934591940557745
+          },
+          {
+            "name": "Dirt Brown",
+            "hex": "#836539",
+            "family": "brown",
+            "score": 0.6296495112031344
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "pastel pink",
+        "results": [
+          {
+            "name": "Pig Pink",
+            "hex": "#e78ea5",
+            "family": "pink",
+            "score": 0.8030748288054397
+          },
+          {
+            "name": "Dull Pink",
+            "hex": "#d5869d",
+            "family": "pink",
+            "score": 0.7738622685036918
+          },
+          {
+            "name": "Pastel Pink",
+            "hex": "#ffbacd",
+            "family": "pink",
+            "score": 0.6622706920434558
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "pink"
+      }
+    ],
+    "literal-name": [
+      {
+        "query": "eggshell",
+        "results": [
+          {
+            "name": "Eggshell",
+            "hex": "#ffffd4",
+            "family": "yellow",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Eggshell Blue",
+            "hex": "#c4fff7",
+            "family": "teal",
+            "score": 0.22941573387056172
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedName": "Eggshell"
+      },
+      {
+        "query": "salmon",
+        "results": [
+          {
+            "name": "Salmon",
+            "hex": "#ff796c",
+            "family": "red",
+            "score": 0.39999999999999997
+          },
+          {
+            "name": "Dark Salmon",
+            "hex": "#c85a53",
+            "family": "red",
+            "score": 0.2672612419124244
+          },
+          {
+            "name": "Salmon Pink",
+            "hex": "#fe7b7c",
+            "family": "red",
+            "score": 0.2085144140570748
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedName": "Salmon"
+      },
+      {
+        "query": "mustard",
+        "results": [
+          {
+            "name": "Dark Mustard",
+            "hex": "#a88905",
+            "family": "brown",
+            "score": 0.35355339059327373
+          },
+          {
+            "name": "Mustard Brown",
+            "hex": "#ac7e04",
+            "family": "brown",
+            "score": 0.30151134457776363
+          },
+          {
+            "name": "Mustard",
+            "hex": "#ceb301",
+            "family": "brown",
+            "score": 0.2672612419124244
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedName": "Mustard"
+      },
+      {
+        "query": "teal",
+        "results": [
+          {
+            "name": "Teal",
+            "hex": "#029386",
+            "family": "teal",
+            "score": 0.8340576562282991
+          },
+          {
+            "name": "Dull Teal",
+            "hex": "#5f9e8f",
+            "family": "teal",
+            "score": 0.75
+          },
+          {
+            "name": "Greyish Teal",
+            "hex": "#719f91",
+            "family": "teal",
+            "score": 0.75
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedName": "Teal"
+      },
+      {
+        "query": "coral",
+        "results": [
+          {
+            "name": "Coral",
+            "hex": "#fc5a50",
+            "family": "red",
+            "score": 0.41702882811414954
+          },
+          {
+            "name": "Light Coral",
+            "hex": "#f08080",
+            "family": "red",
+            "score": 0.3162277660168379
+          },
+          {
+            "name": "Coral Pink",
+            "hex": "#ff6163",
+            "family": "red",
+            "score": 0.2182178902359924
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedName": "Coral"
+      }
+    ],
+    "css-literal": [
+      {
+        "query": "aliceblue",
+        "results": [
+          {
+            "name": "Alice Blue",
+            "hex": "#f0f8ff",
+            "family": "blue",
+            "score": 0.2182178902359924
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "gainsboro",
+        "results": [
+          {
+            "name": "Gainsboro",
+            "hex": "#dcdcdc",
+            "family": "silver",
+            "score": 0.5345224838248488
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "mediumvioletred",
+        "results": [
+          {
+            "name": "Medium Violet Red",
+            "hex": "#c71585",
+            "family": "magenta",
+            "score": 0.22360679774997894
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "magenta"
+      },
+      {
+        "query": "darkslateblue",
+        "results": [
+          {
+            "name": "Dark Slate Blue",
+            "hex": "#214761",
+            "family": "blue",
+            "score": 0.17960530202677494
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "palegoldenrod",
+        "results": [
+          {
+            "name": "Pale Goldenrod",
+            "hex": "#eee8aa",
+            "family": "yellow",
+            "score": 0.21320071635561044
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "yellow"
+      }
+    ],
+    "object-rooted": [
+      {
+        "query": "ocean",
+        "results": [
+          {
+            "name": "Ocean",
+            "hex": "#017b92",
+            "family": "teal",
+            "score": 0.2672612419124244
+          },
+          {
+            "name": "Ocean Green",
+            "hex": "#3d9973",
+            "family": "teal",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Ocean Blue",
+            "hex": "#03719c",
+            "family": "blue",
+            "score": 0.23570226039551587
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "sunset",
+        "results": [
+          {
+            "name": "Periwinkle Blue",
+            "hex": "#8f99fb",
+            "family": "blue",
+            "score": 0.4998101709085129
+          },
+          {
+            "name": "Faded Orange",
+            "hex": "#f0944d",
+            "family": "orange",
+            "score": 0.4905086123427642
+          },
+          {
+            "name": "Dark Sky Blue",
+            "hex": "#448ee4",
+            "family": "blue",
+            "score": 0.4821118824299197
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "lemon",
+        "results": [
+          {
+            "name": "Lemon",
+            "hex": "#fdff52",
+            "family": "yellow",
+            "score": 0.2581988897471611
+          },
+          {
+            "name": "Lemon Lime",
+            "hex": "#bffe28",
+            "family": "green",
+            "score": 0.2581988897471611
+          },
+          {
+            "name": "Lemon Green",
+            "hex": "#adf802",
+            "family": "olive",
+            "score": 0.23570226039551587
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "mud",
+        "results": [
+          {
+            "name": "Mud",
+            "hex": "#735c12",
+            "family": "brown",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Mud Green",
+            "hex": "#606602",
+            "family": "olive",
+            "score": 0.22941573387056174
+          },
+          {
+            "name": "Mud Brown",
+            "hex": "#60460f",
+            "family": "brown",
+            "score": 0.2182178902359924
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "forest",
+        "results": [
+          {
+            "name": "Forest",
+            "hex": "#0b5509",
+            "family": "green",
+            "score": 0.2886751345948129
+          },
+          {
+            "name": "Light Forest Green",
+            "hex": "#4f9153",
+            "family": "green",
+            "score": 0.23570226039551587
+          },
+          {
+            "name": "Forest Green",
+            "hex": "#06470c",
+            "family": "green",
+            "score": 0.20851441405707477
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "sky",
+        "results": [
+          {
+            "name": "Dark Sky Blue",
+            "hex": "#448ee4",
+            "family": "blue",
+            "score": 0.25
+          },
+          {
+            "name": "Bright Sky Blue",
+            "hex": "#02ccfe",
+            "family": "blue",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Pale Sky Blue",
+            "hex": "#bdf6fe",
+            "family": "teal",
+            "score": 0.22360679774997894
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "cherry",
+        "results": [
+          {
+            "name": "Cherry",
+            "hex": "#cf0234",
+            "family": "red",
+            "score": 0.22941573387056172
+          },
+          {
+            "name": "Cherry Red",
+            "hex": "#f7022a",
+            "family": "red",
+            "score": 0.19999999999999998
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "grass",
+        "results": [
+          {
+            "name": "Grass",
+            "hex": "#5cac2d",
+            "family": "green",
+            "score": 0.25
+          },
+          {
+            "name": "Dark Grass Green",
+            "hex": "#388004",
+            "family": "olive",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Light Grass Green",
+            "hex": "#9af764",
+            "family": "green",
+            "score": 0.20851441405707477
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "lavender",
+        "results": [
+          {
+            "name": "Lavender",
+            "hex": "#c79fef",
+            "family": "purple",
+            "score": 0.6
+          },
+          {
+            "name": "Light Lavender",
+            "hex": "#dfc5fe",
+            "family": "purple",
+            "score": 0.3651483716701107
+          },
+          {
+            "name": "Lavender Pink",
+            "hex": "#dd85d7",
+            "family": "magenta",
+            "score": 0.33333333333333337
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "ice",
+        "results": [
+          {
+            "name": "Ice Blue",
+            "hex": "#d7fffe",
+            "family": "teal",
+            "score": 0.2672612419124244
+          },
+          {
+            "name": "Ice",
+            "hex": "#d6fffa",
+            "family": "teal",
+            "score": 0.2581988897471611
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "fire",
+        "results": [
+          {
+            "name": "Fire Engine Red",
+            "hex": "#fe0002",
+            "family": "red",
+            "score": 0.19245008972987526
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "leaf",
+        "results": [
+          {
+            "name": "Leaf",
+            "hex": "#71aa34",
+            "family": "olive",
+            "score": 0.25
+          },
+          {
+            "name": "Leaf Green",
+            "hex": "#5ca904",
+            "family": "olive",
+            "score": 0.24253562503633297
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      }
+    ],
+    "cultural": [
+      {
+        "query": "minecraft creeper pants",
+        "results": [
+          {
+            "name": "Khaki",
+            "hex": "#aaa662",
+            "family": "yellow",
+            "score": 0.6115073747139057
+          },
+          {
+            "name": "Bluey Grey",
+            "hex": "#89a0b0",
+            "family": "blue",
+            "score": 0.5725360971420104
+          },
+          {
+            "name": "Camel",
+            "hex": "#c69f59",
+            "family": "orange",
+            "score": 0.5646514027442047
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "taylor swift red",
+        "results": [
+          {
+            "name": "Dusty Red",
+            "hex": "#b9484e",
+            "family": "red",
+            "score": 0.727606875108999
+          },
+          {
+            "name": "Red",
+            "hex": "#e50000",
+            "family": "red",
+            "score": 0.7184212081070996
+          },
+          {
+            "name": "Blood Red",
+            "hex": "#980002",
+            "family": "red",
+            "score": 0.6708203932499369
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "mario hat",
+        "results": [
+          {
+            "name": "Candy Pink",
+            "hex": "#ff63e9",
+            "family": "magenta",
+            "score": 0.3907440112040882
+          },
+          {
+            "name": "Pink Purple",
+            "hex": "#db4bda",
+            "family": "magenta",
+            "score": 0.3855933631676531
+          },
+          {
+            "name": "Pink/purple",
+            "hex": "#ef1de7",
+            "family": "magenta",
+            "score": 0.3831388334085316
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "tiktok pink",
+        "results": [
+          {
+            "name": "Pig Pink",
+            "hex": "#e78ea5",
+            "family": "pink",
+            "score": 0.8320502943378437
+          },
+          {
+            "name": "Dull Pink",
+            "hex": "#d5869d",
+            "family": "pink",
+            "score": 0.8017837257372731
+          },
+          {
+            "name": "Muted Pink",
+            "hex": "#d1768f",
+            "family": "pink",
+            "score": 0.8017837257372731
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "pink"
+      }
+    ],
+    "compound": [
+      {
+        "query": "ocean beach",
+        "results": [
+          {
+            "name": "Ocean",
+            "hex": "#017b92",
+            "family": "teal",
+            "score": 0.2672612419124244
+          },
+          {
+            "name": "Ocean Green",
+            "hex": "#3d9973",
+            "family": "teal",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Ocean Blue",
+            "hex": "#03719c",
+            "family": "blue",
+            "score": 0.23570226039551587
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "forest moss",
+        "results": [
+          {
+            "name": "Moss Green",
+            "hex": "#658b38",
+            "family": "olive",
+            "score": 0.23978071517635674
+          },
+          {
+            "name": "Moss",
+            "hex": "#769958",
+            "family": "olive",
+            "score": 0.21688981750992328
+          },
+          {
+            "name": "Forest",
+            "hex": "#0b5509",
+            "family": "green",
+            "score": 0.20052989753517927
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "dusty rose",
+        "results": [
+          {
+            "name": "Dusty Rose",
+            "hex": "#c0737a",
+            "family": "red",
+            "score": 0.4300613474437774
+          },
+          {
+            "name": "Dusky Rose",
+            "hex": "#ba6873",
+            "family": "red",
+            "score": 0.32946432065445413
+          },
+          {
+            "name": "Old Rose",
+            "hex": "#c87f89",
+            "family": "red",
+            "score": 0.289496772213158
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "dark forest green",
+        "results": [
+          {
+            "name": "Forest",
+            "hex": "#0b5509",
+            "family": "green",
+            "score": 0.5450888444716209
+          },
+          {
+            "name": "Dark Forest Green",
+            "hex": "#002d04",
+            "family": "green",
+            "score": 0.5016665827943275
+          },
+          {
+            "name": "Forest Green",
+            "hex": "#06470c",
+            "family": "green",
+            "score": 0.46415065414758194
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "faded denim",
+        "results": [
+          {
+            "name": "Denim",
+            "hex": "#3b638c",
+            "family": "blue",
+            "score": 0.217455278024035
+          },
+          {
+            "name": "Denim Blue",
+            "hex": "#3b5b92",
+            "family": "blue",
+            "score": 0.19348225164832056
+          },
+          {
+            "name": "Faded Yellow",
+            "hex": "#feff7f",
+            "family": "yellow",
+            "score": 0.13588152535492962
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "autumn leaves",
+        "results": [
+          {
+            "name": "Royal Purple",
+            "hex": "#4b006e",
+            "family": "purple",
+            "score": 0.7459049735221637
+          },
+          {
+            "name": "Warm Grey",
+            "hex": "#978a84",
+            "family": "gray",
+            "score": 0.7408539005150534
+          },
+          {
+            "name": "Purple Red",
+            "hex": "#990147",
+            "family": "pink",
+            "score": 0.7380266924286881
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      }
+    ],
+    "te-reo": [
+      {
+        "query": "whero",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "kākāriki",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "kōwhai",
+        "results": [
+          {
+            "name": "Lichen",
+            "hex": "#8fb67b",
+            "family": "green",
+            "score": 0.2750842409006772
+          },
+          {
+            "name": "Sage",
+            "hex": "#87ae73",
+            "family": "green",
+            "score": 0.22087006528464243
+          },
+          {
+            "name": "Purplish",
+            "hex": "#94568c",
+            "family": "magenta",
+            "score": 0.20923574014325985
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "kahurangi",
+        "results": [
+          {
+            "name": "Greeny Grey",
+            "hex": "#7ea07a",
+            "family": "green",
+            "score": -0.05486736235235569
+          },
+          {
+            "name": "Bluey Grey",
+            "hex": "#89a0b0",
+            "family": "blue",
+            "score": -0.0555882414647522
+          },
+          {
+            "name": "Bluey Green",
+            "hex": "#2bb179",
+            "family": "teal",
+            "score": -0.05911667618098908
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "blue"
+      },
+      {
+        "query": "māwhero",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "mangu",
+        "results": [
+          {
+            "name": "Booger",
+            "hex": "#9bb53c",
+            "family": "olive",
+            "score": 0.026628782262826625
+          },
+          {
+            "name": "Lichen",
+            "hex": "#8fb67b",
+            "family": "green",
+            "score": 0.01652332325889336
+          },
+          {
+            "name": "Sage",
+            "hex": "#87ae73",
+            "family": "green",
+            "score": 0.004390322792286555
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "black"
+      },
+      {
+        "query": "kiwikiwi",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "waiporoporo",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "purple"
+      }
+    ],
+    "weather": [
+      {
+        "query": "cloud",
+        "results": [
+          {
+            "name": "Sapphire",
+            "hex": "#2138ab",
+            "family": "blue",
+            "score": 0.653151879480833
+          },
+          {
+            "name": "Cobalt",
+            "hex": "#1e488f",
+            "family": "blue",
+            "score": 0.6527674146874745
+          },
+          {
+            "name": "Cobalt Blue",
+            "hex": "#030aa7",
+            "family": "blue",
+            "score": 0.6527674130815242
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "cloudy",
+        "results": [
+          {
+            "name": "Cloudy Blue",
+            "hex": "#acc2d9",
+            "family": "blue",
+            "score": 0.20851441405707477
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "rain",
+        "results": [
+          {
+            "name": "Water Blue",
+            "hex": "#0e87cc",
+            "family": "blue",
+            "score": 0.6873047366859383
+          },
+          {
+            "name": "Light Coral",
+            "hex": "#f08080",
+            "family": "red",
+            "score": 0.6659777196131144
+          },
+          {
+            "name": "Dust",
+            "hex": "#b2996e",
+            "family": "orange",
+            "score": 0.6632681521423659
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "rainy",
+        "results": [
+          {
+            "name": "Water Blue",
+            "hex": "#0e87cc",
+            "family": "blue",
+            "score": 0.5844401345879637
+          },
+          {
+            "name": "Blueberry",
+            "hex": "#464196",
+            "family": "blue",
+            "score": 0.5784836153310949
+          },
+          {
+            "name": "Sea",
+            "hex": "#3c9992",
+            "family": "teal",
+            "score": 0.5700073784832109
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "gray"
+      },
+      {
+        "query": "lightning",
+        "results": [
+          {
+            "name": "Light Coral",
+            "hex": "#f08080",
+            "family": "red",
+            "score": 0.4384119117031684
+          },
+          {
+            "name": "Green/blue",
+            "hex": "#01c08d",
+            "family": "teal",
+            "score": 0.4369671726590901
+          },
+          {
+            "name": "Fire Engine Red",
+            "hex": "#fe0002",
+            "family": "red",
+            "score": 0.43227194511487205
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "puddle",
+        "results": [
+          {
+            "name": "Aquamarine",
+            "hex": "#04d8b2",
+            "family": "teal",
+            "score": 0.4608596320091598
+          },
+          {
+            "name": "Pinky",
+            "hex": "#fc86aa",
+            "family": "pink",
+            "score": 0.4526142972467829
+          },
+          {
+            "name": "Bluey Grey",
+            "hex": "#89a0b0",
+            "family": "blue",
+            "score": 0.4523782808169245
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      }
+    ],
+    "open-vocab": [
+      {
+        "query": "rainbow trout",
+        "results": [
+          {
+            "name": "Soft Green",
+            "hex": "#6fc276",
+            "family": "green",
+            "score": 0.60025213153252
+          },
+          {
+            "name": "Swamp Green",
+            "hex": "#748500",
+            "family": "olive",
+            "score": 0.5954859990546768
+          },
+          {
+            "name": "Light Coral",
+            "hex": "#f08080",
+            "family": "red",
+            "score": 0.590215808288678
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "ender dragon",
+        "results": [
+          {
+            "name": "Bluey Grey",
+            "hex": "#89a0b0",
+            "family": "blue",
+            "score": 0.3219136509555063
+          },
+          {
+            "name": "Greyish",
+            "hex": "#a8a495",
+            "family": "gray",
+            "score": 0.2655398321428198
+          },
+          {
+            "name": "Sapphire",
+            "hex": "#2138ab",
+            "family": "blue",
+            "score": 0.25142553861465683
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "caterpillar",
+        "results": [
+          {
+            "name": "Sap Green",
+            "hex": "#5c8b15",
+            "family": "olive",
+            "score": 0.3982415026556414
+          },
+          {
+            "name": "Orchid",
+            "hex": "#c875c4",
+            "family": "magenta",
+            "score": 0.35233116466442943
+          },
+          {
+            "name": "Cement",
+            "hex": "#a5a391",
+            "family": "gray",
+            "score": 0.3266441026969498
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "salamander",
+        "results": [
+          {
+            "name": "Greyish",
+            "hex": "#a8a495",
+            "family": "gray",
+            "score": 0.28618453511033903
+          },
+          {
+            "name": "Orchid",
+            "hex": "#c875c4",
+            "family": "magenta",
+            "score": 0.2756996721777583
+          },
+          {
+            "name": "Grey",
+            "hex": "#929591",
+            "family": "gray",
+            "score": 0.27436831074997287
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "octopus",
+        "results": [
+          {
+            "name": "Baby Poo",
+            "hex": "#ab9004",
+            "family": "brown",
+            "score": 0.38688091011025943
+          },
+          {
+            "name": "Asparagus",
+            "hex": "#77ab56",
+            "family": "green",
+            "score": 0.3674116690390605
+          },
+          {
+            "name": "Pea Soup",
+            "hex": "#929901",
+            "family": "olive",
+            "score": 0.3562147312987311
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "charizard",
+        "results": [
+          {
+            "name": "Eggplant",
+            "hex": "#380835",
+            "family": "magenta",
+            "score": 0.23205543121329117
+          },
+          {
+            "name": "Booger",
+            "hex": "#9bb53c",
+            "family": "olive",
+            "score": 0.22473797816393407
+          },
+          {
+            "name": "Dusky Purple",
+            "hex": "#895b7b",
+            "family": "magenta",
+            "score": 0.20589666640651266
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "kirby",
+        "results": [
+          {
+            "name": "Cool Grey",
+            "hex": "#95a3a6",
+            "family": "gray",
+            "score": 0.1163383180205127
+          },
+          {
+            "name": "Dark Gray",
+            "hex": "#a9a9a9",
+            "family": "gray",
+            "score": 0.10333784873782006
+          },
+          {
+            "name": "Moss Green",
+            "hex": "#658b38",
+            "family": "olive",
+            "score": 0.10323983511692487
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "pink"
+      },
+      {
+        "query": "lego car",
+        "results": [
+          {
+            "name": "Candy Pink",
+            "hex": "#ff63e9",
+            "family": "magenta",
+            "score": 0.347944368933774
+          },
+          {
+            "name": "Frog Green",
+            "hex": "#58bc08",
+            "family": "olive",
+            "score": 0.34655311363164953
+          },
+          {
+            "name": "Dark Lime Green",
+            "hex": "#7ebd01",
+            "family": "olive",
+            "score": 0.3437719054807549
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "pumpkin spice",
+        "results": [
+          {
+            "name": "Pumpkin",
+            "hex": "#e17701",
+            "family": "brown",
+            "score": 0.23570226039551587
+          },
+          {
+            "name": "Pumpkin Orange",
+            "hex": "#fb7d07",
+            "family": "orange",
+            "score": 0.19611613513818404
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "deku cosplay",
+        "results": [
+          {
+            "name": "Lichen",
+            "hex": "#8fb67b",
+            "family": "green",
+            "score": 0.25847325114218517
+          },
+          {
+            "name": "Purplish",
+            "hex": "#94568c",
+            "family": "magenta",
+            "score": 0.2181268221274418
+          },
+          {
+            "name": "Dusky Purple",
+            "hex": "#895b7b",
+            "family": "magenta",
+            "score": 0.1883131396014288
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      }
+    ],
+    "poetic": [
+      {
+        "query": "melancholy",
+        "results": [
+          {
+            "name": "Brown",
+            "hex": "#653700",
+            "family": "brown",
+            "score": 0.6419396179600029
+          },
+          {
+            "name": "Chocolate",
+            "hex": "#3d1c02",
+            "family": "brown",
+            "score": 0.6404191167998204
+          },
+          {
+            "name": "Dark Fuchsia",
+            "hex": "#9d0759",
+            "family": "magenta",
+            "score": 0.6392831552009582
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        }
+      },
+      {
+        "query": "joy",
+        "results": [
+          {
+            "name": "Deep Pink",
+            "hex": "#cb0162",
+            "family": "pink",
+            "score": 0.5352005261545294
+          },
+          {
+            "name": "Bubblegum",
+            "hex": "#ff6cb5",
+            "family": "pink",
+            "score": 0.5231779894031745
+          },
+          {
+            "name": "Barbie Pink",
+            "hex": "#fe46a5",
+            "family": "magenta",
+            "score": 0.5225162809690986
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        }
+      },
+      {
+        "query": "ocean at dawn",
+        "results": [
+          {
+            "name": "Ocean",
+            "hex": "#017b92",
+            "family": "teal",
+            "score": 0.2672612419124244
+          },
+          {
+            "name": "Ocean Green",
+            "hex": "#3d9973",
+            "family": "teal",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Ocean Blue",
+            "hex": "#03719c",
+            "family": "blue",
+            "score": 0.23570226039551587
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        }
+      }
+    ]
+  }
+}

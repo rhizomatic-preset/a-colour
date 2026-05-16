@@ -1,0 +1,6 @@
+{
+  "engine": "glove-300d",
+  "library": "small",
+  "dim": 300,
+  "count": 980
+}

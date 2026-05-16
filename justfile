@@ -29,6 +29,12 @@ fetch-glove:
 build-expander-vectors *flags:
     pnpm tsx scripts/build-expander-vectors.ts {{flags}}
 
+# Phase 2A — precomputes colour-vectors for a candidate engine. Engine id matches
+# the directory under scripts/candidates/. Run once per candidate before evaluating.
+[group('build')]
+build-embeddings engine library="small" *flags:
+    pnpm tsx scripts/build-embeddings.ts --engine={{engine}} --library={{library}} {{flags}}
+
 [group('eval')]
 eval engine="literal" library="small" *flags:
     pnpm tsx scripts/eval.ts --engine={{engine}} --library={{library}} {{flags}}

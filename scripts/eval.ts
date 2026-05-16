@@ -5,9 +5,10 @@ import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
 import { parseColorCsv } from "../src/lib/color-matcher.ts";
+import type { LibraryVariant } from "../src/lib/word-search/embedder.ts";
 import { EVAL_QUERIES } from "../src/lib/word-search/eval/queries.ts";
 import { formatReport } from "../src/lib/word-search/eval/report.ts";
-import { runEval } from "../src/lib/word-search/eval/runner.ts";
+import { type CaseSearcher, runEval } from "../src/lib/word-search/eval/runner.ts";
 import { diffSnapshots, formatSnapshot, toSnapshot } from "../src/lib/word-search/eval/snapshot.ts";
 import {
   buildBlendedExpander,
@@ -17,6 +18,9 @@ import {
   type QueryExpander,
 } from "../src/lib/word-search/expander.ts";
 import { loadTfidfIndex, type TfidfIndex } from "../src/lib/word-search/tfidf-index.ts";
+import { tokenize as tokenizeForVocab } from "../src/lib/word-search/tokenize.ts";
+import { GLOVE_CONFIGS, makeGloveEmbedder } from "./candidates/glove/embedder.ts";
+import { searchHybrid } from "./candidates/hybrid-search.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -59,11 +63,15 @@ async function main() {
   const tfidfRaw = JSON.parse(readFileSync(tfidfPath, "utf8")) as unknown;
   const tfidf: TfidfIndex = loadTfidfIndex(tfidfRaw);
 
-  // NOTE: Phase 0 ships with NullEmbedder only. Engine selection lands in Phase 2.
-  if (engine !== "literal") {
+  // Phase 2A bake-off engines: any registered GloVe candidate. Falls through
+  // to the literal path when --engine=literal. Unknown engine ids exit with
+  // a clear error rather than silently degrade.
+  const candidateConfig = engine !== "literal" ? GLOVE_CONFIGS[engine] : undefined;
+  if (engine !== "literal" && !candidateConfig) {
     process.stderr.write(
-      `Engine "${engine}" is not registered yet (Phase 0 ships literal only).\n`,
+      `Unknown engine "${engine}". Known candidates: literal, ${Object.keys(GLOVE_CONFIGS).join(", ")}.\n`,
     );
+    process.exit(2);
   }
 
   const loadHandcurated = (): Record<string, string[]> => {
@@ -105,12 +113,46 @@ async function main() {
     process.exit(2);
   }
 
+  let searcher: CaseSearcher | undefined;
+  if (candidateConfig) {
+    // Pre-collect every token the eval might present so the candidate's vocab
+    // subset covers them. Otherwise novel tokens like "trout" yield zero
+    // vectors and the strict-fallback collapses.
+    const queryVocabHint = new Set<string>();
+    for (const c of EVAL_QUERIES) {
+      for (const t of tokenizeForVocab(c.query)) queryVocabHint.add(t);
+    }
+    const embedder = makeGloveEmbedder(candidateConfig, colors, queryVocabHint);
+    const colorVectors = await embedder.loadColorVectors(library as LibraryVariant);
+    if (colorVectors.length !== colors.length) {
+      process.stderr.write(
+        `Embedding count (${colorVectors.length}) doesn't match library size (${colors.length}). ` +
+          `Rebuild via \`just build-embeddings ${candidateConfig.id}\`.\n`,
+      );
+      process.exit(2);
+    }
+    // The design doc starts threshold at 0.4 (strict-fallback). Empirically
+    // TF-IDF cosine scores on the small library cluster around 0.2–0.4 for
+    // confident hits — 0.4 is too aggressive and lets the embedder hijack
+    // queries like "salmon" where TF-IDF clearly knows the answer. 0.15 keeps
+    // TF-IDF for any non-zero literal hit while still falling through on the
+    // "no in-vocab tokens" cases that are the embedder's job.
+    const threshold = 0.15;
+    searcher = (query: string) =>
+      searchHybrid(query, colors, tfidf, embedder, colorVectors, library as LibraryVariant, {
+        topN: 3,
+        threshold,
+      });
+  }
+
   const run = await runEval({
     cases: EVAL_QUERIES,
     library: colors,
     tfidf,
     expander,
     libraryId: library,
+    searcher,
+    engineLabel: engine,
   });
 
   const report = formatReport(run);
