@@ -523,6 +523,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-top: 12px;
   padding: 10px;
   border: 1px solid var(--ghost);
   background: rgba(255, 255, 255, 0.5);
@@ -561,6 +562,7 @@ h1 {
   font-size: 13px;
   line-height: 1.65;
   color: var(--off);
+  margin-top: 12px;
   padding: 20px 22px;
   border: 1px dashed var(--ghost);
 }
