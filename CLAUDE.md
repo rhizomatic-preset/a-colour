@@ -32,6 +32,8 @@ Output: top 3 closest named colours from `guidance/references/colors.csv` (~865 
 
 ## Colour matching
 
+> Plain-language explainer of the algorithm and how to bias it lives at `guidance/concepts/color-matching.md`. When the matching behaviour or its tuning changes, update that doc too — it's the user-facing reference and should stay accurate.
+
 In `src/lib/color-matcher.ts`. The matching is **perceptual**, not RGB-Euclidean — important to keep that way, because RGB distance ranks colours in ways colourblind users would find arbitrary.
 
 - Convert sRGB → linear → **Oklab**.
