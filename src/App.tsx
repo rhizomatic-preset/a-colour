@@ -240,7 +240,7 @@ function App() {
             {mode === "swatch" ? (
               <>
                 <ColorPicker color={selectedHex} onChange={updateColor} />
-                <p className="hint">Click the swatch to pick a colour.</p>
+                <p className="hex-description">Click the swatch to pick a colour.</p>
 
                 <div className="hex-field">
                   <label className="hex-label" htmlFor="hex-input">
