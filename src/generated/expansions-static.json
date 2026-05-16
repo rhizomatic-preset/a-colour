@@ -1,0 +1,757 @@
+{
+  "at": [
+    "night",
+    "high",
+    "with",
+    "and",
+    "off",
+    "of",
+    "a",
+    "fire"
+  ],
+  "autumn": [
+    "spring",
+    "easter",
+    "warm",
+    "mid",
+    "cold",
+    "snow",
+    "sunshine",
+    "midnight"
+  ],
+  "beach": [
+    "forest",
+    "ocean",
+    "desert",
+    "jungle",
+    "lawn",
+    "night",
+    "coral",
+    "sandy"
+  ],
+  "black": [
+    "white",
+    "blue",
+    "red",
+    "green",
+    "gray",
+    "dark",
+    "orange",
+    "yellow"
+  ],
+  "blue": [
+    "red",
+    "black",
+    "pink",
+    "green",
+    "yellow",
+    "purple",
+    "white",
+    "orange"
+  ],
+  "bright": [
+    "dark",
+    "blue",
+    "green",
+    "purple",
+    "gray",
+    "light",
+    "pink",
+    "cool"
+  ],
+  "brown": [
+    "white",
+    "gray",
+    "green",
+    "black",
+    "kelly",
+    "grey",
+    "red",
+    "blue"
+  ],
+  "car": [
+    "engine",
+    "racing",
+    "fire",
+    "a",
+    "out",
+    "off",
+    "electric",
+    "with"
+  ],
+  "caterpillar": [
+    "apple",
+    "sap",
+    "shell",
+    "engine",
+    "electric",
+    "wheat",
+    "leaf",
+    "papaya"
+  ],
+  "charizard": [
+    "spearmint",
+    "orangish",
+    "greeny",
+    "icky",
+    "cerulean",
+    "slime",
+    "yellowy",
+    "goldenrod"
+  ],
+  "cherry": [
+    "peach",
+    "berry",
+    "pear",
+    "strawberry",
+    "plum",
+    "mango",
+    "lime",
+    "almond"
+  ],
+  "cloud": [
+    "dust",
+    "sky",
+    "ocean",
+    "smoke",
+    "earth",
+    "light",
+    "deep",
+    "water"
+  ],
+  "cloudy": [
+    "sunny",
+    "saturated",
+    "sunshine",
+    "warm",
+    "cool",
+    "mellow",
+    "snow",
+    "gloomy"
+  ],
+  "coral": [
+    "turtle",
+    "ocean",
+    "sand",
+    "sea",
+    "emerald",
+    "orchid",
+    "turquoise",
+    "swamp"
+  ],
+  "cosplay": [
+    "cyan",
+    "squash",
+    "goldenrod",
+    "orchid",
+    "lilac",
+    "matte",
+    "puce",
+    "glittering"
+  ],
+  "creeper": [
+    "periwinkle",
+    "goldenrod",
+    "frog",
+    "kermit",
+    "fern",
+    "vermillion",
+    "dusky",
+    "orchid"
+  ],
+  "dark": [
+    "bright",
+    "black",
+    "gray",
+    "pale",
+    "blue",
+    "pink",
+    "grey",
+    "white"
+  ],
+  "dawn": [
+    "midnight",
+    "dusk",
+    "night",
+    "fire",
+    "sky",
+    "jungle",
+    "off",
+    "mid"
+  ],
+  "deep": [
+    "with",
+    "cold",
+    "clear",
+    "strong",
+    "water",
+    "sea",
+    "off",
+    "out"
+  ],
+  "deku": [
+    "greeny",
+    "yellowy",
+    "manilla",
+    "heliotrope",
+    "wisteria",
+    "seafoam",
+    "lavendar",
+    "goldenrod"
+  ],
+  "denim": [
+    "leather",
+    "khaki",
+    "linen",
+    "lace",
+    "beige",
+    "pastel",
+    "chiffon",
+    "pink"
+  ],
+  "dragon": [
+    "golden",
+    "ghost",
+    "frog",
+    "sapphire",
+    "scarlet",
+    "purple",
+    "emerald",
+    "blue"
+  ],
+  "dusty": [
+    "muddy",
+    "dirt",
+    "grassy",
+    "lush",
+    "mud",
+    "desert",
+    "jungle",
+    "sand"
+  ],
+  "eggshell": [
+    "bleached",
+    "seashell",
+    "foam",
+    "slime",
+    "charcoal",
+    "lipstick",
+    "blueish",
+    "ochre"
+  ],
+  "ender": [
+    "pinky",
+    "booger",
+    "peacock",
+    "barf",
+    "scarlet",
+    "duck",
+    "bluey",
+    "robin"
+  ],
+  "faded": [
+    "bright",
+    "dark",
+    "gloomy",
+    "blue",
+    "bleak",
+    "muted",
+    "denim",
+    "vivid"
+  ],
+  "fire": [
+    "army",
+    "night",
+    "out",
+    "military",
+    "a",
+    "off",
+    "with",
+    "smoke"
+  ],
+  "forest": [
+    "pine",
+    "swamp",
+    "tree",
+    "water",
+    "green",
+    "desert",
+    "grass",
+    "ocean"
+  ],
+  "grass": [
+    "lawn",
+    "dirt",
+    "sand",
+    "tree",
+    "clay",
+    "green",
+    "mud",
+    "forest"
+  ],
+  "green": [
+    "white",
+    "red",
+    "brown",
+    "blue",
+    "black",
+    "gray",
+    "yellow",
+    "bright"
+  ],
+  "hat": [
+    "red",
+    "yellow",
+    "blue",
+    "golden",
+    "pink",
+    "green",
+    "purple",
+    "leather"
+  ],
+  "ice": [
+    "hot",
+    "dust",
+    "snow",
+    "water",
+    "sand",
+    "silver",
+    "cream",
+    "cold"
+  ],
+  "joy": [
+    "really",
+    "loud",
+    "true",
+    "nice",
+    "pure",
+    "night",
+    "warm",
+    "alice"
+  ],
+  "kahurangi": [
+    "greeny",
+    "vermillion",
+    "mossy"
+  ],
+  "kirby": [
+    "kelley",
+    "kelly",
+    "moss",
+    "forrest",
+    "rod",
+    "hunter",
+    "rebecca",
+    "hazel"
+  ],
+  "kowhai": [
+    "manilla",
+    "goldenrod",
+    "celadon",
+    "heliotrope",
+    "moccasin",
+    "greeny",
+    "vermillion",
+    "highlighter"
+  ],
+  "lavender": [
+    "purple",
+    "olive",
+    "lilac",
+    "fuchsia",
+    "pink",
+    "pinkish",
+    "reddish",
+    "violet"
+  ],
+  "leaf": [
+    "yellow",
+    "tree",
+    "purple",
+    "red",
+    "green",
+    "pine",
+    "reddish",
+    "pink"
+  ],
+  "leaves": [
+    "fresh",
+    "green",
+    "olive",
+    "tree",
+    "leaf",
+    "dried",
+    "white",
+    "red"
+  ],
+  "lego": [
+    "barbie",
+    "antique",
+    "sienna",
+    "terracotta",
+    "jade",
+    "spruce",
+    "windows",
+    "neon"
+  ],
+  "lemon": [
+    "lime",
+    "almond",
+    "cream",
+    "cinnamon",
+    "tomato",
+    "butter",
+    "custard",
+    "olive"
+  ],
+  "light": [
+    "lighter",
+    "bright",
+    "dark",
+    "sky",
+    "blue",
+    "rather",
+    "cold",
+    "water"
+  ],
+  "lightning": [
+    "night",
+    "fire",
+    "snow",
+    "red",
+    "off",
+    "deep",
+    "rod",
+    "cold"
+  ],
+  "mangu": [
+    "lavendar",
+    "puke",
+    "manilla",
+    "moccasin",
+    "puce",
+    "wisteria",
+    "greeny",
+    "putty"
+  ],
+  "mario": [
+    "rosa",
+    "barbie",
+    "azul",
+    "carmine",
+    "siena",
+    "flamboyant",
+    "peru",
+    "robin"
+  ],
+  "melancholy": [
+    "mellow",
+    "somber",
+    "weird",
+    "vivid",
+    "dull",
+    "hint",
+    "luminous",
+    "dark"
+  ],
+  "minecraft": [
+    "aubergine",
+    "bluegreen",
+    "viridian",
+    "jazzy",
+    "ultramarine",
+    "spearmint",
+    "bisque",
+    "celadon"
+  ],
+  "moss": [
+    "sandy",
+    "brown",
+    "green",
+    "kelly",
+    "gray",
+    "heather",
+    "dusty",
+    "hunter"
+  ],
+  "mud": [
+    "washed",
+    "dirt",
+    "sand",
+    "muddy",
+    "dust",
+    "water",
+    "swamp",
+    "snow"
+  ],
+  "mustard": [
+    "tomato",
+    "celery",
+    "butter",
+    "lime",
+    "cinnamon",
+    "lemon",
+    "dried",
+    "olive"
+  ],
+  "ocean": [
+    "sea",
+    "water",
+    "earth",
+    "coral",
+    "desert",
+    "sky",
+    "sand",
+    "snow"
+  ],
+  "octopus": [
+    "mushroom",
+    "duck",
+    "soup",
+    "frog",
+    "seaweed",
+    "pig",
+    "bisque",
+    "orchid"
+  ],
+  "orange": [
+    "blue",
+    "red",
+    "yellow",
+    "black",
+    "purple",
+    "pink",
+    "green",
+    "white"
+  ],
+  "pale": [
+    "yellowish",
+    "brownish",
+    "reddish",
+    "pinkish",
+    "greenish",
+    "greyish",
+    "bluish",
+    "dark"
+  ],
+  "pants": [
+    "denim",
+    "khaki",
+    "leather",
+    "camouflage",
+    "lace",
+    "linen",
+    "velvet",
+    "pink"
+  ],
+  "pastel": [
+    "ocher",
+    "turquoise",
+    "tinted",
+    "floral",
+    "taupe",
+    "fuchsia",
+    "chartreuse",
+    "beige"
+  ],
+  "pink": [
+    "purple",
+    "blue",
+    "yellow",
+    "red",
+    "orange",
+    "black",
+    "fuchsia",
+    "lipstick"
+  ],
+  "puddle": [
+    "mud",
+    "muddy",
+    "puff",
+    "sand",
+    "slime",
+    "moccasin",
+    "dirt",
+    "glistening"
+  ],
+  "pumpkin": [
+    "watermelon",
+    "peach",
+    "tomato",
+    "apricot",
+    "chocolate",
+    "melon",
+    "cinnamon",
+    "custard"
+  ],
+  "purple": [
+    "pink",
+    "yellow",
+    "red",
+    "blue",
+    "lavender",
+    "orange",
+    "reddish",
+    "bright"
+  ],
+  "rain": [
+    "snow",
+    "washed",
+    "warm",
+    "water",
+    "hot",
+    "sunshine",
+    "cold",
+    "sunny"
+  ],
+  "rainbow": [
+    "blue",
+    "sky",
+    "golden",
+    "pink",
+    "neon",
+    "black",
+    "peacock",
+    "turtle"
+  ],
+  "rainy": [
+    "sunny",
+    "spring",
+    "snow",
+    "sunshine",
+    "warm",
+    "stormy",
+    "cold",
+    "dusk"
+  ],
+  "red": [
+    "yellow",
+    "blue",
+    "green",
+    "black",
+    "purple",
+    "white",
+    "pink",
+    "orange"
+  ],
+  "rose": [
+    "low",
+    "high",
+    "s",
+    "flat",
+    "mid",
+    "strong",
+    "blue",
+    "gross"
+  ],
+  "salamander": [
+    "frog",
+    "evergreen",
+    "turtle",
+    "fern",
+    "swamp",
+    "orchid",
+    "pine",
+    "chestnut"
+  ],
+  "salmon": [
+    "duck",
+    "wheat",
+    "soup",
+    "mushroom",
+    "egg",
+    "banana",
+    "tomato",
+    "seaweed"
+  ],
+  "sky": [
+    "bright",
+    "light",
+    "blue",
+    "dark",
+    "ocean",
+    "sun",
+    "earth",
+    "sea"
+  ],
+  "spice": [
+    "cinnamon",
+    "cream",
+    "chocolate",
+    "lemon",
+    "caramel",
+    "pumpkin",
+    "mango",
+    "peach"
+  ],
+  "sunset": [
+    "midnight",
+    "dusk",
+    "twilight",
+    "night",
+    "sky",
+    "easter",
+    "neon",
+    "sunshine"
+  ],
+  "swift": [
+    "strong",
+    "bold",
+    "clear",
+    "a",
+    "fresh",
+    "key",
+    "british",
+    "fire"
+  ],
+  "taylor": [
+    "kelly",
+    "brown",
+    "kelley",
+    "robin",
+    "berry",
+    "moss",
+    "hunter",
+    "forrest"
+  ],
+  "teal": [
+    "cornflower",
+    "dusky",
+    "grey",
+    "aubergine",
+    "lilac",
+    "ultramarine",
+    "pea",
+    "indigo"
+  ],
+  "trout": [
+    "salmon",
+    "duck",
+    "swamp",
+    "turtle",
+    "sea",
+    "frog",
+    "sand",
+    "algae"
+  ],
+  "white": [
+    "black",
+    "green",
+    "gray",
+    "brown",
+    "blue",
+    "red",
+    "orange",
+    "bright"
+  ],
+  "yellow": [
+    "red",
+    "purple",
+    "pink",
+    "blue",
+    "leaf",
+    "green",
+    "orange",
+    "black"
+  ]
+}

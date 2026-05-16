@@ -10,7 +10,9 @@ import { formatReport } from "../src/lib/word-search/eval/report.ts";
 import { runEval } from "../src/lib/word-search/eval/runner.ts";
 import { diffSnapshots, formatSnapshot, toSnapshot } from "../src/lib/word-search/eval/snapshot.ts";
 import {
+  buildBlendedExpander,
   buildHandcuratedExpander,
+  buildStaticExpander,
   NoopExpander,
   type QueryExpander,
 } from "../src/lib/word-search/expander.ts";
@@ -64,19 +66,42 @@ async function main() {
     );
   }
 
-  let expander: QueryExpander = NoopExpander;
-  if (expanderId === "noop") {
-    expander = NoopExpander;
-  } else if (expanderId === "handcurated") {
+  const loadHandcurated = (): Record<string, string[]> => {
     const dictPath = resolve(ROOT, "scripts/data/query-expansions.json");
     if (!existsSync(dictPath)) {
       process.stderr.write(`Missing dictionary at ${dictPath.replace(`${ROOT}/`, "")}.\n`);
       process.exit(2);
     }
-    const dict = JSON.parse(readFileSync(dictPath, "utf8")) as Record<string, string[]>;
-    expander = buildHandcuratedExpander(dict);
+    return JSON.parse(readFileSync(dictPath, "utf8")) as Record<string, string[]>;
+  };
+
+  const loadStatic = (): Record<string, string[]> => {
+    const dictPath = resolve(ROOT, "src/generated/expansions-static.json");
+    if (!existsSync(dictPath)) {
+      process.stderr.write(
+        `Missing static-expander table at ${dictPath.replace(`${ROOT}/`, "")}.\n`,
+      );
+      process.stderr.write(
+        "Run `just fetch-glove` then `just build-expander-vectors` to generate it.\n",
+      );
+      process.exit(2);
+    }
+    return JSON.parse(readFileSync(dictPath, "utf8")) as Record<string, string[]>;
+  };
+
+  let expander: QueryExpander = NoopExpander;
+  if (expanderId === "noop") {
+    expander = NoopExpander;
+  } else if (expanderId === "handcurated") {
+    expander = buildHandcuratedExpander(loadHandcurated());
+  } else if (expanderId === "static") {
+    expander = buildStaticExpander(loadStatic());
+  } else if (expanderId === "static-handcurated") {
+    expander = buildBlendedExpander(loadHandcurated(), loadStatic());
   } else {
-    process.stderr.write(`Unknown --expander "${expanderId}" (expected noop or handcurated).\n`);
+    process.stderr.write(
+      `Unknown --expander "${expanderId}" (expected noop | handcurated | static | static-handcurated).\n`,
+    );
     process.exit(2);
   }
 
