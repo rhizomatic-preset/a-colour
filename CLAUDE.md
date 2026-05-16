@@ -123,12 +123,12 @@ pnpm format        # biome format --write .
 
 ## What's missing (wanted)
 
-1. **PWA / offline.** `vite-plugin-pwa` is already in `devDependencies` but **not registered** in `vite.config.ts`, and there's no manifest, no icons set, no service worker registration in `main.tsx`. The colours CSV is bundled via `?raw` so the data side already works offline; we just need the shell to install and cache. `public/pwa.svg` and `public/icons.svg` exist as starting points.
-2. **Mobile polish.** There's a `@media (max-width: 820px)` block in `src/index.css` and the camera mode already targets the rear camera, but several things still bite on a phone:
-   - The colour-picker popover uses a fixed `sideOffset={-170}` (half a 340px swatch) in `src/components/ui/color-picker.tsx`; on small screens the swatch isn't 340px so the popover positioning is off.
-   - `.paste-target` is a hard `height: 340px`; on a phone in portrait that's most of the viewport.
-   - The image-mode `<img>` caps at `max-height: 340px` — fine, but the sample dot uses CSS pixels relative to the rendered image, which is already correct; double-check on devicePixelRatio > 2 displays before changing.
-   - No "Add to Home Screen" affordance / install prompt yet (depends on #1).
-   - Camera permission failure currently only `console.error`s; needs a visible fallback UI.
+PWA is wired (`VitePWA` in `vite.config.ts` with `autoUpdate`, manifest + Workbox precache), and the landscape-phone layout shipped (`@media (orientation: landscape) and (max-height: 520px)` in `src/index.css`). What's still open:
 
-When working on either, treat the existing perceptual matching and the NZ spelling as load-bearing and don't regress them.
+1. **Camera permission failure UI.** When `getUserMedia` rejects (denied, no camera, http on iOS), `camera-picker.tsx` only `console.error`s. Needs a visible fallback panel telling the kid what to do.
+2. **Colour-picker popover offset.** `src/components/ui/color-picker.tsx` uses a hard-coded `sideOffset={-170}` calibrated for a 340px swatch; on smaller portrait swatches it lands wrong.
+3. **Hardcoded 340px sizes in portrait.** `.paste-target` and `.sample-image` cap at 340px (`src/index.css` lines ~738, 761). Fine on desktop, big chunk of a phone-portrait viewport. Landscape overrides exist; portrait still bites.
+4. **Word-mode engine (Phase 2B).** The 1.5b expander has shipped; the bake-off named `glove-300d` as the engine to wire next. Open decision before starting: bundle the 1.2MB `.bin` directly (simpler, no UX) vs IndexedDB + download progress UX (more work, smaller initial bundle). Epic at `~/rhizomatic-preset/guidance/projects/color-thesaurus/epics/01-word-mode/README.md`.
+5. **Hue classifier still uses HSL bands.** `getPrimaryColorName` in `src/lib/color-matcher.ts` is a blunt HSL-hue cutoff (one tweak landed: red is `h<10 || h>=350`). The matcher itself is Oklab; the classifier disagreeing at boundaries is the structural fix.
+
+When working on any of these, treat the existing perceptual matching and the NZ spelling as load-bearing and don't regress them.

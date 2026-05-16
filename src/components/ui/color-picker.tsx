@@ -21,17 +21,10 @@ export function ColorPicker({ color, onChange, className }: ColorPickerProps) {
       />
 
       <Popover.Portal>
-        <Popover.Positioner
-          side="bottom"
-          align="center"
-          sideOffset={-170} // Half of the ~340px swatch height
-        >
+        <Popover.Positioner side="bottom" align="center" sideOffset={8}>
           <Popover.Popup
             className="z-50 bg-[var(--paper)] border border-[var(--ghost)] flex flex-col items-center focus:outline-none relative shadow-md"
-            style={{
-              padding: "16px",
-              transform: "translateY(-50%)", // Shift up by half its own height to achieve true vertical center
-            }}
+            style={{ padding: "16px" }}
           >
             <style>
               {`

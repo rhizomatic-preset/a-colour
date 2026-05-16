@@ -9,6 +9,45 @@ interface CameraPickerProps {
   sampleKernel: SampleKernel;
 }
 
+interface CameraError {
+  title: string;
+  hint: string;
+}
+
+function describeCameraError(err: unknown): CameraError {
+  const name = err instanceof Error ? err.name : "";
+  switch (name) {
+    case "NotAllowedError":
+    case "PermissionDeniedError":
+      return {
+        title: "Camera blocked",
+        hint: "Allow camera access in your browser's settings, then try again.",
+      };
+    case "NotFoundError":
+    case "DevicesNotFoundError":
+      return {
+        title: "No camera found",
+        hint: "This device doesn't seem to have a camera available.",
+      };
+    case "NotReadableError":
+    case "TrackStartError":
+      return {
+        title: "Camera in use",
+        hint: "Another app is using the camera. Close it and try again.",
+      };
+    case "SecurityError":
+      return {
+        title: "Camera needs HTTPS",
+        hint: "Open this page over a secure connection.",
+      };
+    default:
+      return {
+        title: "Camera failed",
+        hint: "Something went wrong starting the camera. Try again, or pick a colour using a different mode.",
+      };
+  }
+}
+
 export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: CameraPickerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,6 +56,8 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
   const streamRef = useRef<MediaStream | null>(null);
   const requestRef = useRef<number>(0);
   const [lastTouchDistance, setLastTouchDistance] = useState(0);
+  const [cameraError, setCameraError] = useState<CameraError | null>(null);
+  const [retryKey, setRetryKey] = useState(0);
 
   // Surgical pinch-zoom guard: native non-passive touch listeners on the canvas
   // preventDefault on 2+ finger gestures so iOS Safari can't grab a pinch and
@@ -35,9 +76,11 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
     };
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: retryKey is intentionally a trigger-only dep to re-run on retry; reading it inside isn't meaningful.
   useEffect(() => {
     async function startCamera() {
       try {
+        setCameraError(null);
         const stream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: { ideal: "environment" } },
         });
@@ -50,6 +93,7 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
         }
       } catch (err) {
         console.error("Camera access failed:", err);
+        setCameraError(describeCameraError(err));
       }
     }
 
@@ -60,12 +104,13 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
         for (const track of streamRef.current.getTracks()) {
           track.stop();
         }
+        streamRef.current = null;
       }
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, []);
+  }, [retryKey]);
 
   // Apply hardware zoom if supported
   useEffect(() => {
@@ -206,6 +251,24 @@ export function CameraPicker({ onColorSelect, onSampleSource, sampleKernel }: Ca
   const handlePointerUp = () => {
     setTapPoint(null);
   };
+
+  if (cameraError) {
+    return (
+      <div className="camera-picker">
+        <div className="camera-fallback" role="alert">
+          <p className="camera-fallback-title">{cameraError.title}</p>
+          <p className="camera-fallback-hint">{cameraError.hint}</p>
+          <button
+            type="button"
+            className="camera-retry-btn"
+            onClick={() => setRetryKey((key) => key + 1)}
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="camera-picker">
