@@ -9,6 +9,11 @@ import { EVAL_QUERIES } from "../src/lib/word-search/eval/queries.ts";
 import { formatReport } from "../src/lib/word-search/eval/report.ts";
 import { runEval } from "../src/lib/word-search/eval/runner.ts";
 import { diffSnapshots, formatSnapshot, toSnapshot } from "../src/lib/word-search/eval/snapshot.ts";
+import {
+  buildHandcuratedExpander,
+  NoopExpander,
+  type QueryExpander,
+} from "../src/lib/word-search/expander.ts";
 import { loadTfidfIndex, type TfidfIndex } from "../src/lib/word-search/tfidf-index.ts";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,6 +25,7 @@ async function main() {
     options: {
       engine: { type: "string", default: "literal" },
       library: { type: "string", default: "small" },
+      expander: { type: "string", default: "noop" },
       out: { type: "string" },
       "update-snapshot": { type: "boolean", default: false },
     },
@@ -29,6 +35,7 @@ async function main() {
 
   const engine = values.engine ?? "literal";
   const library = values.library ?? "small";
+  const expanderId = values.expander ?? "noop";
   const outPath = values.out;
   const updateSnapshot = values["update-snapshot"] === true;
 
@@ -57,10 +64,27 @@ async function main() {
     );
   }
 
+  let expander: QueryExpander = NoopExpander;
+  if (expanderId === "noop") {
+    expander = NoopExpander;
+  } else if (expanderId === "handcurated") {
+    const dictPath = resolve(ROOT, "scripts/data/query-expansions.json");
+    if (!existsSync(dictPath)) {
+      process.stderr.write(`Missing dictionary at ${dictPath.replace(`${ROOT}/`, "")}.\n`);
+      process.exit(2);
+    }
+    const dict = JSON.parse(readFileSync(dictPath, "utf8")) as Record<string, string[]>;
+    expander = buildHandcuratedExpander(dict);
+  } else {
+    process.stderr.write(`Unknown --expander "${expanderId}" (expected noop or handcurated).\n`);
+    process.exit(2);
+  }
+
   const run = await runEval({
     cases: EVAL_QUERIES,
     library: colors,
     tfidf,
+    expander,
     libraryId: library,
   });
 
@@ -73,7 +97,12 @@ async function main() {
   }
 
   const snapshot = toSnapshot(run);
-  const snapshotPath = resolve(ROOT, `docs/eval/ground-truth-${library}-${engine}.json`);
+  // Default `noop` keeps the existing filename (back-compat). Other expanders extend it.
+  const snapshotName =
+    expanderId === "noop"
+      ? `ground-truth-${library}-${engine}.json`
+      : `ground-truth-${library}-${engine}-${expanderId}.json`;
+  const snapshotPath = resolve(ROOT, `docs/eval/${snapshotName}`);
   const snapshotExists = existsSync(snapshotPath);
 
   if (updateSnapshot) {

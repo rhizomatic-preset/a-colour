@@ -2,6 +2,7 @@ import { type ColorReference, getPrimaryColorName } from "@/lib/color-matcher";
 import { searchByWord } from "@/lib/word-search";
 import { type Embedder, NullEmbedder } from "@/lib/word-search/embedder";
 import type { EvalCase } from "@/lib/word-search/eval/queries";
+import { NoopExpander, type QueryExpander } from "@/lib/word-search/expander";
 import type { TfidfIndex } from "@/lib/word-search/tfidf-index";
 
 export type CaseResult = {
@@ -18,6 +19,7 @@ export type CaseResult = {
 export type RunResult = {
   library: string;
   engine: string;
+  expander: string;
   generatedAt: string;
   cases: CaseResult[];
 };
@@ -27,14 +29,17 @@ export async function runEval(input: {
   library: ColorReference[];
   tfidf: TfidfIndex;
   embedder?: Embedder;
+  expander?: QueryExpander;
   libraryId: string;
 }): Promise<RunResult> {
   const embedder = input.embedder ?? NullEmbedder;
+  const expander = input.expander ?? NoopExpander;
   const caseResults: CaseResult[] = [];
 
   for (const evalCase of input.cases) {
     const hits = await searchByWord(evalCase.query, input.library, input.tfidf, embedder, {
       topN: 3,
+      expander,
     });
 
     const results = hits.map((hit) => ({
@@ -67,6 +72,7 @@ export async function runEval(input: {
   return {
     library: input.libraryId,
     engine: embedder.id,
+    expander: expander.id,
     generatedAt: new Date().toISOString(),
     cases: caseResults,
   };

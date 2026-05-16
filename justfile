@@ -21,9 +21,11 @@ build-libraries:
 eval engine="literal" library="small" *flags:
     pnpm tsx scripts/eval.ts --engine={{engine}} --library={{library}} {{flags}}
 
-# Re-creates ground-truth snapshots for all three CC0 library variants.
+# Re-creates ground-truth snapshots for all three CC0 library variants
+# plus the handcurated-expander variant on small.
 [group('eval')]
 eval-baseline:
     just eval literal xkcd --update-snapshot
     just eval literal css --update-snapshot
     just eval literal small --update-snapshot
+    just eval literal small --expander=handcurated --update-snapshot

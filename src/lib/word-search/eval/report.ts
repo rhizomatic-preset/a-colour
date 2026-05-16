@@ -30,7 +30,11 @@ function formatInspectionResults(results: CaseResult["results"]): string {
 
 export function formatReport(run: RunResult): string {
   const generated = run.generatedAt.slice(0, 10);
-  const header = `Engine: ${run.engine}  Library: ${run.library}  Generated: ${generated}`;
+  // Only surface the expander when it's non-default; keeps the header for noop
+  // runs identical to the pre-1.5a format the committed phase-1a reports use.
+  const expanderSegment =
+    run.expander && run.expander !== "noop" ? `  Expander: ${run.expander}` : "";
+  const header = `Engine: ${run.engine}  Library: ${run.library}${expanderSegment}  Generated: ${generated}`;
   const rule = "─".repeat(69);
 
   if (run.cases.length === 0) {

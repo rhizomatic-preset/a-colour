@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { ColorReference } from "@/lib/color-matcher";
 import { NullEmbedder } from "@/lib/word-search/embedder";
+import { buildHandcuratedExpander, NoopExpander } from "@/lib/word-search/expander";
 import type { TfidfIndex } from "@/lib/word-search/tfidf-index";
 import { searchByWord } from "./index";
 
@@ -87,5 +88,28 @@ describe("searchByWord", () => {
     const out = await searchByWord("blue", library, tfidf);
     expect(out.length).toBeLessThanOrEqual(3);
     expect(out.length).toBeGreaterThan(0);
+  });
+
+  it("NoopExpander behaves identically to omitting the expander", async () => {
+    const noFlag = await searchByWord("red", library, tfidf);
+    const withNoop = await searchByWord("red", library, tfidf, NullEmbedder, {
+      expander: NoopExpander,
+    });
+    expect(withNoop).toEqual(noFlag);
+  });
+
+  it("handcurated expander reaches a colour the literal query alone misses", async () => {
+    // "creeper" is OOV in the toy tfidf; expansion to "green" reaches Ocean Blue's vocab miss
+    // but more importantly should reach a colour token that *is* in vocab.
+    const expander = buildHandcuratedExpander({
+      creeper: ["lemon"],
+    });
+    const literal = await searchByWord("creeper", library, tfidf);
+    expect(literal).toEqual([]);
+    const expanded = await searchByWord("creeper", library, tfidf, NullEmbedder, {
+      expander,
+    });
+    expect(expanded.length).toBeGreaterThan(0);
+    expect(expanded[0].name.toLowerCase()).toContain("lemon");
   });
 });

@@ -12,6 +12,8 @@ export type SnapshotCase = {
 export type SnapshotShape = {
   library: string;
   engine: string;
+  /** Omitted (and treated as "noop") for back-compat with snapshots written before the expander layer landed. */
+  expander?: string;
   threshold: number | null;
   generatedAt: string;
   casesByCategory: Record<string, SnapshotCase[]>;
@@ -55,13 +57,18 @@ export function toSnapshot(run: RunResult): SnapshotShape {
     if (bucket && bucket.length > 0) ordered[category] = bucket;
   }
 
-  return {
+  // Omit `expander` for the default noop so pre-1.5a snapshots stay byte-identical.
+  const snapshot: SnapshotShape = {
     library: run.library,
     engine: run.engine,
     threshold: null,
     generatedAt: run.generatedAt,
     casesByCategory: ordered,
   };
+  if (run.expander && run.expander !== "noop") {
+    snapshot.expander = run.expander;
+  }
+  return snapshot;
 }
 
 export function formatSnapshot(snapshot: SnapshotShape): string {
@@ -76,6 +83,11 @@ export function formatSnapshot(snapshot: SnapshotShape): string {
  * times don't produce spurious diffs.
  */
 export function diffSnapshots(current: SnapshotShape, expected: SnapshotShape): string | null {
+  const currentExpander = current.expander ?? "noop";
+  const expectedExpander = expected.expander ?? "noop";
+  if (currentExpander !== expectedExpander) {
+    return `expander mismatch: snapshot was generated with "${expectedExpander}", current run used "${currentExpander}". Compare like-for-like.`;
+  }
   const stripTime = (s: SnapshotShape): SnapshotShape => ({
     ...s,
     generatedAt: "",
