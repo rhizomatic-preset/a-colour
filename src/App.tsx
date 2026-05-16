@@ -281,7 +281,7 @@ function App() {
         <div className="picker-grid">
           <div key={`${view}-${mode}-panel`} className="swatch-panel">
             {view === "settings" ? (
-              <SettingsPanel settings={settings} onChange={setSettings} />
+              <SettingsPanel settings={settings} selectedHex={selectedHex} onChange={setSettings} />
             ) : view === "about" ? (
               <AboutPanel />
             ) : mode === "swatch" ? (

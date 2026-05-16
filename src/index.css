@@ -1,22 +1,27 @@
 @charset "UTF-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
-@import "@fontsource-variable/jetbrains-mono";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap");
 @import "tailwindcss";
 
-/* Paper/ink CMYK-inspired palette - neutral base, color is the highlight */
+/* Paper/ink CMYK-inspired palette — mirrors preset.nz studio-site tokens. */
 :root {
-  --paper: #f2ede6; /* warm off-white background */
-  --ink: #111010; /* near-black text */
-  --silver: #9a9a9a; /* medium gray for secondary text */
-  --ghost: #e0dbd2; /* light gray borders/separators */
-  --highlight: #2b7c76; /* accent color (teal) - can be overridden by user's picked color */
-  --highlight-dim: #1d5652;
-  --highlight-pale: #d4ecea;
+  --paper: #f2ede6;
+  --ink: #111010;
+  --silver: #9a9a9a;
+  --ghost: #e0dbd2;
+  --teal: #2b7c76;
+  --teal-dim: #1d5652;
+  --teal-pale: #d4ecea;
+  --off: #7a7570;
+
+  /* Highlight is the currently-picked colour; defaults to brand teal. */
+  --highlight: var(--teal);
+  --highlight-dim: var(--teal-dim);
+  --highlight-pale: var(--teal-pale);
 
   --bg: var(--paper);
   --text: var(--ink);
-  --text-muted: var(--off, var(--silver));
+  --text-muted: var(--off);
   --border: var(--ghost);
 }
 
@@ -51,11 +56,6 @@
   --highlight-pale: #ebf8f4;
 }
 
-/* Off-white for muted text */
-:root {
-  --off: #7a7570;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,6 +64,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -124,17 +125,16 @@ body::after {
 .match-hex,
 .match-rank,
 .match-meter {
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
-/* Headings use system fonts */
+/* Headings use Bebas Neue — the studio-site display family. */
 h1,
 h2,
-h3,
-.hero-title,
-.tier-name {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  letter-spacing: -0.01em;
+h3 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* ── APP SHELL & SURFACE ── */
@@ -192,7 +192,7 @@ h3,
   border: 0;
   background: transparent;
   color: var(--silver);
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -223,21 +223,23 @@ h3,
 }
 
 .eyebrow {
-  font-family: "JetBrains Mono Variable", monospace;
-  font-size: 9px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
   font-weight: 300;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--silver);
+  color: var(--off);
   margin: 0;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(32px, 4.5vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.01em;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
   color: var(--ink);
+  text-transform: none; /* keep "A Colour" as-typed; Bebas Neue is uppercase-only */
 }
 
 /* ── MODE TABS ── */
@@ -251,13 +253,13 @@ h1 {
 .mode-btn {
   border: 0;
   background: transparent;
-  color: var(--text-muted);
+  color: var(--off);
   height: 42px;
   min-width: 96px;
   padding: 0 18px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 300;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
   transition:
@@ -294,7 +296,7 @@ h1 {
   height: 36px;
   min-width: 40px;
   padding: 0 12px;
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -319,19 +321,55 @@ h1 {
   display: grid;
   gap: 20px;
   width: min(100%, 340px);
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   align-content: start;
 }
 
 .settings-title,
 .info-title {
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--silver);
   margin: 0;
+}
+
+.setting-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--ghost);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.setting-preview-swatch {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.setting-preview-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.setting-preview-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--off);
+}
+
+.setting-preview-hex {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
 }
 
 .setting-field {
@@ -370,6 +408,8 @@ h1 {
   background: var(--ghost);
   outline: none;
   cursor: pointer;
+  /* Claim horizontal touch gestures so dragging the slider doesn't pan the page. */
+  touch-action: pan-y;
 }
 
 .setting-range::-webkit-slider-thumb {
@@ -406,7 +446,7 @@ h1 {
 }
 
 .info-modes dt {
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -466,7 +506,7 @@ h1 {
   background: transparent !important;
   border: 1px solid var(--ghost) !important;
   color: var(--silver) !important;
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px !important;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -684,7 +724,7 @@ h1 {
 }
 
 .match-hex {
-  font-family: "JetBrains Mono Variable", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;

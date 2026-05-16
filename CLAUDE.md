@@ -74,7 +74,7 @@ Sampling lives in `src/lib/sampling.ts` (`sampleAverageColor`) and is shared by 
 
 - `@/` → `src/` (see `vite.config.ts` and `tsconfig.app.json`).
 - UI under `src/components/ui/`, app components under `src/components/`, pure logic under `src/lib/`.
-- The design is paper/ink: warm off-white background, near-black text, JetBrains Mono for technical text, Libre Baskerville for body. There's a halftone + grain overlay on `body::before` / `body::after` — don't strip it accidentally when editing global CSS.
+- The design follows the **preset.nz studio-site** (`/Users/georg/rhizomatic-preset/studio-site`). Same colour tokens (`--paper`, `--ink`, `--silver`, `--ghost`, `--teal*`, `--off`), same fonts: **Bebas Neue** for headings, **Libre Baskerville** for body, **IBM Plex Mono** for technical labels (10px / 0.14em uppercase weight 300). Halftone + grain overlay on `body::before` / `body::after` — don't strip when editing global CSS. When in doubt about a typography or spacing decision, check `studio-site/src/styles/global.css` first.
 - A CSS custom property `--highlight` tracks the currently picked colour and propagates to focus rings, match-card borders, etc. Updated in an effect in `App.tsx`.
 
 ## Code style: SOLID and CUPID

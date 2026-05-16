@@ -2,16 +2,29 @@ import type { MatchCount, SampleKernel, Settings } from "@/lib/settings";
 
 interface SettingsPanelProps {
   settings: Settings;
+  selectedHex: string;
   onChange: (settings: Settings) => void;
 }
 
 const MATCH_COUNTS: MatchCount[] = [1, 3, 5];
 const SAMPLE_KERNELS: SampleKernel[] = [1, 3, 5, 7];
 
-export function SettingsPanel({ settings, onChange }: SettingsPanelProps) {
+export function SettingsPanel({ settings, selectedHex, onChange }: SettingsPanelProps) {
   return (
     <div className="settings-panel">
       <h2 className="settings-title">Settings</h2>
+
+      <div className="setting-preview">
+        <span
+          className="setting-preview-swatch"
+          style={{ backgroundColor: selectedHex }}
+          aria-hidden="true"
+        />
+        <div className="setting-preview-meta">
+          <span className="setting-preview-label">Tuning for</span>
+          <span className="setting-preview-hex">{selectedHex.toUpperCase()}</span>
+        </div>
+      </div>
 
       <div className="setting-field">
         <span className="setting-label">Matches shown</span>
@@ -63,7 +76,7 @@ export function SettingsPanel({ settings, onChange }: SettingsPanelProps) {
           type="range"
           className="setting-range"
           min={0.05}
-          max={0.5}
+          max={0.6}
           step={0.01}
           value={settings.maxDistance}
           onChange={(event) =>
