@@ -238,6 +238,11 @@ h1 {
   color: var(--paper);
 }
 
+/* Icons inside tab buttons — hidden on desktop, shown via the ≤520px block below */
+.mode-icon {
+  display: none;
+}
+
 /* ── PICKER GRID LAYOUT ── */
 .picker-grid {
   display: grid;
@@ -589,6 +594,26 @@ h1 {
 
   h1 {
     font-size: clamp(28px, 6vw, 42px);
+  }
+}
+
+/* ── PHONE ── icons-only tabs, no heading; picker is the starting view */
+@media (max-width: 520px) {
+  .intro {
+    display: none;
+  }
+
+  .mode-btn {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .mode-btn .mode-label {
+    display: none;
+  }
+
+  .mode-icon {
+    display: inline-block;
   }
 }
 

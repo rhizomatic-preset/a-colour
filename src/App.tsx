@@ -1,4 +1,4 @@
-import { Pipette, Upload } from "lucide-react";
+import { Camera, Image as ImageIcon, Palette, Pipette, Upload } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CameraPicker } from "@/components/camera-picker";
 import { Button } from "@/components/ui/button";
@@ -213,7 +213,8 @@ function App() {
             aria-selected={mode === "swatch"}
             onClick={() => setMode("swatch")}
           >
-            Swatch
+            <Palette className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
+            <span className="mode-label">Swatch</span>
           </button>
           <button
             type="button"
@@ -222,7 +223,8 @@ function App() {
             aria-selected={mode === "image"}
             onClick={() => setMode("image")}
           >
-            Image
+            <ImageIcon className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
+            <span className="mode-label">Image</span>
           </button>
           <button
             type="button"
@@ -231,7 +233,8 @@ function App() {
             aria-selected={mode === "camera"}
             onClick={() => setMode("camera")}
           >
-            Camera
+            <Camera className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
+            <span className="mode-label">Camera</span>
           </button>
         </div>
 
