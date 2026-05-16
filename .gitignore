@@ -21,6 +21,9 @@ build/
 .vscode/
 .idea/
 
+# Claude Code (agent worktrees + task cache)
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db

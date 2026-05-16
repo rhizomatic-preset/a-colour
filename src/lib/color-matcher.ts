@@ -141,7 +141,7 @@ export function getPrimaryColorName(inputHex: string) {
   if (h >= 22 && h < 55 && l < 0.48) return "brown";
   if (h >= 55 && h < 95 && l < 0.5) return "olive";
 
-  if (h < 15 || h >= 345) return "red";
+  if (h < 10 || h >= 350) return "red";
   if (h < 45) return "orange";
   if (h < 70) return "yellow";
   if (h < 150) return "green";

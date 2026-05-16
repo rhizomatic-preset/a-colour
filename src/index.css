@@ -1352,10 +1352,10 @@ h1 {
     width: 100%;
     min-height: 100svh;
     display: grid;
-    grid-template-columns: auto minmax(220px, 1fr) minmax(220px, 1.2fr);
+    grid-template-columns: auto minmax(280px, 1.4fr) minmax(240px, 1fr);
     grid-template-rows: 1fr;
     gap: 12px;
-    padding: 12px;
+    padding: 24px 12px 12px;
     border: 0;
   }
 
@@ -1407,7 +1407,7 @@ h1 {
     grid-row: 1;
     align-content: start;
     justify-items: stretch;
-    gap: 10px;
+    gap: 18px;
     min-width: 0;
     overflow-y: auto;
   }
@@ -1449,34 +1449,48 @@ h1 {
   }
 
   /* Cap the big circular swatch to the shorter axis so it sits in one
-     screen alongside the matches column. */
+     screen alongside the matches column, and centre it in the column. */
   .main-swatch,
   .main-image-swatch {
-    width: min(40svh, 40svw);
-    height: min(40svh, 40svw);
+    width: min(70svh, 50svw);
+    height: min(70svh, 50svw);
+    justify-self: center;
   }
 
   .camera-picker,
   .word-picker,
   .image-picker {
     width: 100%;
+    justify-self: center;
   }
 
   .camera-stage {
     width: 100%;
-    max-width: min(40svh, 40svw);
-    max-height: 80svh;
+    max-width: min(70svh, 50svw);
+    max-height: 90svh;
+    margin-inline: auto;
   }
 
   .paste-target {
     height: auto;
     min-height: 120px;
-    max-height: 80svh;
+    max-height: 60svh;
     padding: 20px;
+    max-width: min(70svh, 60svw);
+    margin-inline: auto;
   }
 
+  /* Cap the loaded image so the "Open New Image" button and the help line
+     below it stay inside the viewport (otherwise tall images push them off
+     the bottom of the column). */
   .sample-image {
-    max-height: 80svh;
+    max-height: 60svh;
+  }
+
+  /* Help text under the swatch / image / paste-target — centred so it sits
+     under the centred picker rather than left-aligning to the column edge. */
+  .hex-description {
+    text-align: center;
   }
 
   /* Hex field hidden on phone (no keyboard / EyeDropper) — already handled
@@ -1527,18 +1541,16 @@ h1 {
     display: none;
   }
 
+  /* preset.nz floats out of the menu rail to the bottom-right corner so the
+     menu column only has to host the tool buttons. position: fixed pops it
+     out of the parent flex; pointer-events: auto via the .brand-link > *
+     rule above keeps it clickable. */
   .brand-link a {
+    position: fixed;
+    right: 12px;
+    bottom: 8px;
     font-size: 9px;
     letter-spacing: 0.1em;
     color: var(--silver);
-  }
-}
-
-/* Extra-narrow phones in landscape: hide the preset.nz link in the menu
- * rail; it still lives in the About panel. Keeps the chrome column clean
- * when there's no room for even a 9px brand link. */
-@media (orientation: landscape) and (max-height: 520px) and (max-width: 640px) {
-  .brand-link a {
-    display: none;
   }
 }
