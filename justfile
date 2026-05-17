@@ -49,3 +49,10 @@ eval-baseline:
     just eval literal small --expander=handcurated --update-snapshot
     just eval literal small --expander=static --update-snapshot
     just eval literal small --expander=static-handcurated --update-snapshot
+
+# Phase distillation — sanity-check the build-time-distilled lookup against the
+# eval set. Flags any entry whose top library hit disagrees with the
+# corresponding eval case's expected family / name. Run between vocab edits.
+[group('eval')]
+verify-distillation:
+    pnpm tsx scripts/verify-distillation.ts

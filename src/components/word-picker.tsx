@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { WordResultCard } from "@/components/word-result-card";
 import type { ColorReference } from "@/lib/color-matcher";
 import type { MatchCount } from "@/lib/settings";
+import { buildFamilyIndex, type DistillationLookup } from "@/lib/word-search/distillation/lookup";
 import type { QueryExpander } from "@/lib/word-search/expander";
 import { searchByWord, type WordSearchResult } from "@/lib/word-search/index";
 import type { TfidfIndex } from "@/lib/word-search/tfidf-index";
@@ -10,6 +11,9 @@ interface WordPickerProps {
   library: ColorReference[];
   tfidf: TfidfIndex;
   expander: QueryExpander;
+  /** Build-time-distilled common-noun lookup. Optional — when omitted, the
+   * runtime falls through to the TF-IDF + expander stack as before. */
+  distillation?: DistillationLookup;
   topN: MatchCount;
   onColorSelect: (hex: string) => void;
 }
@@ -18,11 +22,23 @@ const DEBOUNCE_MS = 120;
 
 const SUGGESTIONS = ["ocean", "rainy", "pink", "whero"];
 
-export function WordPicker({ library, tfidf, expander, topN, onColorSelect }: WordPickerProps) {
+export function WordPicker({
+  library,
+  tfidf,
+  expander,
+  distillation,
+  topN,
+  onColorSelect,
+}: WordPickerProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<WordSearchResult[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const requestIdRef = useRef(0);
+
+  // The family index partitions the library by getPrimaryColorName once per
+  // library swap — cheap (~1 KB, ~1 ms) but worth caching so each keystroke
+  // doesn't rebuild it.
+  const familyIndex = useMemo(() => buildFamilyIndex(library), [library]);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -35,13 +51,18 @@ export function WordPicker({ library, tfidf, expander, topN, onColorSelect }: Wo
     }
     const timer = window.setTimeout(async () => {
       const id = ++requestIdRef.current;
-      const out = await searchByWord(query, library, tfidf, undefined, { expander, topN });
+      const out = await searchByWord(query, library, tfidf, undefined, {
+        expander,
+        topN,
+        distillation,
+        familyIndex,
+      });
       // Drop the result if a newer query has started since we kicked off.
       if (id !== requestIdRef.current) return;
       setResults(out);
     }, DEBOUNCE_MS);
     return () => window.clearTimeout(timer);
-  }, [query, library, tfidf, expander, topN]);
+  }, [query, library, tfidf, expander, distillation, familyIndex, topN]);
 
   const trimmed = query.trim();
   const hasQuery = trimmed.length > 0;

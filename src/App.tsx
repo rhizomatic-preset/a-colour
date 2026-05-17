@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
 import { WordPicker } from "@/components/word-picker";
 import colorsCsv from "@/generated/colors-small.csv?raw";
+import distillationLookup from "@/generated/colour-distillation.json";
 import expansionDict from "@/generated/expansions-handcurated.json";
 import staticExpansionDict from "@/generated/expansions-static.json";
 import tfidfJson from "@/generated/tfidf-small.json";
@@ -38,6 +39,7 @@ import {
   saveLastColor,
   saveSettings,
 } from "@/lib/settings";
+import type { DistillationLookup } from "@/lib/word-search/distillation/lookup";
 import {
   buildBlendedExpander,
   buildHandcuratedExpander,
@@ -454,6 +456,7 @@ function App() {
                   library={colors}
                   tfidf={tfidf}
                   expander={expander}
+                  distillation={distillationLookup as DistillationLookup}
                   topN={settings.matchCount}
                   onColorSelect={setColor}
                 />
