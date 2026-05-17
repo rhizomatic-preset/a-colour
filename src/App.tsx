@@ -529,7 +529,16 @@ function App() {
                 <li
                   className="match-card cursor-pointer"
                   key={match.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Use ${match.name}, ${match.hex}`}
                   onClick={() => setColor(match.hex)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      setColor(match.hex);
+                    }
+                  }}
                 >
                   <span className="match-rank">{index + 1}</span>
                   <span

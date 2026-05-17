@@ -22,6 +22,7 @@
   --bg: var(--paper);
   --text: var(--ink);
   --text-muted: var(--off);
+  --text-hint: #6f6f6f; /* hint paragraphs — meets WCAG AA 4.5:1 on --paper */
   --border: var(--ghost);
 }
 
@@ -396,7 +397,7 @@ h1 {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--off);
+  color: var(--text-hint);
   line-height: 1.5;
 }
 
@@ -575,7 +576,7 @@ h1 {
   font-style: italic;
   font-size: 13px;
   line-height: 1.65;
-  color: var(--off);
+  color: var(--text-hint);
   margin-top: 12px;
   padding: 20px 22px;
   border: 1px dashed var(--ghost);
@@ -636,7 +637,7 @@ h1 {
   font-style: italic;
   font-size: 12px;
   line-height: 1.55;
-  color: var(--text-muted);
+  color: var(--text-hint);
   padding-top: 8px;
   border-top: 1px dashed var(--ghost);
 }
@@ -645,7 +646,7 @@ h1 {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--off);
+  color: var(--text-hint);
 }
 
 .info-attribution {
@@ -846,7 +847,7 @@ h1 {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--off);
+  color: var(--text-hint);
   margin-top: 2px;
 }
 
@@ -1007,6 +1008,25 @@ h1 {
     0 0 0 6px var(--paper),
     0 0 0 4px var(--highlight),
     0 24px 64px color-mix(in srgb, currentColor 22%, transparent);
+}
+
+/* Keyboard focus ring for interactive toggles and action buttons.
+   2px outline in the active highlight, with offset so the element
+   silhouette doesn't shift. Mouse-only users see nothing. */
+.mode-btn:focus-visible,
+.seg-btn:focus-visible,
+.seg-row-btn:focus-visible,
+.footer-btn:focus-visible,
+.match-card:focus-visible,
+.match-copy-btn:focus-visible,
+.paste-target:focus-visible,
+.image-action-btn:focus-visible,
+.word-suggestion:focus-visible,
+.camera-retry-btn:focus-visible,
+.library-btn:focus-visible,
+.settings-reset:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
 }
 
 /* Swatch label only for swatch mode */
@@ -1245,7 +1265,7 @@ h1 {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--off);
+  color: var(--text-hint);
 }
 
 .word-hint strong {
