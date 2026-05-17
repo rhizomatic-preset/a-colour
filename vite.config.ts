@@ -48,6 +48,12 @@ export default defineConfig({
     // so it loads natively in the browser via ESM imports.
     exclude: ["@huggingface/transformers"],
   },
+  build: {
+    // Emit production source maps so DevTools and Lighthouse can attribute
+    // bytes and stack traces. Browsers only fetch .map files when DevTools is
+    // open, so this doesn't affect end-user payload.
+    sourcemap: true,
+  },
   server: {
     host: true,
   },

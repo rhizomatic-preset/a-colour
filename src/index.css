@@ -1,13 +1,22 @@
 @charset "UTF-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap");
+/* Self-hosted via @fontsource — no render-blocking call to fonts.googleapis.com
+   and the woff2s get precached by the PWA service worker. en-NZ only, so we
+   pull just the latin subsets. */
+@import "@fontsource/bebas-neue/latin-400.css";
+@import "@fontsource/libre-baskerville/latin-400.css";
+@import "@fontsource/libre-baskerville/latin-400-italic.css";
+@import "@fontsource/libre-baskerville/latin-700.css";
+@import "@fontsource/ibm-plex-mono/latin-300.css";
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+
 @import "tailwindcss";
 
 /* Paper/ink CMYK-inspired palette — mirrors preset.nz studio-site tokens. */
 :root {
   --paper: #f2ede6;
   --ink: #111010;
-  --silver: #9a9a9a;
+  --silver: #6c6c6c;
   --ghost: #e0dbd2;
   --teal: #2b7c76;
   --teal-dim: #1d5652;
@@ -22,7 +31,7 @@
   --bg: var(--paper);
   --text: var(--ink);
   --text-muted: var(--off);
-  --text-hint: #6f6f6f; /* hint paragraphs — meets WCAG AA 4.5:1 on --paper */
+  --text-hint: #6a6a6a; /* hint paragraphs — WCAG AA 4.5:1 on --paper */
   --border: var(--ghost);
 }
 
@@ -168,14 +177,10 @@ h3 {
 .brand-link a {
   color: inherit;
   text-decoration: none;
-  opacity: 0.6;
-  transition:
-    opacity 0.2s,
-    color 0.2s;
+  transition: color 0.2s;
 }
 
 .brand-link a:hover {
-  opacity: 1;
   color: var(--ink);
 }
 
@@ -877,7 +882,7 @@ h1 {
 
 .match-card {
   display: grid;
-  grid-template-columns: 28px 48px minmax(0, 1fr) 32px;
+  grid-template-columns: minmax(0, 1fr) 32px;
   gap: 10px 12px;
   align-items: center;
   padding: 14px;
@@ -886,6 +891,21 @@ h1 {
   transition:
     transform 0.2s,
     border-color 0.2s;
+}
+
+.match-select {
+  display: grid;
+  grid-template-columns: 28px 48px minmax(0, 1fr);
+  gap: 10px 12px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .match-copy-btn {
@@ -914,8 +934,12 @@ h1 {
   background: var(--ink);
 }
 
-.match-card:hover {
+.match-card:hover,
+.match-card:focus-within {
   border-color: var(--highlight);
+}
+
+.match-card:hover {
   transform: translateX(-2px);
 }
 
@@ -1017,7 +1041,7 @@ h1 {
 .seg-btn:focus-visible,
 .seg-row-btn:focus-visible,
 .footer-btn:focus-visible,
-.match-card:focus-visible,
+.match-select:focus-visible,
 .match-copy-btn:focus-visible,
 .paste-target:focus-visible,
 .image-action-btn:focus-visible,

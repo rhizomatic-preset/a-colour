@@ -14,6 +14,9 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
+    "@fontsource/bebas-neue": "^5.2.7",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/libre-baskerville": "^5.2.10",
     "@huggingface/transformers": "^4.2.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",

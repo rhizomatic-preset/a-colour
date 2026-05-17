@@ -171,29 +171,6 @@ export const TransformersEmbedder: Embedder = {
   },
 };
 
-/**
- * Kick off the encoder load opportunistically — from App.tsx via
- * requestIdleCallback so it doesn't fight first paint. Safe to call multiple
- * times; concurrent or repeated calls just await the same load.
- */
-export function preloadEncoder(): void {
-  if (loaded || loadingPromise) return;
-  // requestIdleCallback isn't on every browser (Safari pre-17). The setTimeout
-  // fallback is "good enough" — runs after the current macrotask, by which
-  // time first paint is done.
-  const start = () => {
-    ensureLoaded().catch(() => {
-      // Errors surface via subscribeEncoderLoad; swallow here so the unhandled
-      // rejection doesn't spam the console.
-    });
-  };
-  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-    window.requestIdleCallback(start, { timeout: 2000 });
-  } else {
-    setTimeout(start, 0);
-  }
-}
-
 /** Synchronous cosine ranking against the loaded library vectors. */
 export function rankByCosine(
   query: Float32Array,

@@ -48,7 +48,7 @@ import {
   type QueryExpander,
 } from "@/lib/word-search/expander";
 import { loadTfidfIndex } from "@/lib/word-search/tfidf-index";
-import { preloadEncoder, TransformersEmbedder } from "@/lib/word-search/transformers-embedder";
+import { TransformersEmbedder } from "@/lib/word-search/transformers-embedder";
 
 type PickerMode = "swatch" | "image" | "camera" | "word";
 type View = "picker" | "settings" | "about";
@@ -88,13 +88,6 @@ function App() {
         return buildBlendedExpander(hand, stat);
     }
   }, [settings.wordMode.expander]);
-  // Phase B encoder is heavy (~22 MB ONNX). Idle-preload it once on app mount
-  // so by the time the user reaches Word mode the model is already in memory.
-  // On first-ever visit the download competes with nothing visible; on
-  // subsequent visits the PWA serves it from cache and this is a no-op.
-  useEffect(() => {
-    preloadEncoder();
-  }, []);
 
   const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
   const colors = customLibrary?.colors ?? builtInColors;
@@ -361,6 +354,7 @@ function App() {
             type="button"
             className={`mode-btn ${view === "picker" && mode === "swatch" ? "is-active" : ""}`}
             aria-pressed={view === "picker" && mode === "swatch"}
+            aria-label="Swatch"
             onClick={() => selectMode("swatch")}
           >
             <Palette className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -370,6 +364,7 @@ function App() {
             type="button"
             className={`mode-btn ${view === "picker" && mode === "image" ? "is-active" : ""}`}
             aria-pressed={view === "picker" && mode === "image"}
+            aria-label="Image"
             onClick={() => selectMode("image")}
           >
             <ImageIcon className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -379,6 +374,7 @@ function App() {
             type="button"
             className={`mode-btn ${view === "picker" && mode === "camera" ? "is-active" : ""}`}
             aria-pressed={view === "picker" && mode === "camera"}
+            aria-label="Camera"
             onClick={() => selectMode("camera")}
           >
             <Camera className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -388,6 +384,7 @@ function App() {
             type="button"
             className={`mode-btn ${view === "picker" && mode === "word" ? "is-active" : ""}`}
             aria-pressed={view === "picker" && mode === "word"}
+            aria-label="Word"
             onClick={() => selectMode("word")}
           >
             <Type className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -537,38 +534,29 @@ function App() {
                 Closest primary colour: <strong>{primaryColorName}</strong>
               </li>
               {matches.map((match, index) => (
-                <li
-                  className="match-card cursor-pointer"
-                  key={match.id}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Use ${match.name}, ${match.hex}`}
-                  onClick={() => setColor(match.hex)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      setColor(match.hex);
-                    }
-                  }}
-                >
-                  <span className="match-rank">{index + 1}</span>
-                  <span
-                    className="match-swatch"
-                    style={{ backgroundColor: match.hex }}
-                    aria-hidden="true"
-                  />
-                  <span className="match-copy">
-                    <span className="match-name">{match.name}</span>
-                    <span className="match-hex">{match.hex}</span>
-                  </span>
+                <li className="match-card" key={match.id}>
+                  <button
+                    type="button"
+                    className="match-select"
+                    onClick={() => setColor(match.hex)}
+                  >
+                    <span className="match-rank">{index + 1}</span>
+                    <span
+                      className="match-swatch"
+                      style={{ backgroundColor: match.hex }}
+                      aria-hidden="true"
+                    />
+                    <span className="match-copy">
+                      <span className="match-name">{match.name}</span>
+                      <span className="match-hex">{match.hex}</span>
+                    </span>
+                    <span className="sr-only">{match.closeness}% match</span>
+                  </button>
                   <button
                     type="button"
                     className={`match-copy-btn ${copiedHex === match.hex ? "is-copied" : ""}`}
                     aria-label={`Copy ${match.hex}`}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      copyHex(match.hex);
-                    }}
+                    onClick={() => copyHex(match.hex)}
                   >
                     {copiedHex === match.hex ? (
                       <Check size={14} strokeWidth={1.8} aria-hidden="true" />
@@ -576,7 +564,7 @@ function App() {
                       <Clipboard size={14} strokeWidth={1.5} aria-hidden="true" />
                     )}
                   </button>
-                  <span className="match-meter" aria-label={`${match.closeness}% visual closeness`}>
+                  <span className="match-meter" aria-hidden="true">
                     <span style={{ width: `${match.closeness}%` }} />
                   </span>
                 </li>
@@ -592,7 +580,7 @@ function App() {
             type="button"
             className={`footer-btn ${view === "settings" ? "is-active" : ""}`}
             aria-pressed={view === "settings"}
-            aria-label={view === "settings" ? "Close settings" : "Open settings"}
+            aria-label="Settings"
             onClick={() => setView(view === "settings" ? "picker" : "settings")}
           >
             <SettingsIcon size={16} strokeWidth={1.5} aria-hidden="true" />
@@ -602,7 +590,7 @@ function App() {
             type="button"
             className={`footer-btn ${view === "about" ? "is-active" : ""}`}
             aria-pressed={view === "about"}
-            aria-label={view === "about" ? "Close info" : "Open info"}
+            aria-label="About"
             onClick={() => setView(view === "about" ? "picker" : "about")}
           >
             <HelpCircle size={16} strokeWidth={1.5} aria-hidden="true" />
