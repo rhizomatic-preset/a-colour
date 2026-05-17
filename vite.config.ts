@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "icons.svg", "pwa.svg"],
+      includeAssets: ["favicon.svg"],
       workbox: {
         // Pre-cache the app shell + assets + the Phase-B word encoder
         // (~22 MB quantised ONNX + 1.4 MB embeddings + tokenizer). 30 MB cap
@@ -30,8 +30,8 @@ export default defineConfig({
         start_url: "/",
         scope: "/",
         icons: [
-          { src: "/pwa.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
-          { src: "/pwa.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" },
+          { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+          { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" },
         ],
       },
     }),
