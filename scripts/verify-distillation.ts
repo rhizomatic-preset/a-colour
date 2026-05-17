@@ -13,9 +13,8 @@
  * Run: `pnpm tsx scripts/verify-distillation.ts`
  */
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { dirname } from "node:path";
 
 import { getPrimaryColorName, parseColorCsv } from "../src/lib/color-matcher.ts";
 import {
@@ -37,7 +36,8 @@ const lookup = JSON.parse(
 const familyIndex = buildFamilyIndex(colors);
 
 // 1. Internal consistency: declared family vs band-classified hex
-const declaredMismatches: Array<{ token: string; declared: string; band: string; hex: string }> = [];
+const declaredMismatches: Array<{ token: string; declared: string; band: string; hex: string }> =
+  [];
 for (const [token, entry] of Object.entries(lookup.entries)) {
   const band = getPrimaryColorName(entry.hex);
   if (band !== entry.family) {
@@ -81,8 +81,7 @@ for (const c of EVAL_QUERIES) {
   if (c.expectedFamily) {
     status = topFamily === c.expectedFamily ? "pass-family" : "fail-family";
   } else if (c.expectedName) {
-    status =
-      topName.toLowerCase() === c.expectedName.toLowerCase() ? "pass-name" : "fail-name";
+    status = topName.toLowerCase() === c.expectedName.toLowerCase() ? "pass-name" : "fail-name";
   }
   cases.push({
     query: c.query,
@@ -103,12 +102,16 @@ console.log(`Library: ${colors.length} colours\n`);
 if (declaredMismatches.length > 0) {
   console.log("Declared family vs HSL-band mismatches (recoverable, but worth a look):");
   for (const m of declaredMismatches) {
-    console.log(`  ${m.token.padEnd(20)} declared=${m.declared.padEnd(10)} band=${m.band.padEnd(10)} hex=${m.hex}`);
+    console.log(
+      `  ${m.token.padEnd(20)} declared=${m.declared.padEnd(10)} band=${m.band.padEnd(10)} hex=${m.hex}`,
+    );
   }
   console.log();
 }
 
-const failures = cases.filter((c) => c.status === "fail-family" || c.status === "fail-name" || c.status === "no-hit");
+const failures = cases.filter(
+  (c) => c.status === "fail-family" || c.status === "fail-name" || c.status === "no-hit",
+);
 const passes = cases.filter((c) => c.status === "pass-family" || c.status === "pass-name");
 console.log(`Eval interaction: ${passes.length} passes, ${failures.length} regressions/misses`);
 
@@ -117,7 +120,9 @@ if (failures.length > 0) {
   for (const f of failures) {
     const exp = f.expectedFamily ?? f.expectedName ?? "?";
     const got = f.topFamily ?? f.topName ?? "?";
-    console.log(`  [${f.category}] "${f.query}" via "${f.lookupToken}" → expected ${exp}, got ${got} (${f.topName})`);
+    console.log(
+      `  [${f.category}] "${f.query}" via "${f.lookupToken}" → expected ${exp}, got ${got} (${f.topName})`,
+    );
   }
   process.exit(1);
 }

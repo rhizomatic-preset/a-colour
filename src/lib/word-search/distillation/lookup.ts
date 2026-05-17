@@ -73,11 +73,7 @@ export function pickEntry(
     const entry = lookup.entries[token];
     if (!entry) continue;
     const rank = confidenceRank[entry.confidence];
-    if (
-      best === null ||
-      rank > best.rank ||
-      (rank === best.rank && i > best.position)
-    ) {
+    if (best === null || rank > best.rank || (rank === best.rank && i > best.position)) {
       best = { token, entry, rank, position: i };
     }
   }
@@ -156,7 +152,12 @@ const ENGINE_ID = "distilled";
  */
 export function searchDistilled(
   query: string,
-  library: ColorReference[],
+  // `library` is unused at the function body level — the familyIndex already
+  // partitions it. Kept in the signature to keep the call site symmetrical
+  // with the rest of the search interface (`searchByWord` etc., which all
+  // take `library`) and to leave room for future passes that need the full
+  // list without rebuilding the index.
+  _library: ColorReference[],
   lookup: DistillationLookup,
   familyIndex: FamilyIndex,
   topN: number = 3,
@@ -170,7 +171,8 @@ export function searchDistilled(
   if (picked.entry.confidence === "low") return null;
 
   const { entry } = picked;
-  const target = rgbToOklab(...Object.values(hexToRgb(entry.hex)));
+  const rgb = hexToRgb(entry.hex);
+  const target = rgbToOklab(rgb.r, rgb.g, rgb.b);
 
   const primary = familyIndex.get(entry.family) ?? [];
   const ranked = primary
