@@ -1,20 +1,26 @@
 # color-trickser
 
-A small offline-first PWA that names colours. Built so my colourblind son can point a phone (or paste an image, or open the colour picker) at something and find out what colour it is.
+An offline-first PWA that names colours. Built for my colourblind son — point a phone (or paste an image, or open the colour picker) at something and find out what colour it is. A small group of friends with colour vision differences (~5 known users) also uses it and likes it, and Colour Thesaurus doubles as a public showcase for the **preset.nz studio**.
 
 The user-facing name is **Colour Thesaurus** (UI title, `<title>`, README heading). The package / directory name is `color-trickser` (intentional play on "trickster") — use that when referring to the project as a codebase.
 
-## Hyper-individualised and opinionated
+## Audience and product stance
 
-This is **not** a general-purpose colour tool. It exists for one user (a colourblind kid) with one workflow (point a phone or paste a screenshot, read the colour name). Lean into that:
+Three audiences, in priority order:
 
+1. **The primary customer — my colourblind son.** Workflow: point a phone (or paste a screenshot, or open the colour picker) at something, read the colour name. Big tap targets, high-contrast hex readouts, fast first paint, works offline.
+2. **A small group of friends with colour vision differences (~5 known users).** Their needs overlap his almost entirely — same workflow, same defaults — so catering to him caters to them. Welcome, not catered to separately.
+3. **The preset.nz studio.** Colour Thesaurus is a public showcase for what a small, opinionated, well-engineered offline-first PWA can do. The code, the matching pipeline, the eval rig, the build-time LLM distillation — these are work product on display. They're allowed to be good; treat them as such.
+
+That ordering shapes the product calls:
+
+- Don't internationalise. NZ English in user-facing strings, full stop.
 - Don't add settings, preferences, themes, or toggles that weren't asked for.
-- Don't internationalise. NZ English, no locale switching.
-- Don't generalise accessibility beyond what the named user benefits from. Big tap targets and high-contrast hex readouts: yes. Full WCAG / screen-reader compatibility: not a goal unless it becomes one.
-- Don't preserve old behaviour out of caution. There are no "users in the wild" whose habits matter — if a new design is better for him, replace the old one.
-- Don't add abstraction in case some hypothetical second use-case shows up. It won't. If it does, refactor then.
+- Don't generalise accessibility beyond what the named users benefit from. Full WCAG / screen-reader compatibility isn't a goal unless it becomes one.
+- Don't preserve old behaviour out of caution. The known user base is small enough that shipping an improvement straight away is fine.
+- Don't add abstraction for a hypothetical second use-case. If it shows up, refactor then.
 
-When in doubt: "does this make the app better for *him*?" If the honest answer is "well, it'd be nice for some hypothetical other user", drop it.
+When in doubt: "does this make the app better for the people who actually use it?" If the honest answer is "well, it'd be nice for some hypothetical other user", drop it.
 
 ## Use NZ English in user-facing strings
 
@@ -22,11 +28,12 @@ Spelling is **colour**, not **color**, anywhere a human reads it (UI text, aria-
 
 ## What the app does
 
-Three input modes for picking a colour, one output (closest names + primary colour family).
+Four input modes — three for picking a colour, one for typing a word — and one output (closest names + primary colour family).
 
 - **Swatch** — `react-colorful` HEX wheel in a `@base-ui/react` popover, plus a hex text field and the EyeDropper API when the browser supports it (Chromium desktop).
 - **Image** — paste from clipboard or upload a file; click/drag on the image to sample a pixel via an offscreen `<canvas>`.
 - **Camera** — `getUserMedia` with `facingMode: "environment"`, rendered into a canvas every frame so we can sample. Pinch / wheel zoom (hardware zoom via `applyConstraints` if the track supports it, digital crop fallback otherwise). Tap-and-drag to sample.
+- **Word** — type a word, get colours. Four-layer pipeline (distillation lookup → handcurated expander → static expander → TF-IDF). No ML or API at runtime. Eval headline is 88/100 acc@1, 100% acc@3 on the small library. See `src/lib/word-mode.ts` and `guidance/projects/color-thesaurus/design/distillation.md`.
 
 Output: top 3 closest named colours from `guidance/references/colors.csv` (~865 entries, columns `id,"Name",#hex,r,g,b`), plus a "primary colour family" label (red/orange/.../brown/olive/black/gray/etc.) derived from HSL bands.
 
@@ -41,7 +48,7 @@ In `src/lib/color-matcher.ts`. The matching is **perceptual**, not RGB-Euclidean
 - Extra **neutral penalty**: when the input is near-neutral (chroma < 0.04) we penalise high-chroma candidates so "off-white" doesn't return "lemon yellow".
 - `closeness` percentage is `1 - distance / 0.45`, clamped — purely cosmetic, tweak if the bars start to look pessimistic.
 
-There's also a `buildNameVectorIndex` / `findClosestColorNames` pair (TF-IDF over colour names) that isn't wired into the UI yet. It's there for an eventual "type a word, get a colour" reverse-lookup mode (the README already promises this).
+The reverse-lookup ("type a word, get a colour") is the Word mode described above. The matcher's `buildNameVectorIndex` / `findClosestColorNames` (TF-IDF over colour names) is one layer in that pipeline.
 
 ## Persistence
 
@@ -123,10 +130,10 @@ pnpm format        # biome format --write .
 
 ## What's missing (wanted)
 
-PWA is wired (`VitePWA` in `vite.config.ts` with `autoUpdate`, manifest + Workbox precache), the landscape-phone layout shipped, and the camera-permission fallback + colour-picker popover offset are both fixed. What's still open:
+PWA is wired (`VitePWA` in `vite.config.ts` with `autoUpdate`, manifest + Workbox precache), the landscape-phone layout shipped, and the camera-permission fallback + colour-picker popover offset are both fixed. Word mode shipped through Phase distillation and is the current headline feature. What's still open:
 
-1. **Hardcoded 340px sizes in portrait.** `.paste-target` and `.sample-image` cap at 340px (`src/index.css` ~lines 738, 761). Fine on desktop, big chunk of a phone-portrait viewport. Landscape overrides exist; portrait still bites.
-2. **Word-mode engine (Phase 2B).** The 1.5b expander has shipped; the bake-off named `glove-300d` as the engine to wire next. Open decision before starting: bundle the 1.2MB `.bin` directly (simpler, no UX) vs IndexedDB + download progress UX (more work, smaller initial bundle). Epic at `~/rhizomatic-preset/guidance/projects/color-thesaurus/epics/01-word-mode/README.md`.
+1. **Phase B — sentence-transformer fine-tune.** The 693-entry distillation lookup is also labelled training data. Fine-tune `all-MiniLM-L6-v2` on `(noun, family-name)` + `(noun, hex-as-text)` positives, export ONNX, bundle in the PWA. Acceptance: match the lookup's 88/100 *and* generalise to long-tail nouns the lookup doesn't cover. Plan in `~/rhizomatic-preset/guidance/projects/color-thesaurus/design/distillation.md` §8. Gated on explicit go-ahead — confirm scope before starting.
+2. **Hardcoded 340px sizes in portrait.** `.paste-target` and `.sample-image` cap at 340px (`src/index.css` ~lines 738, 761). Fine on desktop, big chunk of a phone-portrait viewport. Landscape overrides exist; portrait still bites.
 3. **Hue classifier still uses HSL bands.** `getPrimaryColorName` in `src/lib/color-matcher.ts` is a blunt HSL-hue cutoff (one tweak landed: red is `h<10 || h>=350`). The matcher itself is Oklab; the classifier disagreeing at boundaries is the structural fix.
 
 When working on any of these, treat the existing perceptual matching and the NZ spelling as load-bearing and don't regress them.

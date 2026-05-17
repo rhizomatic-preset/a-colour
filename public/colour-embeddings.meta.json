@@ -1,0 +1,9 @@
+{
+  "dim": 384,
+  "count": 980,
+  "library": "small",
+  "modelDir": "word-encoder",
+  "modelFile": "model_quantized.onnx",
+  "pooling": "mean",
+  "normalized": true
+}

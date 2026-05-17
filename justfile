@@ -56,3 +56,41 @@ eval-baseline:
 [group('eval')]
 verify-distillation:
     pnpm tsx scripts/verify-distillation.ts
+
+# Phase B — fine-tune a small sentence-transformer on the distillation lookup.
+# See guidance/projects/color-thesaurus/epics/01-word-mode/phase-b-fine-tune.md.
+# All recipes invoke training/.venv/bin/python directly — no venv activation
+# needed in the calling shell.
+
+# One-time: create the venv and install Python deps under training/.
+# Pinned to python3.13: torch wheels reliably follow Python n-1, and
+# python3.14 (current homebrew default) sometimes lacks prebuilt wheels.
+[group('train')]
+train-setup:
+    cd training && python3.13 -m venv .venv && .venv/bin/pip install --upgrade pip && .venv/bin/pip install -e .
+
+# Fine-tune the encoder. Writes to training/runs/<timestamp>/.
+[group('train')]
+train *flags:
+    cd training && .venv/bin/python train.py {{flags}}
+
+# Dump eval cases + colour library (with families) to training/data/ as JSON.
+# Single source of truth stays on the TS side; Python reads JSON only.
+[group('train')]
+train-dump:
+    pnpm tsx scripts/dump-for-training.ts
+
+# Score the latest training run against the eval cases (matches `just eval` semantics).
+[group('train')]
+train-eval *flags: train-dump
+    cd training && .venv/bin/python eval_model.py {{flags}}
+
+# Export the latest run to int8-quantised ONNX in src/generated/word-encoder/.
+[group('train')]
+train-export *flags:
+    cd training && .venv/bin/python export_onnx.py {{flags}}
+
+# Encode the colour library with the exported ONNX into src/generated/colour-embeddings.bin.
+[group('train')]
+train-build-embeddings *flags:
+    cd training && .venv/bin/python build_embeddings.py {{flags}}

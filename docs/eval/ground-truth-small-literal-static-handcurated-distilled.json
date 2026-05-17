@@ -2,7 +2,7 @@
   "library": "small",
   "engine": "literal",
   "threshold": null,
-  "generatedAt": "2026-05-17T03:33:53.889Z",
+  "generatedAt": "2026-05-17T10:27:05.994Z",
   "casesByCategory": {
     "trivial": [
       {
@@ -2482,6 +2482,525 @@
         "pass": {
           "at1": true,
           "at3": true
+        },
+        "expectedFamily": "yellow"
+      }
+    ],
+    "ood-noun": [
+      {
+        "query": "kauri",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "pohutukawa",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "manuka",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "harakeke",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "kowhai",
+        "results": [
+          {
+            "name": "Gold",
+            "hex": "#dbb40c",
+            "family": "brown",
+            "score": 0.48507125007266594
+          },
+          {
+            "name": "Lemon",
+            "hex": "#fdff52",
+            "family": "yellow",
+            "score": 0.2581988897471611
+          },
+          {
+            "name": "Yellow",
+            "hex": "#ffff14",
+            "family": "yellow",
+            "score": 0.7844645405527362
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "kakariki",
+        "results": [
+          {
+            "name": "Fern",
+            "hex": "#63a950",
+            "family": "green",
+            "score": 0.35355339059327373
+          },
+          {
+            "name": "Grass",
+            "hex": "#5cac2d",
+            "family": "green",
+            "score": 0.25
+          },
+          {
+            "name": "Soft Green",
+            "hex": "#6fc276",
+            "family": "green",
+            "score": 0.904534033733291
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "kiwi",
+        "results": [
+          {
+            "name": "Kiwi",
+            "hex": "#9cef43",
+            "family": "green",
+            "score": 0.24253562503633297
+          },
+          {
+            "name": "Kiwi Green",
+            "hex": "#8ee53f",
+            "family": "green",
+            "score": 0.2182178902359924
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "kea",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "moa",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "weka",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "pumice",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "pounamu",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "tussock",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "silverfern",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "cobweb",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "vellum",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "terracotta",
+        "results": [
+          {
+            "name": "Terracotta",
+            "hex": "#ca6641",
+            "family": "orange",
+            "score": 0.30151134457776363
+          },
+          {
+            "name": "Rose",
+            "hex": "#cf6275",
+            "family": "pink",
+            "score": 0.2886751345948129
+          },
+          {
+            "name": "Dark Rose",
+            "hex": "#b5485d",
+            "family": "pink",
+            "score": 0.2773500981126146
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "varnish",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "lichen",
+        "results": [
+          {
+            "name": "Lichen",
+            "hex": "#8fb67b",
+            "family": "green",
+            "score": 0.44721359549995787
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "gum",
+        "results": [
+          {
+            "name": "Bubble Gum Pink",
+            "hex": "#ff69af",
+            "family": "pink",
+            "score": 0.19611613513818404
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "teeth",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "sword",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "helmet",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "crown",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "yellow"
+      },
+      {
+        "query": "shield",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "skeleton",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "white"
+      },
+      {
+        "query": "hammer",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "ladder",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "dinosaur",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "green"
+      },
+      {
+        "query": "robot",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "silver"
+      },
+      {
+        "query": "merlot",
+        "results": [
+          {
+            "name": "Merlot",
+            "hex": "#730039",
+            "family": "pink",
+            "score": 0.2773500981126146
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "cabernet",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "burgundy",
+        "results": [
+          {
+            "name": "Light Burgundy",
+            "hex": "#a8415b",
+            "family": "pink",
+            "score": 0.3333333333333333
+          },
+          {
+            "name": "Burgundy",
+            "hex": "#610023",
+            "family": "pink",
+            "score": 0.2773500981126146
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "bordeaux",
+        "results": [
+          {
+            "name": "Bordeaux",
+            "hex": "#7b002c",
+            "family": "pink",
+            "score": 0.2773500981126146
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "oxblood",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "red"
+      },
+      {
+        "query": "aubergine",
+        "results": [
+          {
+            "name": "Aubergine",
+            "hex": "#3d0734",
+            "family": "magenta",
+            "score": 0.24253562503633297
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "purple"
+      },
+      {
+        "query": "rebar",
+        "results": [],
+        "pass": {
+          "at1": false,
+          "at3": false
+        },
+        "expectedFamily": "orange"
+      },
+      {
+        "query": "khaki",
+        "results": [
+          {
+            "name": "Khaki",
+            "hex": "#aaa662",
+            "family": "yellow",
+            "score": 0.5773502691896258
+          },
+          {
+            "name": "Khaki Green",
+            "hex": "#728639",
+            "family": "olive",
+            "score": 0.2886751345948129
+          },
+          {
+            "name": "Dark Khaki",
+            "hex": "#9b8f55",
+            "family": "brown",
+            "score": 0.2672612419124244
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": true
+        },
+        "expectedFamily": "olive"
+      },
+      {
+        "query": "sepia",
+        "results": [
+          {
+            "name": "Sepia",
+            "hex": "#985e2b",
+            "family": "brown",
+            "score": 0.2773500981126146
+          }
+        ],
+        "pass": {
+          "at1": true,
+          "at3": true
+        },
+        "expectedFamily": "brown"
+      },
+      {
+        "query": "ochre",
+        "results": [
+          {
+            "name": "Ochre",
+            "hex": "#bf9005",
+            "family": "brown",
+            "score": 0.3779644730092272
+          },
+          {
+            "name": "Yellow Ochre",
+            "hex": "#cb9d06",
+            "family": "brown",
+            "score": 0.30151134457776363
+          }
+        ],
+        "pass": {
+          "at1": false,
+          "at3": false
         },
         "expectedFamily": "yellow"
       }

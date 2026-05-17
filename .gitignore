@@ -45,3 +45,16 @@ node_modules/.pnpm/lock.yaml
 # Build-time model / embedding caches (GloVe zips, ONNX weights, etc.).
 # Covered by the .cache/ rule above; called out here for discoverability.
 # scripts/data/.cache/
+
+# Phase B — Python training project (under training/)
+training/.venv/
+training/runs/
+training/outputs/
+training/*.egg-info/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Phase B — full-precision ONNX (86 MB) is sanity-only; we ship the int8
+# quantised model in onnx/model_quantized.onnx.
+public/word-encoder/onnx/model.onnx

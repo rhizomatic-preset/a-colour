@@ -3,9 +3,14 @@ import { WordResultCard } from "@/components/word-result-card";
 import type { ColorReference } from "@/lib/color-matcher";
 import type { MatchCount } from "@/lib/settings";
 import { buildFamilyIndex, type DistillationLookup } from "@/lib/word-search/distillation/lookup";
+import type { Embedder } from "@/lib/word-search/embedder";
 import type { QueryExpander } from "@/lib/word-search/expander";
 import { searchByWord, type WordSearchResult } from "@/lib/word-search/index";
 import type { TfidfIndex } from "@/lib/word-search/tfidf-index";
+import {
+  type EncoderLoadState,
+  subscribeEncoderLoad,
+} from "@/lib/word-search/transformers-embedder";
 
 interface WordPickerProps {
   library: ColorReference[];
@@ -14,6 +19,9 @@ interface WordPickerProps {
   /** Build-time-distilled common-noun lookup. Optional — when omitted, the
    * runtime falls through to the TF-IDF + expander stack as before. */
   distillation?: DistillationLookup;
+  /** Phase B fine-tuned sentence-transformer. Lazy-loaded on first query.
+   * Slots between distillation and the TF-IDF + expander chain. */
+  embedder?: Embedder;
   topN: MatchCount;
   onColorSelect: (hex: string) => void;
 }
@@ -27,11 +35,13 @@ export function WordPicker({
   tfidf,
   expander,
   distillation,
+  embedder,
   topN,
   onColorSelect,
 }: WordPickerProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<WordSearchResult[]>([]);
+  const [encoderState, setEncoderState] = useState<EncoderLoadState>({ status: "idle" });
   const inputRef = useRef<HTMLInputElement>(null);
   const requestIdRef = useRef(0);
 
@@ -44,6 +54,22 @@ export function WordPicker({
     inputRef.current?.focus();
   }, []);
 
+  // Subscribe to the shared encoder load state. App-level idle preload may
+  // have already started (or finished) the load; either way we mirror the
+  // current state into local state for the progress UI. Also kick off the
+  // load on mount as a belt-and-braces fallback if the idle preload didn't
+  // fire (very old browser, or user reached Word mode in < 1 frame).
+  useEffect(() => {
+    if (!embedder) return undefined;
+    const unsubscribe = subscribeEncoderLoad(setEncoderState);
+    if (!embedder.isReady()) {
+      embedder.load().catch(() => {
+        // Surfaced via subscribeEncoderLoad's error state; nothing to do here.
+      });
+    }
+    return unsubscribe;
+  }, [embedder]);
+
   useEffect(() => {
     if (query.trim().length === 0) {
       setResults([]);
@@ -51,7 +77,7 @@ export function WordPicker({
     }
     const timer = window.setTimeout(async () => {
       const id = ++requestIdRef.current;
-      const out = await searchByWord(query, library, tfidf, undefined, {
+      const out = await searchByWord(query, library, tfidf, embedder, {
         expander,
         topN,
         distillation,
@@ -62,7 +88,7 @@ export function WordPicker({
       setResults(out);
     }, DEBOUNCE_MS);
     return () => window.clearTimeout(timer);
-  }, [query, library, tfidf, expander, distillation, familyIndex, topN]);
+  }, [query, library, tfidf, embedder, expander, distillation, familyIndex, topN]);
 
   const trimmed = query.trim();
   const hasQuery = trimmed.length > 0;
@@ -72,6 +98,8 @@ export function WordPicker({
     <div className="word-picker">
       <input
         ref={inputRef}
+        id="word-mode-query"
+        name="word-mode-query"
         className="word-input"
         type="text"
         inputMode="text"
@@ -84,7 +112,22 @@ export function WordPicker({
         placeholder={'try "ocean", "rainy", or "whero"'}
         aria-label="Search by colour word"
       />
-      {!hasQuery && <p className="word-hint">Type a colour word or phrase.</p>}
+      {!hasQuery && (
+        <>
+          <p className="word-hint">Type a colour word or phrase.</p>
+          {encoderState.status === "loading" && (
+            <div className="word-encoder-loading">
+              <progress className="word-encoder-progress" />
+              <p className="word-encoder-progress-text">Loading semantic model…</p>
+            </div>
+          )}
+          {encoderState.status === "error" && (
+            <p className="word-hint word-encoder-error">
+              Semantic model unavailable — falling back to literal matching.
+            </p>
+          )}
+        </>
+      )}
       {hasQuery && !hasResults && (
         <div className="word-empty">
           <p className="word-hint">

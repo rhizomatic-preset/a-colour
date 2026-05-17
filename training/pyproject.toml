@@ -1,0 +1,22 @@
+[project]
+name = "colour-trickser-training"
+version = "0.1.0"
+description = "Phase B: fine-tune a sentence-transformer on the Colour Thesaurus distillation lookup."
+requires-python = ">=3.11"
+dependencies = [
+    "sentence-transformers>=3.0,<4",
+    "torch>=2.4",
+    "accelerate>=0.26",
+    "datasets>=2.20",
+    "onnx>=1.16",
+    "onnxruntime>=1.18",
+    "optimum[onnxruntime]>=1.20",
+    "numpy>=1.26,<3",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []

@@ -10,6 +10,7 @@ import { type Embedder, NullEmbedder } from "@/lib/word-search/embedder";
 import { NoopExpander, type QueryExpander } from "@/lib/word-search/expander";
 import { queryTfidf, type TfidfIndex } from "@/lib/word-search/tfidf-index";
 import { tokenize } from "@/lib/word-search/tokenize";
+import { rankByCosine } from "@/lib/word-search/transformers-embedder";
 
 export type WordSearchResult = ColorReference & {
   score: number;
@@ -47,6 +48,24 @@ export async function searchByWord(
     const familyIndex = options.familyIndex ?? buildFamilyIndex(library);
     const distilled = searchDistilled(query, library, options.distillation, familyIndex, topN);
     if (distilled !== null) return distilled;
+  }
+
+  // Phase B — fine-tuned sentence-transformer. After the lookup misses (or
+  // returns confidence:low), the encoder takes over: cosine-rank the query
+  // against precomputed library-name embeddings. Generalises semantically
+  // beyond the 693 hand-curated entries — handles birds, fabrics, vegetables,
+  // wines, materials, foods. Fires only when an Embedder is wired in and
+  // already loaded; load is async + lazy so first-paint isn't blocked.
+  if (embedder && embedder !== NullEmbedder && embedder.isReady()) {
+    const queryVector = await embedder.encodeQuery(query);
+    const ranked = rankByCosine(queryVector, topN);
+    if (ranked.length > 0) {
+      return ranked.map((hit) => ({
+        ...library[hit.index],
+        score: hit.score,
+        engineId: embedder.id,
+      }));
+    }
   }
 
   // Bypass: when no expander is wired in (or it's the noop), keep the original

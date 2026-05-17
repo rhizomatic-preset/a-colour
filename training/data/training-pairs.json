@@ -1,0 +1,4858 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-17T10:27:06.255Z",
+  "topK": 3,
+  "pairs": [
+    {
+      "noun": "wood",
+      "family": "brown",
+      "hex": "#9C6B3F",
+      "confidence": "high",
+      "libraryNames": ["Earth", "Dirt", "Dull Brown"]
+    },
+    {
+      "noun": "wolf",
+      "family": "gray",
+      "hex": "#8E8B85",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Grey", "Gray"]
+    },
+    {
+      "noun": "ginger",
+      "family": "orange",
+      "hex": "#CB6D17",
+      "confidence": "high",
+      "libraryNames": ["Terracota", "Terracotta", "Terra Cotta"]
+    },
+    {
+      "noun": "chocolate",
+      "family": "brown",
+      "hex": "#3D1F0F",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "rust",
+      "family": "orange",
+      "hex": "#C46220",
+      "confidence": "high",
+      "libraryNames": ["Terra Cotta", "Terracotta", "Terracota"]
+    },
+    {
+      "noun": "iron",
+      "family": "gray",
+      "hex": "#5C5C5C",
+      "confidence": "high",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "apple",
+      "family": "red",
+      "hex": "#D11F1E",
+      "confidence": "high",
+      "libraryNames": ["Red", "Reddish", "Dull Red"]
+    },
+    {
+      "noun": "tree",
+      "family": "green",
+      "hex": "#3F7F26",
+      "confidence": "high",
+      "libraryNames": ["Tree Green", "Darkish Green", "Emerald Green"]
+    },
+    {
+      "noun": "sand",
+      "family": "yellow",
+      "hex": "#E6CFA4",
+      "confidence": "high",
+      "libraryNames": ["Beige", "Sand", "Sandy"]
+    },
+    {
+      "noun": "beetle",
+      "family": "black",
+      "hex": "#0F0F10",
+      "confidence": "medium",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "moss",
+      "family": "green",
+      "hex": "#6C8F4E",
+      "confidence": "high",
+      "libraryNames": ["Light Forest Green", "Fern Green", "Slate Green"]
+    },
+    {
+      "noun": "clay",
+      "family": "brown",
+      "hex": "#9C5A3C",
+      "confidence": "high",
+      "libraryNames": ["Sepia", "Sienna", "Raw Sienna"]
+    },
+    {
+      "noun": "denim",
+      "family": "blue",
+      "hex": "#1560BD",
+      "confidence": "high",
+      "libraryNames": ["Mid Blue", "Iris", "Medium Blue"]
+    },
+    {
+      "noun": "slate",
+      "family": "gray",
+      "hex": "#6E7782",
+      "confidence": "high",
+      "libraryNames": ["Battleship Grey", "Steel Grey", "Purple Grey"]
+    },
+    {
+      "noun": "honey",
+      "family": "orange",
+      "hex": "#E1A23A",
+      "confidence": "high",
+      "libraryNames": ["Faded Orange", "Desert", "Sand Brown"]
+    },
+    {
+      "noun": "raven",
+      "family": "black",
+      "hex": "#101012",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "pewter",
+      "family": "silver",
+      "hex": "#B8B5B0",
+      "confidence": "high",
+      "libraryNames": ["Silver", "Light Gray", "Light Grey"]
+    },
+    {
+      "noun": "oak",
+      "family": "brown",
+      "hex": "#8A6A4A",
+      "confidence": "high",
+      "libraryNames": ["Dull Brown", "Dirt", "Grey Brown"]
+    },
+    {
+      "noun": "bone",
+      "family": "white",
+      "hex": "#EFE9DC",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "straw",
+      "family": "yellow",
+      "hex": "#E4D078",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Maize"]
+    },
+    {
+      "noun": "caterpillar",
+      "family": "green",
+      "hex": "#6FA84B",
+      "confidence": "medium",
+      "libraryNames": ["Fern", "Dark Pastel Green", "Asparagus"]
+    },
+    {
+      "noun": "pumpkin",
+      "family": "orange",
+      "hex": "#D8741B",
+      "confidence": "high",
+      "libraryNames": ["Peru", "Dull Orange", "Terracota"]
+    },
+    {
+      "noun": "spice",
+      "family": "brown",
+      "hex": "#A8602A",
+      "confidence": "medium",
+      "libraryNames": ["Raw Umber", "Earth", "Orangey Brown"]
+    },
+    {
+      "noun": "octopus",
+      "family": "pink",
+      "hex": "#E08570",
+      "confidence": "medium",
+      "libraryNames": ["Dull Pink", "Dusky Pink", "Muted Pink"]
+    },
+    {
+      "noun": "salamander",
+      "family": "orange",
+      "hex": "#D86A1F",
+      "confidence": "medium",
+      "libraryNames": ["Terracota", "Terracotta", "Terra Cotta"]
+    },
+    {
+      "noun": "trout",
+      "family": "pink",
+      "hex": "#C8807A",
+      "confidence": "medium",
+      "libraryNames": ["Dusky Pink", "Ugly Pink", "Muted Pink"]
+    },
+    {
+      "noun": "rainbow",
+      "family": "magenta",
+      "hex": "#C04080",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lego",
+      "family": "red",
+      "hex": "#D11F1E",
+      "confidence": "medium",
+      "libraryNames": ["Red", "Reddish", "Dull Red"]
+    },
+    {
+      "noun": "ice",
+      "family": "white",
+      "hex": "#E8F4F8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "copper",
+      "family": "orange",
+      "hex": "#B87333",
+      "confidence": "high",
+      "libraryNames": ["Adobe", "Tan Brown", "Clay"]
+    },
+    {
+      "noun": "brass",
+      "family": "yellow",
+      "hex": "#B5A642",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "bronze",
+      "family": "brown",
+      "hex": "#8C6A2F",
+      "confidence": "high",
+      "libraryNames": ["Dirt", "Muddy Brown", "Sepia"]
+    },
+    {
+      "noun": "gold",
+      "family": "yellow",
+      "hex": "#D4AF37",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Golden", "Greenish Beige"]
+    },
+    {
+      "noun": "platinum",
+      "family": "silver",
+      "hex": "#D9D8D5",
+      "confidence": "high",
+      "libraryNames": ["Light Grey", "Gainsboro", "Light Gray"]
+    },
+    {
+      "noun": "steel",
+      "family": "gray",
+      "hex": "#6B7079",
+      "confidence": "high",
+      "libraryNames": ["Purplish Grey", "Dim Gray", "Dim Grey"]
+    },
+    {
+      "noun": "tin",
+      "family": "silver",
+      "hex": "#A8AAAC",
+      "confidence": "high",
+      "libraryNames": ["Silver", "Light Gray", "Light Grey"]
+    },
+    {
+      "noun": "lead",
+      "family": "gray",
+      "hex": "#4F575E",
+      "confidence": "high",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "chrome",
+      "family": "silver",
+      "hex": "#CFD2D6",
+      "confidence": "high",
+      "libraryNames": ["Light Gray", "Light Grey", "Silver"]
+    },
+    {
+      "noun": "rubber",
+      "family": "black",
+      "hex": "#1A1A1A",
+      "confidence": "medium",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "asphalt",
+      "family": "charcoal",
+      "hex": "#36383B",
+      "confidence": "high",
+      "libraryNames": ["Charcoal", "Dark Grey", "Charcoal Grey"]
+    },
+    {
+      "noun": "concrete",
+      "family": "gray",
+      "hex": "#9A9A95",
+      "confidence": "high",
+      "libraryNames": ["Grey", "Cool Grey", "Cement"]
+    },
+    {
+      "noun": "brick",
+      "family": "red",
+      "hex": "#9C322B",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Darkish Red"]
+    },
+    {
+      "noun": "tile",
+      "family": "red",
+      "hex": "#A14A3A",
+      "confidence": "medium",
+      "libraryNames": ["Light Maroon", "Brick", "Brownish Red"]
+    },
+    {
+      "noun": "marble",
+      "family": "white",
+      "hex": "#EEEDE5",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "granite",
+      "family": "gray",
+      "hex": "#6E6C6A",
+      "confidence": "high",
+      "libraryNames": ["Dim Gray", "Dim Grey", "Slate Grey"]
+    },
+    {
+      "noun": "sandstone",
+      "family": "yellow",
+      "hex": "#D2B57A",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Bland"]
+    },
+    {
+      "noun": "limestone",
+      "family": "white",
+      "hex": "#E4DCC2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Light Grey"]
+    },
+    {
+      "noun": "obsidian",
+      "family": "black",
+      "hex": "#0B0B0F",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "flint",
+      "family": "charcoal",
+      "hex": "#454744",
+      "confidence": "high",
+      "libraryNames": ["Charcoal Grey", "Charcoal", "Dark Grey"]
+    },
+    {
+      "noun": "chalk",
+      "family": "white",
+      "hex": "#F5F4EE",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "porcelain",
+      "family": "white",
+      "hex": "#F2EEE5",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "cork",
+      "family": "brown",
+      "hex": "#B68855",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Coffee", "Dark Goldenrod"]
+    },
+    {
+      "noun": "leather",
+      "family": "brown",
+      "hex": "#7E4A29",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "suede",
+      "family": "brown",
+      "hex": "#8B6B45",
+      "confidence": "high",
+      "libraryNames": ["Dirt", "Dull Brown", "Grey Brown"]
+    },
+    {
+      "noun": "velvet",
+      "family": "red",
+      "hex": "#7A1F1F",
+      "confidence": "medium",
+      "libraryNames": ["Indian Red", "Dark Red", "Crimson"]
+    },
+    {
+      "noun": "linen",
+      "family": "white",
+      "hex": "#EDE4D1",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "silk",
+      "family": "white",
+      "hex": "#F0E7D4",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "wool",
+      "family": "white",
+      "hex": "#E8E2D4",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "cotton",
+      "family": "white",
+      "hex": "#F4F1E6",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "jute",
+      "family": "brown",
+      "hex": "#9B7A4C",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Leather", "Coffee"]
+    },
+    {
+      "noun": "burlap",
+      "family": "brown",
+      "hex": "#A68A5E",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Coffee", "Dark Goldenrod"]
+    },
+    {
+      "noun": "canvas",
+      "family": "white",
+      "hex": "#E5DAB7",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Beige"]
+    },
+    {
+      "noun": "parchment",
+      "family": "white",
+      "hex": "#EFDFB5",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Beige"]
+    },
+    {
+      "noun": "kraft",
+      "family": "brown",
+      "hex": "#A47148",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Leather", "Clay Brown"]
+    },
+    {
+      "noun": "cardboard",
+      "family": "brown",
+      "hex": "#B58F5C",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Ochre", "Dark Goldenrod"]
+    },
+    {
+      "noun": "paper",
+      "family": "white",
+      "hex": "#F4F0E5",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "sheep",
+      "family": "white",
+      "hex": "#EDE7DA",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "lamb",
+      "family": "white",
+      "hex": "#F0EAD9",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "pig",
+      "family": "pink",
+      "hex": "#F0B9A9",
+      "confidence": "high",
+      "libraryNames": ["Soft Pink", "Pastel Pink", "Baby Pink"]
+    },
+    {
+      "noun": "horse",
+      "family": "brown",
+      "hex": "#6E4423",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Brown"]
+    },
+    {
+      "noun": "donkey",
+      "family": "gray",
+      "hex": "#8E847A",
+      "confidence": "medium",
+      "libraryNames": ["Warm Grey", "Gray", "Medium Grey"]
+    },
+    {
+      "noun": "rabbit",
+      "family": "white",
+      "hex": "#ECE3D4",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Dark Gray"]
+    },
+    {
+      "noun": "hare",
+      "family": "brown",
+      "hex": "#9C7A52",
+      "confidence": "medium",
+      "libraryNames": ["Mocha", "Coffee", "Leather"]
+    },
+    {
+      "noun": "mouse",
+      "family": "gray",
+      "hex": "#8F8B82",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Grey", "Gray"]
+    },
+    {
+      "noun": "rat",
+      "family": "gray",
+      "hex": "#7A7670",
+      "confidence": "high",
+      "libraryNames": ["Medium Grey", "Battleship Grey", "Gray"]
+    },
+    {
+      "noun": "fox",
+      "family": "orange",
+      "hex": "#C2622A",
+      "confidence": "high",
+      "libraryNames": ["Terra Cotta", "Terracotta", "Adobe"]
+    },
+    {
+      "noun": "bear",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "deer",
+      "family": "brown",
+      "hex": "#8E6A41",
+      "confidence": "high",
+      "libraryNames": ["Dirt", "Dull Brown", "Grey Brown"]
+    },
+    {
+      "noun": "fawn",
+      "family": "brown",
+      "hex": "#B49572",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Ochre", "Dark Gold"]
+    },
+    {
+      "noun": "otter",
+      "family": "brown",
+      "hex": "#5C3F26",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "squirrel",
+      "family": "brown",
+      "hex": "#7C5235",
+      "confidence": "medium",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Mud"]
+    },
+    {
+      "noun": "moose",
+      "family": "brown",
+      "hex": "#4B2E1A",
+      "confidence": "medium",
+      "libraryNames": ["Brown", "Chocolate", "Chocolate Brown"]
+    },
+    {
+      "noun": "elephant",
+      "family": "gray",
+      "hex": "#878680",
+      "confidence": "high",
+      "libraryNames": ["Gray", "Medium Grey", "Warm Grey"]
+    },
+    {
+      "noun": "tiger",
+      "family": "orange",
+      "hex": "#D17A2A",
+      "confidence": "high",
+      "libraryNames": ["Peru", "Dull Orange", "Dark Peach"]
+    },
+    {
+      "noun": "lion",
+      "family": "yellow",
+      "hex": "#C8A664",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "leopard",
+      "family": "yellow",
+      "hex": "#C8A968",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "cheetah",
+      "family": "yellow",
+      "hex": "#CBA363",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "giraffe",
+      "family": "yellow",
+      "hex": "#C9A04F",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "monkey",
+      "family": "brown",
+      "hex": "#6F4A2C",
+      "confidence": "medium",
+      "libraryNames": ["Olive Brown", "Milk Chocolate", "Mud Brown"]
+    },
+    {
+      "noun": "gorilla",
+      "family": "black",
+      "hex": "#1F1B17",
+      "confidence": "medium",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "crow",
+      "family": "black",
+      "hex": "#0F0F12",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "blackbird",
+      "family": "black",
+      "hex": "#131215",
+      "confidence": "high",
+      "libraryNames": ["Black"]
+    },
+    {
+      "noun": "swan",
+      "family": "white",
+      "hex": "#F4F1E8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "dove",
+      "family": "white",
+      "hex": "#EAE4D6",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "pigeon",
+      "family": "gray",
+      "hex": "#7C7972",
+      "confidence": "high",
+      "libraryNames": ["Medium Grey", "Gray", "Battleship Grey"]
+    },
+    {
+      "noun": "sparrow",
+      "family": "brown",
+      "hex": "#7A5A38",
+      "confidence": "high",
+      "libraryNames": ["Mud", "Cocoa", "Medium Brown"]
+    },
+    {
+      "noun": "robin",
+      "family": "red",
+      "hex": "#C54323",
+      "confidence": "high",
+      "libraryNames": ["Reddish", "Dull Red", "Dusty Red"]
+    },
+    {
+      "noun": "kingfisher",
+      "family": "teal",
+      "hex": "#1E8AA8",
+      "confidence": "high",
+      "libraryNames": ["Teal Blue", "Greenish Blue", "Dark Cyan"]
+    },
+    {
+      "noun": "peacock",
+      "family": "teal",
+      "hex": "#0F7A8E",
+      "confidence": "high",
+      "libraryNames": ["Ocean", "Deep Aqua", "Bluegreen"]
+    },
+    {
+      "noun": "flamingo",
+      "family": "pink",
+      "hex": "#FC8EAC",
+      "confidence": "high",
+      "libraryNames": ["Rosa", "Pinky", "Rose Pink"]
+    },
+    {
+      "noun": "parrot",
+      "family": "green",
+      "hex": "#2EA84A",
+      "confidence": "medium",
+      "libraryNames": ["Mid Green", "Medium Green", "Kelly Green"]
+    },
+    {
+      "noun": "canary",
+      "family": "yellow",
+      "hex": "#F4E94B",
+      "confidence": "high",
+      "libraryNames": ["Sun Yellow", "Dandelion", "Yellowish"]
+    },
+    {
+      "noun": "swallow",
+      "family": "blue",
+      "hex": "#324A6E",
+      "confidence": "medium",
+      "libraryNames": ["Dark Slate Blue", "Dark Grey Blue", "Light Navy"]
+    },
+    {
+      "noun": "owl",
+      "family": "brown",
+      "hex": "#7A5A3C",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Mud", "Milk Chocolate"]
+    },
+    {
+      "noun": "eagle",
+      "family": "brown",
+      "hex": "#5C422A",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Brown", "Olive Brown"]
+    },
+    {
+      "noun": "hawk",
+      "family": "brown",
+      "hex": "#7A5234",
+      "confidence": "medium",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Mud"]
+    },
+    {
+      "noun": "tuna",
+      "family": "pink",
+      "hex": "#C2615A",
+      "confidence": "medium",
+      "libraryNames": ["Rose", "Mauve", "Deep Rose"]
+    },
+    {
+      "noun": "shark",
+      "family": "gray",
+      "hex": "#6F7780",
+      "confidence": "high",
+      "libraryNames": ["Battleship Grey", "Steel Grey", "Purple Grey"]
+    },
+    {
+      "noun": "whale",
+      "family": "gray",
+      "hex": "#5A6772",
+      "confidence": "high",
+      "libraryNames": ["Slate Grey", "Gunmetal", "Dim Gray"]
+    },
+    {
+      "noun": "dolphin",
+      "family": "gray",
+      "hex": "#7C8A92",
+      "confidence": "high",
+      "libraryNames": ["Steel Grey", "Warm Grey", "Purpley Grey"]
+    },
+    {
+      "noun": "crab",
+      "family": "red",
+      "hex": "#C13C24",
+      "confidence": "high",
+      "libraryNames": ["Dull Red", "Reddish", "Dusty Red"]
+    },
+    {
+      "noun": "lobster",
+      "family": "red",
+      "hex": "#B22222",
+      "confidence": "high",
+      "libraryNames": ["Firebrick", "Scarlet", "Brick"]
+    },
+    {
+      "noun": "shrimp",
+      "family": "pink",
+      "hex": "#F6A395",
+      "confidence": "high",
+      "libraryNames": ["Faded Pink", "Soft Pink", "Pig Pink"]
+    },
+    {
+      "noun": "prawn",
+      "family": "pink",
+      "hex": "#F49C8C",
+      "confidence": "high",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Rose Pink"]
+    },
+    {
+      "noun": "starfish",
+      "family": "orange",
+      "hex": "#E4894C",
+      "confidence": "medium",
+      "libraryNames": ["Dusty Orange", "Dull Orange", "Dark Peach"]
+    },
+    {
+      "noun": "squid",
+      "family": "pink",
+      "hex": "#D3917F",
+      "confidence": "medium",
+      "libraryNames": ["Grey Pink", "Dull Pink", "Light Mauve"]
+    },
+    {
+      "noun": "oyster",
+      "family": "white",
+      "hex": "#E5DAC4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Light Grey"]
+    },
+    {
+      "noun": "pearl",
+      "family": "white",
+      "hex": "#F0EAD6",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "clam",
+      "family": "white",
+      "hex": "#E8DCC2",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Light Grey"]
+    },
+    {
+      "noun": "seal",
+      "family": "gray",
+      "hex": "#5C5852",
+      "confidence": "medium",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "ladybird",
+      "family": "red",
+      "hex": "#C8201F",
+      "confidence": "high",
+      "libraryNames": ["Scarlet", "Dull Red", "Reddish"]
+    },
+    {
+      "noun": "ladybug",
+      "family": "red",
+      "hex": "#C8201F",
+      "confidence": "high",
+      "libraryNames": ["Scarlet", "Dull Red", "Reddish"]
+    },
+    {
+      "noun": "bee",
+      "family": "yellow",
+      "hex": "#E3B824",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "wasp",
+      "family": "yellow",
+      "hex": "#E5B41E",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "ant",
+      "family": "black",
+      "hex": "#1A1A1A",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Brown", "Chocolate"]
+    },
+    {
+      "noun": "spider",
+      "family": "black",
+      "hex": "#161616",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Brown", "Chocolate"]
+    },
+    {
+      "noun": "scorpion",
+      "family": "brown",
+      "hex": "#6F4E2C",
+      "confidence": "medium",
+      "libraryNames": ["Milk Chocolate", "Olive Brown", "Medium Brown"]
+    },
+    {
+      "noun": "snail",
+      "family": "brown",
+      "hex": "#9B7C50",
+      "confidence": "medium",
+      "libraryNames": ["Mocha", "Coffee", "Leather"]
+    },
+    {
+      "noun": "slug",
+      "family": "brown",
+      "hex": "#7A5E40",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Dark Taupe"]
+    },
+    {
+      "noun": "frog",
+      "family": "green",
+      "hex": "#3FA64B",
+      "confidence": "high",
+      "libraryNames": ["Mid Green", "Medium Green", "Muted Green"]
+    },
+    {
+      "noun": "toad",
+      "family": "olive",
+      "hex": "#6A6B33",
+      "confidence": "medium",
+      "libraryNames": ["Brown Green", "Muddy Green", "Browny Green"]
+    },
+    {
+      "noun": "lizard",
+      "family": "green",
+      "hex": "#578A4A",
+      "confidence": "medium",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Dark Sage"]
+    },
+    {
+      "noun": "turtle",
+      "family": "green",
+      "hex": "#3F6A38",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "tortoise",
+      "family": "brown",
+      "hex": "#6F5A3A",
+      "confidence": "high",
+      "libraryNames": ["Mud", "Milk Chocolate", "Medium Brown"]
+    },
+    {
+      "noun": "crocodile",
+      "family": "green",
+      "hex": "#3D5A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "alligator",
+      "family": "green",
+      "hex": "#3A5226",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Forest", "Deep Green"]
+    },
+    {
+      "noun": "moth",
+      "family": "brown",
+      "hex": "#857658",
+      "confidence": "medium",
+      "libraryNames": ["Brownish Grey", "Grey Brown", "Dull Brown"]
+    },
+    {
+      "noun": "firefly",
+      "family": "yellow",
+      "hex": "#F2D24A",
+      "confidence": "medium",
+      "libraryNames": ["Maize", "Light Mustard", "Dull Yellow"]
+    },
+    {
+      "noun": "worm",
+      "family": "pink",
+      "hex": "#D8A29A",
+      "confidence": "medium",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Light Mauve"]
+    },
+    {
+      "noun": "earthworm",
+      "family": "pink",
+      "hex": "#C28A82",
+      "confidence": "high",
+      "libraryNames": ["Grey Pink", "Light Mauve", "Dusky Pink"]
+    },
+    {
+      "noun": "fern",
+      "family": "green",
+      "hex": "#4A7142",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "ivy",
+      "family": "green",
+      "hex": "#385E2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "vine",
+      "family": "green",
+      "hex": "#3E6A3C",
+      "confidence": "medium",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "leaf",
+      "family": "green",
+      "hex": "#3FA84B",
+      "confidence": "high",
+      "libraryNames": ["Mid Green", "Medium Green", "Jade Green"]
+    },
+    {
+      "noun": "grass",
+      "family": "green",
+      "hex": "#4FA84A",
+      "confidence": "high",
+      "libraryNames": ["Mid Green", "Medium Green", "Fern"]
+    },
+    {
+      "noun": "weed",
+      "family": "green",
+      "hex": "#5E8A3A",
+      "confidence": "medium",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Dark Sage"]
+    },
+    {
+      "noun": "clover",
+      "family": "green",
+      "hex": "#3E8E40",
+      "confidence": "high",
+      "libraryNames": ["Fern Green", "Kelley Green", "Light Forest Green"]
+    },
+    {
+      "noun": "pine",
+      "family": "green",
+      "hex": "#2E5A36",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "spruce",
+      "family": "green",
+      "hex": "#2D4F36",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Pine Green", "Forest"]
+    },
+    {
+      "noun": "willow",
+      "family": "green",
+      "hex": "#7BA15A",
+      "confidence": "medium",
+      "libraryNames": ["Dull Green", "Off Green", "Dusty Green"]
+    },
+    {
+      "noun": "birch",
+      "family": "white",
+      "hex": "#EDE5D2",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "maple",
+      "family": "red",
+      "hex": "#A93223",
+      "confidence": "medium",
+      "libraryNames": ["Brick", "Firebrick", "Brownish Red"]
+    },
+    {
+      "noun": "cedar",
+      "family": "brown",
+      "hex": "#7E4A2C",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "bamboo",
+      "family": "yellow",
+      "hex": "#C4A95C",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "palm",
+      "family": "green",
+      "hex": "#3F8242",
+      "confidence": "medium",
+      "libraryNames": ["Darkish Green", "Dark Sage", "Tree Green"]
+    },
+    {
+      "noun": "rose",
+      "family": "pink",
+      "hex": "#DA4571",
+      "confidence": "high",
+      "libraryNames": ["Darkish Pink", "Dark Pink", "Deep Rose"]
+    },
+    {
+      "noun": "tulip",
+      "family": "red",
+      "hex": "#D02C3F",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "daisy",
+      "family": "white",
+      "hex": "#F4F0E2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "daffodil",
+      "family": "yellow",
+      "hex": "#F2D03C",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Golden Yellow", "Sunflower"]
+    },
+    {
+      "noun": "sunflower",
+      "family": "yellow",
+      "hex": "#F1B82A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "poppy",
+      "family": "red",
+      "hex": "#D52326",
+      "confidence": "high",
+      "libraryNames": ["Red", "Reddish", "Dull Red"]
+    },
+    {
+      "noun": "violet",
+      "family": "purple",
+      "hex": "#8F00FF",
+      "confidence": "high",
+      "libraryNames": ["Vivid Purple", "Violet", "Vibrant Purple"]
+    },
+    {
+      "noun": "lilac",
+      "family": "purple",
+      "hex": "#C8A2C8",
+      "confidence": "high",
+      "libraryNames": ["Lavender", "Pale Purple", "Baby Purple"]
+    },
+    {
+      "noun": "iris",
+      "family": "purple",
+      "hex": "#5A4FCF",
+      "confidence": "high",
+      "libraryNames": ["Bluey Purple", "Bluish Purple", "Purpleish Blue"]
+    },
+    {
+      "noun": "orchid",
+      "family": "magenta",
+      "hex": "#C462C4",
+      "confidence": "high",
+      "libraryNames": ["Purplish Pink", "Pale Magenta", "Pinky Purple"]
+    },
+    {
+      "noun": "hyacinth",
+      "family": "purple",
+      "hex": "#7460C0",
+      "confidence": "medium",
+      "libraryNames": ["Deep Lavender", "Amethyst", "Purpley"]
+    },
+    {
+      "noun": "carnation",
+      "family": "pink",
+      "hex": "#F086A3",
+      "confidence": "high",
+      "libraryNames": ["Rose Pink", "Pig Pink", "Pinky"]
+    },
+    {
+      "noun": "marigold",
+      "family": "orange",
+      "hex": "#E4943A",
+      "confidence": "high",
+      "libraryNames": ["Faded Orange", "Dusty Orange", "Orangeish"]
+    },
+    {
+      "noun": "petunia",
+      "family": "magenta",
+      "hex": "#B8327E",
+      "confidence": "medium",
+      "libraryNames": ["Magenta", "Medium Violet Red", "Ugly Purple"]
+    },
+    {
+      "noun": "dandelion",
+      "family": "yellow",
+      "hex": "#F2D43A",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Dull Yellow", "Light Mustard"]
+    },
+    {
+      "noun": "buttercup",
+      "family": "yellow",
+      "hex": "#F4D43A",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Dull Yellow", "Light Mustard"]
+    },
+    {
+      "noun": "cherry-blossom",
+      "family": "pink",
+      "hex": "#F7B4C2",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "magnolia",
+      "family": "white",
+      "hex": "#F2E8DA",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Lavender Blush"]
+    },
+    {
+      "noun": "thistle",
+      "family": "purple",
+      "hex": "#A284B3",
+      "confidence": "high",
+      "libraryNames": ["Heather", "Wisteria", "Soft Purple"]
+    },
+    {
+      "noun": "heather",
+      "family": "purple",
+      "hex": "#9F7AA8",
+      "confidence": "high",
+      "libraryNames": ["Heather", "Soft Purple", "Wisteria"]
+    },
+    {
+      "noun": "mint",
+      "family": "green",
+      "hex": "#7AC79A",
+      "confidence": "high",
+      "libraryNames": ["Tan Green", "Light Olive", "Light Moss Green"]
+    },
+    {
+      "noun": "basil",
+      "family": "green",
+      "hex": "#4C6F3A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Tree Green", "Pine"]
+    },
+    {
+      "noun": "parsley",
+      "family": "green",
+      "hex": "#4A6F38",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Tree Green", "Pine"]
+    },
+    {
+      "noun": "thyme",
+      "family": "green",
+      "hex": "#5F7544",
+      "confidence": "medium",
+      "libraryNames": ["Dark Sage", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "sage",
+      "family": "green",
+      "hex": "#9FB08E",
+      "confidence": "high",
+      "libraryNames": ["Greenish Grey", "Lichen", "Sage Green"]
+    },
+    {
+      "noun": "rosemary",
+      "family": "green",
+      "hex": "#4F684A",
+      "confidence": "medium",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "lavender-flower",
+      "family": "purple",
+      "hex": "#A892C8",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "cinnamon",
+      "family": "brown",
+      "hex": "#8A4A22",
+      "confidence": "high",
+      "libraryNames": ["Saddle Brown", "Milk Chocolate", "Medium Brown"]
+    },
+    {
+      "noun": "saffron",
+      "family": "orange",
+      "hex": "#E5A22A",
+      "confidence": "high",
+      "libraryNames": ["Faded Orange", "Tangerine", "Pastel Orange"]
+    },
+    {
+      "noun": "paprika",
+      "family": "red",
+      "hex": "#B53824",
+      "confidence": "high",
+      "libraryNames": ["Dull Red", "Firebrick", "Scarlet"]
+    },
+    {
+      "noun": "turmeric",
+      "family": "yellow",
+      "hex": "#E5A82A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "cumin",
+      "family": "brown",
+      "hex": "#8C5A2A",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Sepia"]
+    },
+    {
+      "noun": "nutmeg",
+      "family": "brown",
+      "hex": "#7A4A26",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "clove",
+      "family": "brown",
+      "hex": "#4A2820",
+      "confidence": "medium",
+      "libraryNames": ["Chocolate Brown", "Chocolate", "Dark Brown"]
+    },
+    {
+      "noun": "pepper",
+      "family": "black",
+      "hex": "#181417",
+      "confidence": "medium",
+      "libraryNames": ["Black", "Very Dark Brown", "Dark Maroon"]
+    },
+    {
+      "noun": "vanilla",
+      "family": "white",
+      "hex": "#F2EAD3",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "cocoa",
+      "family": "brown",
+      "hex": "#5A2F1E",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "coffee",
+      "family": "brown",
+      "hex": "#4A2C1F",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Brown"]
+    },
+    {
+      "noun": "espresso",
+      "family": "brown",
+      "hex": "#3A1E14",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "mocha",
+      "family": "brown",
+      "hex": "#5C3A28",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "caramel",
+      "family": "brown",
+      "hex": "#A26A2E",
+      "confidence": "high",
+      "libraryNames": ["Earth", "Hazel", "Orangey Brown"]
+    },
+    {
+      "noun": "toffee",
+      "family": "brown",
+      "hex": "#8C5A22",
+      "confidence": "high",
+      "libraryNames": ["Warm Brown", "Cocoa", "Dirt Brown"]
+    },
+    {
+      "noun": "butter",
+      "family": "yellow",
+      "hex": "#F2DB7A",
+      "confidence": "high",
+      "libraryNames": ["Sandy", "Wheat", "Light Mustard"]
+    },
+    {
+      "noun": "cream",
+      "family": "white",
+      "hex": "#F2ECD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "milk",
+      "family": "white",
+      "hex": "#F4F0E2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "yogurt",
+      "family": "white",
+      "hex": "#F2EBD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "cheese",
+      "family": "yellow",
+      "hex": "#F2C84A",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Golden Yellow", "Goldenrod"]
+    },
+    {
+      "noun": "honey-comb",
+      "family": "yellow",
+      "hex": "#E4B22A",
+      "confidence": "high",
+      "libraryNames": ["Faded Orange", "Desert", "Sand Brown"]
+    },
+    {
+      "noun": "egg",
+      "family": "white",
+      "hex": "#F4ECCF",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Light Tan"]
+    },
+    {
+      "noun": "yolk",
+      "family": "yellow",
+      "hex": "#F2BF2A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "bread",
+      "family": "brown",
+      "hex": "#BC8A56",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Dark Goldenrod", "Ochre"]
+    },
+    {
+      "noun": "toast",
+      "family": "brown",
+      "hex": "#B8854A",
+      "confidence": "high",
+      "libraryNames": ["Dark Khaki", "Dark Goldenrod", "Coffee"]
+    },
+    {
+      "noun": "crust",
+      "family": "brown",
+      "hex": "#A2723E",
+      "confidence": "medium",
+      "libraryNames": ["Mocha", "Leather", "Clay Brown"]
+    },
+    {
+      "noun": "wheat",
+      "family": "yellow",
+      "hex": "#D4B868",
+      "confidence": "high",
+      "libraryNames": ["Greenish Beige", "Sand", "Golden"]
+    },
+    {
+      "noun": "oats",
+      "family": "yellow",
+      "hex": "#D4C28E",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Beige"]
+    },
+    {
+      "noun": "rice",
+      "family": "white",
+      "hex": "#F2ECD2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "pasta",
+      "family": "yellow",
+      "hex": "#E8C97A",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Maize"]
+    },
+    {
+      "noun": "popcorn",
+      "family": "yellow",
+      "hex": "#F2E6A4",
+      "confidence": "medium",
+      "libraryNames": ["Pale Goldenrod", "Light Khaki", "Light Tan"]
+    },
+    {
+      "noun": "plum",
+      "family": "purple",
+      "hex": "#7A2A55",
+      "confidence": "high",
+      "libraryNames": ["Rebecca Purple", "Purple", "Royal Purple"]
+    },
+    {
+      "noun": "peach",
+      "family": "orange",
+      "hex": "#F2A87A",
+      "confidence": "high",
+      "libraryNames": ["Light Salmon", "Pale Orange", "Peach"]
+    },
+    {
+      "noun": "apricot",
+      "family": "orange",
+      "hex": "#F0B07A",
+      "confidence": "high",
+      "libraryNames": ["Peach", "Burlywood", "Light Salmon"]
+    },
+    {
+      "noun": "banana",
+      "family": "yellow",
+      "hex": "#F2DC4A",
+      "confidence": "high",
+      "libraryNames": ["Dull Yellow", "Light Gold", "Sunflower Yellow"]
+    },
+    {
+      "noun": "pear",
+      "family": "yellow",
+      "hex": "#C4D04E",
+      "confidence": "high",
+      "libraryNames": ["Greenish Beige", "Golden", "Goldenrod"]
+    },
+    {
+      "noun": "grape",
+      "family": "purple",
+      "hex": "#5C2A6F",
+      "confidence": "high",
+      "libraryNames": ["Rebecca Purple", "Royal Purple", "Purple"]
+    },
+    {
+      "noun": "raspberry",
+      "family": "red",
+      "hex": "#B22247",
+      "confidence": "high",
+      "libraryNames": ["Firebrick", "Scarlet", "Brick"]
+    },
+    {
+      "noun": "blueberry",
+      "family": "blue",
+      "hex": "#2E446C",
+      "confidence": "high",
+      "libraryNames": ["Dark Slate Blue", "Dark Grey Blue", "Prussian Blue"]
+    },
+    {
+      "noun": "blackberry",
+      "family": "purple",
+      "hex": "#2C1A2E",
+      "confidence": "high",
+      "libraryNames": ["Dark Violet", "Very Dark Purple", "Midnight Purple"]
+    },
+    {
+      "noun": "strawberry",
+      "family": "red",
+      "hex": "#D02035",
+      "confidence": "high",
+      "libraryNames": ["Reddish", "Dull Red", "Red"]
+    },
+    {
+      "noun": "cranberry",
+      "family": "red",
+      "hex": "#9F1F2A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Red", "Carmine", "Brownish Red"]
+    },
+    {
+      "noun": "currant",
+      "family": "red",
+      "hex": "#7A1A1F",
+      "confidence": "high",
+      "libraryNames": ["Indian Red", "Dark Red", "Blood"]
+    },
+    {
+      "noun": "watermelon",
+      "family": "pink",
+      "hex": "#E04A5A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Pink", "Rose", "Red Pink"]
+    },
+    {
+      "noun": "kiwifruit",
+      "family": "green",
+      "hex": "#6BAA3A",
+      "confidence": "high",
+      "libraryNames": ["Dark Pastel Green", "Fern", "Grass"]
+    },
+    {
+      "noun": "mango",
+      "family": "orange",
+      "hex": "#F2A02E",
+      "confidence": "high",
+      "libraryNames": ["Pastel Orange", "Tangerine", "Squash"]
+    },
+    {
+      "noun": "papaya",
+      "family": "orange",
+      "hex": "#F08A4E",
+      "confidence": "high",
+      "libraryNames": ["Orangish", "Dusty Orange", "Faded Orange"]
+    },
+    {
+      "noun": "pineapple",
+      "family": "yellow",
+      "hex": "#F2C42A",
+      "confidence": "high",
+      "libraryNames": ["Goldenrod", "Marigold", "Golden"]
+    },
+    {
+      "noun": "coconut",
+      "family": "white",
+      "hex": "#F2EBD4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Mustard Yellow"]
+    },
+    {
+      "noun": "lime",
+      "family": "green",
+      "hex": "#A8E04A",
+      "confidence": "high",
+      "libraryNames": ["Kiwi Green", "Kiwi", "Lightish Green"]
+    },
+    {
+      "noun": "tangerine",
+      "family": "orange",
+      "hex": "#F08A1A",
+      "confidence": "high",
+      "libraryNames": ["Dusty Orange", "Pumpkin Orange", "Orangish"]
+    },
+    {
+      "noun": "fig",
+      "family": "purple",
+      "hex": "#604454",
+      "confidence": "medium",
+      "libraryNames": ["Rebecca Purple", "Purple", "Royal Purple"]
+    },
+    {
+      "noun": "olive-fruit",
+      "family": "olive",
+      "hex": "#5A5A2A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "tomato",
+      "family": "red",
+      "hex": "#D23B2A",
+      "confidence": "high",
+      "libraryNames": ["Reddish", "Faded Red", "Red"]
+    },
+    {
+      "noun": "carrot",
+      "family": "orange",
+      "hex": "#E47A1F",
+      "confidence": "high",
+      "libraryNames": ["Dull Orange", "Orange", "Dark Peach"]
+    },
+    {
+      "noun": "potato",
+      "family": "brown",
+      "hex": "#A07A52",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Coffee", "Leather"]
+    },
+    {
+      "noun": "onion",
+      "family": "white",
+      "hex": "#EBE2D2",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "garlic",
+      "family": "white",
+      "hex": "#F4EDD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "ginger-root",
+      "family": "yellow",
+      "hex": "#D4A85A",
+      "confidence": "medium",
+      "libraryNames": ["Terracota", "Terracotta", "Terra Cotta"]
+    },
+    {
+      "noun": "lettuce",
+      "family": "green",
+      "hex": "#8FBB52",
+      "confidence": "high",
+      "libraryNames": ["Soft Green", "Light Olive Green", "Turtle Green"]
+    },
+    {
+      "noun": "spinach",
+      "family": "green",
+      "hex": "#3F6A2A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "kale",
+      "family": "green",
+      "hex": "#3A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "broccoli",
+      "family": "green",
+      "hex": "#3F6A2E",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "cabbage",
+      "family": "green",
+      "hex": "#7DA84A",
+      "confidence": "medium",
+      "libraryNames": ["Asparagus", "Fern", "Dull Green"]
+    },
+    {
+      "noun": "celery",
+      "family": "green",
+      "hex": "#9FBB6A",
+      "confidence": "medium",
+      "libraryNames": ["Light Olive Green", "Tan Green", "Light Olive"]
+    },
+    {
+      "noun": "corn",
+      "family": "yellow",
+      "hex": "#F2D04A",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Light Mustard", "Golden Yellow"]
+    },
+    {
+      "noun": "pea",
+      "family": "green",
+      "hex": "#7AB04A",
+      "confidence": "high",
+      "libraryNames": ["Boring Green", "Asparagus", "Turtle Green"]
+    },
+    {
+      "noun": "bean",
+      "family": "brown",
+      "hex": "#7A4A2E",
+      "confidence": "medium",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "lentil",
+      "family": "brown",
+      "hex": "#8A6432",
+      "confidence": "medium",
+      "libraryNames": ["Dirt Brown", "Sepia", "Cocoa"]
+    },
+    {
+      "noun": "chickpea",
+      "family": "yellow",
+      "hex": "#D8B870",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Golden"]
+    },
+    {
+      "noun": "eggplant",
+      "family": "purple",
+      "hex": "#3A1A3A",
+      "confidence": "high",
+      "libraryNames": ["Dark Violet", "Dark Indigo", "Very Dark Purple"]
+    },
+    {
+      "noun": "aubergine-veg",
+      "family": "purple",
+      "hex": "#3A1A3A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "radish",
+      "family": "red",
+      "hex": "#D8344A",
+      "confidence": "high",
+      "libraryNames": ["Faded Red", "Reddish", "Red"]
+    },
+    {
+      "noun": "beet",
+      "family": "red",
+      "hex": "#8A1F3A",
+      "confidence": "high",
+      "libraryNames": ["Brick Red", "Crimson", "Blood Red"]
+    },
+    {
+      "noun": "beetroot",
+      "family": "red",
+      "hex": "#7A1A2A",
+      "confidence": "high",
+      "libraryNames": ["Indian Red", "Dark Red", "Crimson"]
+    },
+    {
+      "noun": "pickle",
+      "family": "green",
+      "hex": "#5A7A2A",
+      "confidence": "medium",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "olive-oil",
+      "family": "yellow",
+      "hex": "#9F9A2A",
+      "confidence": "medium",
+      "libraryNames": []
+    },
+    {
+      "noun": "soy-sauce",
+      "family": "brown",
+      "hex": "#3A1A0E",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "ketchup",
+      "family": "red",
+      "hex": "#C2241F",
+      "confidence": "high",
+      "libraryNames": ["Scarlet", "Dull Red", "Firebrick"]
+    },
+    {
+      "noun": "mayo",
+      "family": "white",
+      "hex": "#F4EAD4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "milk-chocolate",
+      "family": "brown",
+      "hex": "#7A4A2E",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "dark-chocolate",
+      "family": "brown",
+      "hex": "#3A1F12",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "white-chocolate",
+      "family": "white",
+      "hex": "#F2E6CC",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "wine",
+      "family": "red",
+      "hex": "#722F37",
+      "confidence": "high",
+      "libraryNames": ["Purple Brown", "Purplish Brown", "Indian Red"]
+    },
+    {
+      "noun": "champagne",
+      "family": "yellow",
+      "hex": "#F2E2B2",
+      "confidence": "high",
+      "libraryNames": ["Pale Goldenrod", "Beige", "Light Tan"]
+    },
+    {
+      "noun": "beer",
+      "family": "yellow",
+      "hex": "#D4A04A",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "ale",
+      "family": "brown",
+      "hex": "#9F5C2A",
+      "confidence": "high",
+      "libraryNames": ["Sepia", "Sienna", "Raw Sienna"]
+    },
+    {
+      "noun": "lager",
+      "family": "yellow",
+      "hex": "#E4B84A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Sand", "Marigold"]
+    },
+    {
+      "noun": "stout",
+      "family": "black",
+      "hex": "#0F0A06",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Brown", "Chocolate"]
+    },
+    {
+      "noun": "whisky",
+      "family": "brown",
+      "hex": "#A0612A",
+      "confidence": "high",
+      "libraryNames": ["Raw Umber", "Raw Sienna", "Earth"]
+    },
+    {
+      "noun": "tea",
+      "family": "brown",
+      "hex": "#7A4A2E",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "matcha",
+      "family": "green",
+      "hex": "#6F8B22",
+      "confidence": "high",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Kelley Green"]
+    },
+    {
+      "noun": "lemonade",
+      "family": "yellow",
+      "hex": "#F2E07A",
+      "confidence": "high",
+      "libraryNames": ["Wheat", "Pale Gold", "Sandy"]
+    },
+    {
+      "noun": "cola",
+      "family": "brown",
+      "hex": "#2A1A12",
+      "confidence": "high",
+      "libraryNames": ["Dark Brown", "Chocolate", "Chocolate Brown"]
+    },
+    {
+      "noun": "juice",
+      "family": "orange",
+      "hex": "#F08A1A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "skin",
+      "family": "pink",
+      "hex": "#E5B49A",
+      "confidence": "medium",
+      "libraryNames": ["Soft Pink", "Faded Pink", "Baby Pink"]
+    },
+    {
+      "noun": "flesh",
+      "family": "pink",
+      "hex": "#E2A893",
+      "confidence": "medium",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Soft Pink"]
+    },
+    {
+      "noun": "blood",
+      "family": "red",
+      "hex": "#8A0F0F",
+      "confidence": "high",
+      "libraryNames": ["Crimson", "Indian Red", "Brick Red"]
+    },
+    {
+      "noun": "bruise",
+      "family": "purple",
+      "hex": "#4A2A5A",
+      "confidence": "high",
+      "libraryNames": ["Royal Purple", "Indigo", "Rebecca Purple"]
+    },
+    {
+      "noun": "vein",
+      "family": "blue",
+      "hex": "#3A5A7A",
+      "confidence": "medium",
+      "libraryNames": ["Dusk", "Light Navy Blue", "Denim Blue"]
+    },
+    {
+      "noun": "hair",
+      "family": "brown",
+      "hex": "#6A4A2E",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "freckle",
+      "family": "brown",
+      "hex": "#8A5A3A",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Sepia"]
+    },
+    {
+      "noun": "scar",
+      "family": "pink",
+      "hex": "#D0A89A",
+      "confidence": "medium",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Light Mauve"]
+    },
+    {
+      "noun": "tooth",
+      "family": "white",
+      "hex": "#F4ECD4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "nail",
+      "family": "pink",
+      "hex": "#F2C0AE",
+      "confidence": "medium",
+      "libraryNames": ["Pastel Pink", "Baby Pink", "Soft Pink"]
+    },
+    {
+      "noun": "lips",
+      "family": "pink",
+      "hex": "#D26A6A",
+      "confidence": "medium",
+      "libraryNames": ["Pinkish", "Rose", "Ugly Pink"]
+    },
+    {
+      "noun": "tongue",
+      "family": "pink",
+      "hex": "#E58A8A",
+      "confidence": "medium",
+      "libraryNames": ["Pig Pink", "Dull Pink", "Rose Pink"]
+    },
+    {
+      "noun": "eye",
+      "family": "blue",
+      "hex": "#3A5A8A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "snow",
+      "family": "white",
+      "hex": "#F4F4F2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "frost",
+      "family": "white",
+      "hex": "#E4EEF2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "fog",
+      "family": "gray",
+      "hex": "#A8AAA8",
+      "confidence": "high",
+      "libraryNames": ["Dark Gray", "Greyish", "Cement"]
+    },
+    {
+      "noun": "mist",
+      "family": "gray",
+      "hex": "#B0B4B4",
+      "confidence": "high",
+      "libraryNames": ["Dark Gray", "Greyish", "Cement"]
+    },
+    {
+      "noun": "smoke",
+      "family": "gray",
+      "hex": "#787A78",
+      "confidence": "high",
+      "libraryNames": ["Medium Grey", "Battleship Grey", "Gray"]
+    },
+    {
+      "noun": "ash",
+      "family": "gray",
+      "hex": "#8E8A86",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Grey", "Gray"]
+    },
+    {
+      "noun": "ember",
+      "family": "orange",
+      "hex": "#E45A1A",
+      "confidence": "high",
+      "libraryNames": ["Deep Orange", "Reddish Orange", "Orangish Red"]
+    },
+    {
+      "noun": "flame",
+      "family": "orange",
+      "hex": "#F26A1A",
+      "confidence": "high",
+      "libraryNames": ["Bright Orange", "Orange", "Orange Pink"]
+    },
+    {
+      "noun": "lava",
+      "family": "orange",
+      "hex": "#E04A1A",
+      "confidence": "high",
+      "libraryNames": ["Deep Orange", "Tomato Red", "Orangish Red"]
+    },
+    {
+      "noun": "magma",
+      "family": "red",
+      "hex": "#A82A1A",
+      "confidence": "high",
+      "libraryNames": ["Brick", "Firebrick", "Brownish Red"]
+    },
+    {
+      "noun": "storm",
+      "family": "charcoal",
+      "hex": "#3A4046",
+      "confidence": "high",
+      "libraryNames": ["Charcoal Grey", "Charcoal", "Dark Grey"]
+    },
+    {
+      "noun": "thunder",
+      "family": "charcoal",
+      "hex": "#3A3F46",
+      "confidence": "high",
+      "libraryNames": ["Charcoal Grey", "Charcoal", "Dark Grey"]
+    },
+    {
+      "noun": "dew",
+      "family": "silver",
+      "hex": "#D8E0DC",
+      "confidence": "high",
+      "libraryNames": ["Light Grey", "Gainsboro", "Light Gray"]
+    },
+    {
+      "noun": "puddle",
+      "family": "brown",
+      "hex": "#5C4A2A",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Brown"]
+    },
+    {
+      "noun": "mud-pool",
+      "family": "brown",
+      "hex": "#5A3A1F",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "sunset-glow",
+      "family": "orange",
+      "hex": "#F0784A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "dawn",
+      "family": "pink",
+      "hex": "#F0A892",
+      "confidence": "high",
+      "libraryNames": ["Faded Pink", "Soft Pink", "Powder Pink"]
+    },
+    {
+      "noun": "twilight",
+      "family": "purple",
+      "hex": "#4A3A6E",
+      "confidence": "high",
+      "libraryNames": ["Rebecca Purple", "Royal Purple", "Indigo Blue"]
+    },
+    {
+      "noun": "dusk",
+      "family": "purple",
+      "hex": "#4A2E5A",
+      "confidence": "high",
+      "libraryNames": ["Royal Purple", "Indigo", "Rebecca Purple"]
+    },
+    {
+      "noun": "midnight",
+      "family": "blue",
+      "hex": "#0F1A3A",
+      "confidence": "high",
+      "libraryNames": ["Navy", "Navy Blue", "Dark"]
+    },
+    {
+      "noun": "noon",
+      "family": "blue",
+      "hex": "#5A9FD8",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "moon",
+      "family": "silver",
+      "hex": "#E2E2D8",
+      "confidence": "high",
+      "libraryNames": ["Gainsboro", "Light Grey", "Light Gray"]
+    },
+    {
+      "noun": "moonlight",
+      "family": "silver",
+      "hex": "#D8DDE0",
+      "confidence": "high",
+      "libraryNames": ["Light Grey", "Gainsboro", "Light Gray"]
+    },
+    {
+      "noun": "starlight",
+      "family": "white",
+      "hex": "#EAEAE5",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "sun",
+      "family": "yellow",
+      "hex": "#F4D04A",
+      "confidence": "high",
+      "libraryNames": ["Maize", "Light Mustard", "Golden Yellow"]
+    },
+    {
+      "noun": "sunlight",
+      "family": "yellow",
+      "hex": "#F2DC7A",
+      "confidence": "high",
+      "libraryNames": ["Sandy", "Wheat", "Pale Gold"]
+    },
+    {
+      "noun": "glacier",
+      "family": "blue",
+      "hex": "#A4CEDC",
+      "confidence": "high",
+      "libraryNames": ["Light Blue Grey", "Light Steel Blue", "Cloudy Blue"]
+    },
+    {
+      "noun": "iceberg",
+      "family": "blue",
+      "hex": "#A8D0DA",
+      "confidence": "high",
+      "libraryNames": ["Light Blue Grey", "Light Steel Blue", "Cloudy Blue"]
+    },
+    {
+      "noun": "snowflake",
+      "family": "white",
+      "hex": "#F0F4F8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "raindrop",
+      "family": "blue",
+      "hex": "#6A8AAA",
+      "confidence": "medium",
+      "libraryNames": ["Grey Blue", "Blue/grey", "Faded Blue"]
+    },
+    {
+      "noun": "river",
+      "family": "blue",
+      "hex": "#3A6A8A",
+      "confidence": "high",
+      "libraryNames": ["Ugly Blue", "Denim", "Dusky Blue"]
+    },
+    {
+      "noun": "lake",
+      "family": "blue",
+      "hex": "#3A6A8E",
+      "confidence": "high",
+      "libraryNames": ["Ugly Blue", "Denim", "Dusky Blue"]
+    },
+    {
+      "noun": "pond",
+      "family": "green",
+      "hex": "#3A5A2E",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "sea",
+      "family": "blue",
+      "hex": "#1E5A8A",
+      "confidence": "high",
+      "libraryNames": ["Light Navy Blue", "Dusk Blue", "Denim Blue"]
+    },
+    {
+      "noun": "wave",
+      "family": "blue",
+      "hex": "#2A6A9A",
+      "confidence": "medium",
+      "libraryNames": ["Ocean Blue", "Peacock Blue", "Sea Blue"]
+    },
+    {
+      "noun": "desert",
+      "family": "yellow",
+      "hex": "#E4C078",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Golden"]
+    },
+    {
+      "noun": "dune",
+      "family": "yellow",
+      "hex": "#E8C887",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Beige"]
+    },
+    {
+      "noun": "rock",
+      "family": "gray",
+      "hex": "#7A7670",
+      "confidence": "high",
+      "libraryNames": ["Medium Grey", "Battleship Grey", "Gray"]
+    },
+    {
+      "noun": "stone",
+      "family": "gray",
+      "hex": "#8A8680",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Gray", "Medium Grey"]
+    },
+    {
+      "noun": "pebble",
+      "family": "gray",
+      "hex": "#A0978E",
+      "confidence": "high",
+      "libraryNames": ["Grey", "Cool Grey", "Cement"]
+    },
+    {
+      "noun": "boulder",
+      "family": "gray",
+      "hex": "#6F6B66",
+      "confidence": "high",
+      "libraryNames": ["Dim Gray", "Dim Grey", "Slate Grey"]
+    },
+    {
+      "noun": "soil",
+      "family": "brown",
+      "hex": "#4A2E1A",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "earth",
+      "family": "brown",
+      "hex": "#5A3A1F",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "dirt",
+      "family": "brown",
+      "hex": "#5C3F22",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "loam",
+      "family": "brown",
+      "hex": "#6A4A26",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "peat",
+      "family": "brown",
+      "hex": "#3A1F0F",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "swamp",
+      "family": "green",
+      "hex": "#3A4A2A",
+      "confidence": "medium",
+      "libraryNames": ["Pine Green", "Pine", "Forest"]
+    },
+    {
+      "noun": "marsh",
+      "family": "olive",
+      "hex": "#5A5A2E",
+      "confidence": "medium",
+      "libraryNames": ["Army Green", "Camo Green", "Camouflage Green"]
+    },
+    {
+      "noun": "moor",
+      "family": "purple",
+      "hex": "#4A3A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "meadow",
+      "family": "green",
+      "hex": "#7AAA4A",
+      "confidence": "high",
+      "libraryNames": ["Asparagus", "Fern", "Dark Pastel Green"]
+    },
+    {
+      "noun": "field",
+      "family": "green",
+      "hex": "#8AAA4A",
+      "confidence": "medium",
+      "libraryNames": ["Asparagus", "Boring Green", "Dull Green"]
+    },
+    {
+      "noun": "prairie",
+      "family": "yellow",
+      "hex": "#C4A85A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "savannah",
+      "family": "yellow",
+      "hex": "#C4A85A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "tundra",
+      "family": "white",
+      "hex": "#E0E0DA",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "valley",
+      "family": "green",
+      "hex": "#5A8A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "mountain",
+      "family": "gray",
+      "hex": "#6A6E72",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "cliff",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "neon",
+      "family": "magenta",
+      "hex": "#F227A2",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "tar",
+      "family": "black",
+      "hex": "#0A0A0A",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "soot",
+      "family": "black",
+      "hex": "#1A1814",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "charcoal-piece",
+      "family": "charcoal",
+      "hex": "#2A2826",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "graphite",
+      "family": "charcoal",
+      "hex": "#3A3A3E",
+      "confidence": "high",
+      "libraryNames": ["Charcoal", "Dark Grey", "Charcoal Grey"]
+    },
+    {
+      "noun": "pencil",
+      "family": "yellow",
+      "hex": "#E5C238",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "ink",
+      "family": "black",
+      "hex": "#0A0F1A",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Navy", "Midnight"]
+    },
+    {
+      "noun": "paint",
+      "family": "white",
+      "hex": "#F4F2EE",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "rust-patina",
+      "family": "orange",
+      "hex": "#A85A2A",
+      "confidence": "high",
+      "libraryNames": ["Dusty Teal", "Greenish Blue", "Teal"]
+    },
+    {
+      "noun": "verdigris",
+      "family": "teal",
+      "hex": "#3FA084",
+      "confidence": "high",
+      "libraryNames": ["Sea", "Blue/green", "Grey Teal"]
+    },
+    {
+      "noun": "patina",
+      "family": "teal",
+      "hex": "#4A8A82",
+      "confidence": "high",
+      "libraryNames": ["Dusty Teal", "Greenish Blue", "Teal"]
+    },
+    {
+      "noun": "boat",
+      "family": "white",
+      "hex": "#F0EEE6",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "ship",
+      "family": "white",
+      "hex": "#EEEAE0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "anchor",
+      "family": "gray",
+      "hex": "#6A6A6A",
+      "confidence": "medium",
+      "libraryNames": ["Dim Gray", "Dim Grey", "Slate Grey"]
+    },
+    {
+      "noun": "sail",
+      "family": "white",
+      "hex": "#F2F0E8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "buoy",
+      "family": "red",
+      "hex": "#D02A22",
+      "confidence": "medium",
+      "libraryNames": ["Reddish", "Red", "Dull Red"]
+    },
+    {
+      "noun": "lighthouse",
+      "family": "red",
+      "hex": "#C8322A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "denim-jeans",
+      "family": "blue",
+      "hex": "#2A4A7A",
+      "confidence": "high",
+      "libraryNames": ["Mid Blue", "Iris", "Medium Blue"]
+    },
+    {
+      "noun": "khaki-cloth",
+      "family": "yellow",
+      "hex": "#A8924A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "tweed",
+      "family": "brown",
+      "hex": "#7A6A4A",
+      "confidence": "high",
+      "libraryNames": ["Greyish Brown", "Dark Taupe", "Dirt Brown"]
+    },
+    {
+      "noun": "flannel",
+      "family": "red",
+      "hex": "#A03A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "satin",
+      "family": "white",
+      "hex": "#F2EAD8",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lace",
+      "family": "white",
+      "hex": "#F4ECD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "redwood",
+      "family": "red",
+      "hex": "#A0382A",
+      "confidence": "high",
+      "libraryNames": ["Brick", "Brownish Red", "Firebrick"]
+    },
+    {
+      "noun": "mahogany",
+      "family": "brown",
+      "hex": "#4A2010",
+      "confidence": "high",
+      "libraryNames": ["Chocolate Brown", "Chocolate", "Dark Brown"]
+    },
+    {
+      "noun": "walnut",
+      "family": "brown",
+      "hex": "#4F3A26",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "teak",
+      "family": "brown",
+      "hex": "#7C5234",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Mud"]
+    },
+    {
+      "noun": "ash-wood",
+      "family": "yellow",
+      "hex": "#D4C28E",
+      "confidence": "medium",
+      "libraryNames": ["Earth", "Dirt", "Dull Brown"]
+    },
+    {
+      "noun": "ebony",
+      "family": "black",
+      "hex": "#1A1410",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Brown", "Chocolate"]
+    },
+    {
+      "noun": "rosewood",
+      "family": "brown",
+      "hex": "#65000B",
+      "confidence": "high",
+      "libraryNames": ["Chocolate Brown", "Chocolate", "Brown"]
+    },
+    {
+      "noun": "driftwood",
+      "family": "gray",
+      "hex": "#94887A",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Grey", "Purpley Grey"]
+    },
+    {
+      "noun": "plywood",
+      "family": "yellow",
+      "hex": "#C9A56A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "sawdust",
+      "family": "yellow",
+      "hex": "#D8B884",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Bland"]
+    },
+    {
+      "noun": "bark",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "log",
+      "family": "brown",
+      "hex": "#6F4A2A",
+      "confidence": "high",
+      "libraryNames": ["Olive Brown", "Milk Chocolate", "Mud Brown"]
+    },
+    {
+      "noun": "twig",
+      "family": "brown",
+      "hex": "#7A5A3C",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Mud", "Milk Chocolate"]
+    },
+    {
+      "noun": "branch",
+      "family": "brown",
+      "hex": "#7A5A40",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Milk Chocolate", "Mud"]
+    },
+    {
+      "noun": "root",
+      "family": "brown",
+      "hex": "#5A3F26",
+      "confidence": "medium",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "seed",
+      "family": "brown",
+      "hex": "#7A5A2E",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "acorn",
+      "family": "brown",
+      "hex": "#7A5A2E",
+      "confidence": "high",
+      "libraryNames": ["Mud", "Medium Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "pinecone",
+      "family": "brown",
+      "hex": "#5A3A20",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "shell",
+      "family": "white",
+      "hex": "#F2E8D4",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "feather",
+      "family": "white",
+      "hex": "#EEE9DC",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "wing",
+      "family": "white",
+      "hex": "#EEE7D8",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "fur",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "horn",
+      "family": "white",
+      "hex": "#E8DAB8",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Beige"]
+    },
+    {
+      "noun": "tusk",
+      "family": "white",
+      "hex": "#E8DEC4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Beige"]
+    },
+    {
+      "noun": "antler",
+      "family": "white",
+      "hex": "#D4C49A",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gold"]
+    },
+    {
+      "noun": "claw",
+      "family": "black",
+      "hex": "#1A1612",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "scale",
+      "family": "silver",
+      "hex": "#B0B0AA",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "amber",
+      "family": "orange",
+      "hex": "#E4A82A",
+      "confidence": "high",
+      "libraryNames": ["Squash", "Tangerine", "Mango"]
+    },
+    {
+      "noun": "jade",
+      "family": "green",
+      "hex": "#00A878",
+      "confidence": "high",
+      "libraryNames": ["Greenish", "Seaweed Green", "Jade Green"]
+    },
+    {
+      "noun": "emerald",
+      "family": "green",
+      "hex": "#0E7C4A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "ruby",
+      "family": "red",
+      "hex": "#9B111E",
+      "confidence": "high",
+      "libraryNames": ["Carmine", "Deep Red", "Blood Red"]
+    },
+    {
+      "noun": "sapphire",
+      "family": "blue",
+      "hex": "#0F52BA",
+      "confidence": "high",
+      "libraryNames": ["Blue Blue", "Blue", "Blueberry"]
+    },
+    {
+      "noun": "topaz",
+      "family": "yellow",
+      "hex": "#E2A52A",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Golden", "Marigold"]
+    },
+    {
+      "noun": "turquoise",
+      "family": "teal",
+      "hex": "#40E0D0",
+      "confidence": "high",
+      "libraryNames": ["Aqua", "Aqua Marine", "Aqua Blue"]
+    },
+    {
+      "noun": "opal",
+      "family": "white",
+      "hex": "#E8E2D8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Light Pink"]
+    },
+    {
+      "noun": "onyx",
+      "family": "black",
+      "hex": "#0A0808",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "agate",
+      "family": "brown",
+      "hex": "#7A5A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "garnet",
+      "family": "red",
+      "hex": "#6A1F22",
+      "confidence": "high",
+      "libraryNames": ["Reddy Brown", "Blood", "Dark Red"]
+    },
+    {
+      "noun": "amethyst-gem",
+      "family": "purple",
+      "hex": "#9966CC",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "citrine",
+      "family": "yellow",
+      "hex": "#E4BF1A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "diamond",
+      "family": "white",
+      "hex": "#F4F2EA",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "quartz",
+      "family": "white",
+      "hex": "#E8E0D8",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "crystal",
+      "family": "white",
+      "hex": "#EEE8E2",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "pyrite",
+      "family": "yellow",
+      "hex": "#B89A2E",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "malachite",
+      "family": "green",
+      "hex": "#0F6B3A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Deep Green"]
+    },
+    {
+      "noun": "lapis",
+      "family": "blue",
+      "hex": "#26619C",
+      "confidence": "high",
+      "libraryNames": ["Peacock Blue", "Denim Blue", "Dusky Blue"]
+    },
+    {
+      "noun": "coral-reef",
+      "family": "pink",
+      "hex": "#F2837A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "cloud-cover",
+      "family": "white",
+      "hex": "#F0EEE8",
+      "confidence": "medium",
+      "libraryNames": []
+    },
+    {
+      "noun": "rainbow-arch",
+      "family": "magenta",
+      "hex": "#C04080",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "haze",
+      "family": "gray",
+      "hex": "#B4B0A8",
+      "confidence": "medium",
+      "libraryNames": ["Dark Gray", "Greyish", "Cement"]
+    },
+    {
+      "noun": "smog",
+      "family": "yellow",
+      "hex": "#8A8A4A",
+      "confidence": "medium",
+      "libraryNames": ["Brown Grey", "Khaki", "Stone"]
+    },
+    {
+      "noun": "drizzle",
+      "family": "gray",
+      "hex": "#9A9F9A",
+      "confidence": "medium",
+      "libraryNames": ["Cool Grey", "Cement", "Greyish"]
+    },
+    {
+      "noun": "shower",
+      "family": "gray",
+      "hex": "#788A92",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "downpour",
+      "family": "gray",
+      "hex": "#54606A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "hail",
+      "family": "white",
+      "hex": "#E8EBEC",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "sleet",
+      "family": "gray",
+      "hex": "#A8B0B4",
+      "confidence": "medium",
+      "libraryNames": ["Dark Gray", "Greyish", "Cool Grey"]
+    },
+    {
+      "noun": "blizzard",
+      "family": "white",
+      "hex": "#EBEDEF",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "hurricane",
+      "family": "gray",
+      "hex": "#4A5560",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "tornado",
+      "family": "gray",
+      "hex": "#5A6068",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "monsoon",
+      "family": "gray",
+      "hex": "#525A60",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "saliva",
+      "family": "white",
+      "hex": "#F2F0EA",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "spit",
+      "family": "white",
+      "hex": "#F2F0EA",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "snot",
+      "family": "yellow",
+      "hex": "#9A9A4A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Stone", "Brown Grey"]
+    },
+    {
+      "noun": "phlegm",
+      "family": "yellow",
+      "hex": "#8A8A4A",
+      "confidence": "medium",
+      "libraryNames": ["Brown Grey", "Khaki", "Stone"]
+    },
+    {
+      "noun": "wax",
+      "family": "yellow",
+      "hex": "#E2C97A",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Maize"]
+    },
+    {
+      "noun": "tan",
+      "family": "brown",
+      "hex": "#A07A4A",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Leather", "Coffee"]
+    },
+    {
+      "noun": "tanned",
+      "family": "brown",
+      "hex": "#A0784A",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Leather", "Clay Brown"]
+    },
+    {
+      "noun": "pale-skin",
+      "family": "pink",
+      "hex": "#F2D4C2",
+      "confidence": "medium",
+      "libraryNames": ["Soft Pink", "Faded Pink", "Baby Pink"]
+    },
+    {
+      "noun": "spam",
+      "family": "pink",
+      "hex": "#E4948C",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "bacon",
+      "family": "pink",
+      "hex": "#C2342A",
+      "confidence": "high",
+      "libraryNames": ["Cherry", "Ruby", "Lipstick Red"]
+    },
+    {
+      "noun": "ham",
+      "family": "pink",
+      "hex": "#E2837A",
+      "confidence": "high",
+      "libraryNames": ["Dull Pink", "Pig Pink", "Muted Pink"]
+    },
+    {
+      "noun": "sausage",
+      "family": "brown",
+      "hex": "#7A4226",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Saddle Brown", "Olive Brown"]
+    },
+    {
+      "noun": "salami",
+      "family": "red",
+      "hex": "#9A2A2A",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Darkish Red"]
+    },
+    {
+      "noun": "steak",
+      "family": "red",
+      "hex": "#7A1F1A",
+      "confidence": "high",
+      "libraryNames": ["Indian Red", "Dark Red", "Crimson"]
+    },
+    {
+      "noun": "burger",
+      "family": "brown",
+      "hex": "#7A4A2A",
+      "confidence": "medium",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "patty",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "medium",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "chicken",
+      "family": "yellow",
+      "hex": "#E8C896",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "turkey",
+      "family": "brown",
+      "hex": "#A07A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "fish-flesh",
+      "family": "white",
+      "hex": "#F0E2D6",
+      "confidence": "low",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Soft Pink"]
+    },
+    {
+      "noun": "caviar",
+      "family": "black",
+      "hex": "#1A1410",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "sushi",
+      "family": "pink",
+      "hex": "#F08A7A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "donut",
+      "family": "pink",
+      "hex": "#F0A4B0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "cookie",
+      "family": "brown",
+      "hex": "#8A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Warm Brown"]
+    },
+    {
+      "noun": "biscuit",
+      "family": "yellow",
+      "hex": "#D8AA6A",
+      "confidence": "high",
+      "libraryNames": ["Bland", "Khaki", "Stone"]
+    },
+    {
+      "noun": "cake",
+      "family": "pink",
+      "hex": "#E8B8C2",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "frosting",
+      "family": "white",
+      "hex": "#F4ECE2",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "icing",
+      "family": "white",
+      "hex": "#F4ECDA",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Lavender Blush"]
+    },
+    {
+      "noun": "pie",
+      "family": "brown",
+      "hex": "#9A5A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "pudding",
+      "family": "brown",
+      "hex": "#7A4A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "custard",
+      "family": "yellow",
+      "hex": "#F2DA8A",
+      "confidence": "high",
+      "libraryNames": ["Sandy", "Wheat", "Beige"]
+    },
+    {
+      "noun": "marshmallow",
+      "family": "white",
+      "hex": "#F4ECE2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Lavender Blush"]
+    },
+    {
+      "noun": "candy",
+      "family": "pink",
+      "hex": "#F26AAC",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lollipop",
+      "family": "red",
+      "hex": "#D02A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "gummy",
+      "family": "red",
+      "hex": "#D0341A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "fudge",
+      "family": "brown",
+      "hex": "#5A3220",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "syrup",
+      "family": "brown",
+      "hex": "#7A4A1A",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "molasses",
+      "family": "brown",
+      "hex": "#2A1A0E",
+      "confidence": "high",
+      "libraryNames": ["Dark Brown", "Chocolate", "Chocolate Brown"]
+    },
+    {
+      "noun": "treacle",
+      "family": "brown",
+      "hex": "#3A1A0E",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Dark Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "willow-bark",
+      "family": "gray",
+      "hex": "#8A8270",
+      "confidence": "medium",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "cypress",
+      "family": "green",
+      "hex": "#3A5A38",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "juniper",
+      "family": "green",
+      "hex": "#4A6A38",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "yew",
+      "family": "green",
+      "hex": "#3A4A28",
+      "confidence": "medium",
+      "libraryNames": ["Pine Green", "Pine", "Forest"]
+    },
+    {
+      "noun": "elder",
+      "family": "purple",
+      "hex": "#3A1A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "rowan",
+      "family": "red",
+      "hex": "#C8392A",
+      "confidence": "medium",
+      "libraryNames": ["Reddish", "Dull Red", "Dusty Red"]
+    },
+    {
+      "noun": "hawthorn",
+      "family": "red",
+      "hex": "#A23A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "magnolia-bloom",
+      "family": "white",
+      "hex": "#F2E8D6",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Lavender Blush"]
+    },
+    {
+      "noun": "cherry-fruit",
+      "family": "red",
+      "hex": "#A0212A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "lemon-fruit",
+      "family": "yellow",
+      "hex": "#F2DC2A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "orange-fruit",
+      "family": "orange",
+      "hex": "#F08A1A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "grapefruit",
+      "family": "pink",
+      "hex": "#F08A6A",
+      "confidence": "high",
+      "libraryNames": ["Rose Pink", "Pig Pink", "Rosa"]
+    },
+    {
+      "noun": "pomegranate",
+      "family": "red",
+      "hex": "#A21F2A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Red", "Brownish Red", "Brick"]
+    },
+    {
+      "noun": "guava",
+      "family": "pink",
+      "hex": "#E48894",
+      "confidence": "high",
+      "libraryNames": ["Pig Pink", "Dull Pink", "Rose Pink"]
+    },
+    {
+      "noun": "dragonfruit",
+      "family": "pink",
+      "hex": "#E62C72",
+      "confidence": "high",
+      "libraryNames": ["Darkish Pink", "Pink Red", "Pinkish Red"]
+    },
+    {
+      "noun": "passionfruit",
+      "family": "purple",
+      "hex": "#5A2A4A",
+      "confidence": "medium",
+      "libraryNames": ["Royal Purple", "Rebecca Purple", "Indigo"]
+    },
+    {
+      "noun": "lychee",
+      "family": "pink",
+      "hex": "#F2A2A2",
+      "confidence": "high",
+      "libraryNames": ["Faded Pink", "Soft Pink", "Pig Pink"]
+    },
+    {
+      "noun": "elderberry",
+      "family": "purple",
+      "hex": "#2A1A2A",
+      "confidence": "high",
+      "libraryNames": ["Dark Violet", "Very Dark Purple", "Midnight Purple"]
+    },
+    {
+      "noun": "gooseberry",
+      "family": "green",
+      "hex": "#7A9A4A",
+      "confidence": "medium",
+      "libraryNames": ["Flat Green", "Muted Green", "Off Green"]
+    },
+    {
+      "noun": "rhubarb",
+      "family": "red",
+      "hex": "#9F2A3A",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Darkish Red"]
+    },
+    {
+      "noun": "quince",
+      "family": "yellow",
+      "hex": "#D8C04A",
+      "confidence": "medium",
+      "libraryNames": ["Golden", "Greenish Beige", "Sand"]
+    },
+    {
+      "noun": "persimmon",
+      "family": "orange",
+      "hex": "#E07A1A",
+      "confidence": "high",
+      "libraryNames": ["Dull Orange", "Peru", "Dark Peach"]
+    },
+    {
+      "noun": "date",
+      "family": "brown",
+      "hex": "#5A3A1A",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "raisin",
+      "family": "purple",
+      "hex": "#3A1A22",
+      "confidence": "high",
+      "libraryNames": ["Dark Violet", "Very Dark Purple", "Midnight Purple"]
+    },
+    {
+      "noun": "prune",
+      "family": "purple",
+      "hex": "#3A1A2A",
+      "confidence": "high",
+      "libraryNames": ["Dark Violet", "Very Dark Purple", "Midnight Purple"]
+    },
+    {
+      "noun": "almond",
+      "family": "yellow",
+      "hex": "#E2C5A0",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Beige", "Greenish Beige"]
+    },
+    {
+      "noun": "walnut-nut",
+      "family": "brown",
+      "hex": "#5A3F26",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "pecan",
+      "family": "brown",
+      "hex": "#7A4A2E",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "hazelnut",
+      "family": "brown",
+      "hex": "#8A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Warm Brown"]
+    },
+    {
+      "noun": "chestnut",
+      "family": "brown",
+      "hex": "#5A2A14",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "cashew",
+      "family": "yellow",
+      "hex": "#E4C58A",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Beige"]
+    },
+    {
+      "noun": "peanut",
+      "family": "yellow",
+      "hex": "#D8B07A",
+      "confidence": "high",
+      "libraryNames": ["Bland", "Sand", "Greenish Beige"]
+    },
+    {
+      "noun": "pistachio",
+      "family": "green",
+      "hex": "#93C572",
+      "confidence": "high",
+      "libraryNames": ["Light Olive Green", "Light Olive", "Tan Green"]
+    },
+    {
+      "noun": "rooster",
+      "family": "red",
+      "hex": "#A02A1F",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "hen",
+      "family": "brown",
+      "hex": "#8A5A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "goose",
+      "family": "white",
+      "hex": "#F0EAD8",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Dark Gray"]
+    },
+    {
+      "noun": "stork",
+      "family": "white",
+      "hex": "#F2EDE0",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Black"]
+    },
+    {
+      "noun": "heron",
+      "family": "gray",
+      "hex": "#A0A095",
+      "confidence": "high",
+      "libraryNames": ["Cement", "Cool Grey", "Greyish"]
+    },
+    {
+      "noun": "crane",
+      "family": "white",
+      "hex": "#E8E0D0",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Dark Gray"]
+    },
+    {
+      "noun": "pelican",
+      "family": "white",
+      "hex": "#EEE8D8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Pale Goldenrod"]
+    },
+    {
+      "noun": "albatross",
+      "family": "white",
+      "hex": "#F0EBDA",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Dark Gray"]
+    },
+    {
+      "noun": "vulture",
+      "family": "brown",
+      "hex": "#4A3A2A",
+      "confidence": "medium",
+      "libraryNames": ["Brown", "Mud Brown", "Chocolate"]
+    },
+    {
+      "noun": "falcon",
+      "family": "brown",
+      "hex": "#5A4A3A",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Brown", "Olive Brown"]
+    },
+    {
+      "noun": "kestrel",
+      "family": "brown",
+      "hex": "#7A5A38",
+      "confidence": "medium",
+      "libraryNames": ["Mud", "Cocoa", "Medium Brown"]
+    },
+    {
+      "noun": "kookaburra",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Mud", "Medium Brown"]
+    },
+    {
+      "noun": "puffin",
+      "family": "black",
+      "hex": "#1A1612",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "ostrich",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Mud", "Medium Brown"]
+    },
+    {
+      "noun": "emu",
+      "family": "brown",
+      "hex": "#5A4A38",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Brown", "Olive Brown"]
+    },
+    {
+      "noun": "guppy",
+      "family": "orange",
+      "hex": "#F0742A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "goldfish",
+      "family": "orange",
+      "hex": "#F08A1A",
+      "confidence": "high",
+      "libraryNames": ["Dusty Orange", "Pumpkin Orange", "Orangish"]
+    },
+    {
+      "noun": "koi",
+      "family": "orange",
+      "hex": "#E47A2A",
+      "confidence": "high",
+      "libraryNames": ["Dull Orange", "Dark Peach", "Orange"]
+    },
+    {
+      "noun": "carp",
+      "family": "yellow",
+      "hex": "#B5A642",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "eel",
+      "family": "gray",
+      "hex": "#3A4A48",
+      "confidence": "medium",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "octopus-pet",
+      "family": "pink",
+      "hex": "#E08570",
+      "confidence": "medium",
+      "libraryNames": ["Dull Pink", "Dusky Pink", "Muted Pink"]
+    },
+    {
+      "noun": "starfish-shore",
+      "family": "orange",
+      "hex": "#E48A5A",
+      "confidence": "medium",
+      "libraryNames": ["Dusty Orange", "Dull Orange", "Dark Peach"]
+    },
+    {
+      "noun": "anemone",
+      "family": "pink",
+      "hex": "#E26A8A",
+      "confidence": "medium",
+      "libraryNames": ["Pale Violet Red", "Pinkish", "Muted Pink"]
+    },
+    {
+      "noun": "barnacle",
+      "family": "white",
+      "hex": "#E2DAC8",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Mustard Yellow"]
+    },
+    {
+      "noun": "gecko",
+      "family": "green",
+      "hex": "#5A8A5A",
+      "confidence": "medium",
+      "libraryNames": ["Dark Sage", "Light Forest Green", "Fern Green"]
+    },
+    {
+      "noun": "iguana",
+      "family": "green",
+      "hex": "#578A4A",
+      "confidence": "high",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Dark Sage"]
+    },
+    {
+      "noun": "chameleon",
+      "family": "green",
+      "hex": "#4A8A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "salamander-newt",
+      "family": "orange",
+      "hex": "#D86A2A",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "newt",
+      "family": "brown",
+      "hex": "#6A4A2A",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "viper",
+      "family": "green",
+      "hex": "#3A4A1A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "cobra",
+      "family": "brown",
+      "hex": "#5A4A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "anaconda",
+      "family": "green",
+      "hex": "#3A4A2A",
+      "confidence": "medium",
+      "libraryNames": ["Pine Green", "Pine", "Forest"]
+    },
+    {
+      "noun": "python",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "tarantula",
+      "family": "brown",
+      "hex": "#3A2A1A",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "millipede",
+      "family": "red",
+      "hex": "#7A2A1A",
+      "confidence": "medium",
+      "libraryNames": ["Indian Red", "Dark Red", "Brick Red"]
+    },
+    {
+      "noun": "cricket",
+      "family": "brown",
+      "hex": "#5A4A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "grasshopper",
+      "family": "green",
+      "hex": "#5A8A2E",
+      "confidence": "high",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Kelley Green"]
+    },
+    {
+      "noun": "locust",
+      "family": "yellow",
+      "hex": "#A89A4A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "cicada",
+      "family": "green",
+      "hex": "#4A5A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "mango-fruit",
+      "family": "orange",
+      "hex": "#F2A02E",
+      "confidence": "high",
+      "libraryNames": ["Pastel Orange", "Tangerine", "Squash"]
+    },
+    {
+      "noun": "avocado-fruit",
+      "family": "green",
+      "hex": "#6E8A2A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "cucumber",
+      "family": "green",
+      "hex": "#7AAA42",
+      "confidence": "high",
+      "libraryNames": ["Asparagus", "Fern", "Dark Pastel Green"]
+    },
+    {
+      "noun": "zucchini",
+      "family": "green",
+      "hex": "#4A6A2A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "squash",
+      "family": "yellow",
+      "hex": "#E4B82A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Marigold", "Goldenrod"]
+    },
+    {
+      "noun": "gourd",
+      "family": "yellow",
+      "hex": "#D8A04A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "melon",
+      "family": "orange",
+      "hex": "#F2A78A",
+      "confidence": "medium",
+      "libraryNames": ["Light Salmon", "Burlywood", "Peach"]
+    },
+    {
+      "noun": "honeydew",
+      "family": "green",
+      "hex": "#D5E68A",
+      "confidence": "high",
+      "libraryNames": ["Light Sage", "Washed Out Green", "Tea Green"]
+    },
+    {
+      "noun": "asparagus-stalk",
+      "family": "green",
+      "hex": "#7A8A3A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "leek",
+      "family": "green",
+      "hex": "#5A8A4A",
+      "confidence": "medium",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Dark Sage"]
+    },
+    {
+      "noun": "scallion",
+      "family": "green",
+      "hex": "#5A8A4A",
+      "confidence": "medium",
+      "libraryNames": ["Fern Green", "Light Forest Green", "Dark Sage"]
+    },
+    {
+      "noun": "shallot",
+      "family": "purple",
+      "hex": "#5A2F4A",
+      "confidence": "medium",
+      "libraryNames": ["Royal Purple", "Rebecca Purple", "Indigo"]
+    },
+    {
+      "noun": "fennel",
+      "family": "green",
+      "hex": "#9AAA72",
+      "confidence": "medium",
+      "libraryNames": ["Sage", "Sage Green", "Greenish Grey"]
+    },
+    {
+      "noun": "dill",
+      "family": "green",
+      "hex": "#4A6A2A",
+      "confidence": "medium",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "chive",
+      "family": "green",
+      "hex": "#4A7A2A",
+      "confidence": "medium",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "mint-leaf",
+      "family": "green",
+      "hex": "#7AC79A",
+      "confidence": "high",
+      "libraryNames": ["Mid Green", "Medium Green", "Jade Green"]
+    },
+    {
+      "noun": "milk-glass",
+      "family": "white",
+      "hex": "#F2EDE0",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "glass",
+      "family": "blue",
+      "hex": "#C8E0E8",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "frosted-glass",
+      "family": "white",
+      "hex": "#E8ECEE",
+      "confidence": "medium",
+      "libraryNames": []
+    },
+    {
+      "noun": "mirror",
+      "family": "silver",
+      "hex": "#C4C8CA",
+      "confidence": "medium",
+      "libraryNames": ["Silver", "Light Gray", "Light Grey"]
+    },
+    {
+      "noun": "metal",
+      "family": "silver",
+      "hex": "#A8AAAC",
+      "confidence": "medium",
+      "libraryNames": ["Silver", "Light Gray", "Light Grey"]
+    },
+    {
+      "noun": "rust-flake",
+      "family": "orange",
+      "hex": "#9A4A1A",
+      "confidence": "high",
+      "libraryNames": ["Terra Cotta", "Terracotta", "Terracota"]
+    },
+    {
+      "noun": "wire",
+      "family": "silver",
+      "hex": "#A8A4A0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "nail-iron",
+      "family": "gray",
+      "hex": "#5A5A56",
+      "confidence": "medium",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "screw",
+      "family": "silver",
+      "hex": "#A0A2A0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "bolt",
+      "family": "silver",
+      "hex": "#A0A2A0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "dust",
+      "family": "gray",
+      "hex": "#B0A89A",
+      "confidence": "high",
+      "libraryNames": ["Dark Gray", "Greyish", "Cement"]
+    },
+    {
+      "noun": "rubble",
+      "family": "gray",
+      "hex": "#8A847A",
+      "confidence": "medium",
+      "libraryNames": ["Gray", "Medium Grey", "Warm Grey"]
+    },
+    {
+      "noun": "gravel",
+      "family": "gray",
+      "hex": "#7A766C",
+      "confidence": "high",
+      "libraryNames": ["Battleship Grey", "Medium Grey", "Gray"]
+    },
+    {
+      "noun": "silt",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Mud", "Medium Brown"]
+    },
+    {
+      "noun": "clay-soil",
+      "family": "brown",
+      "hex": "#9A5A3A",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Brown", "Chocolate Brown"]
+    },
+    {
+      "noun": "compost",
+      "family": "brown",
+      "hex": "#3A2A1A",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "manure",
+      "family": "brown",
+      "hex": "#3A2A1A",
+      "confidence": "medium",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "mulch",
+      "family": "brown",
+      "hex": "#4A2A1A",
+      "confidence": "medium",
+      "libraryNames": ["Chocolate Brown", "Chocolate", "Dark Brown"]
+    },
+    {
+      "noun": "campfire",
+      "family": "orange",
+      "hex": "#E25A1F",
+      "confidence": "high",
+      "libraryNames": ["Deep Orange", "Reddish Orange", "Terracota"]
+    },
+    {
+      "noun": "candle",
+      "family": "yellow",
+      "hex": "#F2E2A0",
+      "confidence": "medium",
+      "libraryNames": ["Pale Goldenrod", "Wheat", "Beige"]
+    },
+    {
+      "noun": "wick",
+      "family": "white",
+      "hex": "#E8E0CA",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lantern",
+      "family": "yellow",
+      "hex": "#E2B22A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "torch",
+      "family": "orange",
+      "hex": "#F0822A",
+      "confidence": "medium",
+      "libraryNames": ["Dusty Orange", "Pumpkin Orange", "Orangish"]
+    },
+    {
+      "noun": "wheat-field",
+      "family": "yellow",
+      "hex": "#D4B868",
+      "confidence": "high",
+      "libraryNames": ["Greenish Beige", "Sand", "Golden"]
+    },
+    {
+      "noun": "hay",
+      "family": "yellow",
+      "hex": "#D4B868",
+      "confidence": "high",
+      "libraryNames": ["Greenish Beige", "Sand", "Golden"]
+    },
+    {
+      "noun": "haystack",
+      "family": "yellow",
+      "hex": "#C4A85A",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "barley",
+      "family": "yellow",
+      "hex": "#C8AC68",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "millet",
+      "family": "yellow",
+      "hex": "#D2B47A",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Bland"]
+    },
+    {
+      "noun": "rye",
+      "family": "yellow",
+      "hex": "#B8966A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "buckwheat",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "medium",
+      "libraryNames": ["Cocoa", "Mud", "Medium Brown"]
+    },
+    {
+      "noun": "flax",
+      "family": "yellow",
+      "hex": "#E8D27A",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Sandy", "Maize"]
+    },
+    {
+      "noun": "tobacco",
+      "family": "brown",
+      "hex": "#6A4A2A",
+      "confidence": "high",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "smoke-tobacco",
+      "family": "brown",
+      "hex": "#7A6052",
+      "confidence": "medium",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "cigar",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "ash-cigarette",
+      "family": "gray",
+      "hex": "#A8A4A0",
+      "confidence": "high",
+      "libraryNames": ["Warm Grey", "Grey", "Gray"]
+    },
+    {
+      "noun": "yarn",
+      "family": "red",
+      "hex": "#C8342A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "thread",
+      "family": "white",
+      "hex": "#F2EEE2",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "rope",
+      "family": "brown",
+      "hex": "#A07A4A",
+      "confidence": "high",
+      "libraryNames": ["Mocha", "Leather", "Coffee"]
+    },
+    {
+      "noun": "twine",
+      "family": "yellow",
+      "hex": "#C8A06A",
+      "confidence": "high",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "string",
+      "family": "white",
+      "hex": "#E8DEC8",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "ribbon",
+      "family": "red",
+      "hex": "#D02A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lace-fabric",
+      "family": "white",
+      "hex": "#F4ECD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "blackboard",
+      "family": "black",
+      "hex": "#1A1F1A",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Forest Green", "Very Dark Green"]
+    },
+    {
+      "noun": "chalkboard",
+      "family": "green",
+      "hex": "#2A3A2A",
+      "confidence": "high",
+      "libraryNames": ["Hunter Green", "Pine Green", "Forrest Green"]
+    },
+    {
+      "noun": "whiteboard",
+      "family": "white",
+      "hex": "#F2F2EE",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "blacktop",
+      "family": "charcoal",
+      "hex": "#2A2E32",
+      "confidence": "high",
+      "libraryNames": ["Dark Grey", "Charcoal", "Charcoal Grey"]
+    },
+    {
+      "noun": "tarmac",
+      "family": "charcoal",
+      "hex": "#2A2E32",
+      "confidence": "high",
+      "libraryNames": ["Dark Grey", "Charcoal", "Charcoal Grey"]
+    },
+    {
+      "noun": "cement",
+      "family": "gray",
+      "hex": "#A8A4A0",
+      "confidence": "high",
+      "libraryNames": ["Greyish", "Dark Gray", "Cement"]
+    },
+    {
+      "noun": "plaster",
+      "family": "white",
+      "hex": "#EEE8D8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "mortar",
+      "family": "gray",
+      "hex": "#9A9690",
+      "confidence": "high",
+      "libraryNames": ["Grey", "Warm Grey", "Cool Grey"]
+    },
+    {
+      "noun": "stucco",
+      "family": "yellow",
+      "hex": "#E8D2A0",
+      "confidence": "medium",
+      "libraryNames": ["Beige", "Sand", "Sandy"]
+    },
+    {
+      "noun": "fence",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "barn",
+      "family": "red",
+      "hex": "#A0322A",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Firebrick"]
+    },
+    {
+      "noun": "roof",
+      "family": "red",
+      "hex": "#A04A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "tile-roof",
+      "family": "red",
+      "hex": "#A04A2A",
+      "confidence": "high",
+      "libraryNames": ["Light Maroon", "Brick", "Brownish Red"]
+    },
+    {
+      "noun": "shingle",
+      "family": "gray",
+      "hex": "#5A5048",
+      "confidence": "high",
+      "libraryNames": ["Gunmetal", "Slate Grey", "Dim Gray"]
+    },
+    {
+      "noun": "brickwork",
+      "family": "red",
+      "hex": "#9A3A2A",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Firebrick"]
+    },
+    {
+      "noun": "adobe-brick",
+      "family": "brown",
+      "hex": "#A06A3A",
+      "confidence": "high",
+      "libraryNames": ["Brownish Red", "Brick", "Darkish Red"]
+    },
+    {
+      "noun": "salt",
+      "family": "white",
+      "hex": "#F4F2EE",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "sugar",
+      "family": "white",
+      "hex": "#F4F2EC",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "flour",
+      "family": "white",
+      "hex": "#F4ECDA",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "spice-rack",
+      "family": "brown",
+      "hex": "#A8602A",
+      "confidence": "medium",
+      "libraryNames": ["Raw Umber", "Earth", "Orangey Brown"]
+    },
+    {
+      "noun": "curry",
+      "family": "yellow",
+      "hex": "#E0A82A",
+      "confidence": "high",
+      "libraryNames": ["Golden", "Khaki", "Marigold"]
+    },
+    {
+      "noun": "mustard-powder",
+      "family": "yellow",
+      "hex": "#D4A017",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "wasabi",
+      "family": "green",
+      "hex": "#7AAA42",
+      "confidence": "high",
+      "libraryNames": ["Asparagus", "Fern", "Dark Pastel Green"]
+    },
+    {
+      "noun": "horseradish",
+      "family": "white",
+      "hex": "#F2EAD2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "ghee",
+      "family": "yellow",
+      "hex": "#F0C84A",
+      "confidence": "high",
+      "libraryNames": ["Goldenrod", "Golden Yellow", "Maize"]
+    },
+    {
+      "noun": "butter-melted",
+      "family": "yellow",
+      "hex": "#F0C84A",
+      "confidence": "high",
+      "libraryNames": ["Sandy", "Wheat", "Light Mustard"]
+    },
+    {
+      "noun": "muddy-water",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "high",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "muddy",
+      "family": "brown",
+      "hex": "#6A4A2A",
+      "confidence": "high",
+      "libraryNames": ["Mud Brown", "Olive Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "dirty",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "filthy",
+      "family": "brown",
+      "hex": "#5A4A2A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "grimy",
+      "family": "gray",
+      "hex": "#5A4A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "sooty",
+      "family": "black",
+      "hex": "#1A1814",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Grey", "Charcoal"]
+    },
+    {
+      "noun": "dusty",
+      "family": "brown",
+      "hex": "#A89A82",
+      "confidence": "medium",
+      "libraryNames": ["Dark Khaki", "Coffee", "Dark Gold"]
+    },
+    {
+      "noun": "rusty",
+      "family": "orange",
+      "hex": "#B7410E",
+      "confidence": "high",
+      "libraryNames": ["Brick Orange", "Rust", "Rusty Red"]
+    },
+    {
+      "noun": "mossy",
+      "family": "green",
+      "hex": "#6A8A4A",
+      "confidence": "high",
+      "libraryNames": ["Light Forest Green", "Fern Green", "Dark Sage"]
+    },
+    {
+      "noun": "weathered",
+      "family": "gray",
+      "hex": "#9A948A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "faded",
+      "family": "gray",
+      "hex": "#B0A8A0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "vintage",
+      "family": "yellow",
+      "hex": "#E8D4A0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "lawn",
+      "family": "green",
+      "hex": "#5AAA4A",
+      "confidence": "high",
+      "libraryNames": ["Fern", "Dark Pastel Green", "Mid Green"]
+    },
+    {
+      "noun": "turf",
+      "family": "green",
+      "hex": "#3FA84A",
+      "confidence": "high",
+      "libraryNames": ["Mid Green", "Medium Green", "Jade Green"]
+    },
+    {
+      "noun": "hedge",
+      "family": "green",
+      "hex": "#3A6A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "bush",
+      "family": "green",
+      "hex": "#3A6A38",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "shrub",
+      "family": "green",
+      "hex": "#4A6A38",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Pine", "Tree Green"]
+    },
+    {
+      "noun": "thicket",
+      "family": "green",
+      "hex": "#2A4A22",
+      "confidence": "medium",
+      "libraryNames": ["Pine Green", "British Racing Green", "Darkgreen"]
+    },
+    {
+      "noun": "jungle",
+      "family": "green",
+      "hex": "#2A6A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "rainforest",
+      "family": "green",
+      "hex": "#2A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Deep Green", "Forest"]
+    },
+    {
+      "noun": "canopy",
+      "family": "green",
+      "hex": "#3A6A2A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "treetop",
+      "family": "green",
+      "hex": "#3A8A3A",
+      "confidence": "high",
+      "libraryNames": ["Fern Green", "Kelley Green", "Emerald Green"]
+    },
+    {
+      "noun": "foliage",
+      "family": "green",
+      "hex": "#3A7A3A",
+      "confidence": "high",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "frost-fern",
+      "family": "white",
+      "hex": "#E4ECEE",
+      "confidence": "medium",
+      "libraryNames": ["Darkish Green", "Tree Green", "Dark Sage"]
+    },
+    {
+      "noun": "icicle",
+      "family": "white",
+      "hex": "#E4ECF2",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Alice Blue"]
+    },
+    {
+      "noun": "snowman",
+      "family": "white",
+      "hex": "#F0F2F4",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "snowdrift",
+      "family": "white",
+      "hex": "#EEEFF0",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "ice-cube",
+      "family": "white",
+      "hex": "#E0EAEE",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "berry",
+      "family": "purple",
+      "hex": "#5A1A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "berry-cluster",
+      "family": "purple",
+      "hex": "#5A1A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "grape-cluster",
+      "family": "purple",
+      "hex": "#5C2A6F",
+      "confidence": "high",
+      "libraryNames": ["Rebecca Purple", "Royal Purple", "Purple"]
+    },
+    {
+      "noun": "olive-cluster",
+      "family": "olive",
+      "hex": "#5A5A2A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "mushroom",
+      "family": "white",
+      "hex": "#E2D8C0",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "toadstool",
+      "family": "red",
+      "hex": "#C8281A",
+      "confidence": "high",
+      "libraryNames": ["Dull Red", "Reddish", "Scarlet"]
+    },
+    {
+      "noun": "truffle",
+      "family": "black",
+      "hex": "#2A1A14",
+      "confidence": "high",
+      "libraryNames": ["Black", "Dark Brown", "Chocolate"]
+    },
+    {
+      "noun": "morel",
+      "family": "brown",
+      "hex": "#7A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Mud", "Medium Brown", "Milk Chocolate"]
+    },
+    {
+      "noun": "ash-tree",
+      "family": "gray",
+      "hex": "#9A9690",
+      "confidence": "low",
+      "libraryNames": ["Tree Green", "Darkish Green", "Emerald Green"]
+    },
+    {
+      "noun": "alder",
+      "family": "brown",
+      "hex": "#7A5A3A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "elm",
+      "family": "green",
+      "hex": "#5A7A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "beech",
+      "family": "yellow",
+      "hex": "#D8C49A",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Beige"]
+    },
+    {
+      "noun": "hickory",
+      "family": "brown",
+      "hex": "#8A5A2A",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Warm Brown"]
+    },
+    {
+      "noun": "sycamore",
+      "family": "yellow",
+      "hex": "#C8AA6A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Bland", "Stone"]
+    },
+    {
+      "noun": "poplar",
+      "family": "green",
+      "hex": "#7A8A4A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "aspen",
+      "family": "yellow",
+      "hex": "#E4D29A",
+      "confidence": "medium",
+      "libraryNames": ["Beige", "Sand", "Sandy"]
+    },
+    {
+      "noun": "eucalyptus",
+      "family": "green",
+      "hex": "#7AAA92",
+      "confidence": "high",
+      "libraryNames": ["Greyish Green", "Grey/green", "Greeny Grey"]
+    },
+    {
+      "noun": "olive-tree",
+      "family": "olive",
+      "hex": "#7A8A4A",
+      "confidence": "high",
+      "libraryNames": ["Tree Green", "Darkish Green", "Emerald Green"]
+    },
+    {
+      "noun": "tide",
+      "family": "blue",
+      "hex": "#3A6A8A",
+      "confidence": "medium",
+      "libraryNames": ["Ugly Blue", "Denim", "Dusky Blue"]
+    },
+    {
+      "noun": "surf",
+      "family": "white",
+      "hex": "#E8EEF0",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Alice Blue"]
+    },
+    {
+      "noun": "foam",
+      "family": "white",
+      "hex": "#F0F0EE",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "spray",
+      "family": "white",
+      "hex": "#E8EAEC",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White", "Gainsboro"]
+    },
+    {
+      "noun": "salt-water",
+      "family": "blue",
+      "hex": "#3A7A9A",
+      "confidence": "medium",
+      "libraryNames": ["White Smoke", "White"]
+    },
+    {
+      "noun": "seaweed",
+      "family": "green",
+      "hex": "#3A6A4A",
+      "confidence": "high",
+      "libraryNames": ["Pine", "Darkish Green", "Tree Green"]
+    },
+    {
+      "noun": "kelp",
+      "family": "brown",
+      "hex": "#3A4A2A",
+      "confidence": "high",
+      "libraryNames": ["Mud Brown", "Brown", "Olive Brown"]
+    },
+    {
+      "noun": "algae-pool",
+      "family": "green",
+      "hex": "#5A8A2A",
+      "confidence": "high",
+      "libraryNames": []
+    },
+    {
+      "noun": "plankton",
+      "family": "green",
+      "hex": "#3A8A6A",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "krill",
+      "family": "pink",
+      "hex": "#F2A28A",
+      "confidence": "medium",
+      "libraryNames": ["Faded Pink", "Pig Pink", "Rose Pink"]
+    },
+    {
+      "noun": "spaghetti",
+      "family": "yellow",
+      "hex": "#E8C97A",
+      "confidence": "high",
+      "libraryNames": ["Sand", "Greenish Beige", "Maize"]
+    },
+    {
+      "noun": "noodle",
+      "family": "yellow",
+      "hex": "#E8C97A",
+      "confidence": "medium",
+      "libraryNames": ["Sand", "Greenish Beige", "Maize"]
+    },
+    {
+      "noun": "ramen",
+      "family": "yellow",
+      "hex": "#D4B084",
+      "confidence": "low",
+      "libraryNames": []
+    },
+    {
+      "noun": "rice-noodle",
+      "family": "white",
+      "hex": "#F2EAD8",
+      "confidence": "high",
+      "libraryNames": ["White Smoke", "White", "Cornsilk"]
+    },
+    {
+      "noun": "milk-tea",
+      "family": "brown",
+      "hex": "#B89A6A",
+      "confidence": "high",
+      "libraryNames": ["Milk Chocolate", "Medium Brown", "Saddle Brown"]
+    },
+    {
+      "noun": "latte",
+      "family": "brown",
+      "hex": "#C8A472",
+      "confidence": "high",
+      "libraryNames": ["Yellow Ochre", "Ocre", "Burnt Yellow"]
+    },
+    {
+      "noun": "cappuccino",
+      "family": "brown",
+      "hex": "#A8804E",
+      "confidence": "high",
+      "libraryNames": ["Coffee", "Dark Khaki", "Leather"]
+    },
+    {
+      "noun": "espresso-shot",
+      "family": "brown",
+      "hex": "#2A1A0E",
+      "confidence": "high",
+      "libraryNames": ["Chocolate", "Chocolate Brown", "Dark Brown"]
+    },
+    {
+      "noun": "macchiato",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "high",
+      "libraryNames": ["Brown", "Mud Brown", "Olive Brown"]
+    },
+    {
+      "noun": "kombucha",
+      "family": "yellow",
+      "hex": "#C89A4A",
+      "confidence": "medium",
+      "libraryNames": ["Khaki", "Stone", "Bland"]
+    },
+    {
+      "noun": "matcha-latte",
+      "family": "green",
+      "hex": "#9AAA42",
+      "confidence": "high",
+      "libraryNames": ["Yellow Ochre", "Ocre", "Burnt Yellow"]
+    },
+    {
+      "noun": "ginger-snap",
+      "family": "brown",
+      "hex": "#A87042",
+      "confidence": "high",
+      "libraryNames": ["Terracota", "Terracotta", "Terra Cotta"]
+    },
+    {
+      "noun": "molasses-cookie",
+      "family": "brown",
+      "hex": "#5A3A22",
+      "confidence": "high",
+      "libraryNames": ["Cocoa", "Dirt Brown", "Warm Brown"]
+    }
+  ]
+}

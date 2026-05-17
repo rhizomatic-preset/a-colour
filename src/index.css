@@ -1279,6 +1279,72 @@ h1 {
   gap: 10px;
 }
 
+.word-encoder-loading {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.word-encoder-progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  border: 0;
+  background: var(--silver);
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.word-encoder-progress::-webkit-progress-bar {
+  background: var(--silver);
+}
+.word-encoder-progress::-webkit-progress-value {
+  background: var(--ink);
+}
+.word-encoder-progress::-moz-progress-bar {
+  background: var(--ink);
+}
+
+/* Indeterminate <progress> — no value attribute. A travelling ink bar over
+ * the silver track conveys "working, no eta". */
+.word-encoder-progress:not([value]) {
+  overflow: hidden;
+}
+.word-encoder-progress:not([value])::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: var(--ink);
+  animation: word-encoder-indeterminate 1.4s ease-in-out infinite;
+}
+
+@keyframes word-encoder-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.word-encoder-progress-text {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-hint);
+  margin: 0;
+}
+
+.word-encoder-error {
+  color: var(--text-hint);
+}
+
 .word-suggestions {
   display: flex;
   flex-wrap: wrap;

@@ -40,8 +40,8 @@ export const DEFAULT_SETTINGS: Settings = {
   weights: DEFAULT_WEIGHTS,
   hueBias: null,
   // Phase 1.5b: default the runtime to the blended expander now that the static
-  // table ships in the bundle (it's tiny — ~14 KB). The kid's first query
-  // benefits from the recall lift without any configuration.
+  // table ships in the bundle (~14 KB). First-load queries get the recall lift
+  // without any configuration.
   wordMode: { library: "small", engine: "literal", expander: "static-handcurated" },
 };
 

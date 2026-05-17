@@ -28,6 +28,7 @@ export type EvalCategory =
   | "weather"
   | "open-vocab"
   | "common-noun"
+  | "ood-noun"
   | "poetic";
 
 export type EvalCase = {
@@ -332,6 +333,195 @@ export const EVAL_QUERIES: EvalCase[] = [
     query: "straw",
     expectedFamily: "yellow",
     category: "common-noun",
+  },
+
+  // ood-noun (20) — common physical-world nouns deliberately NOT in the 693-entry
+  // distillation lookup. Authored 2026-05-17 to gate Phase B: a fine-tuned
+  // sentence-transformer should hit these where the lookup can't. Scores 0 by
+  // construction without the encoder layer (or whatever else generalises).
+  // Mix is NZ flora/fauna + landscape/materials + generic English nouns so we
+  // test both the Te Reo + native vocab the customers grew up with and broader English.
+  {
+    query: "kauri",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "NZ native tree; distinctive brown bark",
+  },
+  {
+    query: "pohutukawa",
+    expectedFamily: "red",
+    category: "ood-noun",
+    notes: "NZ Christmas tree; vivid red flowers",
+  },
+  {
+    query: "manuka",
+    expectedFamily: "white",
+    category: "ood-noun",
+    notes: "NZ tea-tree flowers; white/pink",
+  },
+  {
+    query: "harakeke",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "NZ flax (Te Reo); green leaves",
+  },
+  {
+    query: "kowhai",
+    expectedFamily: "yellow",
+    category: "ood-noun",
+    notes: "NZ flowering tree; bright yellow flowers",
+  },
+  {
+    query: "kakariki",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "NZ parakeet; Te Reo for green",
+  },
+  {
+    query: "kiwi",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "NZ bird (brown plumage); the fruit is green but the bird is the NZ default",
+  },
+  {
+    query: "kea",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "NZ alpine parrot; olive-green plumage",
+  },
+  {
+    query: "moa",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "extinct NZ giant bird; brown plumage",
+  },
+  {
+    query: "weka",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "NZ ground bird; brown plumage",
+  },
+  {
+    query: "pumice",
+    expectedFamily: "white",
+    category: "ood-noun",
+    notes: "volcanic stone; light gray/white",
+  },
+  {
+    query: "pounamu",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "NZ greenstone/jade (Te Reo)",
+  },
+  {
+    query: "tussock",
+    expectedFamily: "yellow",
+    category: "ood-noun",
+    notes: "NZ high-country grass; golden brown",
+  },
+  {
+    query: "silverfern",
+    expectedFamily: "silver",
+    category: "ood-noun",
+    notes: "NZ icon; silver underside of fronds",
+  },
+  {
+    query: "cobweb",
+    expectedFamily: "white",
+    category: "ood-noun",
+    notes: "spider web; white/gray",
+  },
+  {
+    query: "vellum",
+    expectedFamily: "white",
+    category: "ood-noun",
+    notes: "parchment; cream/white",
+  },
+  {
+    query: "terracotta",
+    expectedFamily: "orange",
+    category: "ood-noun",
+    notes: "fired clay; orange/red",
+  },
+  {
+    query: "varnish",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "wood varnish; amber/brown",
+  },
+  {
+    query: "lichen",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "lichen; greenish-gray",
+  },
+  {
+    query: "gum",
+    expectedFamily: "brown",
+    category: "ood-noun",
+    notes: "tree gum/resin; amber/brown",
+  },
+  // "things a customer would actually type" — concrete physical-world nouns the
+  // customer flagged on 2026-05-17 (rabbit/teeth/sword spirit). These gate whether
+  // the encoder generalises usefully on words we deliberately don't enumerate
+  // one-by-one.
+  { query: "teeth", expectedFamily: "white", category: "ood-noun", notes: "off-white" },
+  { query: "sword", expectedFamily: "silver", category: "ood-noun", notes: "metallic blade" },
+  { query: "helmet", expectedFamily: "silver", category: "ood-noun", notes: "knight's helmet" },
+  { query: "crown", expectedFamily: "yellow", category: "ood-noun", notes: "golden crown" },
+  { query: "shield", expectedFamily: "silver", category: "ood-noun", notes: "metallic shield" },
+  { query: "skeleton", expectedFamily: "white", category: "ood-noun", notes: "bones" },
+  { query: "hammer", expectedFamily: "silver", category: "ood-noun", notes: "metal head" },
+  { query: "ladder", expectedFamily: "silver", category: "ood-noun", notes: "aluminium" },
+  {
+    query: "dinosaur",
+    expectedFamily: "green",
+    category: "ood-noun",
+    notes: "default mental model",
+  },
+  { query: "robot", expectedFamily: "silver", category: "ood-noun", notes: "metallic" },
+  // adult-register OOD — wine names, food-as-colour, building materials, pigments.
+  // Audience reframe 2026-05-17: son + ~5 colour-blind adult friends, so the encoder
+  // needs to handle adult vocab too.
+  { query: "merlot", expectedFamily: "red", category: "ood-noun", notes: "wine" },
+  { query: "cabernet", expectedFamily: "red", category: "ood-noun", notes: "deep red wine" },
+  {
+    query: "burgundy",
+    expectedFamily: "red",
+    category: "ood-noun",
+    notes: "wine region; deep red",
+  },
+  {
+    query: "bordeaux",
+    expectedFamily: "red",
+    category: "ood-noun",
+    notes: "wine region; deep red",
+  },
+  { query: "oxblood", expectedFamily: "red", category: "ood-noun", notes: "dark red leather/wine" },
+  {
+    query: "aubergine",
+    expectedFamily: "purple",
+    category: "ood-noun",
+    notes: "eggplant; deep purple",
+  },
+  {
+    query: "rebar",
+    expectedFamily: "orange",
+    category: "ood-noun",
+    notes: "rusty rebar; orange-brown",
+  },
+  {
+    query: "khaki",
+    expectedFamily: "olive",
+    category: "ood-noun",
+    notes: "military uniform; olive-tan",
+  },
+  { query: "sepia", expectedFamily: "brown", category: "ood-noun", notes: "old-photo tone" },
+  {
+    query: "ochre",
+    expectedFamily: "yellow",
+    category: "ood-noun",
+    notes: "pigment; yellow-brown",
   },
 
   // poetic (3) — inspection-only; no expectedFamily so they aren't scored.

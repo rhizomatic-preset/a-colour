@@ -13,9 +13,12 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "icons.svg", "pwa.svg"],
       workbox: {
-        // Pre-cache the app shell + the CSV. ~1MB cap covers it comfortably.
-        globPatterns: ["**/*.{js,css,html,svg,woff2}"],
-        maximumFileSizeToCacheInBytes: 2_000_000,
+        // Pre-cache the app shell + assets + the Phase-B word encoder
+        // (~22 MB quantised ONNX + 1.4 MB embeddings + tokenizer). 30 MB cap
+        // handles the largest single file (model_quantized.onnx ≈ 22 MB) with
+        // headroom; offline-first means the model must be on-device.
+        globPatterns: ["**/*.{js,css,html,svg,woff2,onnx,bin,json,txt}"],
+        maximumFileSizeToCacheInBytes: 30 * 1024 * 1024,
       },
       manifest: {
         name: "Colour Thesaurus",
@@ -38,6 +41,12 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  optimizeDeps: {
+    // @huggingface/transformers ships ONNX runtime + workers + .wasm files via
+    // dynamic imports. Vite's pre-bundler chokes on this with a 504. Exclude it
+    // so it loads natively in the browser via ESM imports.
+    exclude: ["@huggingface/transformers"],
   },
   server: {
     host: true,

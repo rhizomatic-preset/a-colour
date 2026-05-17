@@ -1,0 +1,734 @@
+[
+  {
+    "query": "red",
+    "expectedFamily": "red",
+    "category": "trivial"
+  },
+  {
+    "query": "blue",
+    "expectedFamily": "blue",
+    "category": "trivial"
+  },
+  {
+    "query": "green",
+    "expectedFamily": "green",
+    "category": "trivial"
+  },
+  {
+    "query": "orange",
+    "expectedFamily": "orange",
+    "category": "trivial"
+  },
+  {
+    "query": "yellow",
+    "expectedFamily": "yellow",
+    "category": "trivial"
+  },
+  {
+    "query": "purple",
+    "expectedFamily": "purple",
+    "category": "trivial"
+  },
+  {
+    "query": "pink",
+    "expectedFamily": "pink",
+    "category": "trivial"
+  },
+  {
+    "query": "brown",
+    "expectedFamily": "brown",
+    "category": "trivial"
+  },
+  {
+    "query": "black",
+    "expectedFamily": "black",
+    "category": "trivial"
+  },
+  {
+    "query": "white",
+    "expectedFamily": "white",
+    "category": "trivial"
+  },
+  {
+    "query": "dark blue",
+    "expectedFamily": "blue",
+    "category": "modified-family"
+  },
+  {
+    "query": "light pink",
+    "expectedFamily": "pink",
+    "category": "modified-family"
+  },
+  {
+    "query": "pale yellow",
+    "expectedFamily": "yellow",
+    "category": "modified-family"
+  },
+  {
+    "query": "bright red",
+    "expectedFamily": "red",
+    "category": "modified-family"
+  },
+  {
+    "query": "deep purple",
+    "expectedFamily": "purple",
+    "category": "modified-family"
+  },
+  {
+    "query": "light green",
+    "expectedFamily": "green",
+    "category": "modified-family"
+  },
+  {
+    "query": "dark brown",
+    "expectedFamily": "brown",
+    "category": "modified-family"
+  },
+  {
+    "query": "pastel pink",
+    "expectedFamily": "pink",
+    "category": "modified-family"
+  },
+  {
+    "query": "eggshell",
+    "expectedName": "Eggshell",
+    "category": "literal-name"
+  },
+  {
+    "query": "salmon",
+    "expectedName": "Salmon",
+    "category": "literal-name"
+  },
+  {
+    "query": "mustard",
+    "expectedName": "Mustard",
+    "category": "literal-name"
+  },
+  {
+    "query": "teal",
+    "expectedName": "Teal",
+    "category": "literal-name"
+  },
+  {
+    "query": "coral",
+    "expectedName": "Coral",
+    "category": "literal-name"
+  },
+  {
+    "query": "aliceblue",
+    "expectedFamily": "blue",
+    "category": "css-literal"
+  },
+  {
+    "query": "gainsboro",
+    "expectedFamily": "silver",
+    "category": "css-literal",
+    "notes": "#dcdcdc L≈0.86 → silver per getPrimaryColorName (L>0.7 threshold)"
+  },
+  {
+    "query": "mediumvioletred",
+    "expectedFamily": "magenta",
+    "category": "css-literal",
+    "notes": "#c71585 → HSL h≈322 → magenta per getPrimaryColorName"
+  },
+  {
+    "query": "darkslateblue",
+    "expectedFamily": "blue",
+    "category": "css-literal",
+    "notes": "#483d8b → HSL h≈248 → blue per getPrimaryColorName (boundary with purple)"
+  },
+  {
+    "query": "palegoldenrod",
+    "expectedFamily": "yellow",
+    "category": "css-literal"
+  },
+  {
+    "query": "ocean",
+    "expectedFamily": "blue",
+    "category": "object-rooted"
+  },
+  {
+    "query": "sunset",
+    "expectedFamily": "orange",
+    "category": "object-rooted"
+  },
+  {
+    "query": "lemon",
+    "expectedFamily": "yellow",
+    "category": "object-rooted"
+  },
+  {
+    "query": "mud",
+    "expectedFamily": "brown",
+    "category": "object-rooted"
+  },
+  {
+    "query": "forest",
+    "expectedFamily": "green",
+    "category": "object-rooted"
+  },
+  {
+    "query": "sky",
+    "expectedFamily": "blue",
+    "category": "object-rooted"
+  },
+  {
+    "query": "cherry",
+    "expectedFamily": "red",
+    "category": "object-rooted"
+  },
+  {
+    "query": "grass",
+    "expectedFamily": "green",
+    "category": "object-rooted"
+  },
+  {
+    "query": "lavender",
+    "expectedFamily": "purple",
+    "category": "object-rooted"
+  },
+  {
+    "query": "ice",
+    "expectedFamily": "white",
+    "category": "object-rooted"
+  },
+  {
+    "query": "fire",
+    "expectedFamily": "orange",
+    "category": "object-rooted"
+  },
+  {
+    "query": "leaf",
+    "expectedFamily": "green",
+    "category": "object-rooted"
+  },
+  {
+    "query": "minecraft creeper pants",
+    "expectedFamily": "green",
+    "category": "cultural",
+    "notes": "Phase 2 target — TF-IDF expected to fail"
+  },
+  {
+    "query": "taylor swift red",
+    "expectedFamily": "red",
+    "category": "cultural",
+    "notes": "Phase 2 target — TF-IDF expected to fail"
+  },
+  {
+    "query": "mario hat",
+    "expectedFamily": "red",
+    "category": "cultural",
+    "notes": "Phase 2 target — TF-IDF expected to fail"
+  },
+  {
+    "query": "tiktok pink",
+    "expectedFamily": "pink",
+    "category": "cultural",
+    "notes": "Phase 2 target — TF-IDF expected to fail"
+  },
+  {
+    "query": "ocean beach",
+    "expectedFamily": "blue",
+    "category": "compound"
+  },
+  {
+    "query": "forest moss",
+    "expectedFamily": "green",
+    "category": "compound"
+  },
+  {
+    "query": "dusty rose",
+    "expectedFamily": "pink",
+    "category": "compound"
+  },
+  {
+    "query": "dark forest green",
+    "expectedFamily": "green",
+    "category": "compound"
+  },
+  {
+    "query": "faded denim",
+    "expectedFamily": "blue",
+    "category": "compound"
+  },
+  {
+    "query": "autumn leaves",
+    "expectedFamily": "orange",
+    "category": "compound"
+  },
+  {
+    "query": "whero",
+    "expectedFamily": "red",
+    "category": "te-reo"
+  },
+  {
+    "query": "kākāriki",
+    "expectedFamily": "green",
+    "category": "te-reo",
+    "notes": "macron fold: kākāriki → kakariki"
+  },
+  {
+    "query": "kōwhai",
+    "expectedFamily": "yellow",
+    "category": "te-reo",
+    "notes": "macron fold: kōwhai → kowhai"
+  },
+  {
+    "query": "kahurangi",
+    "expectedFamily": "blue",
+    "category": "te-reo"
+  },
+  {
+    "query": "māwhero",
+    "expectedFamily": "pink",
+    "category": "te-reo",
+    "notes": "macron fold: māwhero → mawhero"
+  },
+  {
+    "query": "mangu",
+    "expectedFamily": "black",
+    "category": "te-reo"
+  },
+  {
+    "query": "kiwikiwi",
+    "expectedFamily": "gray",
+    "category": "te-reo"
+  },
+  {
+    "query": "waiporoporo",
+    "expectedFamily": "purple",
+    "category": "te-reo"
+  },
+  {
+    "query": "cloud",
+    "expectedFamily": "white",
+    "category": "weather"
+  },
+  {
+    "query": "cloudy",
+    "expectedFamily": "gray",
+    "category": "weather"
+  },
+  {
+    "query": "rain",
+    "expectedFamily": "gray",
+    "category": "weather"
+  },
+  {
+    "query": "rainy",
+    "expectedFamily": "gray",
+    "category": "weather"
+  },
+  {
+    "query": "lightning",
+    "expectedFamily": "yellow",
+    "category": "weather"
+  },
+  {
+    "query": "puddle",
+    "expectedFamily": "brown",
+    "category": "weather"
+  },
+  {
+    "query": "rainbow trout",
+    "expectedFamily": "pink",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — pinkish-silver fish; needs static-embedding expansion"
+  },
+  {
+    "query": "caterpillar",
+    "expectedFamily": "green",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — default kid mental model is green"
+  },
+  {
+    "query": "salamander",
+    "expectedFamily": "orange",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — fire salamander connotations; orange / yellow"
+  },
+  {
+    "query": "octopus",
+    "expectedFamily": "pink",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — common octopus is pinkish/red/magenta"
+  },
+  {
+    "query": "lego car",
+    "expectedFamily": "red",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — classic Lego is bright primary red/yellow/blue"
+  },
+  {
+    "query": "pumpkin spice",
+    "expectedFamily": "orange",
+    "category": "open-vocab",
+    "notes": "Phase 1.5b target — orange / brown autumnal cluster"
+  },
+  {
+    "query": "wood",
+    "expectedFamily": "brown",
+    "category": "common-noun",
+    "notes": "plain wood is brown"
+  },
+  {
+    "query": "wolf",
+    "expectedFamily": "gray",
+    "category": "common-noun",
+    "notes": "gray wolf is the prototype"
+  },
+  {
+    "query": "ginger",
+    "expectedFamily": "orange",
+    "category": "common-noun",
+    "notes": "ginger hair / spice — orange"
+  },
+  {
+    "query": "chocolate",
+    "expectedFamily": "brown",
+    "category": "common-noun"
+  },
+  {
+    "query": "rust",
+    "expectedFamily": "orange",
+    "category": "common-noun",
+    "notes": "iron-oxide orange/brown"
+  },
+  {
+    "query": "iron",
+    "expectedFamily": "gray",
+    "category": "common-noun",
+    "notes": "metallic gray"
+  },
+  {
+    "query": "apple",
+    "expectedFamily": "red",
+    "category": "common-noun",
+    "notes": "default apple is red (kid mental model)"
+  },
+  {
+    "query": "tree",
+    "expectedFamily": "green",
+    "category": "common-noun",
+    "notes": "default tree is green (foliage > trunk)"
+  },
+  {
+    "query": "sand",
+    "expectedFamily": "yellow",
+    "category": "common-noun",
+    "notes": "beach sand is pale yellow/beige"
+  },
+  {
+    "query": "beetle",
+    "expectedFamily": "black",
+    "category": "common-noun",
+    "notes": "common beetle mental model is black/dark"
+  },
+  {
+    "query": "moss",
+    "expectedFamily": "green",
+    "category": "common-noun"
+  },
+  {
+    "query": "clay",
+    "expectedFamily": "brown",
+    "category": "common-noun"
+  },
+  {
+    "query": "denim",
+    "expectedFamily": "blue",
+    "category": "common-noun"
+  },
+  {
+    "query": "slate",
+    "expectedFamily": "gray",
+    "category": "common-noun"
+  },
+  {
+    "query": "honey",
+    "expectedFamily": "orange",
+    "category": "common-noun",
+    "notes": "deep golden honey — orange/brown band"
+  },
+  {
+    "query": "raven",
+    "expectedFamily": "black",
+    "category": "common-noun",
+    "notes": "raven plumage — defining black"
+  },
+  {
+    "query": "pewter",
+    "expectedFamily": "silver",
+    "category": "common-noun"
+  },
+  {
+    "query": "oak",
+    "expectedFamily": "brown",
+    "category": "common-noun"
+  },
+  {
+    "query": "bone",
+    "expectedFamily": "white",
+    "category": "common-noun"
+  },
+  {
+    "query": "straw",
+    "expectedFamily": "yellow",
+    "category": "common-noun"
+  },
+  {
+    "query": "kauri",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "NZ native tree; distinctive brown bark"
+  },
+  {
+    "query": "pohutukawa",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "NZ Christmas tree; vivid red flowers"
+  },
+  {
+    "query": "manuka",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "NZ tea-tree flowers; white/pink"
+  },
+  {
+    "query": "harakeke",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "NZ flax (Te Reo); green leaves"
+  },
+  {
+    "query": "kowhai",
+    "expectedFamily": "yellow",
+    "category": "ood-noun",
+    "notes": "NZ flowering tree; bright yellow flowers"
+  },
+  {
+    "query": "kakariki",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "NZ parakeet; Te Reo for green"
+  },
+  {
+    "query": "kiwi",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "NZ bird (brown plumage); the fruit is green but the bird is the NZ default"
+  },
+  {
+    "query": "kea",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "NZ alpine parrot; olive-green plumage"
+  },
+  {
+    "query": "moa",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "extinct NZ giant bird; brown plumage"
+  },
+  {
+    "query": "weka",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "NZ ground bird; brown plumage"
+  },
+  {
+    "query": "pumice",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "volcanic stone; light gray/white"
+  },
+  {
+    "query": "pounamu",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "NZ greenstone/jade (Te Reo)"
+  },
+  {
+    "query": "tussock",
+    "expectedFamily": "yellow",
+    "category": "ood-noun",
+    "notes": "NZ high-country grass; golden brown"
+  },
+  {
+    "query": "silverfern",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "NZ icon; silver underside of fronds"
+  },
+  {
+    "query": "cobweb",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "spider web; white/gray"
+  },
+  {
+    "query": "vellum",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "parchment; cream/white"
+  },
+  {
+    "query": "terracotta",
+    "expectedFamily": "orange",
+    "category": "ood-noun",
+    "notes": "fired clay; orange/red"
+  },
+  {
+    "query": "varnish",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "wood varnish; amber/brown"
+  },
+  {
+    "query": "lichen",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "lichen; greenish-gray"
+  },
+  {
+    "query": "gum",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "tree gum/resin; amber/brown"
+  },
+  {
+    "query": "teeth",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "off-white"
+  },
+  {
+    "query": "sword",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "metallic blade"
+  },
+  {
+    "query": "helmet",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "knight's helmet"
+  },
+  {
+    "query": "crown",
+    "expectedFamily": "yellow",
+    "category": "ood-noun",
+    "notes": "golden crown"
+  },
+  {
+    "query": "shield",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "metallic shield"
+  },
+  {
+    "query": "skeleton",
+    "expectedFamily": "white",
+    "category": "ood-noun",
+    "notes": "bones"
+  },
+  {
+    "query": "hammer",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "metal head"
+  },
+  {
+    "query": "ladder",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "aluminium"
+  },
+  {
+    "query": "dinosaur",
+    "expectedFamily": "green",
+    "category": "ood-noun",
+    "notes": "default mental model"
+  },
+  {
+    "query": "robot",
+    "expectedFamily": "silver",
+    "category": "ood-noun",
+    "notes": "metallic"
+  },
+  {
+    "query": "merlot",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "wine"
+  },
+  {
+    "query": "cabernet",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "deep red wine"
+  },
+  {
+    "query": "burgundy",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "wine region; deep red"
+  },
+  {
+    "query": "bordeaux",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "wine region; deep red"
+  },
+  {
+    "query": "oxblood",
+    "expectedFamily": "red",
+    "category": "ood-noun",
+    "notes": "dark red leather/wine"
+  },
+  {
+    "query": "aubergine",
+    "expectedFamily": "purple",
+    "category": "ood-noun",
+    "notes": "eggplant; deep purple"
+  },
+  {
+    "query": "rebar",
+    "expectedFamily": "orange",
+    "category": "ood-noun",
+    "notes": "rusty rebar; orange-brown"
+  },
+  {
+    "query": "khaki",
+    "expectedFamily": "olive",
+    "category": "ood-noun",
+    "notes": "military uniform; olive-tan"
+  },
+  {
+    "query": "sepia",
+    "expectedFamily": "brown",
+    "category": "ood-noun",
+    "notes": "old-photo tone"
+  },
+  {
+    "query": "ochre",
+    "expectedFamily": "yellow",
+    "category": "ood-noun",
+    "notes": "pigment; yellow-brown"
+  },
+  {
+    "query": "melancholy",
+    "category": "poetic",
+    "notes": "inspection-only"
+  },
+  {
+    "query": "joy",
+    "category": "poetic",
+    "notes": "inspection-only"
+  },
+  {
+    "query": "ocean at dawn",
+    "category": "poetic",
+    "notes": "inspection-only"
+  }
+]

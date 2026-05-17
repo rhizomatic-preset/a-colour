@@ -48,6 +48,7 @@ import {
   type QueryExpander,
 } from "@/lib/word-search/expander";
 import { loadTfidfIndex } from "@/lib/word-search/tfidf-index";
+import { preloadEncoder, TransformersEmbedder } from "@/lib/word-search/transformers-embedder";
 
 type PickerMode = "swatch" | "image" | "camera" | "word";
 type View = "picker" | "settings" | "about";
@@ -87,6 +88,14 @@ function App() {
         return buildBlendedExpander(hand, stat);
     }
   }, [settings.wordMode.expander]);
+  // Phase B encoder is heavy (~22 MB ONNX). Idle-preload it once on app mount
+  // so by the time the user reaches Word mode the model is already in memory.
+  // On first-ever visit the download competes with nothing visible; on
+  // subsequent visits the PWA serves it from cache and this is a no-op.
+  useEffect(() => {
+    preloadEncoder();
+  }, []);
+
   const [customLibrary, setCustomLibrary] = useState<CustomLibrary | null>(null);
   const colors = customLibrary?.colors ?? builtInColors;
   const libraryName = customLibrary?.name ?? "Built-in (xkcd + CSS)";
@@ -456,6 +465,7 @@ function App() {
                   tfidf={tfidf}
                   expander={expander}
                   distillation={distillationLookup as DistillationLookup}
+                  embedder={TransformersEmbedder}
                   topN={settings.matchCount}
                   onColorSelect={setColor}
                 />
