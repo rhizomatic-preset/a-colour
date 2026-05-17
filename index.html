@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NZ">
     <head>
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -9,11 +9,52 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Colour" />
+
+        <title>Colour Thesaurus — name any colour, offline</title>
         <meta
             name="description"
-            content="Pick a colour and find the closest named colours."
+            content="Colour Thesaurus names any colour you point at — by swatch, image, camera, or word. Offline-first PWA built for colourblind users."
         />
-        <title>Colour Thesaurus</title>
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://colour.preset.nz/" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Colour Thesaurus" />
+        <meta property="og:title" content="Colour Thesaurus — name any colour, offline" />
+        <meta
+            property="og:description"
+            content="Point a phone, paste a screenshot, or type a word. Colour Thesaurus finds the closest named colour. Offline-first PWA."
+        />
+        <meta property="og:url" content="https://colour.preset.nz/" />
+        <meta property="og:image" content="https://colour.preset.nz/pwa.svg" />
+        <meta property="og:locale" content="en_NZ" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Colour Thesaurus — name any colour, offline" />
+        <meta
+            name="twitter:description"
+            content="Point a phone, paste a screenshot, or type a word. Colour Thesaurus finds the closest named colour."
+        />
+        <meta name="twitter:image" content="https://colour.preset.nz/pwa.svg" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Colour Thesaurus",
+                "url": "https://colour.preset.nz/",
+                "description": "Offline-first PWA that names any colour you point at — by swatch, image, camera, or word. Built for colourblind users.",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Any",
+                "inLanguage": "en-NZ",
+                "isAccessibleForFree": true,
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NZD" },
+                "publisher": { "@type": "Organization", "name": "preset.nz", "url": "https://preset.nz" }
+            }
+        </script>
     </head>
     <body>
         <div id="root"></div>

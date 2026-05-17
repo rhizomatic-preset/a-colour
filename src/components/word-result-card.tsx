@@ -6,7 +6,7 @@ interface WordResultCardProps {
 
 export function WordResultCard({ hex, name, onSelect }: WordResultCardProps) {
   return (
-    <button type="button" className="word-result-card" onClick={onSelect} role="listitem">
+    <button type="button" className="word-result-card" onClick={onSelect}>
       <span
         className="word-result-card__swatch"
         style={{ backgroundColor: hex }}

@@ -62,13 +62,12 @@ export function SettingsPanel({
         <summary>Show me</summary>
         <div className="setting-field">
           <span className="setting-label">Matches shown</span>
-          <div className="seg-row" role="radiogroup" aria-label="Matches shown">
+          <div className="seg-row" role="group" aria-label="Matches shown">
             {MATCH_COUNTS.map((value) => (
               <button
                 key={value}
                 type="button"
-                role="radio"
-                aria-checked={settings.matchCount === value}
+                aria-pressed={settings.matchCount === value}
                 className={`seg-btn ${settings.matchCount === value ? "is-active" : ""}`}
                 onClick={() => onChange({ ...settings, matchCount: value })}
               >
@@ -84,13 +83,12 @@ export function SettingsPanel({
         <summary>Sampling</summary>
         <div className="setting-field">
           <span className="setting-label">Sample kernel</span>
-          <div className="seg-row" role="radiogroup" aria-label="Sample kernel">
+          <div className="seg-row" role="group" aria-label="Sample kernel">
             {SAMPLE_KERNELS.map((value) => (
               <button
                 key={value}
                 type="button"
-                role="radio"
-                aria-checked={settings.sampleKernel === value}
+                aria-pressed={settings.sampleKernel === value}
                 className={`seg-btn ${settings.sampleKernel === value ? "is-active" : ""}`}
                 onClick={() => onChange({ ...settings, sampleKernel: value })}
               >
@@ -178,11 +176,10 @@ export function SettingsPanel({
         <summary>Word mode</summary>
         <div className="setting-field">
           <span className="setting-label">Colour library used by Word mode</span>
-          <div className="seg-col" role="radiogroup" aria-label="Colour library used by Word mode">
+          <div className="seg-col" role="group" aria-label="Colour library used by Word mode">
             <button
               type="button"
-              role="radio"
-              aria-checked={settings.wordMode.library === "small"}
+              aria-pressed={settings.wordMode.library === "small"}
               className={`seg-row-btn ${settings.wordMode.library === "small" ? "is-active" : ""}`}
               onClick={() =>
                 onChange({
@@ -195,8 +192,7 @@ export function SettingsPanel({
             </button>
             <button
               type="button"
-              role="radio"
-              aria-checked={false}
+              aria-pressed={false}
               aria-disabled
               disabled
               className="seg-row-btn is-disabled"
@@ -209,11 +205,10 @@ export function SettingsPanel({
 
         <div className="setting-field">
           <span className="setting-label">Engine</span>
-          <div className="seg-col" role="radiogroup" aria-label="Word mode engine">
+          <div className="seg-col" role="group" aria-label="Word mode engine">
             <button
               type="button"
-              role="radio"
-              aria-checked={settings.wordMode.engine === "literal"}
+              aria-pressed={settings.wordMode.engine === "literal"}
               className={`seg-row-btn ${settings.wordMode.engine === "literal" ? "is-active" : ""}`}
               onClick={() =>
                 onChange({
@@ -226,8 +221,7 @@ export function SettingsPanel({
             </button>
             <button
               type="button"
-              role="radio"
-              aria-checked={false}
+              aria-pressed={false}
               aria-disabled
               disabled
               className="seg-row-btn is-disabled"

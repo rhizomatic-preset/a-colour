@@ -90,14 +90,13 @@ export function WordPicker({
           <p className="word-hint">
             Haven't learnt <strong>"{trimmed}"</strong> yet. Try one of these:
           </p>
-          <div className="word-suggestions" role="list">
+          <div className="word-suggestions">
             {SUGGESTIONS.map((suggestion) => (
               <button
                 key={suggestion}
                 type="button"
                 className="word-suggestion"
                 onClick={() => setQuery(suggestion)}
-                role="listitem"
               >
                 {suggestion}
               </button>
@@ -106,7 +105,7 @@ export function WordPicker({
         </div>
       )}
       {hasResults && (
-        <div className="word-results" role="list">
+        <div className="word-results">
           {results.map((result) => (
             <WordResultCard
               key={result.id}

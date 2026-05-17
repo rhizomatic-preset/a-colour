@@ -347,12 +347,11 @@ function App() {
           <h1 id="app-title">A Colour</h1>
         </div>
 
-        <div className="mode-row" role="tablist" aria-label="Picker mode">
+        <div className="mode-row" role="group" aria-label="Picker mode">
           <button
             type="button"
             className={`mode-btn ${view === "picker" && mode === "swatch" ? "is-active" : ""}`}
-            role="tab"
-            aria-selected={view === "picker" && mode === "swatch"}
+            aria-pressed={view === "picker" && mode === "swatch"}
             onClick={() => selectMode("swatch")}
           >
             <Palette className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -361,8 +360,7 @@ function App() {
           <button
             type="button"
             className={`mode-btn ${view === "picker" && mode === "image" ? "is-active" : ""}`}
-            role="tab"
-            aria-selected={view === "picker" && mode === "image"}
+            aria-pressed={view === "picker" && mode === "image"}
             onClick={() => selectMode("image")}
           >
             <ImageIcon className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -371,8 +369,7 @@ function App() {
           <button
             type="button"
             className={`mode-btn ${view === "picker" && mode === "camera" ? "is-active" : ""}`}
-            role="tab"
-            aria-selected={view === "picker" && mode === "camera"}
+            aria-pressed={view === "picker" && mode === "camera"}
             onClick={() => selectMode("camera")}
           >
             <Camera className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -381,8 +378,7 @@ function App() {
           <button
             type="button"
             className={`mode-btn ${view === "picker" && mode === "word" ? "is-active" : ""}`}
-            role="tab"
-            aria-selected={view === "picker" && mode === "word"}
+            aria-pressed={view === "picker" && mode === "word"}
             onClick={() => selectMode("word")}
           >
             <Type className="mode-icon" size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -435,6 +431,7 @@ function App() {
                         value={hexDraft}
                         maxLength={7}
                         spellCheck={false}
+                        aria-describedby="hex-input-hint"
                         onBlur={resetInvalidDraft}
                         onChange={(event) => updateColor(event.target.value)}
                       />
@@ -448,7 +445,9 @@ function App() {
                         </Button>
                       )}
                     </div>
-                    <p className="hex-description">Sample or type hex directly.</p>
+                    <p id="hex-input-hint" className="hex-description">
+                      Sample or type hex directly.
+                    </p>
                   </div>
                 </>
               ) : mode === "word" ? (
@@ -480,7 +479,7 @@ function App() {
                         <img
                           ref={imageRef}
                           src={imageUrl}
-                          alt="Pasted source"
+                          alt="Image to sample colours from"
                           className="sample-image"
                           draggable={false}
                           onPointerDown={handleImagePointerDown}
