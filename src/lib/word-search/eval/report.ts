@@ -12,6 +12,7 @@ const CATEGORY_ORDER: EvalCategory[] = [
   "te-reo",
   "weather",
   "open-vocab",
+  "common-noun",
   "poetic",
 ];
 

@@ -27,6 +27,7 @@ export type EvalCategory =
   | "te-reo"
   | "weather"
   | "open-vocab"
+  | "common-noun"
   | "poetic";
 
 export type EvalCase = {
@@ -174,21 +175,15 @@ export const EVAL_QUERIES: EvalCase[] = [
   { query: "lightning", expectedFamily: "yellow", category: "weather" },
   { query: "puddle", expectedFamily: "brown", category: "weather" },
 
-  // open-vocab (10) — Phase 1.5b targets. Inputs no in-vocab token or hand-dictionary
-  // entry can reach. Static word-embedding expansion is the only path. Expected to score
-  // ~0/0 under literal + handcurated; the lift here is the headline number for 1.5b.
-  // Reference: design/open-vocabulary.md.
+  // open-vocab (6) — Phase 1.5b targets. Materials/animals/plants/foods only.
+  // Fictional/video-game queries (`ender dragon`, `charizard`, `kirby`,
+  // `deku cosplay`) were dropped at the distillation phase per the brief —
+  // the showcase target is physical-world common nouns, not pop-culture refs.
   {
     query: "rainbow trout",
     expectedFamily: "pink",
     category: "open-vocab",
     notes: "Phase 1.5b target — pinkish-silver fish; needs static-embedding expansion",
-  },
-  {
-    query: "ender dragon",
-    expectedFamily: "purple",
-    category: "open-vocab",
-    notes: "Phase 1.5b target — Minecraft Ender Dragon is dark purple/magenta",
   },
   {
     query: "caterpillar",
@@ -209,18 +204,6 @@ export const EVAL_QUERIES: EvalCase[] = [
     notes: "Phase 1.5b target — common octopus is pinkish/red/magenta",
   },
   {
-    query: "charizard",
-    expectedFamily: "orange",
-    category: "open-vocab",
-    notes: "Phase 1.5b target — Charizard is orange with flame",
-  },
-  {
-    query: "kirby",
-    expectedFamily: "pink",
-    category: "open-vocab",
-    notes: "Phase 1.5b target — Kirby is bubble-gum pink",
-  },
-  {
     query: "lego car",
     expectedFamily: "red",
     category: "open-vocab",
@@ -232,11 +215,123 @@ export const EVAL_QUERIES: EvalCase[] = [
     category: "open-vocab",
     notes: "Phase 1.5b target — orange / brown autumnal cluster",
   },
+
+  // common-noun (20) — Phase distillation showcase. Everyday physical-world
+  // English nouns. None are colour names (TF-IDF silent); not all are in the
+  // handcurated dictionary. The build-time-distilled lookup (in
+  // src/generated/colour-distillation.json) is the path these go through.
+  // First 10 carried over from the parked Phase 2B common-noun set; second 10
+  // added in the distillation phase for materials / plants / food coverage.
   {
-    query: "deku cosplay",
+    query: "wood",
+    expectedFamily: "brown",
+    category: "common-noun",
+    notes: "plain wood is brown",
+  },
+  {
+    query: "wolf",
+    expectedFamily: "gray",
+    category: "common-noun",
+    notes: "gray wolf is the prototype",
+  },
+  {
+    query: "ginger",
+    expectedFamily: "orange",
+    category: "common-noun",
+    notes: "ginger hair / spice — orange",
+  },
+  {
+    query: "chocolate",
+    expectedFamily: "brown",
+    category: "common-noun",
+  },
+  {
+    query: "rust",
+    expectedFamily: "orange",
+    category: "common-noun",
+    notes: "iron-oxide orange/brown",
+  },
+  {
+    query: "iron",
+    expectedFamily: "gray",
+    category: "common-noun",
+    notes: "metallic gray",
+  },
+  {
+    query: "apple",
+    expectedFamily: "red",
+    category: "common-noun",
+    notes: "default apple is red (kid mental model)",
+  },
+  {
+    query: "tree",
     expectedFamily: "green",
-    category: "open-vocab",
-    notes: "Phase 1.5b target — My Hero Academia Deku is green",
+    category: "common-noun",
+    notes: "default tree is green (foliage > trunk)",
+  },
+  {
+    query: "sand",
+    expectedFamily: "yellow",
+    category: "common-noun",
+    notes: "beach sand is pale yellow/beige",
+  },
+  {
+    query: "beetle",
+    expectedFamily: "black",
+    category: "common-noun",
+    notes: "common beetle mental model is black/dark",
+  },
+  {
+    query: "moss",
+    expectedFamily: "green",
+    category: "common-noun",
+  },
+  {
+    query: "clay",
+    expectedFamily: "brown",
+    category: "common-noun",
+  },
+  {
+    query: "denim",
+    expectedFamily: "blue",
+    category: "common-noun",
+  },
+  {
+    query: "slate",
+    expectedFamily: "gray",
+    category: "common-noun",
+  },
+  {
+    query: "honey",
+    expectedFamily: "orange",
+    category: "common-noun",
+    notes: "deep golden honey — orange/brown band",
+  },
+  {
+    query: "raven",
+    expectedFamily: "black",
+    category: "common-noun",
+    notes: "raven plumage — defining black",
+  },
+  {
+    query: "pewter",
+    expectedFamily: "silver",
+    category: "common-noun",
+  },
+  {
+    query: "oak",
+    expectedFamily: "brown",
+    category: "common-noun",
+  },
+  {
+    query: "bone",
+    expectedFamily: "white",
+    category: "common-noun",
+  },
+  {
+    query: "straw",
+    expectedFamily: "yellow",
+    category: "common-noun",
   },
 
   // poetic (3) — inspection-only; no expectedFamily so they aren't scored.

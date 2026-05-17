@@ -1,5 +1,6 @@
 import { type ColorReference, getPrimaryColorName } from "@/lib/color-matcher";
 import { searchByWord, type WordSearchResult } from "@/lib/word-search";
+import type { DistillationLookup } from "@/lib/word-search/distillation/lookup";
 import { type Embedder, NullEmbedder } from "@/lib/word-search/embedder";
 import type { EvalCase } from "@/lib/word-search/eval/queries";
 import { NoopExpander, type QueryExpander } from "@/lib/word-search/expander";
@@ -42,6 +43,9 @@ export async function runEval(input: {
   searcher?: CaseSearcher;
   /** Optional override for the `engine` field in the resulting RunResult. */
   engineLabel?: string;
+  /** Build-time-distilled common-noun lookup. When present, the distillation
+   * layer fires before TF-IDF for matching queries. */
+  distillation?: DistillationLookup;
 }): Promise<RunResult> {
   const embedder = input.embedder ?? NullEmbedder;
   const expander = input.expander ?? NoopExpander;
@@ -52,6 +56,7 @@ export async function runEval(input: {
       searchByWord(query, input.library, input.tfidf, embedder, {
         topN: 3,
         expander,
+        distillation: input.distillation,
       }));
   const caseResults: CaseResult[] = [];
 
