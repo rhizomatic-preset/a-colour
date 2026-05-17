@@ -23,6 +23,20 @@ export type WordModeSettings = {
   library: WordModeLibrary;
   engine: WordModeEngine;
   expander: WordModeExpander;
+  /**
+   * Cosine-score threshold for the Phase-B encoder layer. The encoder returns
+   * a nearest-neighbour for *any* English noun — including abstract ones like
+   * `power` or `fake` where the match is essentially random. When the top-1
+   * cosine is below this threshold, we treat the encoder as having "no
+   * confident answer" and fall through to "haven't learnt X yet". Empirical
+   * default 0.449: abstract words (power, math, code, fear, dream, happiness,
+   * meaning, chaos) score 0.33-0.40 → cut; concrete OOD nouns (crown 0.58,
+   * manuka 0.56, silk 0.55, kauri 0.51, hammer 0.51) score 0.50-0.60 → kept.
+   * Some genuine abstract words (truth, time, love, fake) overlap the
+   * 0.45-0.55 band and slip through — that's inherent encoder ambiguity, not
+   * a tunable bug.
+   */
+  semanticThreshold: number;
 };
 
 export type Settings = {
@@ -42,7 +56,12 @@ export const DEFAULT_SETTINGS: Settings = {
   // Phase 1.5b: default the runtime to the blended expander now that the static
   // table ships in the bundle (~14 KB). First-load queries get the recall lift
   // without any configuration.
-  wordMode: { library: "small", engine: "literal", expander: "static-handcurated" },
+  wordMode: {
+    library: "small",
+    engine: "literal",
+    expander: "static-handcurated",
+    semanticThreshold: 0.449,
+  },
 };
 
 const STORAGE_KEY = "color-trickser:settings";

@@ -3,6 +3,7 @@ import { WordResultCard } from "@/components/word-result-card";
 import type { ColorReference } from "@/lib/color-matcher";
 import type { MatchCount } from "@/lib/settings";
 import { buildFamilyIndex, type DistillationLookup } from "@/lib/word-search/distillation/lookup";
+import { type EasterEggCard, getEasterEgg } from "@/lib/word-search/easter-eggs";
 import type { Embedder } from "@/lib/word-search/embedder";
 import type { QueryExpander } from "@/lib/word-search/expander";
 import { searchByWord, type WordSearchResult } from "@/lib/word-search/index";
@@ -22,6 +23,10 @@ interface WordPickerProps {
   /** Phase B fine-tuned sentence-transformer. Lazy-loaded on first query.
    * Slots between distillation and the TF-IDF + expander chain. */
   embedder?: Embedder;
+  /** Cosine-score floor for accepting an encoder match. Below this the
+   * encoder returns nothing; abstract or OOV nouns get the "haven't learnt"
+   * empty state. Live-tunable via Settings. */
+  semanticThreshold: number;
   topN: MatchCount;
   onColorSelect: (hex: string) => void;
 }
@@ -36,11 +41,13 @@ export function WordPicker({
   expander,
   distillation,
   embedder,
+  semanticThreshold,
   topN,
   onColorSelect,
 }: WordPickerProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<WordSearchResult[]>([]);
+  const [easterEggCards, setEasterEggCards] = useState<EasterEggCard[] | null>(null);
   const [encoderState, setEncoderState] = useState<EncoderLoadState>({ status: "idle" });
   const inputRef = useRef<HTMLInputElement>(null);
   const requestIdRef = useRef(0);
@@ -73,8 +80,18 @@ export function WordPicker({
   useEffect(() => {
     if (query.trim().length === 0) {
       setResults([]);
+      setEasterEggCards(null);
       return;
     }
+    // Easter eggs short-circuit normal search synchronously. Triggers are
+    // exact-match (lowercased + trimmed); see lib/word-search/easter-eggs.ts.
+    const egg = getEasterEgg(query);
+    if (egg) {
+      setEasterEggCards(egg);
+      setResults([]);
+      return;
+    }
+    setEasterEggCards(null);
     const timer = window.setTimeout(async () => {
       const id = ++requestIdRef.current;
       const out = await searchByWord(query, library, tfidf, embedder, {
@@ -82,17 +99,29 @@ export function WordPicker({
         topN,
         distillation,
         familyIndex,
+        semanticThreshold,
       });
       // Drop the result if a newer query has started since we kicked off.
       if (id !== requestIdRef.current) return;
       setResults(out);
     }, DEBOUNCE_MS);
     return () => window.clearTimeout(timer);
-  }, [query, library, tfidf, embedder, expander, distillation, familyIndex, topN]);
+  }, [
+    query,
+    library,
+    tfidf,
+    embedder,
+    expander,
+    distillation,
+    familyIndex,
+    semanticThreshold,
+    topN,
+  ]);
 
   const trimmed = query.trim();
   const hasQuery = trimmed.length > 0;
   const hasResults = results.length > 0;
+  const hasEasterEgg = easterEggCards !== null && easterEggCards.length > 0;
 
   return (
     <div className="word-picker">
@@ -128,7 +157,7 @@ export function WordPicker({
           )}
         </>
       )}
-      {hasQuery && !hasResults && (
+      {hasQuery && !hasResults && !hasEasterEgg && (
         <div className="word-empty">
           <p className="word-hint">
             Haven't learnt <strong>"{trimmed}"</strong> yet. Try one of these:
@@ -145,6 +174,19 @@ export function WordPicker({
               </button>
             ))}
           </div>
+        </div>
+      )}
+      {hasEasterEgg && (
+        <div className="word-results word-results--easter">
+          {easterEggCards?.map((card) => (
+            <WordResultCard
+              key={`${card.display}-${card.hex}-${card.name}`}
+              hex={card.hex}
+              name={card.name}
+              display={card.display}
+              onSelect={() => onColorSelect(card.hex)}
+            />
+          ))}
         </div>
       )}
       {hasResults && (

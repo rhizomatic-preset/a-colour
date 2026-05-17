@@ -231,6 +231,37 @@ export function SettingsPanel({
           </div>
           <p className="setting-hint">Not enabled in this build.</p>
         </div>
+
+        <div className="setting-field">
+          <span className="setting-label">
+            Semantic distance
+            <span className="setting-value">{settings.wordMode.semanticThreshold.toFixed(2)}</span>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={0.8}
+            step={0.01}
+            value={settings.wordMode.semanticThreshold}
+            onChange={(event) =>
+              onChange({
+                ...settings,
+                wordMode: {
+                  ...settings.wordMode,
+                  semanticThreshold: Number.parseFloat(event.target.value),
+                },
+              })
+            }
+            className="setting-slider"
+            aria-label="Semantic distance threshold"
+          />
+          <p className="setting-hint">
+            How confident the semantic model must be before it returns a colour. Lower = more words
+            match (including abstract ones like &ldquo;power&rdquo;); higher = only confident
+            matches return, the rest fall through to &ldquo;haven&rsquo;t learnt X&rdquo;. 0.449 is
+            the empirical sweet spot from probing abstract vs concrete nouns.
+          </p>
+        </div>
       </details>
 
       <details className="setting-section">

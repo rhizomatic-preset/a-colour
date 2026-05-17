@@ -1345,6 +1345,26 @@ h1 {
   color: var(--text-hint);
 }
 
+.word-result-card__swatch--static {
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.word-result-card__swatch--static svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Rainbow tile row — the seven cards land in a wider grid so the colours
+ * read as a continuous strip rather than the standard 3-up matches layout. */
+.word-results--easter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 6px;
+}
+
 .word-suggestions {
   display: flex;
   flex-wrap: wrap;

@@ -466,6 +466,7 @@ function App() {
                   expander={expander}
                   distillation={distillationLookup as DistillationLookup}
                   embedder={TransformersEmbedder}
+                  semanticThreshold={settings.wordMode.semanticThreshold}
                   topN={settings.matchCount}
                   onColorSelect={setColor}
                 />
