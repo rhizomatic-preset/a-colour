@@ -17,6 +17,7 @@ import type { SampleSource } from "@/components/kernel-preview";
 import { SettingsPanel } from "@/components/settings-panel";
 import { Button } from "@/components/ui/button";
 import { ColorPicker } from "@/components/ui/color-picker";
+import { WordFindings } from "@/components/word-findings";
 import { WordPicker } from "@/components/word-picker";
 import colorsCsv from "@/generated/colors-small.csv?raw";
 import distillationLookup from "@/generated/colour-distillation.json";
@@ -49,6 +50,7 @@ import {
 } from "@/lib/word-search/expander";
 import { loadTfidfIndex } from "@/lib/word-search/tfidf-index";
 import { TransformersEmbedder } from "@/lib/word-search/transformers-embedder";
+import { useWordSearch } from "@/lib/word-search/use-word-search";
 
 type PickerMode = "swatch" | "image" | "camera" | "word";
 type View = "picker" | "settings" | "about";
@@ -191,6 +193,18 @@ function App() {
     [colors, selectedHex, settings.matchCount, settings.weights, settings.hueBias],
   );
   const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
+
+  const [wordQuery, setWordQuery] = useState("");
+  const wordSearch = useWordSearch({
+    query: wordQuery,
+    library: colors,
+    tfidf,
+    expander,
+    distillation: distillationLookup as DistillationLookup,
+    embedder: TransformersEmbedder,
+    semanticThreshold: settings.wordMode.semanticThreshold,
+    topN: settings.matchCount,
+  });
 
   useEffect(() => {
     saveLastColor(selectedHex);
@@ -392,9 +406,7 @@ function App() {
           </button>
         </div>
 
-        <div
-          className={`picker-grid ${view === "picker" && mode === "word" ? "is-single-column" : ""}`}
-        >
+        <div className="picker-grid">
           <div className="swatch-panel">
             {/* Camera always-mounted when in camera mode, hidden when in settings/about so the MediaStream survives view toggles. */}
             {mode === "camera" && (
@@ -458,14 +470,10 @@ function App() {
                 </>
               ) : mode === "word" ? (
                 <WordPicker
-                  library={colors}
-                  tfidf={tfidf}
-                  expander={expander}
-                  distillation={distillationLookup as DistillationLookup}
-                  embedder={TransformersEmbedder}
-                  semanticThreshold={settings.wordMode.semanticThreshold}
-                  topN={settings.matchCount}
-                  onColorSelect={setColor}
+                  query={wordQuery}
+                  onQueryChange={setWordQuery}
+                  encoderState={wordSearch.encoderState}
+                  hasQuery={wordSearch.hasQuery}
                 />
               ) : mode === "image" ? (
                 <div className="image-picker">
@@ -528,7 +536,13 @@ function App() {
             <canvas ref={sampleCanvasRef} className="hidden-canvas" />
           </div>
 
-          {!(view === "picker" && mode === "word") && (
+          {view === "picker" && mode === "word" ? (
+            <WordFindings
+              search={wordSearch}
+              onSuggestionClick={setWordQuery}
+              onColorSelect={setColor}
+            />
+          ) : (
             <ol className="matches" aria-label="Likely colour names">
               <li className="primary-family" aria-live="polite">
                 Closest primary colour: <strong>{primaryColorName}</strong>

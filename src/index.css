@@ -681,12 +681,6 @@ h1 {
   gap: clamp(36px, 5vw, 48px);
 }
 
-/* Word picker owns the whole row — no perceptual matches column. */
-.picker-grid.is-single-column {
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-
 /* ── IMAGE PICKER SECTION ── */
 .image-picker {
   display: grid;
@@ -1255,7 +1249,14 @@ h1 {
 .word-picker {
   display: grid;
   gap: 16px;
-  width: min(100%, 340px);
+  width: 100%;
+  align-content: start;
+}
+
+/* ── WORD FINDINGS (right column counterpart to .matches) ── */
+.word-findings {
+  display: grid;
+  gap: 12px;
   align-content: start;
 }
 
@@ -1605,12 +1606,14 @@ h1 {
     padding-right: 4px;
   }
 
-  /* Word picker takes only column 2 — its sibling .matches isn't rendered
-     in word mode, leaving column 3 empty. Span both right columns so the
-     word-result cards have room. */
-  .picker-grid.is-single-column .swatch-panel {
-    grid-column: 2 / span 2;
-    justify-items: stretch;
+  /* Word findings panel — same column-3 slot as .matches. */
+  .word-findings {
+    grid-column: 3;
+    grid-row: 1;
+    align-content: start;
+    min-width: 0;
+    overflow-y: auto;
+    padding-right: 4px;
   }
 
   /* Settings / About panels: when shown, the swatch-panel hosts them and the
