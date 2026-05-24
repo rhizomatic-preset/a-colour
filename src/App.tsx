@@ -36,6 +36,7 @@ import { sampleAverageColor } from "@/lib/sampling";
 import {
   loadLastColor,
   loadSettings,
+  resolveEncoderEnabled,
   type Settings,
   saveLastColor,
   saveSettings,
@@ -195,13 +196,17 @@ function App() {
   const primaryColorName = useMemo(() => getPrimaryColorName(selectedHex), [selectedHex]);
 
   const [wordQuery, setWordQuery] = useState("");
+  const encoderEnabled = useMemo(
+    () => resolveEncoderEnabled(settings.wordMode.encoder),
+    [settings.wordMode.encoder],
+  );
   const wordSearch = useWordSearch({
     query: wordQuery,
     library: colors,
     tfidf,
     expander,
     distillation: distillationLookup as DistillationLookup,
-    embedder: TransformersEmbedder,
+    embedder: encoderEnabled ? TransformersEmbedder : undefined,
     semanticThreshold: settings.wordMode.semanticThreshold,
     topN: settings.matchCount,
   });
@@ -473,7 +478,9 @@ function App() {
                   query={wordQuery}
                   onQueryChange={setWordQuery}
                   encoderState={wordSearch.encoderState}
+                  encoderEnabled={encoderEnabled}
                   hasQuery={wordSearch.hasQuery}
+                  onOpenSettings={() => setView("settings")}
                 />
               ) : mode === "image" ? (
                 <div className="image-picker">

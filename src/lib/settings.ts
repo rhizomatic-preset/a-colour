@@ -1,10 +1,20 @@
 import { DEFAULT_WEIGHTS, type DistanceWeights } from "@/lib/color-matcher";
+import { isLikelyMobile } from "@/lib/device";
 
 export type MatchCount = 1 | 3 | 5;
 export type SampleKernel = 1 | 3 | 5 | 7;
 
 export type WordModeLibrary = "small" | "large";
 export type WordModeEngine = "literal" | (string & {});
+
+/**
+ * Phase-B encoder gate. `auto` defers to a device heuristic — off on mobile /
+ * coarse-pointer / data-saver, on everywhere else — so visitors on phones
+ * don't silently pay a ~24 MB ONNX + embeddings download for a feature they
+ * may never reach. `on` and `off` are explicit user overrides that survive
+ * across sessions.
+ */
+export type WordModeEncoder = "auto" | "on" | "off";
 /**
  * Query-expander layer. `noop` is the literal-only path; `handcurated` was
  * Phase 1.5a; `static` and `static-handcurated` arrived in Phase 1.5b backed by
@@ -23,6 +33,7 @@ export type WordModeSettings = {
   library: WordModeLibrary;
   engine: WordModeEngine;
   expander: WordModeExpander;
+  encoder: WordModeEncoder;
   /**
    * Cosine-score threshold for the Phase-B encoder layer. The encoder returns
    * a nearest-neighbour for *any* English noun — including abstract ones like
@@ -60,9 +71,21 @@ export const DEFAULT_SETTINGS: Settings = {
     library: "small",
     engine: "literal",
     expander: "static-handcurated",
+    encoder: "auto",
     semanticThreshold: 0.449,
   },
 };
+
+/**
+ * Resolve the user's `auto | on | off` choice into an actual on/off boolean
+ * by consulting the device heuristic. Pure function of the setting +
+ * `window` state at call time; safe to call from a render.
+ */
+export function resolveEncoderEnabled(encoder: WordModeEncoder): boolean {
+  if (encoder === "on") return true;
+  if (encoder === "off") return false;
+  return !isLikelyMobile();
+}
 
 const STORAGE_KEY = "color-trickser:settings";
 const LAST_COLOR_KEY = "color-trickser:lastColor";

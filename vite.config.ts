@@ -13,12 +13,38 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg"],
       workbox: {
-        // Pre-cache the app shell + assets + the Phase-B word encoder
-        // (~22 MB quantised ONNX + 1.4 MB embeddings + tokenizer). 30 MB cap
-        // handles the largest single file (model_quantized.onnx ≈ 22 MB) with
-        // headroom; offline-first means the model must be on-device.
-        globPatterns: ["**/*.{js,css,html,svg,woff2,onnx,bin,json,txt}"],
-        maximumFileSizeToCacheInBytes: 30 * 1024 * 1024,
+        // Pre-cache the app shell + small assets. The Phase-B word encoder
+        // (~22 MB ONNX + 1.5 MB embeddings + ~700 KB tokeniser) is *not*
+        // precached — mobile users would otherwise pay the download even if
+        // they never open Word mode. It is runtime-cached on first fetch via
+        // the rules below, so users who opt in still get full offline
+        // support on subsequent loads.
+        globPatterns: ["**/*.{js,css,html,svg,woff2,json,txt}"],
+        globIgnores: ["**/word-encoder/**", "**/colour-embeddings.bin"],
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            // ONNX model, tokeniser, config — only fetched when the user
+            // enters Word mode with Smart matching enabled.
+            urlPattern: /\/word-encoder\/.+$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "word-encoder-v1",
+              expiration: { maxEntries: 32 },
+              cacheableResponse: { statuses: [0, 200] },
+              rangeRequests: true,
+            },
+          },
+          {
+            urlPattern: /\/colour-embeddings\.bin$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "word-encoder-v1",
+              expiration: { maxEntries: 2 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
       },
       manifest: {
         name: "Colour Thesaurus",

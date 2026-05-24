@@ -3,8 +3,10 @@ import type { DistanceWeights } from "@/lib/color-matcher";
 import {
   DEFAULT_SETTINGS,
   type MatchCount,
+  resolveEncoderEnabled,
   type SampleKernel,
   type Settings,
+  type WordModeEncoder,
 } from "@/lib/settings";
 import { KernelPreview, type SampleSource } from "./kernel-preview";
 
@@ -21,6 +23,12 @@ interface SettingsPanelProps {
 
 const MATCH_COUNTS: MatchCount[] = [1, 3, 5];
 const SAMPLE_KERNELS: SampleKernel[] = [1, 3, 5, 7];
+
+const ENCODER_OPTIONS: ReadonlyArray<{ value: WordModeEncoder; label: string }> = [
+  { value: "auto", label: "Auto" },
+  { value: "on", label: "On" },
+  { value: "off", label: "Off" },
+];
 
 type WeightKey = keyof DistanceWeights;
 const WEIGHT_FIELDS: ReadonlyArray<{ key: WeightKey; label: string; hint: string }> = [
@@ -204,32 +212,35 @@ export function SettingsPanel({
         </div>
 
         <div className="setting-field">
-          <span className="setting-label">Engine</span>
-          <div className="seg-col" role="group" aria-label="Word mode engine">
-            <button
-              type="button"
-              aria-pressed={settings.wordMode.engine === "literal"}
-              className={`seg-row-btn ${settings.wordMode.engine === "literal" ? "is-active" : ""}`}
-              onClick={() =>
-                onChange({
-                  ...settings,
-                  wordMode: { ...settings.wordMode, engine: "literal" },
-                })
-              }
-            >
-              Literal + handcurated expansion
-            </button>
-            <button
-              type="button"
-              aria-pressed={false}
-              aria-disabled
-              disabled
-              className="seg-row-btn is-disabled"
-            >
-              Static embeddings (~5–10 MB, requires download)
-            </button>
+          <span className="setting-label">Smart matching</span>
+          <div className="seg-row" role="group" aria-label="Smart matching">
+            {ENCODER_OPTIONS.map(({ value, label }) => (
+              <button
+                key={value}
+                type="button"
+                aria-pressed={settings.wordMode.encoder === value}
+                className={`seg-btn ${settings.wordMode.encoder === value ? "is-active" : ""}`}
+                onClick={() =>
+                  onChange({
+                    ...settings,
+                    wordMode: { ...settings.wordMode, encoder: value },
+                  })
+                }
+              >
+                {label}
+              </button>
+            ))}
           </div>
-          <p className="setting-hint">Not enabled in this build.</p>
+          <p className="setting-hint">
+            Loads a ~24&nbsp;MB language model that catches long-tail words like &ldquo;silk&rdquo;
+            or &ldquo;pigeon&rdquo;. <strong>Auto</strong> turns it off on mobile and data-saver
+            connections;{" "}
+            {settings.wordMode.encoder === "auto"
+              ? `currently ${resolveEncoderEnabled(settings.wordMode.encoder) ? "on" : "off"} for this device.`
+              : settings.wordMode.encoder === "on"
+                ? "loaded on entering Word mode."
+                : "skipped — distillation + handcurated + TF-IDF still handle the headline cases."}
+          </p>
         </div>
 
         <div className="setting-field">
