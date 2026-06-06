@@ -4,7 +4,7 @@ Pick a colour, get its name. Type a word, get its colour.
 
 An offline-first PWA for naming colours — built for colourblind users and anyone who has ever argued about what shade something actually is.
 
-![A Colour screenshot](docs/images/screenshot.png)
+![A Colour screenshot](screenshot.png)
 
 Point your phone, paste an image, or open the colour wheel. The app finds the closest named matches from a reference set of ~980 colours, ranked by perceptual distance (Oklab — how a human eye sees the difference, not how the numbers differ).
 
