@@ -1124,9 +1124,26 @@ h1 {
     display: inline-block;
   }
 
-  /* Hex input + pipette aren't useful on phone (no hardware keyboard, no EyeDropper) */
+  /* Keep the hex input on phone; hide only the EyeDropper button. */
   .hex-field {
+    display: grid;
+    width: min(100%, 340px);
+  }
+
+  .hex-input {
+    font-size: 16px;
+  }
+
+  .hex-field button {
     display: none;
+  }
+
+  .hex-field > .flex {
+    width: 100%;
+  }
+
+  .hex-field .hex-input {
+    min-width: 0;
   }
 
   /* Content hidden on phone (e.g. About panel's "paste a hex code" hint) */
@@ -1617,6 +1634,13 @@ h1 {
     overflow-y: auto;
   }
 
+  .swatch-panel:has(.main-swatch) {
+    align-content: center;
+    justify-items: center;
+    gap: 8px;
+    overflow-y: visible;
+  }
+
   .matches {
     grid-column: 3;
     grid-row: 1;
@@ -1664,6 +1688,15 @@ h1 {
     justify-self: center;
   }
 
+  .main-swatch {
+    width: min(52svh, 42svw, 300px);
+    height: min(52svh, 42svw, 300px);
+  }
+
+  .main-swatch + .hex-description {
+    display: none;
+  }
+
   .camera-picker,
   .word-picker,
   .image-picker {
@@ -1700,9 +1733,18 @@ h1 {
     text-align: center;
   }
 
-  /* Hex field hidden on phone (no keyboard / EyeDropper) — already handled
-     ≤520px, but the landscape breakpoint can fire at widths up to ~932px. */
+  /* Keep the hex field usable in landscape too; only the EyeDropper button
+     is removed because touch devices don't support it. */
   .hex-field {
+    width: min(100%, 340px);
+    justify-self: center;
+  }
+
+  .hex-input {
+    font-size: 16px;
+  }
+
+  .hex-field button {
     display: none;
   }
 

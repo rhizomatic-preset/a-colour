@@ -364,7 +364,7 @@ function App() {
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
-          <p className="eyebrow">Colour Thesaurus</p>
+          <p className="eyebrow">A Colour</p>
           <h1 id="app-title">A Colour</h1>
         </div>
 
@@ -451,6 +451,11 @@ function App() {
                         id="hex-input"
                         className="hex-input flex-1"
                         type="text"
+                        inputMode="text"
+                        autoCapitalize="characters"
+                        autoCorrect="off"
+                        autoComplete="off"
+                        enterKeyHint="done"
                         value={hexDraft}
                         maxLength={7}
                         spellCheck={false}
