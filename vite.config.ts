@@ -47,8 +47,8 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: "Colour Thesaurus",
-        short_name: "Colour",
+        name: "A Colour",
+        short_name: "A Colour",
         description: "Pick a colour, or type a word to get the closest named matches.",
         theme_color: "#111010",
         background_color: "#f2ede6",

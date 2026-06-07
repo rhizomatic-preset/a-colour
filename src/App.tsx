@@ -364,7 +364,7 @@ function App() {
     <main className="app-shell" onPaste={onPasteImage}>
       <section className="picker-surface" aria-labelledby="app-title">
         <div className="intro">
-          <p className="eyebrow">Colour Thesaurus</p>
+          <p className="eyebrow">A Colour</p>
           <h1 id="app-title">A Colour</h1>
         </div>
 
