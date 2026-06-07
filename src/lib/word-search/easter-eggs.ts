@@ -3,6 +3,7 @@
 //
 // `rainbow` — return seven cards, one per ROYGBIV stripe.
 // `static`  — return one card that renders animated TV-static.
+// `zomp`    — return the Resene colour joke card.
 //
 // Add sparingly; each entry is a deliberate gift, not a behavioural escape
 // hatch. If the customer types one of the triggers we short-circuit the
@@ -34,10 +35,12 @@ const ROYGBIV: EasterEggCard[] = [
 ];
 
 const STATIC_NOISE: EasterEggCard[] = [{ name: "Static", hex: "#888888", display: "static" }];
+const ZOMP: EasterEggCard[] = [{ name: "ZOMP", hex: "#39A78E", display: "default" }];
 
 export const EASTER_EGGS: EasterEgg[] = [
   { trigger: "rainbow", cards: ROYGBIV },
   { trigger: "static", cards: STATIC_NOISE },
+  { trigger: "zomp", cards: ZOMP },
 ];
 
 /** Returns the cards if the query (case-insensitive, trimmed) matches a known
