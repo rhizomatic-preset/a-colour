@@ -451,6 +451,11 @@ function App() {
                         id="hex-input"
                         className="hex-input flex-1"
                         type="text"
+                        inputMode="text"
+                        autoCapitalize="characters"
+                        autoCorrect="off"
+                        autoComplete="off"
+                        enterKeyHint="done"
                         value={hexDraft}
                         maxLength={7}
                         spellCheck={false}
