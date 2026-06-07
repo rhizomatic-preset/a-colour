@@ -24,7 +24,7 @@ Names from the [xkcd colour survey](https://xkcd.com/color/rgb/) (public domain)
 
 ## A note on accuracy
 
-Colour is perception. The name that fits a swatch for you may not fit it for someone else, and the app can be wrong too — take the matches as a starting point, not a verdict.
+Colour is perception. The name that fits a swatch for you may not fit it for someone else, and the app can be wrong too; take the matches as a starting point, not a verdict.
 
 ## Run it
 
