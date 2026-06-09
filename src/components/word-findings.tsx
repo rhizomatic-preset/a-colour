@@ -24,7 +24,7 @@ export function WordFindings({ search, onSuggestionClick, onColorSelect }: WordF
   if (hasEasterEgg) {
     return (
       <section className="word-findings" aria-label="Colour matches">
-        <div className="word-results word-results--easter">
+        <div className="word-results">
           {easterEggCards?.map((card) => (
             <WordResultCard
               key={`${card.display}-${card.hex}-${card.name}`}
