@@ -10,6 +10,10 @@ run:
     pnpm dev
 
 [group('quality')]
+lint:
+    pnpm lint
+
+[group('quality')]
 check:
     pnpm check
 

@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "lint": "biome check --write . && tsc -b && vitest run",
     "check": "biome check . && tsc -b && vitest run",
     "format": "biome format --write ."
   },
